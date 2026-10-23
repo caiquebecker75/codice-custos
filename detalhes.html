@@ -116,7 +116,7 @@ footer img{height:34px}
     <h2>Participação: quanto cada um põe</h2>
     <p class="sub">Por display e por mês, na operação. A NEOBAND entra pelo preço de venda do deck comercial até abrir o custo real.</p>
     <div class="caixa rolar"><table class="tab" id="tabPart"></table></div>
-    <div class="aviso"><b>Leitura:</b> "pelo custo" divide pelo que cada um gasta por mês; "com o ativo" soma à 75 LAB o que já foi construído (R$ 448 mil em 36 meses); "pelo capital" compara o investimento até a faixa (displays e instalação da NEOBAND contra plataforma, módulos e bancadas da 75 LAB); "mínimo" é a parte da receita que só cobre o custo da 75 LAB.</div>
+    <div class="aviso"><b>Leitura:</b> "pelo custo" divide pelo que cada um gasta por mês; "com o ativo" soma à 75 LAB o que já foi construído (R$ 448 mil em 36 meses); "pelo capital" compara o investimento até a faixa (displays e instalação da NEOBAND contra a plataforma já construída pela 75 LAB; peças, montagem e linha são do caixa da Códice); "mínimo" é a parte da receita que só cobre o custo da 75 LAB.</div>
   </section>
 
   <section id="papeis">
@@ -130,12 +130,12 @@ footer img{height:34px}
     <p class="sub">Valor efetivamente pago em cada pedido, com frete, impostos e descontos. Clique no cabeçalho para ordenar.</p>
     <div class="filtros" id="filtros">
       <button data-cat="" class="on">Todas</button><button data-cat="modulo">Módulo smart</button><button data-cat="pd">Testes e protótipos</button><button data-cat="bancada">Bancada e ferramentas</button>
-      <button data-canal="Shopee">Shopee</button><button data-canal="AliExpress">AliExpress</button>
+      <button data-canal="nacional">Nacionais</button><button data-canal="importado">Importadas</button>
       <input type="search" id="busca" placeholder="Buscar peça ou uso">
       <button class="baixar" id="csv">Baixar CSV</button>
     </div>
     <div class="caixa rolar"><table class="tab" id="tabCompras">
-      <thead><tr><th class="ord" data-k="data">Data</th><th class="ord" data-k="item">Item e uso</th><th class="ord" data-k="cat">Categoria</th><th class="ord" data-k="canal">Loja</th><th class="ord r" data-k="qtd">Qtd</th><th class="ord r" data-k="valor">Pago</th></tr></thead>
+      <thead><tr><th class="ord" data-k="data">Data</th><th class="ord" data-k="item">Item e uso</th><th class="ord" data-k="cat">Categoria</th><th class="ord" data-k="origem">Origem</th><th class="ord r" data-k="qtd">Qtd</th><th class="ord r" data-k="valor">Pago</th></tr></thead>
       <tbody></tbody><tfoot><tr><td colspan="4" id="cTotTxt">Total</td><td></td><td class="r num" id="cTot"></td></tr></tfoot>
     </table></div>
     <div class="dois" style="margin-top:18px" id="resumoCompras"></div>
@@ -143,7 +143,7 @@ footer img{height:34px}
 
   <section id="modulo">
     <h2>Módulo smart: peças de 1 unidade</h2>
-    <p class="sub">Kit de fábrica do firmware 2.1.1: ESP32 + ultrassom HC-SR04 + clima DHT11 numa caixa vedada. Preço de varejo de 1 unidade.</p>
+    <p class="sub">Kit de fábrica do módulo: placa controladora, sensor de ultrassom e sensor de clima numa caixa vedada. Preço de varejo de 1 unidade.</p>
     <div class="caixa rolar"><table class="tab" id="tabBom"><thead><tr><th>Peça</th><th>Como chegamos ao valor</th><th class="r">Valor</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
   </section>
 
@@ -151,7 +151,7 @@ footer img{height:34px}
     <h2>Nuvem e hospedagem hoje</h2>
     <p class="sub">Custo real lido nos painéis em 23/10/2026.</p>
     <div class="caixa rolar"><table class="tab" id="tabSis"><thead><tr><th>Serviço e fonte</th><th class="r">Setembro</th><th class="r">Outubro*</th><th class="r">Por mês</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
-    <p class="nota">* Outubro até o dia 23. "Por mês" usa a previsão do Google para outubro (R$ 2,84) e o rateio da Hostinger.</p>
+    <p class="nota">* Outubro até o dia 23. "Por mês" usa a previsão da fatura de outubro (R$ 2,84) e o rateio da hospedagem.</p>
     <div class="caixa"><b>Nuvem na escala</b><p class="nota" id="txtNuvem" style="margin-top:4px"></p></div>
     <div class="caixa"><b>Ferramenta de desenvolvimento</b><p class="nota" id="txtFerr" style="margin-top:4px"></p></div>
   </section>
@@ -175,7 +175,7 @@ footer img{height:34px}
   <section id="premissas">
     <h2>Premissas e pendências</h2>
     <div class="caixa rolar"><table class="tab" id="tabPrem"><thead><tr><th>Item</th><th>Situação</th><th>De onde vem</th></tr></thead><tbody></tbody></table></div>
-    <div class="caixa"><b>O que ficou de fora</b><p class="nota" style="margin-top:4px">Compras pessoais e anteriores ao projeto nas duas lojas; o servidor VPS da agência (outro projeto); o plano da Hostinger inteiro (só a parte da Códice, 1 de 13 sites); time comercial, marketing e impostos sobre a receita da Códice; investimento já feito pela NEOBAND (moldes, projeto do chassi), que ela precisa informar.</p></div>
+    <div class="caixa"><b>O que ficou de fora</b><p class="nota" style="margin-top:4px">Compras pessoais e anteriores ao projeto; o servidor da agência (outro projeto); o plano de hospedagem inteiro (só a parte da Códice, 1 de 13 sites); time comercial, marketing e impostos sobre a receita da Códice; investimento já feito pela NEOBAND (moldes, projeto do chassi), que ela precisa informar.</p></div>
   </section>
 
   <section id="fontes">
@@ -230,13 +230,18 @@ function tudo(){
   const cab = `<tr><th></th>${E.faixas.map((n) => `<th class="r">${num(n)}</th>`).join("")}</tr>`;
   const L = (rot, fn, cls = "") => `<tr class="${cls}"><td>${rot}</td>${F.map((f) => `<td class="r num">${fn(f)}</td>`).join("")}</tr>`;
   $("#tabEsc").innerHTML = cab + [
-    L("Montagem (técnicos)", (f) => brl(f.eO.porGrupo.Montagem, 0)), L("Suporte técnico (N1 e N2)", (f) => brl(f.eO.porGrupo["Suporte técnico"], 0)),
-    L("Sistema (dev e DevOps)", (f) => brl(f.eO.porGrupo.Sistema, 0)), L("Gestão da Códice", (f) => brl(f.eO.porGrupo["Gestão"], 0)),
-    L("Ferramentas (computador, licenças e desenvolvimento)", (f) => brl(f.eO.ferramentas, 0)), L("Nuvem", (f) => brl(f.nuvem, 0)), L("Hospedagem", (f) => brl(f.hospedagem, 0)),
-    L("Peças de reposição de módulos", (f) => brl(f.pecasOper, 0)),
-    L("Total por mês na operação", (f) => brl(f.oper, 0), "t"), L("Por display por mês", (f) => brl(f.porDisplay), "t"),
-    L("Total por mês na implantação", (f) => brl(f.impl, 0), "s"), L("Por display na implantação", (f) => brl(f.porDisplayImpl), "s"),
-    L("Módulos montados por mês na implantação", (f) => num(f.modImpl), "s"), L("Bancadas (uma vez)", (f) => brl(f.bancadas, 0), "s"),
+    `<tr class="s"><td colspan="${E.faixas.length + 1}"><b>Pago pelo caixa da Códice (via Catalunia)</b></td></tr>`,
+    L("Técnicos de montagem e ferramentas", (f) => brl(f.eO.porGrupo.Montagem + f.montOper * E.ferramentasPessoa, 0)), L("Espaço da linha de montagem na 75 LAB", (f) => brl(f.espaco, 0)),
+    L("Peças de reposição de módulos", (f) => brl(f.pecasOper, 0)), L("Subtotal do caixa da Códice", (f) => brl(f.finOper, 0), "t"),
+    `<tr class="s"><td colspan="${E.faixas.length + 1}"><b>Custo da 75 LAB</b></td></tr>`,
+    L("Suporte técnico (N1 e N2)", (f) => brl(f.eO.porGrupo["Suporte técnico"], 0)), L("Sistema (dev e DevOps)", (f) => brl(f.eO.porGrupo.Sistema, 0)),
+    L("Gestão da Códice", (f) => brl(f.eO.porGrupo["Gestão"], 0)), L("Ferramentas (computador, licenças e desenvolvimento)", (f) => brl(f.eO.ferramentas - f.montOper * E.ferramentasPessoa, 0)),
+    L("Nuvem", (f) => brl(f.nuvem, 0)), L("Hospedagem", (f) => brl(f.hospedagem, 0)),
+    L("Subtotal da 75 LAB", (f) => brl(f.labOper, 0), "t"), L("75 LAB por display por mês", (f) => brl(f.porDisplay), "t"),
+    L("Total por mês na operação", (f) => brl(f.oper, 0), "t"),
+    L("Caixa da Códice na implantação", (f) => brl(f.finImpl, 0), "s"), L("75 LAB na implantação", (f) => brl(f.labImpl, 0), "s"),
+    L("Módulos montados por mês na implantação", (f) => num(f.modImpl), "s"), L("Linha de montagem (m²)", (f) => f.m2 ? num(f.m2) : "bancada no escritório", "s"),
+    L("Bancadas (uma vez, caixa da Códice)", (f) => brl(f.bancadas, 0), "s"),
   ].join("");
 
   const ORD = ["mont", "n1", "n2", "dev", "devops", "gestor", "adm"];
@@ -253,20 +258,20 @@ function tudo(){
     L("Mínimo da receita para cobrir a 75 LAB", (f) => pct(f.minimo)),
   ].join("");
 
-  $("#txtNuvem").innerHTML = `Por módulo smart: ${brl(f0.nuvemPorModulo)} por mês (batimento a cada ${num(o.nuvem.batimentoMin)} min: ${num(30 * 24 * 60 / o.nuvem.batimentoMin)} envios, 2 leituras e 3 gravações cada). Por display: ${brl(f0.usdDisplay * E.nuvem.dolar * E.nuvem.contingencia, 3)}. Mapas: 1 usuário a cada ${E.nuvem.displaysPorUsuario} displays, ${E.nuvem.mapasPorUsuario} aberturas por mês, 10 mil grátis e US$ 7 por mil acima. Dólar R$ ${num(E.nuvem.dolar, 2)} e ${pct(E.nuvem.contingencia - 1, 0)} de folga, sem contar com a cota grátis do Firebase. Em 50.000 displays: ${brl(fN.nuvem, 0)} por mês.`;
+  $("#txtNuvem").innerHTML = `Por módulo smart: ${brl(f0.nuvemPorModulo)} por mês (batimento a cada ${num(o.nuvem.batimentoMin)} min: ${num(30 * 24 * 60 / o.nuvem.batimentoMin)} envios, 2 leituras e 3 gravações cada). Por display: ${brl(f0.usdDisplay * E.nuvem.dolar * E.nuvem.contingencia, 3)}. Mapas: 1 usuário a cada ${E.nuvem.displaysPorUsuario} displays, ${E.nuvem.mapasPorUsuario} aberturas por mês, 10 mil grátis e US$ 7 por mil acima. Dólar R$ ${num(E.nuvem.dolar, 2)} e ${pct(E.nuvem.contingencia - 1, 0)} de folga, sem contar com a cota grátis do provedor. Em 50.000 displays: ${brl(fN.nuvem, 0)} por mês.`;
 }
 
 /* partes fixas */
 const r0 = K.contas(C);
 $("#lados").innerHTML = `<div class="lab"><h3>75 LAB</h3><ul>${C.divisao.lab.map((x) => `<li>${x}</li>`).join("")}</ul></div><div class="nb"><h3>NEOBAND</h3><ul>${C.divisao.neoband.map((x) => `<li>${x}</li>`).join("")}</ul></div>`;
 
-let filtro = { cat: "", canal: "", q: "" }, ordem = { k: "data", asc: true };
-const visiveis = () => C.compras.filter((c) => (!filtro.cat || c.cat === filtro.cat) && (!filtro.canal || c.canal === filtro.canal)
+let filtro = { cat: "", canal: "", q: "" }  // canal = origem (nacional ou importado), ordem = { k: "data", asc: true };
+const visiveis = () => C.compras.filter((c) => (!filtro.cat || c.cat === filtro.cat) && (!filtro.canal || c.origem === filtro.canal)
   && (!filtro.q || (c.item + " " + c.uso).toLowerCase().includes(filtro.q))).sort((a, b) => {
     const x = a[ordem.k], y = b[ordem.k]; return (typeof x === "number" ? x - y : String(x).localeCompare(String(y), "pt")) * (ordem.asc ? 1 : -1); });
 function compras(){
   const L = visiveis();
-  $("#tabCompras tbody").innerHTML = L.map((c) => `<tr><td class="num">${dataBR(c.data)}</td><td>${c.item}<small>${c.uso}</small></td><td><span class="chip c-${c.cat}">${CATS[c.cat].nome}</span></td><td>${c.canal}</td><td class="r num">${c.qtd}</td><td class="r num">${brl(c.valor)}</td></tr>`).join("");
+  $("#tabCompras tbody").innerHTML = L.map((c) => `<tr><td class="num">${dataBR(c.data)}</td><td>${c.item}<small>${c.uso}</small></td><td><span class="chip c-${c.cat}">${CATS[c.cat].nome}</span></td><td>${c.origem === "importado" ? "Importada" : "Nacional"}</td><td class="r num">${c.qtd}</td><td class="r num">${brl(c.valor)}</td></tr>`).join("");
   $("#cTotTxt").textContent = `Total de ${L.length} ${L.length === 1 ? "pedido" : "pedidos"}`;
   $("#cTot").textContent = brl(L.reduce((a, c) => a + c.valor, 0));
 }
@@ -279,14 +284,14 @@ $$("#filtros button[data-cat], #filtros button[data-canal]").forEach((b) => b.on
 $("#busca").oninput = (e) => { filtro.q = e.target.value.toLowerCase().trim(); compras(); };
 $$("#tabCompras th.ord").forEach((th) => th.onclick = () => { ordem = { k: th.dataset.k, asc: ordem.k === th.dataset.k ? !ordem.asc : true }; compras(); });
 $("#csv").onclick = () => {
-  const linhas = [["data", "item", "uso", "categoria", "loja", "quantidade", "valor_pago"], ...visiveis().map((c) => [c.data, c.item, c.uso, CATS[c.cat].nome, c.canal, c.qtd, c.valor.toFixed(2).replace(".", ",")])];
+  const linhas = [["data", "item", "uso", "categoria", "origem", "quantidade", "valor_pago"], ...visiveis().map((c) => [c.data, c.item, c.uso, CATS[c.cat].nome, c.origem, c.qtd, c.valor.toFixed(2).replace(".", ",")])];
   const csv = "﻿" + linhas.map((l) => l.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(";")).join("\n");
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" })); a.download = "codice-compras.csv"; a.click();
 };
 compras();
 $("#resumoCompras").innerHTML = `<div class="caixa"><b>Por categoria</b>${Object.entries(r0.porCat).map(([k, v]) => `<div style="margin-top:10px"><div style="display:flex;justify-content:space-between;gap:10px"><span>${CATS[k].nome}<small style="display:block;color:var(--suave);font-size:13px">${CATS[k].texto}</small></span><b class="num">${brl(v)}</b></div><div class="barra"><i style="width:${v / r0.compras * 100}%;background:${CATS[k].cor}"></i></div></div>`).join("")}</div>
-  <div class="caixa"><b>Por loja</b>${Object.entries(r0.porCanal).map(([k, v]) => `<div style="margin-top:10px"><div style="display:flex;justify-content:space-between"><span>${k} · ${C.compras.filter((c) => c.canal === k).length} pedidos</span><b class="num">${brl(v)}</b></div><div class="barra"><i style="width:${v / r0.compras * 100}%"></i></div></div>`).join("")}
-  <p class="nota">AliExpress: todos os pedidos de 13/09; a pasta de solda SN99 ainda estava a caminho em 23/10.</p></div>`;
+  <div class="caixa"><b>Por origem</b>${Object.entries(r0.porOrigem).map(([k, v]) => `<div style="margin-top:10px"><div style="display:flex;justify-content:space-between"><span>${k === "importado" ? "Importadas (com frete e impostos)" : "Nacionais"} · ${C.compras.filter((c) => c.origem === k).length} compras</span><b class="num">${brl(v)}</b></div><div class="barra"><i style="width:${v / r0.compras * 100}%"></i></div></div>`).join("")}
+  <p class="nota">Importadas: todas de 13/09; uma ainda estava a caminho em 23/10.</p></div>`;
 
 $("#tabBom tbody").innerHTML = C.bom.map((b) => `<tr><td>${b.item}</td><td>${b.base}</td><td class="r num">${brl(b.valor)}</td></tr>`).join("")
   + C.bomOpcionais.map((b) => `<tr><td>${b.item} <span class="chip c-pd">opcional</span></td><td>${b.base}</td><td class="r num">+ ${brl(b.valor)}</td></tr>`).join("")
@@ -317,26 +322,28 @@ const PR = [
   ["Fonte USB e cabo do módulo", "pendente", "Não aparecem nos pedidos."],
   ["Equipe por faixa", "estimado", "Montagem 30 min por módulo, 0,1 chamado por display, 1 dev por 10 mil displays, 1 DevOps por 25 mil, 1 gestor a cada 20 pessoas, administrativo 1 a cada 15 mil displays."],
   ["Salários e fator 1,8", "estimado", "CLT 2026 (CAGED e guias); regime tributário da Códice muda o fator."],
-  ["Nuvem na escala", "estimado", "Preços públicos do Google, dólar R$ 5,00 e 50% de folga."],
+  ["Nuvem na escala", "estimado", "Preços públicos dos provedores, dólar R$ 5,00 e 50% de folga."],
+  ["Linha de montagem", "estimado", "6 m² por técnico + 15 m², a partir de 2 técnicos; R$ 60/m² de aluguel + R$ 30/m² de custos do espaço."],
+  ["Financiamento via Catalunia", "pendente", "Peças, montagem e espaço da linha pagos pelo caixa da Códice: confirmar limite e prazo."],
   ["Valor de mercado R$ 448 mil", "estimado", "Horas por módulo pelo escopo entregue; conferido pelo tamanho do código."],
   ["Valor-hora R$ 150 e 12 h de bancada", "estimado", "Mão de obra já feita."],
-  ["27 pedidos", "confirmado", "Histórico da Shopee e do AliExpress."], ["Nuvem set/out", "confirmado", "Faturamento do Google Cloud."],
-  ["Hostinger", "confirmado", "Histórico de pagamentos."], ["Ferramenta de desenvolvimento", "confirmado", "Assinatura de 17/09 e 09/10."], ["51,1 h de trabalho", "confirmado", "Registro das horas de trabalho no projeto."],
+  ["27 compras", "confirmado", "Notas das compras: 18 nacionais e 9 importadas."], ["Nuvem set/out", "confirmado", "Fatura de nuvem por serviço."],
+  ["Hospedagem", "confirmado", "Histórico de pagamentos."], ["Ferramenta de desenvolvimento", "confirmado", "Assinatura de 17/09 e 09/10."], ["51,1 h de trabalho", "confirmado", "Registro das horas de trabalho no projeto."],
 ];
 const COR = { pendente: "pend", estimado: "chip c-pd", confirmado: "chip c-modulo" };
 $("#tabPrem tbody").innerHTML = PR.map(([a, s, b]) => `<tr><td>${a}</td><td><span class="${COR[s]}">${s}</span></td><td>${b}</td></tr>`).join("");
 
 $("#listaFontes").innerHTML = [
-  "Histórico de pedidos da Shopee e do AliExpress, lido em 23/10/2026 (só itens do projeto, sem dados pessoais).",
-  "Google Cloud: faturamento da conta \"Pagamento do Firebase\" (relatório por serviço de outubro, fatura de setembro, previsão do mês).",
-  "Hostinger: histórico de pagamentos do plano Business Web Hosting e do VPS KVM 4.",
-  "GitHub: repositórios rental-display (246 commits) e esp32-displays (21 commits).",
+  "Notas das compras de peças, componentes e ferramentas, lidas em 23/10/2026 (só itens do projeto, sem dados pessoais).",
+  "Faturas de nuvem, banco de dados e hospedagem (setembro e outubro de 2026).",
+  "Repositórios de código do projeto (246 e 21 commits).",
   "Registro das horas de trabalho (tempo ativo no projeto).",
   "Deck comercial da Códice: pacotes (Essencial R$ 499, Sense R$ 849, Media R$ 1.290) e preço de comprar um display.",
   ...C.mercado.fonteHora.map((f) => `<a href="${f.url}" target="_blank" rel="noopener">${f.nome}</a>`),
   ...Object.values(E.cargos).map((c) => `<a href="${c.url}" target="_blank" rel="noopener">${c.fonte}</a>`),
   `<a href="${E.encargosFonte.url}" target="_blank" rel="noopener">${E.encargosFonte.nome}</a>`,
-  ...E.nuvem.fontes.map((f) => `<a href="${f.url}" target="_blank" rel="noopener">${f.nome}</a>`),
+  ...E.nuvem.fontes.map((f) => f.url ? `<a href="${f.url}" target="_blank" rel="noopener">${f.nome}</a>` : f.nome),
+  `<a href="${E.linha.url}" target="_blank" rel="noopener">${E.linha.fonte}</a>`,
 ].map((x) => `<li>${x}</li>`).join("");
 
 tudo();

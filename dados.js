@@ -1,64 +1,62 @@
 /* Levantamento de custos da Códice e projeção de escala, para definir a participação da 75 LAB e da NEOBAND.
    Fonte única do deck (index.html) e do anexo (detalhes.html). Valores em reais.
-   Compras: valor efetivamente pago no pedido (com frete, impostos e descontos), lido no histórico de pedidos
-   da Shopee e do AliExpress em 23/10/2026. Nenhum dado pessoal entra aqui. */
+   Compras: valor efetivamente pago (com frete, impostos e descontos), lido em 23/10/2026. Nenhum dado pessoal entra aqui. */
 window.CUSTOS = {
   atualizadoEm: "23/10/2026",
   periodo: { inicio: "10/09/2026", fim: "23/10/2026" },
 
   compras: [
-    // módulo smart: cat "modulo" = vai no display; "pd" = teste, protótipo e alternativa avaliada
-    { data: "2026-09-10", canal: "Shopee", item: "Placa ESP32 Wi-Fi e Bluetooth, 30 pinos soldados", qtd: 1, valor: 39.99, cat: "modulo", uso: "Cérebro do módulo smart do display" },
-    { data: "2026-09-10", canal: "Shopee", item: "Sensor ultrassônico HC-SR04", qtd: 1, valor: 19.99, cat: "modulo", uso: "Contagem de abordagem (distância < 120 cm)" },
-    { data: "2026-09-10", canal: "Shopee", item: "Sensor de umidade e temperatura DHT11", qtd: 1, valor: 20.99, cat: "modulo", uso: "Clima no ponto de venda" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Radar de presença Hi-Link HLK-LD2410C (24 GHz)", qtd: 1, valor: 21.84, cat: "pd", uso: "Presença humana parada na frente do display" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Radar de presença Hi-Link HLK-LD2410C (2º lote)", qtd: 1, valor: 23.31, cat: "pd", uso: "Segunda unidade para teste comparativo" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Sensores BME280 (temperatura, umidade e pressão)", qtd: 1, valor: 44.15, cat: "pd", uso: "Alternativa mais precisa ao DHT11" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Acelerômetro MPU-6500 (I2C/SPI)", qtd: 1, valor: 14.49, cat: "pd", uso: "Detecção de pancada, tombo e arrasto do display" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Módulos HX711 de pesagem (5 peças)", qtd: 5, valor: 24.16, cat: "pd", uso: "Leitura de peso (ruptura de gôndola), teste" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Célula de carga 50 kg (meia ponte)", qtd: 1, valor: 29.92, cat: "pd", uso: "Teste de balança sob o display" },
-    { data: "2026-09-10", canal: "Shopee", item: "Raspberry Pi Pico W (Wi-Fi e Bluetooth)", qtd: 1, valor: 74.00, cat: "pd", uso: "Microcontrolador alternativo avaliado" },
-    { data: "2026-09-13", canal: "Shopee", item: "Placa adaptadora shield ESP32 com bornes", qtd: 1, valor: 39.98, cat: "pd", uso: "Montagem sem solda no protótipo" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Protoboard MB-102 com kit de jumpers (65 peças)", qtd: 1, valor: 49.92, cat: "pd", uso: "Prototipagem dos circuitos" },
-    { data: "2026-09-13", canal: "Shopee", item: "Kit jumper 20 cm, 60 peças (macho e fêmea)", qtd: 1, valor: 20.00, cat: "modulo", uso: "Ligações dos sensores" },
-    { data: "2026-09-13", canal: "Shopee", item: "Kit de resistores CR25 1/4 W (560R a 6K8)", qtd: 1, valor: 24.00, cat: "modulo", uso: "Divisor de tensão 1k/2k do ECHO" },
-    { data: "2026-09-20", canal: "Shopee", item: "Caixa plástica vedada com parafuso (tipo CFTV)", qtd: 1, valor: 17.29, cat: "modulo", uso: "Invólucro do módulo, teste" },
-    { data: "2026-09-20", canal: "Shopee", item: "Kit com 4 caixas vedadas de passagem", qtd: 4, valor: 30.04, cat: "modulo", uso: "Invólucros dos módulos" },
-    { data: "2026-09-20", canal: "Shopee", item: "Caixa retangular com tampa 20 x 12 x 8 cm", qtd: 1, valor: 28.30, cat: "pd", uso: "Invólucro maior, teste" },
-    // bancada e ferramentas (investimento reaproveitável)
-    { data: "2026-09-13", canal: "Shopee", item: "Mini ferro de solda USB sem fio com display", qtd: 1, valor: 80.08, cat: "bancada", uso: "Solda dos módulos" },
-    { data: "2026-09-16", canal: "Shopee", item: "Fio de estanho 1 mm com fluxo (4 rolos)", qtd: 4, valor: 37.47, cat: "bancada", uso: "Solda" },
-    { data: "2026-09-13", canal: "Shopee", item: "Pasta de solda (fluxo) Soldatec 50 g", qtd: 1, valor: 14.98, cat: "bancada", uso: "Solda" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Pasta de solda sem chumbo SN99 (alta temperatura)", qtd: 1, valor: 46.49, cat: "bancada", uso: "Solda de SMD e conectores" },
-    { data: "2026-09-16", canal: "Shopee", item: "Sugador de solda com 3 bicos", qtd: 1, valor: 17.13, cat: "bancada", uso: "Retrabalho" },
-    { data: "2026-09-13", canal: "Shopee", item: "Esponja metálica para ponta do ferro", qtd: 1, valor: 14.37, cat: "bancada", uso: "Limpeza do ferro" },
-    { data: "2026-09-13", canal: "Shopee", item: "Lupa de bancada 5x com 2 LEDs e garras", qtd: 1, valor: 52.90, cat: "bancada", uso: "Montagem fina" },
-    { data: "2026-09-13", canal: "Shopee", item: "Manta antiestática magnética 350 x 250 mm", qtd: 1, valor: 29.90, cat: "bancada", uso: "Proteção dos componentes" },
-    { data: "2026-09-20", canal: "Shopee", item: "Mini retífica multifuncional 57 em 1", qtd: 1, valor: 129.49, cat: "bancada", uso: "Recorte e furação dos invólucros" },
-    { data: "2026-09-13", canal: "AliExpress", item: "Soprador térmico 220/110 V", qtd: 1, valor: 53.52, cat: "bancada", uso: "Termorretrátil e retrabalho" },
+    // cat "modulo" = vai no display; "pd" = teste, protótipo e alternativa avaliada; "bancada" = ferramentas
+    { data: "2026-09-10", origem: "nacional", item: "Placa controladora Wi-Fi e Bluetooth", qtd: 1, valor: 39.99, cat: "modulo", uso: "Cérebro do módulo smart do display" },
+    { data: "2026-09-10", origem: "nacional", item: "Sensor de ultrassom", qtd: 1, valor: 19.99, cat: "modulo", uso: "Contagem de abordagem (distância < 120 cm)" },
+    { data: "2026-09-10", origem: "nacional", item: "Sensor de clima (temperatura e umidade)", qtd: 1, valor: 20.99, cat: "modulo", uso: "Clima no ponto de venda" },
+    { data: "2026-09-13", origem: "importado", item: "Radar de presença", qtd: 1, valor: 21.84, cat: "pd", uso: "Presença humana parada na frente do display" },
+    { data: "2026-09-13", origem: "importado", item: "Radar de presença (2º lote)", qtd: 1, valor: 23.31, cat: "pd", uso: "Segunda unidade para teste comparativo" },
+    { data: "2026-09-13", origem: "importado", item: "Sensor de clima de precisão (com pressão)", qtd: 1, valor: 44.15, cat: "pd", uso: "Alternativa mais precisa ao sensor de clima escolhido" },
+    { data: "2026-09-13", origem: "importado", item: "Acelerômetro", qtd: 1, valor: 14.49, cat: "pd", uso: "Detecção de pancada, tombo e arrasto do display" },
+    { data: "2026-09-13", origem: "importado", item: "Módulos de pesagem (5 peças)", qtd: 5, valor: 24.16, cat: "pd", uso: "Leitura de peso (ruptura de gôndola), teste" },
+    { data: "2026-09-13", origem: "importado", item: "Célula de carga 50 kg", qtd: 1, valor: 29.92, cat: "pd", uso: "Teste de balança sob o display" },
+    { data: "2026-09-10", origem: "nacional", item: "Placa controladora alternativa", qtd: 1, valor: 74.00, cat: "pd", uso: "Placa alternativa avaliada" },
+    { data: "2026-09-13", origem: "nacional", item: "Placa adaptadora com bornes", qtd: 1, valor: 39.98, cat: "pd", uso: "Montagem sem solda no protótipo" },
+    { data: "2026-09-13", origem: "importado", item: "Placa de prototipagem com jumpers", qtd: 1, valor: 49.92, cat: "pd", uso: "Prototipagem dos circuitos" },
+    { data: "2026-09-13", origem: "nacional", item: "Kit de fios jumper (60 peças)", qtd: 1, valor: 20.00, cat: "modulo", uso: "Ligações dos sensores" },
+    { data: "2026-09-13", origem: "nacional", item: "Kit de resistores", qtd: 1, valor: 24.00, cat: "modulo", uso: "Divisor de tensão do sensor de ultrassom" },
+    { data: "2026-09-20", origem: "nacional", item: "Caixa plástica vedada com parafuso", qtd: 1, valor: 17.29, cat: "modulo", uso: "Invólucro do módulo, teste" },
+    { data: "2026-09-20", origem: "nacional", item: "Kit com 4 caixas vedadas", qtd: 4, valor: 30.04, cat: "modulo", uso: "Invólucros dos módulos" },
+    { data: "2026-09-20", origem: "nacional", item: "Caixa maior com tampa (teste)", qtd: 1, valor: 28.30, cat: "pd", uso: "Invólucro maior, teste" },
+    { data: "2026-09-13", origem: "nacional", item: "Ferro de solda sem fio com display", qtd: 1, valor: 80.08, cat: "bancada", uso: "Solda dos módulos" },
+    { data: "2026-09-16", origem: "nacional", item: "Fio de estanho com fluxo (4 rolos)", qtd: 4, valor: 37.47, cat: "bancada", uso: "Solda" },
+    { data: "2026-09-13", origem: "nacional", item: "Pasta de solda (fluxo)", qtd: 1, valor: 14.98, cat: "bancada", uso: "Solda" },
+    { data: "2026-09-13", origem: "importado", item: "Pasta de solda sem chumbo", qtd: 1, valor: 46.49, cat: "bancada", uso: "Solda de componentes pequenos e conectores" },
+    { data: "2026-09-16", origem: "nacional", item: "Sugador de solda", qtd: 1, valor: 17.13, cat: "bancada", uso: "Retrabalho" },
+    { data: "2026-09-13", origem: "nacional", item: "Esponja para ponta do ferro", qtd: 1, valor: 14.37, cat: "bancada", uso: "Limpeza do ferro" },
+    { data: "2026-09-13", origem: "nacional", item: "Lupa de bancada com LED", qtd: 1, valor: 52.90, cat: "bancada", uso: "Montagem fina" },
+    { data: "2026-09-13", origem: "nacional", item: "Manta antiestática", qtd: 1, valor: 29.90, cat: "bancada", uso: "Proteção dos componentes" },
+    { data: "2026-09-20", origem: "nacional", item: "Mini retífica multifuncional", qtd: 1, valor: 129.49, cat: "bancada", uso: "Recorte e furação dos invólucros" },
+    { data: "2026-09-13", origem: "importado", item: "Soprador térmico", qtd: 1, valor: 53.52, cat: "bancada", uso: "Termorretrátil e retrabalho" },
   ],
 
-  // peças de 1 módulo smart, pelo kit de fábrica (firmware 2.1.1): ESP32 + HC-SR04 + DHT11 numa caixa vedada
+  // peças de 1 módulo smart pelo kit de fábrica: placa controladora + ultrassom + clima numa caixa vedada
   bom: [
-    { item: "Placa ESP32 30 pinos (Wi-Fi e Bluetooth)", valor: 39.99, base: "pedido de 10/09" },
-    { item: "Sensor ultrassônico HC-SR04 (abordagem)", valor: 19.99, base: "pedido de 10/09" },
-    { item: "Sensor DHT11 (temperatura e umidade)", valor: 20.99, base: "pedido de 10/09" },
+    { item: "Placa controladora Wi-Fi e Bluetooth", valor: 39.99, base: "compra de 10/09" },
+    { item: "Sensor de ultrassom (abordagem)", valor: 19.99, base: "compra de 10/09" },
+    { item: "Sensor de clima (temperatura e umidade)", valor: 20.99, base: "compra de 10/09" },
     { item: "Caixa vedada (1 do kit de 4)", valor: 7.51, base: "R$ 30,04 ÷ 4" },
-    { item: "Jumpers (6 de 60)", valor: 2.00, base: "R$ 20,00 ÷ 60 × 6" },
-    { item: "Resistores do divisor 1k e 2k", valor: 0.10, base: "2 peças de um kit de R$ 24,00 (estimativa)" },
+    { item: "Fios jumper (6 de 60)", valor: 2.00, base: "R$ 20,00 ÷ 60 × 6" },
+    { item: "Resistores do divisor", valor: 0.10, base: "2 peças de um kit de R$ 24,00 (estimativa)" },
   ],
-  bomOpcionais: [{ item: "Acelerômetro (pancada e arrasto)", valor: 14.49, base: "MPU-6500 do AliExpress" }],
-  bomPendentes: ["Fonte USB 5 V e cabo: não aparecem nos pedidos (provavelmente reaproveitados)"],
+  bomOpcionais: [{ item: "Acelerômetro (pancada e arrasto)", valor: 14.49, base: "compra de 13/09" }],
+  bomPendentes: ["Fonte USB 5 V e cabo: não aparecem nas compras (provavelmente reaproveitados)"],
 
   // sistema: custo real lido nos painéis em 23/10/2026
   sistema: [
-    { item: "Google Cloud / Firebase (banco, funções, site, agendador, cofre de chaves)", set: 0.02, out: 2.53, mensal: 2.84,
-      fonte: "Console de faturamento, conta 0126F1-41244F-F1CF4B (set: R$ 0,02; out até 23: R$ 2,53; previsão de out: R$ 2,84). Funções usaram R$ 3,60, cobertos pela cota grátis. O agendador (R$ 1,61) caiu para 2 jobs grátis em 10/10." },
-    { item: "Hostinger Business Web Hosting (rateio: 1 de 13 sites)", set: 5.61, out: 5.61, mensal: 5.61,
-      fonte: "Plano de R$ 72,99/mês (histórico de pagamentos), hospeda 13 sites; a Códice é um deles." },
-    { item: "GitHub (repositórios e publicação automática)", set: 0, out: 0, mensal: 0, fonte: "Plano grátis." },
-    { item: "Google Maps Platform (mapas e Street View)", set: 0, out: 0, mensal: 0, fonte: "Sem cobrança: dentro da cota grátis mensal do Google." },
-    { item: "Avisos no celular (ntfy) e OpenStreetMap", set: 0, out: 0, mensal: 0, fonte: "Serviços públicos grátis, sem conta e sem chave." },
+    { item: "Nuvem: banco de dados, funções, site e rotinas agendadas", set: 0.02, out: 2.53, mensal: 2.84,
+      fonte: "Fatura de nuvem por serviço (set: R$ 0,02; out até 23: R$ 2,53; previsão de out: R$ 2,84). As funções usaram R$ 3,60, cobertos pela cota grátis. As rotinas agendadas (R$ 1,61) passaram a não cobrar em 10/10." },
+    { item: "Hospedagem do site (rateio: 1 de 13 sites)", set: 5.61, out: 5.61, mensal: 5.61,
+      fonte: "Plano de R$ 72,99/mês que hospeda 13 sites; a Códice é um deles." },
+    { item: "Repositório de código e publicação automática", set: 0, out: 0, mensal: 0, fonte: "Plano grátis." },
+    { item: "Mapas e fotos de fachada", set: 0, out: 0, mensal: 0, fonte: "Sem cobrança: dentro da cota grátis mensal." },
+    { item: "Avisos no celular e mapas abertos", set: 0, out: 0, mensal: 0, fonte: "Serviços públicos grátis, sem conta e sem chave." },
   ],
 
   // ferramenta de desenvolvimento (assinatura), rateada pelas horas de trabalho no período
@@ -72,7 +70,7 @@ window.CUSTOS = {
     valorHora: 150,
     valorHoraFonte: "Meio da faixa de desenvolvedor full stack pleno (R$ 120 a R$ 200/h).",
     medidas: { horas: 51.1, dias: 20, fonte: "Tempo ativo de trabalho no projeto (blocos com pausas de até 20 min), 10/09 a 23/10." },
-    campo: [{ item: "Montagem, solda e testes do módulo ESP32 (protótipo e kit de fábrica)", horas: 12, base: "estimativa" }],
+    campo: [{ item: "Montagem, solda e testes do módulo smart (protótipo e kit de fábrica)", horas: 12, base: "estimativa" }],
     porDia: { "2026-09-10": 2.9, "2026-09-11": 1.5, "2026-09-13": 5.1, "2026-09-14": 7.4, "2026-09-15": 4.9, "2026-09-16": 1.0, "2026-09-17": 1.6, "2026-09-18": 4.7, "2026-09-21": 2.0, "2026-09-22": 1.0, "2026-09-23": 1.3, "2026-09-24": 2.5, "2026-09-27": 10.4, "2026-09-28": 0.9, "2026-10-01": 0.6, "2026-10-02": 0.1, "2026-10-05": 0.7, "2026-10-06": 0.4, "2026-10-09": 0.2, "2026-10-10": 1.9 },
   },
 
@@ -87,7 +85,7 @@ window.CUSTOS = {
     modulos: [
       { nome: "Plataforma web", detalhe: "48 telas: painel, frota, mapa, PDV, mídia e cotas, comercial, operação, administração, demonstração", horas: 1150, valor: 150 },
       { nome: "Backend e automações", detalhe: "49 funções, regras de acesso, ingestão dos módulos, relógios, alertas, avisos no celular, relatórios", horas: 620, valor: 150 },
-      { nome: "Firmware ESP32 e kit de fábrica", detalhe: "Sensores, Bluetooth, atualização pela internet, portal de Wi-Fi, fila offline, gravação e cadastro em escala", horas: 320, valor: 250 },
+      { nome: "Firmware do módulo e kit de fábrica", detalhe: "Sensores, Bluetooth, atualização pela internet, portal de Wi-Fi, fila offline, gravação e cadastro em escala", horas: 320, valor: 250 },
       { nome: "Design de produto e interface", detalhe: "Marca Códice, conceitos, telas, versão celular", horas: 160, valor: 150 },
       { nome: "Testes, implantação e documentação", detalhe: "15% do desenvolvimento", horas: 314, valor: 150 },
       { nome: "Gestão do projeto", detalhe: "10% do desenvolvimento", horas: 209, valor: 150 },
@@ -98,8 +96,8 @@ window.CUSTOS = {
 
   // quem põe o quê (premissa a validar com a NEOBAND)
   divisao: {
-    lab: ["Plataforma Códice: software, nuvem, dados e relatórios", "Módulo smart: peças, montagem, firmware e kit de fábrica", "Suporte técnico da plataforma (lojas, redes e módulos)", "Manutenção e evolução do sistema", "Gestão da Códice: operação, faturamento e cobrança"],
-    neoband: ["Produção dos displays (chassi e comunicação)", "Logística e instalação nas lojas", "Manutenção física dos displays", "Fábrica: 40+ anos, FSC, Fornecedor do Ano 2025"],
+    lab: ["Plataforma Códice: software, nuvem, dados e relatórios", "Linha de montagem dos módulos smart, na 75 LAB: equipe, qualidade, firmware e kit de fábrica", "Suporte técnico da plataforma (lojas, redes e módulos)", "Manutenção e evolução do sistema", "Gestão da Códice: operação, faturamento e cobrança"],
+    neoband: ["Produção dos displays (chassi e comunicação)", "Logística e instalação nas lojas", "Manutenção física dos displays", "Financiamento da operação (via Catalunia): peças, chips e montagem dos módulos saem do caixa da Códice", "Fábrica: 40+ anos, FSC, Fornecedor do Ano 2025"],
   },
 
   // pacotes vendidos pela Códice (por display por mês) e mistura usada na projeção
@@ -116,6 +114,10 @@ window.CUSTOS = {
     chamadosPorDisplay: 0.1, minN1: 15, fracN2: 0.2, minN2: 45,
     devBase: 0.5, displaysPorDev: 10000, displaysPorDevops: 25000, pessoasPorGestor: 20, displaysPorAdm: 15000,
     fatorEncargos: 1.8, ferramentasPessoa: 400, ferramentaDev: 1100, bancada: 476.33,
+    // linha de montagem na 75 LAB, paga pelo caixa da Códice (via Catalunia) junto com peças e técnicos
+    linha: { m2PorTecnico: 6, m2Fixo: 15, apartirDeTecnicos: 2, aluguelM2: 60, custosM2: 30,
+      fonte: "Espaço: 6 m² por técnico + 15 m² de estoque, teste e expedição, a partir de 2 técnicos (antes, a bancada fica no escritório da 75 LAB). Aluguel R$ 60/m² (FipeZap Comercial, São Paulo) + R$ 30/m² de condomínio, energia e internet (estimativa).",
+      url: "https://portas.com.br/noticias/aluguel-comercial-alta-fipezap-agosto-2026/" },
     cargos: {
       mont: { nome: "Técnico de montagem", grupo: "Montagem", salario: 2800, fonte: "Portal Salário: técnico eletrônico, média nacional ~R$ 2.802 (CAGED)", url: "https://www.salario.com.br/profissao/tecnico-eletronico-em-geral-cbo-313215" },
       n1: { nome: "Suporte N1", grupo: "Suporte técnico", salario: 2400, fonte: "Numerando: técnico de suporte ao usuário de TI, mediana SP R$ 2.352 (CAGED jan/2026)", url: "https://numerando.com.br/salarios/tecnico-de-suporte-ao-usuario-de-tecnologia-da-informacao/sao-paulo" },
@@ -132,13 +134,11 @@ window.CUSTOS = {
       leiturasDisplay: 3000, gravacoesDisplay: 300, displaysPorUsuario: 25, mapasPorUsuario: 60, mapasGratis: 10000, precoMapaMil: 7,
       contingencia: 1.5,
       fontes: [
-        { nome: "Firestore: preço de leitura e gravação (us-central1 US$ 0,03 e 0,09 por 100 mil; usamos o dobro por segurança)", url: "https://cloud.google.com/firestore/pricing" },
-        { nome: "Cloud Run functions: US$ 0,40 por milhão de chamadas; região tier 2 US$ 0,0000336 por vCPU-s", url: "https://cloud.google.com/run/pricing" },
-        { nome: "Google Maps Platform: mapas dinâmicos, 10 mil grátis por mês e US$ 7 por mil acima", url: "https://developers.google.com/maps/billing-and-pricing/pricing" },
+        { nome: "Preços públicos do provedor de nuvem e do serviço de mapas em outubro de 2026 (banco de dados com o dobro do preço por segurança)" },
         { nome: "Dólar perto de R$ 5,00 em outubro de 2026 (Canal Rural, 09/10: R$ 4,9851)", url: "https://www.canalrural.com.br/economia/ibovespa-sobe-138-no-fechamento-e-dolar-comercial-cai-para-r-49851/" },
       ],
     },
-    hospedagem: { ate: 2500, rateio: 5.61, vps: 196.99, fonte: "Hostinger: rateio do plano atual até 2.500 displays; acima, servidor VPS KVM 4 (R$ 196,99/mês, preço pago hoje pela 75 LAB em outro projeto)" },
+    hospedagem: { ate: 2500, rateio: 5.61, vps: 196.99, fonte: "Hospedagem: rateio do plano atual até 2.500 displays; acima, servidor dedicado (R$ 196,99/mês, preço pago hoje pela 75 LAB em outro projeto)" },
     neoband: { display: 3200, instalacao: 350, manutencao: 70, vidaMeses: 36,
       fonte: "Deck comercial da Códice: comprar um display custa R$ 3.200 + instalação R$ 350 + manutenção e operação R$ 70/mês. É preço de venda, não custo: a NEOBAND precisa abrir o custo real." },
     ativoMeses: 36,

@@ -13,10 +13,12 @@
 
   function contas(C, o = {}) {
     const vh = o.valorHora ?? C.maoDeObra.valorHora;
-    const porCat = {}, porCanal = {}, porDiaCompra = {};
+    const porCat = {}, porOrigem = {}, porDiaCompra = {}, porGrupoCompra = {};
     for (const x of C.compras) {
       porCat[x.cat] = (porCat[x.cat] || 0) + x.valor;
-      porCanal[x.canal] = (porCanal[x.canal] || 0) + x.valor;
+      porOrigem[x.origem] = (porOrigem[x.origem] || 0) + x.valor;
+      const g = x.cat === "bancada" ? "bancada" : x.origem === "importado" ? "importadas" : "nacionais";
+      porGrupoCompra[g] = (porGrupoCompra[g] || 0) + x.valor;
       porDiaCompra[x.data] = (porDiaCompra[x.data] || 0) + x.valor;
     }
     const compras = soma(C.compras, (x) => x.valor);
@@ -33,7 +35,7 @@
     const mValor = soma(C.mercado.modulos, (m) => m.horas * m.valor);
     const bom = soma(C.bom, (x) => x.valor);
     return {
-      vh, porCat, porCanal, porDiaCompra, compras, sistemaPeriodo, sistemaMes, ferramenta,
+      vh, porCat, porOrigem, porGrupoCompra, porDiaCompra, compras, sistemaPeriodo, sistemaMes, ferramenta,
       hMedidas, hCampo, hTotal, maoDeObra, caixa, total, mHoras, mValor, bom,
       mesesEquipe: mHoras / (C.mercado.equipe * C.mercado.horasMes),
       pctFerramenta: C.ferramenta.horasCodice / C.ferramenta.horasTodas,
@@ -92,25 +94,36 @@
 
     const eO = equipe(montOper), eI = equipe(montImpl);
     const pecasOper = modOper * bom, pecasImpl = modImpl * bom;
-    const oper = eO.salarios + eO.ferramentas + nuvem + hospedagem + pecasOper;
-    const impl = eI.salarios + eI.ferramentas + nuvem + hospedagem + pecasImpl;
-    const bancadas = Math.ceil(montImpl - 1e-9) * E.bancada;
+    const tecnicos = Math.ceil(montImpl - 1e-9);
+    const bancadas = tecnicos * E.bancada;
+
+    // linha de montagem na 75 LAB: espaço dimensionado pelo pico (implantação)
+    const L = E.linha;
+    const m2 = tecnicos >= L.apartirDeTecnicos ? tecnicos * L.m2PorTecnico + L.m2Fixo : 0;
+    const espaco = m2 * (L.aluguelM2 + L.custosM2);
+
+    // pago pelo caixa da Códice (via Catalunia): técnicos, ferramentas deles, espaço da linha e peças
+    const caixaCodice = (e, mont, pecas) => e.porGrupo.Montagem + mont * E.ferramentasPessoa + espaco + pecas;
+    const finOper = caixaCodice(eO, montOper, pecasOper), finImpl = caixaCodice(eI, montImpl, pecasImpl);
+    const labOper = eO.salarios + eO.ferramentas + nuvem + hospedagem - (finOper - espaco - pecasOper);
+    const labImpl = eI.salarios + eI.ferramentas + nuvem + hospedagem - (finImpl - espaco - pecasImpl);
+    const oper = labOper + finOper, impl = labImpl + finImpl;
 
     // NEOBAND (referência) e receita
     const NB = E.neoband;
     const nbDisplay = NB.display / NB.vidaMeses + NB.instalacao / NB.vidaMeses + NB.manutencao;
     const receita = n * precoMedio;
     const ativoMes = contas(C).mValor / E.ativoMeses;
-    const c75 = oper / n, c75ativo = (oper + ativoMes) / n;
-    const capNB = n * (NB.display + NB.instalacao), capLab = contas(C).mValor + base * bom + bancadas;
+    const c75 = labOper / n, c75ativo = (labOper + ativoMes) / n;
+    const capNB = n * (NB.display + NB.instalacao), capLab = contas(C).mValor;
     return {
       n, fracSmart, precoMedio, base, modOper, modImpl, capacidade, montOper, montImpl, chamados, hN1, hN2,
-      eO, eI, usdModulo, usdDisplay, aberturas, usdMapas, nuvem, hospedagem, pecasOper, pecasImpl, bancadas,
-      oper, impl, porDisplay: c75, porDisplayImpl: impl / n, nuvemPorModulo: usdModulo * N.dolar * N.contingencia,
+      eO, eI, usdModulo, usdDisplay, aberturas, usdMapas, nuvem, hospedagem, pecasOper, pecasImpl, bancadas, tecnicos, m2, espaco,
+      finOper, finImpl, labOper, labImpl, oper, impl, porDisplay: c75, porDisplayImpl: labImpl / n, finPorDisplay: finOper / n, nuvemPorModulo: usdModulo * N.dolar * N.contingencia,
       nbDisplay, nbMes: nbDisplay * n, receita, ativoMes,
       partCusto: c75 / (c75 + nbDisplay), partAtivo: c75ativo / (c75ativo + nbDisplay),
       capNB, capLab, partCapital: capLab / (capLab + capNB),
-      minimo: c75 / precoMedio, margem: receita - oper - nbDisplay * n,
+      minimo: c75 / precoMedio, margem: receita - oper - nbDisplay * n,  // sobra depois da NEOBAND, do caixa da Códice e da 75 LAB
     };
   }
 

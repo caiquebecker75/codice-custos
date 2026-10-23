@@ -215,6 +215,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 .mont .nums div{background:var(--papel);border-radius:18px;padding:18px 22px;font-size:15px;color:var(--suave);line-height:1.4}
 .mont .nums b{display:block;font-family:"Exo 2";font-size:38px;color:var(--navy);font-weight:700}
 .mont .nums div.d{background:var(--navy);color:#B9C6E4}.mont .nums div.d b{color:var(--teal)}
+.mont .banner{position:absolute;left:96px;right:96px;top:688px;background:var(--tealF);color:var(--navy);border-radius:16px;padding:15px 22px;font-size:17px;line-height:1.4}
 
 /* 12 suporte e gestão */
 .sup .topo2{position:absolute;left:96px;top:205px}
@@ -299,7 +300,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <div><strong class="num" id="capaDisp">R$ 58 → R$ 7</strong>por display por mês, de 500 a 50.000</div>
       <div><strong class="num" id="capaPes">2 → 28</strong>pessoas na operação da 75 LAB</div>
     </div>
-    <div class="fonte">Fonte: pedidos da Shopee e do AliExpress, faturamento do Google Cloud e da Hostinger, registro das horas de trabalho e repositórios (23/10/2026); salários do CAGED e guias de 2026; preços públicos do Google.</div>
+    <div class="fonte">Fonte: notas das compras de peças, faturas de nuvem e hospedagem, registro das horas de trabalho e repositórios (23/10/2026); salários do CAGED e guias de 2026; preços públicos dos provedores.</div>
   </section>
 
   <!-- 2 quem põe o quê -->
@@ -320,15 +321,16 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <p class="lead" style="max-width:600px">Do caixa saíram R$ 1,3 mil em peças, nuvem e ferramenta. O resto são as horas de construção, cobradas a valor de mercado.</p>
       <div class="lenda">
         <div><b class="num" data-v="maoDeObra" data-fmt="brl">R$ 9.465,00</b> de mão de obra: 63,1 h a R$ 150/h</div>
-        <div><b class="num" data-v="compras" data-fmt="brl">R$ 998,70</b> em 27 pedidos de peças, testes e ferramentas</div>
+        <div><b class="num" data-v="compras" data-fmt="brl">R$ 998,70</b> em 27 compras de peças, componentes e ferramentas</div>
         <div><b class="num" data-v="nuvemFerr" data-fmt="brl">R$ 259,65</b> de nuvem, hospedagem e ferramentas no período</div>
       </div>
     </div>
     <div class="cupom">
       <h3>CÓDICE · 75 LAB</h3>
       <div class="sub">Investimento até 23/10/2026</div>
-      <div class="ln"><span>Compras Shopee<small>18 pedidos</small></span><b class="num" data-v="shopee" data-fmt="brl"></b></div>
-      <div class="ln"><span>Compras AliExpress<small>9 pedidos, com frete e impostos</small></span><b class="num" data-v="ali" data-fmt="brl"></b></div>
+      <div class="ln"><span>Peças e componentes nacionais<small>placas, sensores, fiação e caixas</small></span><b class="num" data-v="nacionais" data-fmt="brl"></b></div>
+      <div class="ln"><span>Peças e componentes importados<small>com frete e impostos de importação</small></span><b class="num" data-v="importadas" data-fmt="brl"></b></div>
+      <div class="ln"><span>Ferramentas e bancada<small>solda, retrabalho, lupa, retífica</small></span><b class="num" data-v="bancada" data-fmt="brl"></b></div>
       <div class="ln"><span>Nuvem e hospedagem<small>setembro e outubro</small></span><b class="num" data-v="sistemaPeriodo" data-fmt="brl"></b></div>
       <div class="ln"><span>Ferramenta de desenvolvimento<small>parcela da Códice: 51,1 de 311 h no período</small></span><b class="num" data-v="ferramenta" data-fmt="brl"></b></div>
       <div class="sep"></div>
@@ -337,7 +339,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <div class="sep"></div>
       <div class="tot"><span>TOTAL</span><span class="num" data-v="total" data-fmt="brl"></span></div>
     </div>
-    <div class="fonte">Fonte: pedidos da Shopee (18) e do AliExpress (9) com o valor pago; faturamento do Google Cloud; Hostinger; assinatura da ferramenta de desenvolvimento; registro das horas de trabalho.</div>
+    <div class="fonte">Fonte: notas das 27 compras com o valor pago; faturas de nuvem e hospedagem; assinatura da ferramenta de desenvolvimento; registro das horas de trabalho.</div>
   </section>
 
   <!-- 4 linha do tempo -->
@@ -346,7 +348,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <p class="lead">Em cima, quanto foi comprado em cada dia. Embaixo, as horas de trabalho medidas. Passe o mouse para ver.</p>
     <svg id="svgTempo" viewBox="0 0 1408 520"></svg>
     <div class="dica" id="dicaTempo"></div>
-    <div class="fonte">Fonte: data de cada pedido na Shopee e no AliExpress; horas ativas de trabalho no projeto (blocos com pausas de até 20 min); marcos pelos commits do repositório.</div>
+    <div class="fonte">Fonte: data de cada compra; horas ativas de trabalho no projeto (blocos com pausas de até 20 min); marcos pelos commits do repositório.</div>
   </section>
 
   <!-- 5 mercado -->
@@ -371,23 +373,23 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <rect x="300" y="215" width="260" height="150" rx="12" fill="#061B49"/>
       <g fill="#C7D2E8">${PINOS}</g>
       <rect x="395" y="255" width="70" height="60" rx="6" fill="#2A3F70"/>
-      <text x="430" y="290" text-anchor="middle" font-family="Exo 2" font-size="15" fill="#fff" font-weight="700">ESP32</text>
+      <text x="430" y="290" text-anchor="middle" font-family="Exo 2" font-size="15" fill="#fff" font-weight="700">PLACA</text>
       <g><rect x="20" y="70" width="190" height="96" rx="14" fill="#2F73FF"/><circle cx="72" cy="118" r="30" fill="#E3ECFF"/><circle cx="158" cy="118" r="30" fill="#E3ECFF"/><circle cx="72" cy="118" r="14" fill="#9DB8F5"/><circle cx="158" cy="118" r="14" fill="#9DB8F5"/></g>
       <path d="M210 118 C 260 118 270 240 300 250" stroke="#061B49" stroke-width="3" fill="none"/>
-      <text x="20" y="52" font-size="17" font-weight="700" fill="#0B1530">Ultrassom HC-SR04</text><text x="20" y="196" font-size="15" fill="#5B6683">abordagem até 120 cm · R$ 19,99</text>
+      <text x="20" y="52" font-size="17" font-weight="700" fill="#0B1530">Sensor de ultrassom</text><text x="20" y="196" font-size="15" fill="#5B6683">abordagem até 120 cm · R$ 19,99</text>
       <g><rect x="60" y="390" width="110" height="130" rx="14" fill="#2F73FF"/><g fill="#E3ECFF">${GRADE}</g></g>
       <path d="M170 440 C 240 440 260 340 300 335" stroke="#061B49" stroke-width="3" fill="none"/>
-      <text x="20" y="372" font-size="17" font-weight="700" fill="#0B1530">Clima DHT11</text><text x="20" y="550" font-size="15" fill="#5B6683">temperatura e umidade · R$ 20,99</text>
+      <text x="20" y="372" font-size="17" font-weight="700" fill="#0B1530">Sensor de clima</text><text x="20" y="550" font-size="15" fill="#5B6683">temperatura e umidade · R$ 20,99</text>
       <path d="M560 250 C 640 250 650 120 700 110" stroke="#1DD4C8" stroke-width="5" fill="none"/><path d="M560 270 C 650 270 660 140 720 130" stroke="#2F73FF" stroke-width="5" fill="none"/><path d="M560 290 C 660 290 670 160 740 150" stroke="#061B49" stroke-width="5" fill="none"/>
       <text x="590" y="64" font-size="17" font-weight="700" fill="#0B1530">Jumpers e resistores</text><text x="590" y="88" font-size="15" fill="#5B6683">6 fios + divisor 1k/2k · R$ 2,10</text>
       <g id="pAcel" opacity=".35"><rect x="690" y="380" width="120" height="90" rx="12" fill="#2F73FF"/><rect x="730" y="405" width="40" height="40" rx="4" fill="#061B49"/>
       <path d="M560 340 C 620 340 640 420 690 425" stroke="#2F73FF" stroke-width="3" fill="none" stroke-dasharray="7 7"/>
       <text x="630" y="500" font-size="17" font-weight="700" fill="#0B1530">Acelerômetro (opcional)</text><text x="630" y="524" font-size="15" fill="#5B6683">pancada e arrasto · R$ 14,49</text></g>
       <text x="430" y="420" text-anchor="middle" font-size="15" fill="#0E6F69">R$ 7,51 (1 de um kit de 4)</text>
-      <text x="430" y="342" text-anchor="middle" font-size="14" fill="#C7D2E8">placa 30 pinos · R$ 39,99</text>
+      <text x="430" y="342" text-anchor="middle" font-size="14" fill="#C7D2E8">placa controladora · R$ 39,99</text>
     </svg>
     <div class="lista" id="listaBom"></div>
-    <div class="fonte">Fonte: pedidos da Shopee de 10/09 e 20/09 e do AliExpress de 13/09; kit de fábrica do firmware 2.1.1 (ESP32 + HC-SR04 + DHT11). Preço de varejo de 1 unidade: em lote tende a cair.</div>
+    <div class="fonte">Fonte: compras de 10/09, 13/09 e 20/09; kit de fábrica do módulo (placa controladora, ultrassom e clima). Preço de varejo de 1 unidade: em lote tende a cair.</div>
   </section>
 
   <!-- 7 peneira -->
@@ -400,7 +402,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <div class="rotulo" style="left:0;top:350px"><b class="num" data-v="modulo" data-fmt="brl">R$ 172,30</b>peças do kit de fábrica</div>
       <button class="btn" id="btnPene" style="position:absolute;left:0;top:440px">Peneirar de novo</button>
     </div>
-    <div class="fonte">Fonte: pedidos de 10/09 a 20/09 na Shopee e no AliExpress; kit de fábrica do firmware 2.1.1. O tamanho de cada círculo acompanha o preço pago. A bancada (R$ 476,33) aparece na tela da montagem.</div>
+    <div class="fonte">Fonte: compras de 10/09 a 20/09; kit de fábrica do módulo. O tamanho de cada círculo acompanha o preço pago. A bancada (R$ 476,33) aparece na tela da montagem.</div>
   </section>
 
   <!-- 8 nuvem -->
@@ -411,7 +413,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <div class="esc"><b class="num" id="nuvemMod">R$ 0,91</b>por módulo smart por mês na escala, com batimento a cada 5 min e sem contar com a cota grátis</div>
     </div>
     <div class="doc" id="fatura"></div>
-    <div class="fonte">Fonte: faturamento do Google Cloud (relatório por serviço de outubro e fatura de setembro); Hostinger; preços públicos do Firestore, do Cloud Run e do Google Maps, com dólar a R$ 5,00 e 50% de folga.</div>
+    <div class="fonte">Fonte: faturas de nuvem e hospedagem (setembro e outubro); preços públicos dos provedores de nuvem e de mapas, com dólar a R$ 5,00 e 50% de folga.</div>
   </section>
 
   <!-- 9 escala -->
@@ -419,23 +421,24 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <h2 class="tit">O custo da 75 LAB por display cai de <em id="t9a">R$ 58</em> para <em id="t9b">R$ 7</em> por mês</h2>
     <div class="legenda" id="leg9"></div>
     <div class="grafico" id="graf9"></div>
-    <div class="fonte">Fonte: projeção deste levantamento, depois da implantação (só reposição de módulos). Metade dos displays com módulo smart (pacotes Sense e Media). Salários CLT de 2026 × 1,8 de encargos e benefícios. Ano de implantação no anexo.</div>
+    <div class="fonte">Fonte: projeção deste levantamento, depois da implantação (só reposição de módulos). Montagem, linha e peças são pagas pelo caixa da Códice (via Catalunia); o valor por display é só o da 75 LAB. Metade dos displays com módulo smart. Salários CLT de 2026 × 1,8.</div>
   </section>
 
   <!-- 10 equipe -->
   <section class="tela eqp">
     <h2 class="tit">A operação da 75 LAB cresce de <em id="t10a">2</em> para <em id="t10b">28</em> pessoas</h2>
     <div class="mat"><table id="tabEq"></table></div>
-    <div class="fonte" id="fonte10">Fonte: pessoas em tempo integral por faixa (0,5 = meio período). Salários: Portal Salário e Numerando (CAGED), JobRise (2026); encargos e benefícios × 1,8 (ValorFinal).</div>
+    <div class="fonte" id="fonte10">* Técnicos e linha de montagem ficam na 75 LAB e são pagos pelo caixa da Códice (via Catalunia). Pessoas em tempo integral (0,5 = meio período). Salários: Portal Salário e Numerando (CAGED), JobRise (2026); × 1,8 (ValorFinal).</div>
   </section>
 
   <!-- 11 montagem -->
   <section class="tela mont">
-    <h2 class="tit">Um técnico monta <em>280 módulos</em> por mês</h2>
+    <h2 class="tit">A linha de montagem fica na <em>75 LAB</em></h2>
     <div class="topo2 faixas" id="fx11"></div>
     <div class="linha-prod"><div class="tecnicos" id="tec11"></div><div class="modulos" id="mods11"></div><div class="esteira"></div></div>
     <div class="nums" id="nums11"></div>
-    <div class="fonte">Fonte: 30 min por módulo (solda, caixa, gravação e teste pelo kit de fábrica), 140 h produtivas por mês, implantação em 12 meses e reposição de 1% dos módulos ao mês. Técnico R$ 2.800 (Portal Salário) × 1,8. Bancada: compras desta tela 7.</div>
+    <div class="banner"><b>Quem paga:</b> peças, técnicos, bancadas e espaço saem do caixa da Códice (via Catalunia). <b>Quem opera:</b> a 75 LAB, que cuida da linha, da qualidade, do firmware e do kit de fábrica, perto de quem desenvolve.</div>
+    <div class="fonte">Fonte: 30 min por módulo, 140 h por mês, implantação em 12 meses, reposição de 1% ao mês; técnico R$ 2.800 (Portal Salário) × 1,8; espaço a partir de 2 técnicos, 6 m² cada + 15 m², aluguel R$ 60/m² (FipeZap Comercial, SP) + R$ 30/m² de custos do espaço (estimativa).</div>
   </section>
 
   <!-- 12 suporte e gestão -->
@@ -452,7 +455,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <h2 class="tit">Por display, a NEOBAND põe <em>R$ 169</em> e a 75 LAB de R$ 58 a R$ 7 por mês</h2>
     <div class="colunas" id="col13"></div>
     <div class="det" id="det13"></div>
-    <div class="fonte">Fonte: receita média de R$ 718 (50% Essencial R$ 499, 40% Sense R$ 849, 10% Media R$ 1.290); NEOBAND pelo deck comercial (display R$ 3.200 e instalação R$ 350 em 36 meses, manutenção R$ 70/mês). Antes de impostos e do time comercial.</div>
+    <div class="fonte">Fonte: receita média de R$ 718 (50% Essencial R$ 499, 40% Sense R$ 849, 10% Media R$ 1.290); NEOBAND pelo deck comercial (display R$ 3.200 e instalação R$ 350 em 36 meses, manutenção R$ 70/mês); peças e montagem pelo caixa da Códice (via Catalunia). Antes de impostos e do time comercial.</div>
   </section>
 
   <!-- 14 participação -->
@@ -461,7 +464,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <div class="topo2 faixas" id="fx14"></div>
     <div class="lentes" id="lentes14"></div>
     <div class="sim" id="sim14"></div>
-    <div class="fonte">Fonte: telas anteriores. O custo da NEOBAND usa preço de venda (R$ 3.200 por display): com o custo real, a parte da 75 LAB sobe. Lucro antes de impostos e do time comercial.</div>
+    <div class="fonte">Fonte: telas anteriores. A sobra já desconta peças e montagem, pagas pelo caixa da Códice (via Catalunia). O custo da NEOBAND usa preço de venda (R$ 3.200 por display): com o custo real, a parte da 75 LAB sobe.</div>
   </section>
 
   <!-- 15 pendências -->
@@ -490,7 +493,7 @@ const f0 = F[E.faixas[0]], fN = F[E.faixas[E.faixas.length - 1]];
 const fte = (v) => v < 0.05 ? "" : v < 10 ? num(Math.round(v * 10) / 10, v % 1 && v < 10 ? 1 : 0) : num(v, 0);
 
 /* valores nos marcadores data-v */
-const V = Object.assign({}, r, { shopee: r.porCanal.Shopee, ali: r.porCanal.AliExpress, pd: r.porCat.pd, modulo: r.porCat.modulo, nuvemFerr: r.sistemaPeriodo + r.ferramenta });
+const V = Object.assign({}, r, { nacionais: r.porGrupoCompra.nacionais, importadas: r.porGrupoCompra.importadas, bancada: r.porGrupoCompra.bancada, pd: r.porCat.pd, modulo: r.porCat.modulo, nuvemFerr: r.sistemaPeriodo + r.ferramenta });
 const FMT = { brl: (v) => brl(v), brl0: (v) => brl(v, 0), mil: (v) => mil(v) };
 $$("[data-v]").forEach((el) => { const v = V[el.dataset.v]; el.textContent = el.dataset.fmt ? FMT[el.dataset.fmt](v) : v; });
 $("#capaDisp").textContent = `${brl(f0.porDisplay, 0)} → ${brl(fN.porDisplay, 0)}`;
@@ -543,7 +546,7 @@ $("#ulNb").innerHTML = C.divisao.neoband.map((x) => `<li>${x}</li>`).join("");
 ao[3] = () => {
   const svg = $("#svgTempo"), dica = $("#dicaTempo"), W = 1408, ini = Date.UTC(2026, 8, 9), dias = 33;
   const x = (iso) => 40 + (Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) - ini) / 864e5 * ((W - 80) / dias);
-  const marcos = [["2026-09-10", "Plataforma nasce"], ["2026-09-13", "1º módulo envia dados"], ["2026-09-16", "Execução no PDV"], ["2026-09-27", "Kit de fábrica do ESP32"], ["2026-10-10", "Relógios e avisos no celular"]];
+  const marcos = [["2026-09-10", "Plataforma nasce"], ["2026-09-13", "1º módulo envia dados"], ["2026-09-16", "Execução no PDV"], ["2026-09-27", "Kit de fábrica do módulo"], ["2026-10-10", "Relógios e avisos no celular"]];
   let h = `<line x1="20" x2="${W - 20}" y1="250" y2="250" stroke="#C9D1E0" stroke-width="2"/>`;
   for (let d = 1; d <= dias; d += 7) { const dt = new Date(ini + d * 864e5).toISOString().slice(0, 10); h += `<text x="${x(dt)}" y="278" font-size="14" fill="#5B6683" text-anchor="middle">${dataBR(dt)}</text>`; }
   marcos.forEach(([d, t], i) => { const X = x(d); h += `<line x1="${X}" x2="${X}" y1="252" y2="${300 + (i % 2) * 26}" stroke="#AEB8CC" stroke-dasharray="3 4"/><text x="${X + 6}" y="${312 + (i % 2) * 26}" font-size="13" fill="#5B6683">${t}</text>`; });
@@ -602,12 +605,12 @@ ao[3] = () => {
 /* 7 peneira */
 (function(){
   const area = $("#areaPene");
-  const kit = [["ESP32 30 pinos", 39.99, "Cérebro do módulo: Wi-Fi, Bluetooth e atualização pela internet."], ["Ultrassom HC-SR04", 19.99, "Conta quem se aproxima a menos de 120 cm."], ["Clima DHT11", 20.99, "Temperatura e umidade da loja."], ["Caixas vedadas", 47.33, "Kit de 4 + 1 tipo CFTV: invólucro do módulo."]];
-  const ver = [["LD2410C (24 GHz)", "Radar LD2410C", "Radar de presença avaliado; não entrou no kit de fábrica."], ["LD2410C (2º lote)", "Radar LD2410C (2º)", "Segunda unidade para comparar; não entrou no kit."],
-    ["BME280", "Clima BME280", "Clima mais preciso que o DHT11; não entrou no kit."], ["MPU-6500", "Acelerômetro", "Ficou como sensor extra opcional."],
-    ["HX711", "5 módulos HX711", "Leitura de peso para ruptura de gôndola; ficou para depois."], ["Célula de carga", "Célula de carga", "Balança sob o display; ficou para depois."],
-    ["Pico W", "Raspberry Pico W", "Placa alternativa; ficou o ESP32."], ["shield ESP32", "Shield com bornes", "Ferramenta de protótipo, sem solda."],
-    ["MB-102", "Protoboard", "Protoboard e jumpers de protótipo."], ["20 x 12 x 8", "Caixa 20x12x8", "Teste de invólucro maior; ficou a caixa vedada."]];
+  const kit = [["Placa controladora", 39.99, "Cérebro do módulo: Wi-Fi, Bluetooth e atualização pela internet."], ["Ultrassom", 19.99, "Conta quem se aproxima a menos de 120 cm."], ["Clima", 20.99, "Temperatura e umidade da loja."], ["Caixas vedadas", 47.33, "Kit de 4 + 1 avulsa: invólucro do módulo."]];
+  const ver = [["Radar de presença (2º", "Radar (2º)", "Segunda unidade para comparar; não entrou no kit."], ["Radar de presença", "Radar de presença", "Radar de presença avaliado; não entrou no kit de fábrica."],
+    ["Sensor de clima de precisão", "Clima de precisão", "Mais preciso que o sensor escolhido; não entrou no kit."], ["Acelerômetro", "Acelerômetro", "Ficou como sensor extra opcional."],
+    ["Módulos de pesagem", "Pesagem", "Leitura de peso para ruptura de gôndola; ficou para depois."], ["Célula de carga", "Célula de carga", "Balança sob o display; ficou para depois."],
+    ["Placa controladora alternativa", "Placa alternativa", "Placa alternativa; ficou a placa escolhida."], ["Placa adaptadora", "Adaptador", "Ferramenta de protótipo, sem solda."],
+    ["Placa de prototipagem", "Prototipagem", "Placa e fios de protótipo."], ["Caixa maior", "Caixa maior", "Teste de invólucro maior; ficou a caixa vedada."]];
   const pd = C.compras.filter((c) => c.cat === "pd").map((c) => { const v = ver.find((k) => c.item.includes(k[0])) || [0, c.item, c.uso]; return [v[1], c.valor, v[2]]; });
   const toks = [...pd.map((p) => ({ p, k: false })), ...kit.map((p) => ({ p, k: true }))];
   const max = Math.max(...toks.map((t) => t.p[1]));
@@ -636,13 +639,13 @@ ao[3] = () => {
 /* 8 nuvem */
 (function(){
   const L = [
-    ["Cloud Functions (49 funções)", "uso R$ 3,60 em outubro", "R$ 3,60", "R$ 3,60", "R$ 0,00"],
-    ["Cloud Scheduler", "15 rotinas até 10/10; agora 2 relógios", "R$ 1,61", "3 jobs grátis", "R$ 1,61*"],
-    ["App Engine e Secret Manager", "base do agendador e cofre de chaves", "R$ 0,86", "parcial", "R$ 0,86"],
-    ["Firestore, Hosting e Storage", "banco, site e firmware", "na cota", "cota diária", "R$ 0,00"],
-    ["Hostinger (1 de 13 sites)", "R$ 72,99 por mês ÷ 13", "R$ 5,61", "não tem", "R$ 5,61"],
-    ["GitHub", "repositórios e publicação automática", "livre", "plano grátis", "R$ 0,00"],
-    ["Google Maps e Street View", "mapa e fachadas", "na cota", "10 mil por mês", "R$ 0,00"],
+    ["Funções do sistema (49)", "uso R$ 3,60 em outubro", "R$ 3,60", "R$ 3,60", "R$ 0,00"],
+    ["Rotinas agendadas", "15 rotinas até 10/10; agora 2 relógios", "R$ 1,61", "grátis até 3", "R$ 1,61*"],
+    ["Cofre de chaves e base das rotinas", "chaves de acesso e agendador", "R$ 0,86", "parcial", "R$ 0,86"],
+    ["Banco de dados, site e arquivos", "dados, painel e firmware", "na cota", "cota diária", "R$ 0,00"],
+    ["Hospedagem do site (1 de 13)", "R$ 72,99 por mês ÷ 13", "R$ 5,61", "não tem", "R$ 5,61"],
+    ["Repositório e publicação", "código e publicação automática", "livre", "plano grátis", "R$ 0,00"],
+    ["Mapas e fotos de fachada", "mapa e fachadas das lojas", "na cota", "cota mensal", "R$ 0,00"],
   ];
   $("#fatura").innerHTML = `<div class="hd"><span>Serviço hoje</span><span class="r">Uso no mês</span><span class="r">Cota grátis</span><span class="r">Pago</span></div>`
     + L.map((l) => `<div class="ln"><span>${l[0]}<small>${l[1]}</small></span><span class="r num">${l[2]}</span><span class="r">${l[3]}</span><span class="r num ${l[4] === "R$ 0,00" ? "g" : ""}">${l[4]}</span></div>`).join("")
@@ -651,13 +654,14 @@ ao[3] = () => {
 
 /* 9 escala */
 (function(){
-  const ITENS = [["Montagem", (f) => f.eO.porGrupo.Montagem, GRUPOS.Montagem], ["Suporte técnico", (f) => f.eO.porGrupo["Suporte técnico"], GRUPOS["Suporte técnico"]],
-    ["Sistema", (f) => f.eO.porGrupo.Sistema, GRUPOS.Sistema], ["Gestão", (f) => f.eO.porGrupo["Gestão"], GRUPOS["Gestão"]],
-    ["Ferramentas", (f) => f.eO.ferramentas, "#AEB8CC"], ["Nuvem e hospedagem", (f) => f.nuvem + f.hospedagem, "#8FE9E2"], ["Peças de reposição", (f) => f.pecasOper, "#9DB8F5"]];
+  const ITENS = [["Montagem e linha (caixa da Códice)", (f) => f.finOper - f.pecasOper, "#A7EDE7"], ["Peças de reposição (caixa da Códice)", (f) => f.pecasOper, "#C9D8FF"],
+    ["Suporte técnico", (f) => f.eO.porGrupo["Suporte técnico"], GRUPOS["Suporte técnico"]], ["Sistema", (f) => f.eO.porGrupo.Sistema, GRUPOS.Sistema],
+    ["Gestão", (f) => f.eO.porGrupo["Gestão"], GRUPOS["Gestão"]], ["Ferramentas", (f) => f.eO.ferramentas - f.montOper * E.ferramentasPessoa, "#AEB8CC"],
+    ["Nuvem e hospedagem", (f) => f.nuvem + f.hospedagem, "#1DD4C8"]];
   $("#leg9").innerHTML = ITENS.map(([n, , c]) => `<span><i style="background:${c}"></i>${n}</span>`).join("");
   const max = fN.oper;
   $("#graf9").innerHTML = E.faixas.map((n) => { const f = F[n];
-    return `<div class="linha"><div class="f num">${num(n)}<small>displays</small></div><div class="barra" style="width:${Math.max(6, f.oper / max * 100)}%">${ITENS.map(([nm, fn, c]) => `<i title="${nm}: ${brl(fn(f), 0)}" data-w="${fn(f) / f.oper * 100}" style="width:0;background:${c}"></i>`).join("")}</div><div class="v"><b class="num">${mil(f.oper)}</b>por mês · <em class="num">${brl(f.porDisplay)}</em>/display</div></div>`; }).join("");
+    return `<div class="linha"><div class="f num">${num(n)}<small>displays</small></div><div class="barra" style="width:${Math.max(6, f.oper / max * 100)}%">${ITENS.map(([nm, fn, c]) => `<i title="${nm}: ${brl(fn(f), 0)}" data-w="${fn(f) / f.oper * 100}" style="width:0;background:${c}"></i>`).join("")}</div><div class="v"><b class="num">${mil(f.oper)}</b>por mês · <em class="num">${brl(f.porDisplay)}</em>/display da 75 LAB</div></div>`; }).join("");
   $("#t9a").textContent = brl(f0.porDisplay, 0); $("#t9b").textContent = brl(fN.porDisplay, 0);
   ao[8] = () => setTimeout(() => $$("#graf9 .barra i").forEach((i) => i.style.width = i.dataset.w + "%"), 150);
 })();
@@ -669,7 +673,8 @@ ao[3] = () => {
   const txt = (v) => v < 3 ? "#061B49" : "#fff";
   let h = `<tr><th>Cargo · displays</th>${E.faixas.map((n) => `<th>${num(n)}</th>`).join("")}</tr>`;
   for (const k of ORD) { const c = E.cargos[k];
-    h += `<tr><td><i style="background:${GRUPOS[c.grupo]}"></i>${c.nome}</td>${E.faixas.map((n) => { const v = F[n].eO.fte[k]; return `<td><span class="num" style="background:${cor(v)};color:${txt(v)}">${fte(v) || "·"}</span></td>`; }).join("")}</tr>`; }
+    h += `<tr><td><i style="background:${GRUPOS[c.grupo]}"></i>${c.nome}${k === "mont" ? " *" : ""}</td>${E.faixas.map((n) => { const v = F[n].eO.fte[k]; return `<td><span class="num" style="background:${cor(v)};color:${txt(v)}">${fte(v) || "·"}</span></td>`; }).join("")}</tr>`;
+    if (k === "mont") h += `<tr><td><i style="background:${GRUPOS.Montagem}"></i>Linha de montagem na 75 LAB *</td>${E.faixas.map((n) => `<td class="num" style="font-size:14px;color:var(--suave)">${F[n].m2 ? num(F[n].m2) + " m²" : "bancada"}</td>`).join("")}</tr>`; }
   h += `<tr class="tot"><td>Total na operação</td>${E.faixas.map((n) => `<td class="num">${num(F[n].eO.pessoas, 1)}</td>`).join("")}</tr>`;
   h += `<tr class="imp"><td>No ano de implantação</td>${E.faixas.map((n) => `<td class="num">${num(F[n].eI.pessoas, 1)}</td>`).join("")}</tr>`;
   h += `<tr class="imp"><td>Custo da equipe por mês</td>${E.faixas.map((n) => `<td class="num">${mil(F[n].eO.salarios)}</td>`).join("")}</tr>`;
@@ -684,9 +689,9 @@ ao[3] = () => {
     const f = F[n], tec = Math.max(1, Math.ceil(f.montImpl - 1e-9));
     $("#tec11").innerHTML = Array.from({ length: tec }, (_, i) => `<span><i></i>Técnico ${i + 1}</span>`).join("");
     const mo = E.cargos.mont.salario * E.fatorEncargos / f.capacidade;
-    $("#nums11").innerHTML = `<div><b class="num">${num(f.base)}</b>módulos smart na base (metade dos ${num(n)} displays)</div>
-      <div class="d"><b class="num">${num(f.modImpl)}/mês</b>no ano de implantação: ${num(tec)} ${tec === 1 ? "técnico" : "técnicos"} e ${num(tec)} ${tec === 1 ? "bancada" : "bancadas"} (${brl(f.bancadas, 0)})</div>
-      <div><b class="num">${num(f.modOper)}/mês</b>depois, só reposição (1% ao mês): ${num(f.montOper, 1)} técnico em tempo integral</div>
+    $("#nums11").innerHTML = `<div><b class="num">${num(f.base)}</b>módulos smart na base (metade dos ${num(n)} displays); um técnico monta 280 por mês</div>
+      <div class="d"><b class="num">${num(f.modImpl)}/mês</b>no ano de implantação: ${num(tec)} ${tec === 1 ? "técnico" : "técnicos"} e ${num(tec)} ${tec === 1 ? "bancada" : "bancadas"} (${brl(f.bancadas, 0)}); depois ${num(f.modOper)}/mês de reposição</div>
+      <div><b class="num">${f.m2 ? num(f.m2) + " m²" : "1 bancada"}</b>${f.m2 ? `de linha própria na 75 LAB: ${brl(f.espaco, 0)} por mês de espaço` : "no escritório da 75 LAB, sem aluguel a mais"}</div>
       <div><b class="num">${brl(mo + r.bom)}</b>por módulo: ${brl(r.bom)} em peças + ${brl(mo)} de mão de obra</div>`;
   });
 })();
@@ -713,13 +718,14 @@ ao[3] = () => {
 /* 13 por display */
 (function(){
   const pm = f0.precoMedio, nb = f0.nbDisplay;
-  $("#col13").innerHTML = E.faixas.map((n) => { const f = F[n], sobra = pm - nb - f.porDisplay;
-    return `<div class="c" data-n="${n}"><div class="pilha"><i style="height:${sobra / pm * 100}%;background:#DDE3EC"></i><i style="height:${f.porDisplay / pm * 100}%;background:var(--teal)"></i><i style="height:${nb / pm * 100}%;background:var(--azul)"></i></div><div class="rot num">${num(n)}</div></div>`; }).join("");
-  const det = (n) => { const f = F[n], sobra = pm - nb - f.porDisplay;
+  $("#col13").innerHTML = E.faixas.map((n) => { const f = F[n], sobra = pm - nb - f.porDisplay - f.finPorDisplay;
+    return `<div class="c" data-n="${n}"><div class="pilha"><i style="height:${sobra / pm * 100}%;background:#DDE3EC"></i><i style="height:${f.porDisplay / pm * 100}%;background:var(--teal)"></i><i style="height:${f.finPorDisplay / pm * 100}%;background:#A7EDE7"></i><i style="height:${nb / pm * 100}%;background:var(--azul)"></i></div><div class="rot num">${num(n)}</div></div>`; }).join("");
+  const det = (n) => { const f = F[n], sobra = pm - nb - f.porDisplay - f.finPorDisplay;
     $$("#col13 .c").forEach((c) => c.classList.toggle("on", +c.dataset.n === n));
     $("#det13").innerHTML = `<h4>${num(n)} displays</h4>
       <div class="ln"><span>Receita média por display</span><b class="num">${brl(pm, 0)}</b></div>
       <div class="ln"><span><i style="background:var(--azul)"></i>NEOBAND</span><b class="num">${brl(nb)}</b></div>
+      <div class="ln"><span><i style="background:#A7EDE7"></i>Peças e montagem (caixa da Códice)</span><b class="num">${brl(f.finPorDisplay)}</b></div>
       <div class="ln"><span><i style="background:var(--teal)"></i>75 LAB</span><b class="num">${brl(f.porDisplay)}</b></div>
       <div class="ln"><span><i style="background:#DDE3EC"></i>Sobra para dividir</span><b class="num">${brl(sobra)}</b></div>
       <div class="ln"><span>Sobra no mês</span><b class="num">${mil(f.margem)}</b></div>
@@ -746,7 +752,7 @@ ao[3] = () => {
     const conta = () => {
       const lucro = f.margem, lab = f.oper + lucro * p / 100, nbR = f.nbMes + lucro * (1 - p / 100);
       $("#pTxt").textContent = p + "%";
-      $("#recLab").textContent = mil(lab); $("#recLabT").textContent = `por mês para a 75 LAB (custo ${mil(f.oper)} + ${p}% da sobra)`;
+      $("#recLab").textContent = mil(lab); $("#recLabT").textContent = `por mês para a 75 LAB (custo ${mil(f.labOper)} + ${p}% da sobra)`;
       $("#recNb").textContent = mil(nbR); $("#recNbT").textContent = `por mês para a NEOBAND (custo ${mil(f.nbMes)} + ${100 - p}% da sobra)`;
     };
     $("#rgP").oninput = (e) => { p = +e.target.value; conta(); };
@@ -761,18 +767,19 @@ ao[3] = () => {
     ["pe", "Falta para fechar", [
       ["Custo real da NEOBAND", "Produção do display, instalação e manutenção física. Hoje a conta usa o preço de venda do deck comercial (R$ 3.200 + R$ 350 + R$ 70/mês)."],
       ["Quem banca o display", "Se a NEOBAND vende o display à Códice, ela já ganha na venda e o capital passa a ser da Códice: a participação muda."],
+      ["Financiamento via Catalunia", "Confirmar limite e prazo do caixa da Códice para peças, montagem e espaço da linha, para a 75 LAB não bancar material."],
       ["Mistura real de pacotes", "Usada: 50% Essencial, 40% Sense, 10% Media. Ela define quantos módulos smart a 75 LAB monta."],
       ["Fonte USB e cabo do módulo", "Não aparecem nos pedidos; provavelmente reaproveitados."],
     ]],
     ["es", "Estimado", [
       ["Equipe por faixa", "Montagem 30 min por módulo; 0,1 chamado por display; 1 dev por 10 mil displays; 1 DevOps por 25 mil; gestão e administrativo."],
       ["Salários × 1,8", "CLT de 2026 com encargos e benefícios. Regime tributário da Códice muda o fator."],
-      ["Nuvem na escala", "Preços públicos do Google, batimento de 5 min, dólar R$ 5,00 e 50% de folga."],
+      ["Nuvem na escala", "Preços públicos dos provedores, batimento de 5 min, dólar R$ 5,00 e 50% de folga."],
       ["Valor de mercado R$ 448 mil", "Horas por módulo pelo escopo entregue, conferidas pelo tamanho do código."],
     ]],
     ["ok", "Confirmado", [
-      ["27 pedidos de peças e ferramentas", "Valor pago no histórico da Shopee (18) e do AliExpress (9)."],
-      ["Nuvem: R$ 0,02 em setembro e R$ 2,53 em outubro", "Faturamento do Google Cloud por serviço."],
+      ["27 compras de peças e ferramentas", "Valor pago: 18 nacionais e 9 importadas."],
+      ["Nuvem: R$ 0,02 em setembro e R$ 2,53 em outubro", "Fatura de nuvem por serviço."],
       ["Ferramenta de desenvolvimento R$ 1.498,35", "Assinatura de 17/09 e 09/10; 16,4% da Códice."],
       ["51,1 horas de trabalho no projeto", "Registro das horas de trabalho no projeto."],
     ]],
