@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custos da Códice</title>
+<meta name="description" content="Levantamento detalhado de custos do projeto Códice: hardware, tags, nuvem, ferramenta e mão de obra, de 09/09 a 23/10/2026.">
+<link rel="icon" href="img/codice-simbolo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#061B49; --navy2:#0C2A66; --teal:#1DD4C8; --azul:#2F73FF;
+  --fundo:#F3F5F9; --papel:#FFFFFF; --tinta:#0B1530; --suave:#5B6683; --fraco:#E6EAF2; --amb:#FFB020; --ambF:#FFF3D6;
+  --tealF:#DDF8F5; --azulF:#E3ECFF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#04122F;color:var(--tinta);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+.palco{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%) scale(var(--s,1));background:var(--fundo);overflow:hidden}
+.tela{position:absolute;inset:0;padding:120px 96px 70px;opacity:0;visibility:hidden;transition:opacity .45s ease,visibility .45s}
+.tela.ativa{opacity:1;visibility:visible}
+.tela.escura{background:var(--navy);color:#fff}
+h1,h2,.exo{font-family:"Exo 2",Inter,sans-serif}
+h2.tit{font-size:56px;line-height:1.04;font-weight:700;letter-spacing:-.5px;max-width:1180px}
+.tit em{font-style:normal;color:var(--azul)}
+.escura .tit em{color:var(--teal)}
+.lead{font-size:22px;line-height:1.45;color:var(--suave);max-width:760px;margin-top:18px}
+.escura .lead{color:#B9C6E4}
+.num{font-variant-numeric:tabular-nums}
+.fonte{position:absolute;left:96px;right:300px;bottom:28px;font-size:13px;line-height:1.4;color:#7A849E}
+.escura .fonte{color:#7F8FB8}
+.fonte a{color:inherit}
+.pend{display:inline-block;background:var(--amb);color:#3A2600;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;padding:3px 8px;border-radius:6px;vertical-align:middle}
+
+/* topo fixo */
+.topo{position:absolute;left:96px;right:96px;top:40px;height:40px;display:flex;align-items:center;justify-content:space-between;z-index:5;pointer-events:none}
+.topo .marca{display:flex;align-items:center;gap:12px;font-family:"Exo 2";font-weight:700;font-size:20px;color:var(--navy)}
+.topo .marca img{width:34px;height:34px}
+.topo .marca span{font-weight:500;color:var(--suave);font-family:Inter;font-size:15px}
+.topo .dir{display:flex;align-items:center;gap:20px;font-size:14px;color:var(--suave)}
+.topo .dir img{height:30px}
+.palco.escuro .topo .marca{color:#fff}
+.palco.escuro .topo .marca span,.palco.escuro .topo .dir{color:#9FB0D6}
+.logo-claro{display:none}.palco.escuro .logo-claro{display:block}.palco.escuro .logo-escuro{display:none}
+
+/* navegação */
+.nav{position:absolute;right:96px;bottom:22px;display:flex;gap:10px;z-index:6}
+.nav button{width:46px;height:46px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:20px;cursor:pointer}
+.palco.escuro .nav button{background:#fff;color:var(--navy)}
+.nav button:disabled{opacity:.25;cursor:default}
+.trilha{position:absolute;left:0;right:0;bottom:0;height:5px;background:transparent;z-index:6}
+.trilha i{display:block;height:100%;width:0;background:var(--teal);transition:width .4s}
+
+/* cursor em dois tons */
+@media (hover:hover) and (pointer:fine){
+  html,body,button,a,input,label{cursor:none!important}
+  .cur-anel,.cur-ponto{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
+  .cur-anel{width:34px;height:34px;border:3px solid #061B49;box-shadow:0 0 0 1.5px #fff,inset 0 0 0 1.5px #fff;transition:width .15s,height .15s}
+  .cur-ponto{width:7px;height:7px;background:#061B49;box-shadow:0 0 0 2px #fff}
+  .cur-anel.sobre{width:52px;height:52px}
+}
+@media not ((hover:hover) and (pointer:fine)){.cur-anel,.cur-ponto{display:none}}
+
+/* 1 capa */
+.capa{padding:150px 96px 80px}
+.capa .kick{font-size:18px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:600}
+.capa h1{font-size:104px;line-height:.98;font-weight:800;letter-spacing:-1.5px;margin-top:22px;max-width:1100px}
+.capa .total{margin-top:46px;display:flex;align-items:flex-end;gap:28px}
+.capa .total b{font-family:"Exo 2";font-size:120px;font-weight:700;color:var(--teal);line-height:.9}
+.capa .total span{font-size:20px;color:#B9C6E4;max-width:420px;line-height:1.4;padding-bottom:10px}
+.capa .tres{position:absolute;left:96px;right:96px;bottom:92px;display:flex;gap:56px}
+.capa .tres div{font-size:17px;color:#9FB0D6}
+.capa .tres strong{display:block;font-family:"Exo 2";font-size:34px;color:#fff;font-weight:600}
+.capa .bloco3d{position:absolute;right:96px;top:170px;width:300px;opacity:.95}
+
+/* 2 cupom */
+.cupom-l{position:absolute;left:96px;top:290px;width:640px}
+.cupom-l .lead{max-width:600px}
+.cupom-l .lenda{margin-top:34px;display:flex;flex-direction:column;gap:14px;font-size:18px;color:var(--suave)}
+.cupom-l .lenda b{color:var(--tinta)}
+.cupom{position:absolute;right:120px;top:104px;width:560px;background:var(--papel);padding:36px 40px 40px;filter:drop-shadow(0 18px 30px rgba(6,27,73,.10))}
+.cupom::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;background:radial-gradient(circle at 11px 14px,transparent 9px,#fff 10px) 0 0/22px 14px repeat-x}
+.cupom h3{font-family:"Exo 2";text-align:center;font-size:22px;letter-spacing:3px}
+.cupom .sub{text-align:center;font-size:13px;color:var(--suave);margin:4px 0 20px}
+.cupom .ln{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:19px;padding:9px 10px;margin:0 -10px;border-radius:8px;cursor:pointer;transition:background .15s}
+.cupom .ln:hover{background:var(--azulF)}
+.cupom .ln small{display:block;font-size:13px;color:var(--suave)}
+.cupom .ln b{font-weight:600}
+.cupom .sep{height:0;margin:12px 0;background:none;outline:none;border-top:2px dotted #C9D1E0}
+.cupom .sub2{font-weight:700;font-size:20px}
+.cupom .tot{display:flex;justify-content:space-between;font-family:"Exo 2";font-size:34px;font-weight:700;margin-top:6px}
+.cupom .nota{font-size:13px;color:var(--suave);margin-top:14px}
+
+/* 3 linha do tempo */
+.tempo svg{position:absolute;left:96px;top:310px;width:1408px;height:520px;overflow:visible}
+.tempo .dica{position:absolute;background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;font-size:15px;pointer-events:none;opacity:0;transition:opacity .12s;max-width:340px;z-index:4}
+
+/* 4 módulo */
+.bom svg{position:absolute;left:70px;top:230px;width:860px;height:600px}
+.bom .lista{position:absolute;right:96px;top:250px;width:520px;background:var(--papel);border-radius:22px;padding:30px 34px}
+.bom .lista .ln{display:flex;justify-content:space-between;gap:16px;font-size:18px;padding:9px 0}
+.bom .lista .ln small{display:block;color:var(--suave);font-size:13px}
+.bom .lista .ln.op{color:var(--azul)}
+.bom .lista .tot{display:flex;justify-content:space-between;font-family:"Exo 2";font-size:40px;font-weight:700;margin-top:14px;padding-top:14px;box-shadow:0 -2px 0 var(--fraco)}
+.chave{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:16px;cursor:pointer;user-select:none}
+.chave i{width:50px;height:28px;border-radius:14px;background:var(--fraco);position:relative;transition:background .2s;flex:none}
+.chave i::after{content:"";position:absolute;left:3px;top:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .2s}
+.chave.on i{background:var(--azul)}.chave.on i::after{left:25px}
+.bom .pendl{margin-top:16px;font-size:14px;color:var(--suave);line-height:1.45}
+
+/* 5 peneira */
+.pene .area{position:absolute;left:96px;right:96px;top:290px;height:540px}
+.pene .tok{position:absolute;left:0;top:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.2;padding:8px;transition:transform 1s cubic-bezier(.5,0,.2,1),opacity .6s,background .4s;cursor:pointer}
+.pene .tok b{font-size:15px;font-family:"Exo 2"}
+.pene .tok.pd{background:var(--azulF);color:var(--navy)}
+.pene .tok.kit{background:var(--teal);color:var(--navy)}
+.pene .tok.fora{opacity:.55}
+.pene .rede{position:absolute;left:290px;right:0;top:282px;height:14px;background:repeating-linear-gradient(90deg,var(--navy) 0 26px,transparent 26px 40px);border-radius:7px}
+.pene .rotulo{position:absolute;font-size:16px;color:var(--suave)}
+.pene .rotulo b{display:block;font-family:"Exo 2";font-size:30px;color:var(--tinta)}
+.pene .veredito{position:absolute;right:0;top:470px;width:640px;font-size:17px;color:var(--suave);text-align:right;min-height:48px;line-height:1.45}
+.pene .veredito b{color:var(--tinta)}
+.btn{border:0;background:var(--navy);color:#fff;border-radius:999px;padding:12px 22px;font-weight:600;font-size:16px;cursor:pointer}
+.btn.claro{background:#fff;color:var(--navy)}
+
+/* 6 bancada */
+.banc .painel{position:absolute;left:96px;top:250px;width:930px;height:560px;border-radius:24px;background-color:#E4E9F2;background-image:radial-gradient(circle,#C5CEDE 3.5px,transparent 4px);background-size:34px 34px;padding:44px 40px}
+.banc .tag{position:absolute;width:170px;background:var(--papel);border-radius:10px 10px 14px 14px;padding:28px 16px 16px;font-size:14px;line-height:1.3;transform-origin:50% 0;transition:transform .3s}
+.banc .tag:hover{transform:rotate(-4deg)}
+.banc .tag::before{content:"";position:absolute;left:50%;top:9px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#E4E9F2}
+.banc .tag b{display:block;font-family:"Exo 2";font-size:24px;color:var(--navy);margin-top:6px}
+.banc .lado{position:absolute;right:96px;top:260px;width:420px}
+.banc .lado .grande{font-family:"Exo 2";font-size:76px;font-weight:700;color:var(--navy);line-height:1}
+.banc .lado label{display:block;font-size:18px;color:var(--suave);margin:34px 0 10px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:4px;background:var(--fraco);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--azul);box-shadow:0 0 0 4px #fff}
+input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--azul);border:4px solid #fff}
+.escura input[type=range]{background:#20396F}
+.banc .marcas{display:flex;justify-content:space-between;font-size:13px;color:var(--suave);margin-top:8px}
+.banc .res{margin-top:26px;background:var(--navy);color:#fff;border-radius:18px;padding:22px 26px;font-size:18px;line-height:1.4}
+.banc .res b{font-family:"Exo 2";font-size:40px;color:var(--teal);display:block}
+
+/* 7 tags */
+.tags .grade{position:absolute;left:96px;top:270px;display:flex;gap:40px}
+.tags .bloco h4{font-size:15px;color:var(--suave);font-weight:600;margin-bottom:12px}
+.tags .pts{display:grid;grid-template-columns:repeat(10,28px);gap:6px}
+.tags .pts i{width:28px;height:28px;border-radius:8px;background:var(--navy);position:relative;transition:transform .2s,background .2s}
+.tags .pts i::after{content:"";position:absolute;left:10px;top:4px;width:8px;height:8px;border-radius:50%;background:var(--fundo)}
+.tags .pts.r i{background:#AEB8CC}
+.tags .bloco:hover .pts:not(.r) i{background:var(--azul)}
+.tags .lado{position:absolute;right:96px;top:262px;width:470px}
+.tags .campo{display:flex;align-items:center;gap:10px;background:var(--papel);border-radius:16px;padding:14px 18px;font-size:18px}
+.tags .campo input{width:120px;border:0;background:var(--fundo);border-radius:10px;padding:8px 12px;font-size:22px;font-weight:600;font-family:"Exo 2"}
+.tags .tot{font-family:"Exo 2";font-size:72px;font-weight:700;color:var(--navy);line-height:1;margin-top:22px}
+.tags .ln{display:flex;justify-content:space-between;font-size:18px;padding:12px 0;box-shadow:0 1px 0 var(--fraco)}
+.tags .aviso{margin-top:22px;background:var(--ambF);border-radius:16px;padding:16px 20px;font-size:16px;line-height:1.45}
+
+/* 8 fatura */
+.fat .cab{position:absolute;left:96px;top:340px;width:440px}
+.fat .cab .v{font-family:"Exo 2";font-size:110px;font-weight:700;color:var(--navy);line-height:.9;margin-top:10px}
+.fat .cab .v small{font-size:30px;color:var(--suave);font-weight:600}
+.fat .cab .meses{display:flex;gap:16px;margin-top:34px}
+.fat .cab .meses div{flex:1;background:var(--papel);border-radius:16px;padding:16px 18px;font-size:14px;color:var(--suave)}
+.fat .cab .meses b{display:block;font-family:"Exo 2";font-size:28px;color:var(--tinta)}
+.fat .doc{position:absolute;right:96px;top:120px;width:880px;background:var(--papel);border-radius:22px;padding:28px 34px}
+.fat .doc .hd{display:grid;grid-template-columns:1fr 130px 150px 120px;gap:12px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--suave);padding-bottom:10px;box-shadow:0 2px 0 var(--fraco)}
+.fat .doc .ln{display:grid;grid-template-columns:1fr 130px 150px 120px;gap:12px;align-items:center;font-size:16px;padding:12px 0;box-shadow:0 1px 0 var(--fraco)}
+.fat .doc .ln small{display:block;font-size:13px;color:var(--suave);margin-top:2px}
+.fat .doc .ln .r{text-align:right}
+.fat .doc .ln .g{color:#0E9488;font-weight:600}
+.fat .doc .tt{display:flex;justify-content:space-between;font-family:"Exo 2";font-size:28px;font-weight:700;padding-top:14px}
+
+/* 9 cartão de ponto */
+.ponto .cal{position:absolute;left:96px;top:262px;display:flex;gap:44px}
+.ponto .mes h4{font-family:"Exo 2";font-size:20px;margin-bottom:10px}
+.ponto .dias{display:grid;grid-template-columns:repeat(7,58px);gap:6px}
+.ponto .dias span{font-size:12px;color:var(--suave);text-align:center}
+.ponto .dias i{height:52px;border-radius:9px;background:var(--fraco);font-style:normal;font-size:12px;color:var(--suave);padding:5px 7px;display:flex;flex-direction:column;justify-content:space-between}
+.ponto .dias i b{font-size:15px;font-family:"Exo 2";align-self:flex-end}
+.ponto .dias i.n1{background:#BDEFEA;color:var(--navy)}.ponto .dias i.n2{background:var(--teal);color:var(--navy)}.ponto .dias i.n3{background:var(--azul);color:#fff}.ponto .dias i.n4{background:var(--navy);color:#fff}
+.ponto .dias i.vz{background:transparent}
+.ponto .lado{position:absolute;right:96px;top:250px;width:440px}
+.ponto .lado .h{font-family:"Exo 2";font-size:84px;font-weight:700;line-height:1;color:var(--navy)}
+.ponto .lado .ln{display:flex;justify-content:space-between;gap:12px;font-size:16px;padding:9px 0;box-shadow:0 1px 0 var(--fraco)}
+.ponto .lado .ln small{display:block;color:var(--suave);font-size:13px}
+.ponto .lado .vh{margin-top:20px;font-size:16px;color:var(--suave)}
+.ponto .lado .vh b{color:var(--tinta);font-size:20px}
+.ponto .lado .res{margin-top:16px;display:flex;justify-content:space-between;align-items:baseline;background:var(--navy);color:#fff;border-radius:16px;padding:16px 22px}
+.ponto .lado .res b{font-family:"Exo 2";font-size:38px;color:var(--teal)}
+.ponto .legenda{position:absolute;left:96px;top:745px;display:flex;gap:18px;font-size:13px;color:var(--suave);align-items:center}
+.ponto .legenda i{display:inline-block;width:16px;height:16px;border-radius:4px;vertical-align:-3px;margin-right:6px}
+
+/* 10 mercado */
+.merc .q{position:absolute;background:var(--navy);color:#fff}
+.merc .grande{left:810px;top:128px;width:690px;height:690px;display:flex;border-radius:6px;overflow:hidden;background:transparent;gap:4px}
+.merc .col{flex:1;display:flex;flex-direction:column;gap:4px}
+.merc .mod{background:var(--navy);padding:14px 16px;font-size:14px;color:#B9C6E4;display:flex;flex-direction:column;justify-content:space-between;transition:background .2s;cursor:pointer;overflow:hidden}
+.merc .mod b{color:#fff;font-family:"Exo 2";font-size:20px;display:block}
+.merc .mod:hover,.merc .mod.on{background:var(--azul)}
+.merc .peq{left:680px;top:711px;width:107px;height:107px;background:var(--teal);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:"Exo 2";font-weight:700;font-size:15px;text-align:center;border-radius:4px}
+.merc .txt{position:absolute;left:96px;top:290px;width:460px}
+.merc .lin{display:flex;gap:14px;align-items:baseline;margin-top:24px}
+.merc .lin b{font-family:"Exo 2";font-size:52px;font-weight:700;line-height:1}
+.merc .lin span{font-size:16px;color:var(--suave)}
+.merc .det{margin-top:28px;background:var(--papel);border-radius:16px;padding:18px 22px;font-size:16px;line-height:1.45;min-height:120px}
+.merc .det b{font-family:"Exo 2";font-size:20px}
+.merc .seta{position:absolute;left:560px;top:806px;font-size:15px;color:var(--suave);width:40px}
+
+/* 11 etiquetas */
+.etq .par{position:absolute;left:96px;right:96px;top:270px;display:flex;gap:44px}
+.etq .et{flex:1;border-radius:22px;overflow:hidden;background:var(--papel)}
+.etq .et .faixa{padding:22px 30px;font-family:"Exo 2";font-size:24px;font-weight:700;color:#fff;background:var(--navy);display:flex;justify-content:space-between;align-items:center}
+.etq .et.b .faixa{background:var(--azul)}
+.etq .et .faixa span{font-family:Inter;font-weight:500;font-size:15px;opacity:.85}
+.etq .et .preco{padding:26px 30px 10px;display:flex;align-items:flex-start;gap:8px}
+.etq .et .preco sup{font-size:30px;font-weight:700;font-family:"Exo 2";margin-top:16px}
+.etq .et .preco b{font-family:"Exo 2";font-size:130px;line-height:1;font-weight:800;letter-spacing:-3px}
+.etq .et .preco .cent{font-family:"Exo 2";font-size:48px;font-weight:700;margin-top:14px}
+.etq .et .preco small{font-size:16px;color:var(--suave);align-self:flex-end;margin:0 0 22px 10px;max-width:170px;line-height:1.35}
+.etq .et ul{list-style:none;padding:6px 30px 26px}
+.etq .et li{display:flex;justify-content:space-between;font-size:17px;padding:10px 0;box-shadow:0 1px 0 var(--fraco)}
+.etq .et li:last-child{box-shadow:none}
+.etq .et .rod{background:var(--fundo);margin:0 30px 26px;border-radius:12px;padding:12px 16px;font-size:15px;color:var(--suave)}
+
+/* 12 simulador */
+.sim .ctl{position:absolute;left:96px;top:262px;width:480px}
+.sim .ctl label{display:flex;justify-content:space-between;font-size:17px;color:#B9C6E4;margin:30px 0 12px}
+.sim .ctl label b{font-family:"Exo 2";font-size:26px;color:#fff}
+.sim .pres{display:flex;gap:10px;margin-top:6px}
+.sim .pres button{border:0;border-radius:999px;padding:10px 18px;background:#14306B;color:#fff;font-weight:600;cursor:pointer}
+.sim .pres button.on{background:var(--teal);color:var(--navy)}
+.sim .out{position:absolute;right:96px;top:250px;width:820px}
+.sim .big{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:20px;box-shadow:0 2px 0 #20396F}
+.sim .big b{font-family:"Exo 2";font-size:80px;font-weight:700;color:var(--teal);line-height:1}
+.sim .big span{font-size:16px;color:#9FB0D6;max-width:300px;text-align:right}
+.sim .ln{display:grid;grid-template-columns:1fr 200px;gap:20px;padding:13px 0;font-size:17px;box-shadow:0 1px 0 #1A3369;align-items:baseline}
+.sim .ln small{display:block;color:#8FA2CC;font-size:13px;margin-top:2px}
+.sim .ln b{text-align:right;font-family:"Exo 2";font-size:24px;font-weight:600}
+.sim .ok{color:var(--teal)}.sim .atn{color:var(--amb)}
+
+/* 13 premissas */
+.prem .cols{position:absolute;left:96px;right:96px;top:262px;display:flex;gap:28px}
+.prem .c{flex:1}
+.prem .c h4{font-family:"Exo 2";font-size:22px;padding:12px 18px;border-radius:14px;margin-bottom:12px;display:flex;justify-content:space-between}
+.prem .c.ok h4{background:var(--tealF)}.prem .c.es h4{background:var(--azulF)}.prem .c.pe h4{background:var(--amb);color:#3A2600}
+.prem .it{background:var(--papel);border-radius:14px;padding:13px 18px;margin-bottom:10px;font-size:15px;line-height:1.4;cursor:pointer}
+.prem .it b{display:block;font-size:16px}
+.prem .it .mais{display:none;color:var(--suave);margin-top:6px;font-size:14px}
+.prem .it.aberto .mais{display:block}
+
+/* 14 fim */
+.fim{padding:150px 96px 80px}
+.fim h2{font-size:92px;line-height:1;font-weight:800;letter-spacing:-1px}
+.fim .tres{display:flex;gap:30px;margin-top:60px}
+.fim .tres div{flex:1;background:var(--navy2);border-radius:20px;padding:24px 28px;font-size:16px;color:#B9C6E4;line-height:1.4}
+.fim .tres b{display:block;font-family:"Exo 2";font-size:44px;color:#fff;font-weight:700;margin-bottom:6px}
+.fim .acoes{display:flex;gap:16px;margin-top:50px;align-items:center}
+.fim .acoes a{display:inline-flex;align-items:center;gap:12px;background:var(--teal);color:var(--navy);font-weight:700;font-size:20px;padding:18px 30px;border-radius:999px;text-decoration:none}
+.fim .acoes span{color:#9FB0D6;font-size:16px}
+.girar{display:none}
+@media (orientation:portrait) and (max-width:700px){.girar{display:block;position:fixed;left:16px;right:16px;bottom:16px;background:#fff;color:var(--navy);border-radius:14px;padding:12px 16px;font-size:14px;z-index:20;text-align:center}.girar a{color:var(--azul);font-weight:600}}
+</style>
+</head>
+<body>
+<div class="palco" id="palco">
+  <div class="topo">
+    <div class="marca"><img src="img/codice-simbolo.svg" alt="">Códice <span>· Levantamento de custos</span></div>
+    <div class="dir"><span id="contador">1 / 14</span><img class="logo-escuro" src="img/logo-75lab-preto.png" alt="75 LAB"><img class="logo-claro" src="img/logo-75lab-branco.png" alt="75 LAB"></div>
+  </div>
+
+  <!-- 1 capa -->
+  <section class="tela escura capa" data-tema="escuro">
+    <div class="kick">Levantamento de custos · 09/09 a 23/10/2026</div>
+    <h1>Quanto custou construir a Códice</h1>
+    <div class="total"><b class="num" data-conta="total" data-fmt="brl0">R$ 0</b><span>Plataforma, 204 tags rastreadas, módulo smart ESP32, nuvem, ferramenta e mão de obra. O que falta confirmar está marcado.</span></div>
+    <img class="bloco3d" src="img/codice-simbolo.svg" alt="">
+    <div class="tres">
+      <div><strong class="num" data-v="nCompras">28</strong>pedidos de peças e ferramentas</div>
+      <div><strong class="num" data-v="hTotal" data-fmt="h">83 h</strong>de trabalho (58 medidas)</div>
+      <div><strong class="num" data-v="sistemaMes" data-fmt="brl">R$ 8,45</strong>por mês para manter no ar</div>
+      <div><strong class="num">4,5 meses</strong>que uma equipe de 5 levaria sem IA</div>
+    </div>
+    <div class="fonte">Fonte: histórico de pedidos da Shopee e do AliExpress, faturamento do Google Cloud, pagamentos da Hostinger, registro das sessões de trabalho e repositórios do projeto, lidos em 23/10/2026.</div>
+  </section>
+
+  <!-- 2 cupom -->
+  <section class="tela">
+    <h2 class="tit" style="max-width:780px">R$ 21,9 mil no total; <em>R$ 9,4 mil</em> saíram do caixa</h2>
+    <div class="cupom-l">
+      <p class="lead">O resto é tempo de trabalho, cobrado aqui a valor de mercado. Quase todo o dinheiro pago está nas 204 tags, cujo preço ainda precisa ser confirmado.</p>
+      <div class="lenda">
+        <div><b class="num" data-v="pctTags">86%</b> do que saiu do caixa são as tags <span class="pend">a confirmar</span></div>
+        <div><b class="num" data-v="compras" data-fmt="brl">R$ 1.049,69</b> em 28 pedidos de peças, testes e ferramentas</div>
+        <div><b class="num" data-v="nuvemClaude" data-fmt="brl">R$ 292,85</b> de nuvem, hospedagem e IA no período</div>
+      </div>
+    </div>
+    <div class="cupom">
+      <h3>CÓDICE</h3>
+      <div class="sub">Cupom do projeto · 09/09 a 23/10/2026</div>
+      <div class="ln" data-ir="4"><span>Compras Shopee<small>19 pedidos</small></span><b class="num" data-v="shopee" data-fmt="brl"></b></div>
+      <div class="ln" data-ir="5"><span>Compras AliExpress<small>9 pedidos, com frete e impostos</small></span><b class="num" data-v="ali" data-fmt="brl"></b></div>
+      <div class="ln" data-ir="7"><span>Tags Find My (204) <span class="pend">a confirmar</span><small>R$ 39,56 cada, preço de referência</small></span><b class="num" data-v="tags" data-fmt="brl"></b></div>
+      <div class="ln" data-ir="8"><span>Nuvem e hospedagem<small>setembro e outubro</small></span><b class="num" data-v="sistemaPeriodo" data-fmt="brl"></b></div>
+      <div class="ln" data-ir="9"><span>Claude, parcela da Códice<small>58 de 311 h de uso no período</small></span><b class="num" data-v="claude" data-fmt="brl"></b></div>
+      <div class="sep"></div>
+      <div class="ln sub2"><span>Saiu do caixa</span><b class="num" data-v="caixa" data-fmt="brl"></b></div>
+      <div class="ln" data-ir="9"><span>Mão de obra<small>83,2 h a R$ 150/h</small></span><b class="num" data-v="maoDeObra" data-fmt="brl"></b></div>
+      <div class="sep"></div>
+      <div class="tot"><span>TOTAL</span><span class="num" data-v="total" data-fmt="brl"></span></div>
+      <div class="nota">Clique numa linha para ver o detalhe.</div>
+    </div>
+    <div class="fonte">Fonte: pedidos da Shopee (19) e do AliExpress (9) com o valor pago; faturamento do Google Cloud; Hostinger; pagamentos do Claude; registro das sessões. Tags: preço de referência até a nota de compra.</div>
+  </section>
+
+  <!-- 3 linha do tempo -->
+  <section class="tela tempo">
+    <h2 class="tit">As peças chegaram em <em>12 dias</em>; o trabalho seguiu por 6 semanas</h2>
+    <p class="lead">Em cima, quanto foi comprado em cada dia. Embaixo, as horas de trabalho medidas. Passe o mouse para ver.</p>
+    <svg id="svgTempo" viewBox="0 0 1408 520"></svg>
+    <div class="dica" id="dicaTempo"></div>
+    <div class="fonte">Fonte: data de cada pedido na Shopee e no AliExpress; horas ativas das sessões de trabalho no projeto (blocos com pausas de até 20 min); marcos pelos commits do repositório.</div>
+  </section>
+
+  <!-- 4 módulo -->
+  <section class="tela bom">
+    <h2 class="tit">Cada módulo smart sai por <em class="num" data-v="bom" data-fmt="brl">R$ 90,58</em> em peças</h2>
+    <svg viewBox="0 0 860 600" id="svgBom">
+      <rect x="250" y="150" width="360" height="300" rx="36" fill="#DDF8F5"/>
+      <text x="430" y="186" text-anchor="middle" font-family="Exo 2" font-size="16" fill="#0E6F69" font-weight="600">CAIXA VEDADA</text>
+      <rect x="300" y="215" width="260" height="150" rx="12" fill="#061B49"/>
+      <g fill="#C7D2E8">${PINOS}</g>
+      <rect x="395" y="255" width="70" height="60" rx="6" fill="#2A3F70"/>
+      <text x="430" y="290" text-anchor="middle" font-family="Exo 2" font-size="15" fill="#fff" font-weight="700">ESP32</text>
+      <rect x="320" y="330" width="36" height="22" rx="4" fill="#C7D2E8"/>
+      <!-- HC-SR04 -->
+      <g id="pHc"><rect x="20" y="70" width="190" height="96" rx="14" fill="#2F73FF"/><circle cx="72" cy="118" r="30" fill="#E3ECFF"/><circle cx="158" cy="118" r="30" fill="#E3ECFF"/><circle cx="72" cy="118" r="14" fill="#9DB8F5"/><circle cx="158" cy="118" r="14" fill="#9DB8F5"/></g>
+      <path d="M210 118 C 260 118 270 240 300 250" stroke="#061B49" stroke-width="3" fill="none"/>
+      <text x="20" y="52" font-size="17" font-weight="700" fill="#0B1530">Ultrassom HC-SR04</text><text x="20" y="196" font-size="15" fill="#5B6683">abordagem até 120 cm · R$ 19,99</text>
+      <!-- DHT11 -->
+      <g><rect x="60" y="390" width="110" height="130" rx="14" fill="#2F73FF"/><g fill="#E3ECFF">${GRADE}</g></g>
+      <path d="M170 440 C 240 440 260 340 300 335" stroke="#061B49" stroke-width="3" fill="none"/>
+      <text x="20" y="372" font-size="17" font-weight="700" fill="#0B1530">Clima DHT11</text><text x="20" y="550" font-size="15" fill="#5B6683">temperatura e umidade · R$ 20,99</text>
+      <!-- jumpers e resistores -->
+      <path d="M560 250 C 640 250 650 120 700 110" stroke="#1DD4C8" stroke-width="5" fill="none"/><path d="M560 270 C 650 270 660 140 720 130" stroke="#2F73FF" stroke-width="5" fill="none"/><path d="M560 290 C 660 290 670 160 740 150" stroke="#061B49" stroke-width="5" fill="none"/>
+      <text x="660" y="70" font-size="17" font-weight="700" fill="#0B1530">Jumpers e resistores</text><text x="660" y="94" font-size="15" fill="#5B6683">6 fios + divisor 1k/2k · R$ 2,10</text>
+      <!-- acelerômetro opcional -->
+      <g id="pAcel" opacity=".35"><rect x="690" y="380" width="120" height="90" rx="12" fill="#2F73FF"/><rect x="730" y="405" width="40" height="40" rx="4" fill="#061B49"/>
+      <path d="M560 340 C 620 340 640 420 690 425" stroke="#2F73FF" stroke-width="3" fill="none" stroke-dasharray="7 7"/>
+      <text x="660" y="500" font-size="17" font-weight="700" fill="#0B1530">Acelerômetro (opcional)</text><text x="660" y="524" font-size="15" fill="#5B6683">pancada e arrasto · R$ 14,49</text></g>
+      <text x="430" y="420" text-anchor="middle" font-size="15" fill="#0E6F69">R$ 7,51 (1 de um kit de 4)</text>
+      <text x="430" y="342" text-anchor="middle" font-size="14" fill="#C7D2E8">placa 30 pinos · R$ 39,99</text>
+    </svg>
+    <div class="lista" id="listaBom"></div>
+    <div class="fonte">Fonte: pedidos da Shopee de 10/09 e 20/09 e do AliExpress de 13/09; kit de fábrica do firmware 2.1.1 (ESP32 + HC-SR04 + DHT11). Preço de varejo de 1 unidade: em lote tende a cair.</div>
+  </section>
+
+  <!-- 5 peneira -->
+  <section class="tela pene">
+    <h2 class="tit"><em class="num" data-v="pd" data-fmt="brl0">R$ 401</em> em testes escolheram o kit antes da escala</h2>
+    <div class="area" id="areaPene">
+      <div class="veredito" id="veredito">Clique numa peça para ver o que aconteceu com ela.</div>
+      <div class="rede"></div>
+      <div class="rotulo" style="left:0;top:60px"><b class="num" data-v="pd" data-fmt="brl">R$ 401,06</b>testado e avaliado</div>
+      <div class="rotulo" style="left:0;top:350px"><b class="num" data-v="modulo" data-fmt="brl">R$ 172,30</b>peças do kit de fábrica</div>
+      <button class="btn" id="btnPene" style="position:absolute;left:0;top:440px">Peneirar de novo</button>
+    </div>
+    <div class="fonte">Fonte: pedidos de 09/09 a 20/09 na Shopee e no AliExpress; kit de fábrica do firmware 2.1.1. O tamanho de cada círculo acompanha o preço pago.</div>
+  </section>
+
+  <!-- 6 bancada -->
+  <section class="tela banc">
+    <h2 class="tit">A bancada custou <em class="num" data-v="bancada" data-fmt="brl0">R$ 476</em> e serve para os próximos módulos</h2>
+    <div class="painel" id="painelBanc"></div>
+    <div class="lado">
+      <div class="grande num" data-v="bancada" data-fmt="brl">R$ 476,33</div>
+      <div style="font-size:18px;color:var(--suave);margin-top:8px">10 itens comprados uma vez</div>
+      <label for="rgBanc">Dividida por quantos módulos?</label>
+      <input type="range" id="rgBanc" min="0" max="6" step="1" value="4">
+      <div class="marcas"><span>1</span><span>10</span><span>50</span><span>100</span><span>200</span><span>500</span><span>1.000</span></div>
+      <div class="res"><b class="num" id="resBanc">R$ 2,38</b><span id="resBancTxt">por módulo, com 200 módulos</span></div>
+    </div>
+    <div class="fonte">Fonte: pedidos da Shopee de 13/09, 16/09 e 20/09 e do AliExpress de 13/09 (soprador térmico e pasta de solda, esta ainda a caminho).</div>
+  </section>
+
+  <!-- 7 tags -->
+  <section class="tela tags">
+    <h2 class="tit">As 204 tags são o maior gasto, e o <em>preço ainda é estimado</em></h2>
+    <div class="grade">
+      <div class="bloco"><h4>Conta Google 1 · 100 tags</h4><div class="pts" data-n="100"></div></div>
+      <div class="bloco"><h4>Conta Google 2 · 100 tags</h4><div class="pts" data-n="100"></div></div>
+      <div class="bloco"><h4>Fora de uso · 4</h4><div class="pts r" data-n="4" style="grid-template-columns:repeat(2,28px)"></div></div>
+    </div>
+    <div class="lado">
+      <label class="campo">Preço por tag R$ <input type="number" id="inTag" value="39.56" step="0.01" min="0"> <span class="pend">a confirmar</span></label>
+      <div class="tot num" id="totTag">R$ 8.070,24</div>
+      <div class="ln"><span>204 tags compradas</span><b class="num" id="totTag2"></b></div>
+      <div class="ln"><span>Pilhas CR2032 por ano (1 troca)</span><b class="num" data-v="pilhasAno" data-fmt="brl"></b></div>
+      <div class="ln"><span>Rede do Google e 2 contas</span><b>R$ 0,00</b></div>
+      <div class="aviso"><b>Pendente:</b> as tags (α'GOLD PLUS TCD-06B) e o celular Android usado no pareamento não estão nos pedidos da Shopee nem do AliExpress. Falta a nota com loja, data e valor.</div>
+    </div>
+    <div class="fonte">Fonte: preço de referência de mini rastreador compatível com Encontre Meu Dispositivo, R$ 39,56 no Pix (<a href="https://m.magazineluiza.com.br/busca/kit+2+smarttrackers/" target="_blank" rel="noopener">Magazine Luiza</a>); pilha a R$ 6,96 (5 por R$ 34,82, pedido da Shopee de 07/06/2026); 100 tags por conta na plataforma.</div>
+  </section>
+
+  <!-- 8 fatura -->
+  <section class="tela fat">
+    <h2 class="tit" style="max-width:520px">No ar, a plataforma custa <em>R$ 8,45</em> por mês</h2>
+    <div class="cab">
+      <div class="v num">R$ 8<small>,45/mês</small></div>
+      <div class="meses"><div><b class="num">R$ 5,63</b>setembro</div><div><b class="num">R$ 8,14</b>outubro até dia 23</div></div>
+      <p class="lead" style="font-size:18px">Quase tudo cabe na cota grátis. O agendador foi de 15 rotinas para 2 relógios em 10/10 e deixou de cobrar.</p>
+    </div>
+    <div class="doc" id="fatura"></div>
+    <div class="fonte">Fonte: faturamento do Google Cloud (conta "Pagamento do Firebase", relatório por serviço de outubro e fatura de setembro); histórico de pagamentos da Hostinger; uso do GitHub Actions; painéis do Google Maps.</div>
+  </section>
+
+  <!-- 9 mão de obra -->
+  <section class="tela ponto">
+    <h2 class="tit" style="max-width:1000px"><em class="num">83 horas</em> de trabalho: 58 medidas, 25 estimadas</h2>
+    <div class="cal" id="cal"></div>
+    <div class="legenda"><span><i style="background:var(--fraco)"></i>sem sessão</span><span><i style="background:#BDEFEA"></i>até 1 h</span><span><i style="background:var(--teal)"></i>1 a 3 h</span><span><i style="background:var(--azul)"></i>3 a 6 h</span><span><i style="background:var(--navy)"></i>mais de 6 h</span></div>
+    <div class="lado">
+      <div class="h num">83,2 h</div>
+      <div class="ln"><span>Sessões no projeto (medidas)<small>22 dias, 10/09 a 23/10</small></span><b class="num">58,0 h</b></div>
+      <div class="ln"><span>Pareamento das 204 tags<small>3 min por tag, estimado</small></span><b class="num">10,2 h</b></div>
+      <div class="ln"><span>Montagem, solda e testes do ESP32<small>estimado</small></span><b class="num">12,0 h</b></div>
+      <div class="ln"><span>Cadastros e contas do coletor<small>estimado</small></span><b class="num">3,0 h</b></div>
+      <div class="vh">Valor-hora: <b class="num" id="vhTxt">R$ 150</b> (faixa de pleno: R$ 120 a R$ 200)</div>
+      <input type="range" id="rgVh" min="120" max="200" step="10" value="150" style="margin-top:10px">
+      <div class="res"><span>Mão de obra</span><b class="num" id="vhRes">R$ 12.480</b></div>
+      <div class="ln" style="margin-top:10px"><span>Ferramenta: Claude<small>18,6% de R$ 1.498,35 pagos no período</small></span><b class="num" data-v="claude" data-fmt="brl"></b></div>
+    </div>
+    <div class="fonte">Fonte: registro das sessões do Claude Code com comandos no projeto; 246 commits em 22 dias. Valor-hora: <a href="https://geracontratos.com.br/recursos/tabela-valores-servicos-profissionais" target="_blank" rel="noopener">GeraContratos</a> e <a href="https://monitordomercado.com.br/noticias/399275-quanto-um-programador-freelancer-cobra-por-hora-no-brasil-em-2026-e-o-que-define-o-nivel-junior-pleno-e-senior/" target="_blank" rel="noopener">Monitor do Mercado</a> (2026).</div>
+  </section>
+
+  <!-- 10 mercado -->
+  <section class="tela merc">
+    <h2 class="tit" style="max-width:640px">Sem IA, o mesmo escopo pediria <em>R$ 534 mil</em></h2>
+    <div class="txt">
+      <div class="lin"><b class="num" style="color:var(--teal)">83 h</b><span>e R$ 12,8 mil com IA<br>(mão de obra + Claude)</span></div>
+      <div class="lin"><b class="num" style="color:var(--navy)">3.148 h</b><span>e R$ 534,2 mil com equipe tradicional · 4,5 meses com 5 pessoas</span></div>
+      <div class="det" id="detMerc"><b>Passe o mouse nos blocos</b><br>Cada bloco é um pedaço da Códice com as horas e o valor-hora de mercado. O quadrado verde é o que custou de fato, na mesma escala.</div>
+    </div>
+    <div class="q grande" id="treemap"></div>
+    <div class="q peq">R$ 12,8<br>mil</div>
+    <div class="fonte">Fonte: horas por módulo estimadas pelo escopo entregue (50 telas, 54 funções, coletor, firmware); valor-hora pleno R$ 150 e sênior R$ 250 (GeraContratos; Monitor do Mercado). Conferência: 53.470 linhas ÷ 20 linhas/h = 2.674 h.</div>
+  </section>
+
+  <!-- 11 etiquetas -->
+  <section class="tela etq">
+    <h2 class="tit">Rastrear um display custa <em>R$ 47</em> no primeiro ano</h2>
+    <div class="par">
+      <div class="et">
+        <div class="faixa">Display rastreado <span>tag Find My</span></div>
+        <div class="preco"><sup>R$</sup><b class="num">47</b><span class="cent">,03</span><small>no 1º ano; depois R$ 7,47 por ano</small></div>
+        <ul>
+          <li><span>Tag (preço de referência) <span class="pend">a confirmar</span></span><b class="num" data-v="pt" data-fmt="brl"></b></li>
+          <li><span>Pilha CR2032, 1 por ano</span><b class="num">R$ 6,96</b></li>
+          <li><span>Nuvem e hospedagem por tag no ano</span><b class="num" data-v="sistemaPorTagAno" data-fmt="brl"></b></li>
+        </ul>
+        <div class="rod">+ 3 min de pareamento por tag</div>
+      </div>
+      <div class="et b">
+        <div class="faixa">Display smart <span>módulo ESP32</span></div>
+        <div class="preco"><sup>+R$</sup><b class="num">90</b><span class="cent">,58</span><small>em peças, além do rastreamento</small></div>
+        <ul>
+          <li><span>ESP32, ultrassom e clima</span><b class="num">R$ 80,97</b></li>
+          <li><span>Caixa vedada, fios e resistores</span><b class="num">R$ 9,61</b></li>
+          <li><span>Acelerômetro (opcional)</span><b class="num">+ R$ 14,49</b></li>
+        </ul>
+        <div class="rod">+ 30 min de montagem e gravação (estimado) · fonte USB e cabo <span class="pend">a confirmar</span></div>
+      </div>
+    </div>
+    <div class="fonte">Fonte: telas anteriores; nuvem por tag = R$ 8,45 por mês × 12 ÷ 200 tags ativas. Preços de varejo de 1 unidade.</div>
+  </section>
+
+  <!-- 12 simulador -->
+  <section class="tela escura sim" data-tema="escuro">
+    <h2 class="tit">Na escala, quase tudo é <em>hardware</em>; a nuvem fica em centavos por display</h2>
+    <div class="ctl">
+      <div class="pres"><button data-n="200" class="on">Hoje</button><button data-n="1000">1.000</button><button data-n="5000">5.000</button></div>
+      <label for="rgN">Displays rastreados <b class="num" id="nTxt">200</b></label>
+      <input type="range" id="rgN" min="200" max="5000" step="100" value="200">
+      <label for="rgS">Parte com módulo smart <b class="num" id="sTxt">20%</b></label>
+      <input type="range" id="rgS" min="0" max="100" step="10" value="20">
+      <p class="lead" style="font-size:16px;margin-top:30px">A nuvem cresce em linha com o uso medido em outubro, já sem a cota grátis. O tempo de campo usa os minutos por unidade das telas anteriores.</p>
+    </div>
+    <div class="out" id="simOut"></div>
+    <div class="fonte">Fonte: projeção com os números deste levantamento. Nuvem: (R$ 2,84 pagos + R$ 3,60 cobertos pela cota) ÷ 200 tags por mês. GitHub: 398 min de outubro, cota grátis de 2.000 min no repositório privado.</div>
+  </section>
+
+  <!-- 13 premissas -->
+  <section class="tela prem">
+    <h2 class="tit">Três números ainda dependem de <em>confirmação</em></h2>
+    <div class="cols" id="cols"></div>
+    <div class="fonte">Clique num item para ver de onde vem o número. A lista completa, com cada linha, está no anexo.</div>
+  </section>
+
+  <!-- 14 fim -->
+  <section class="tela escura fim" data-tema="escuro">
+    <h2>Cada linha deste levantamento está no anexo</h2>
+    <p class="lead" style="font-size:24px;max-width:900px">Tabela com os 28 pedidos, a nuvem mês a mês, as horas por dia, o equivalente de mercado e um simulador para trocar o valor-hora e o preço da tag.</p>
+    <div class="tres">
+      <div><b class="num" data-v="total" data-fmt="mil">R$ 21,9 mil</b>investidos até 23/10, com mão de obra</div>
+      <div><b class="num" data-v="recorrenteMes" data-fmt="brl">R$ 126,77</b>por mês para manter: nuvem, hospedagem e pilhas</div>
+      <div><b class="num">R$ 47,03</b>por display rastreado no 1º ano</div>
+    </div>
+    <div class="acoes"><a href="detalhes.html">Abrir o anexo detalhado →</a><span>Levantamento feito pela 75 LAB em 23/10/2026</span></div>
+    <div class="fonte">Fonte: todas as telas anteriores.</div>
+  </section>
+
+  <nav class="nav"><button id="ant" aria-label="Tela anterior">←</button><button id="prox" aria-label="Próxima tela">→</button></nav>
+  <div class="trilha"><i id="trilha"></i></div>
+</div>
+<div class="girar">Gire o celular para ver o deck, ou abra o <a href="detalhes.html">anexo detalhado</a>.</div>
+<div class="cur-anel" id="curA"></div><div class="cur-ponto" id="curP"></div>
+
+<script src="dados.js"></script>
+<script src="calc.js"></script>
+<script>
+(function(){
+const C = window.CUSTOS, K = window.CALC, r = K.contas(C);
+const { brl, num, mil, dataBR } = K;
+const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+/* valores calculados nos marcadores data-v */
+const V = Object.assign({}, r, {
+  nCompras: C.compras.length, shopee: r.porCanal.Shopee, ali: r.porCanal.AliExpress,
+  pd: r.porCat.pd, bancada: r.porCat.bancada, modulo: r.porCat.modulo,
+  pctTags: Math.round(r.tags / r.caixa * 100) + "%", nuvemClaude: r.sistemaPeriodo + r.claude,
+});
+const FMT = { brl: (v) => brl(v), brl0: (v) => brl(v, 0), mil: (v) => mil(v), h: (v) => num(v, 0) + " h" };
+$$("[data-v]").forEach((el) => { const v = V[el.dataset.v]; el.textContent = el.dataset.fmt ? FMT[el.dataset.fmt](v) : v; });
+
+/* palco escalado e centralizado */
+const palco = $("#palco");
+function escala(){ palco.style.setProperty("--s", Math.min(innerWidth / 1600, innerHeight / 900)); }
+addEventListener("resize", escala); escala();
+
+/* navegação */
+const telas = $$(".tela"); let atual = 0; const ja = new Set();
+function ir(i){
+  i = Math.max(0, Math.min(telas.length - 1, i));
+  telas[atual].classList.remove("ativa"); atual = i; const t = telas[i]; t.classList.add("ativa");
+  palco.classList.toggle("escuro", t.dataset.tema === "escuro");
+  $("#contador").textContent = `${i + 1} / ${telas.length}`;
+  $("#trilha").style.width = ((i + 1) / telas.length * 100) + "%";
+  $("#ant").disabled = i === 0; $("#prox").disabled = i === telas.length - 1;
+  history.replaceState(null, "", "#" + (i + 1));
+  if (!ja.has(i)) { ja.add(i); ao[i]?.(); }
+  $$("[data-conta]", t).forEach(contar);
+}
+$("#ant").onclick = () => ir(atual - 1); $("#prox").onclick = () => ir(atual + 1);
+addEventListener("keydown", (e) => {
+  if (e.target.tagName === "INPUT") return;
+  if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); ir(atual + 1); }
+  if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); ir(atual - 1); }
+  if (e.key === "Home") ir(0); if (e.key === "End") ir(telas.length - 1);
+});
+let tx = null; addEventListener("touchstart", (e) => { tx = e.touches[0].clientX; }, { passive: true });
+addEventListener("touchend", (e) => { if (tx == null) return; const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50 && e.target.type !== "range") ir(atual + (d < 0 ? 1 : -1)); tx = null; });
+$$(".cupom .ln[data-ir]").forEach((l) => l.onclick = () => ir(+l.dataset.ir - 1));
+
+/* número que conta */
+function contar(el){
+  const alvo = V[el.dataset.conta], f = FMT[el.dataset.fmt] || ((v) => num(v)); const t0 = performance.now();
+  const passo = (t) => { const p = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - p, 3); el.textContent = f(alvo * e); if (p < 1) requestAnimationFrame(passo); };
+  requestAnimationFrame(passo);
+}
+
+/* cursor em dois tons */
+const cA = $("#curA"), cP = $("#curP");
+addEventListener("mousemove", (e) => { cA.style.left = cP.style.left = e.clientX + "px"; cA.style.top = cP.style.top = e.clientY + "px";
+  cA.classList.toggle("sobre", !!e.target.closest("button,a,input,.ln,.tok,.mod,.it,.chave,.bloco,.tag")); });
+
+const ao = {};
+
+/* 3 linha do tempo */
+ao[2] = () => {
+  const svg = $("#svgTempo"), dica = $("#dicaTempo"), W = 1408, ini = Date.UTC(2026, 8, 9), dias = 45;
+  const x = (iso) => 30 + (Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) - ini) / 864e5 * ((W - 60) / dias);
+  const marcos = [["2026-09-10", "Plataforma nasce"], ["2026-09-13", "1º módulo envia dados"], ["2026-09-15", "Rastreamento por tag"], ["2026-09-27", "Kit de fábrica do ESP32"], ["2026-10-10", "2 relógios e avisos no celular"]];
+  let h = `<line x1="20" x2="${W - 20}" y1="250" y2="250" stroke="#C9D1E0" stroke-width="2"/>`;
+  for (let d = 0; d <= dias; d += 7) { const dt = new Date(ini + d * 864e5).toISOString().slice(0, 10); h += `<text x="${x(dt)}" y="278" font-size="14" fill="#5B6683" text-anchor="middle">${dataBR(dt)}</text>`; }
+  marcos.forEach(([d, t], i) => { const X = x(d); h += `<line x1="${X}" x2="${X}" y1="252" y2="${300 + (i % 2) * 26}" stroke="#AEB8CC" stroke-dasharray="3 4"/><text x="${X + 6}" y="${312 + (i % 2) * 26}" font-size="13" fill="#5B6683">${t}</text>`; });
+  const dias_ = Object.keys(r.porDiaCompra).sort(), max = Math.max(...Object.values(r.porDiaCompra)), CORES = { modulo: "#1DD4C8", pd: "#2F73FF", bancada: "#061B49" };
+  for (const d of dias_) {
+    const itens = C.compras.filter((c) => c.data === d), X = x(d); let y = 232;
+    let g = `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${brl(r.porDiaCompra[d])}</b><br>${itens.length} pedido(s): ${itens.slice(0, 6).map((c) => c.item.split(" (")[0]).join(", ")}${itens.length > 6 ? "..." : ""}`)}">`;
+    for (const cat of ["modulo", "pd", "bancada"]) {
+      const v = itens.filter((c) => c.cat === cat).reduce((a, c) => a + c.valor, 0); if (!v) continue;
+      const H = v / max * 180; y -= H; g += `<rect x="${X - 12}" y="${y}" width="24" height="${H}" fill="${CORES[cat]}"/>`;
+    }
+    h += g + `<text x="${X}" y="${y - 8}" text-anchor="middle" font-size="14" font-weight="700" fill="#061B49">${num(r.porDiaCompra[d], 0)}</text></g>`;
+  }
+  h += `<g font-size="13" fill="#5B6683">${Object.entries(CORES).map(([k, c], i) => `<rect x="${980 + i * 150}" y="30" width="14" height="14" rx="3" fill="${c}"/><text x="${1000 + i * 150}" y="42">${K.CATS[k].nome}</text>`).join("")}</g>`;
+  const hmax = Math.max(...Object.values(C.maoDeObra.porDia));
+  for (const [d, v] of Object.entries(C.maoDeObra.porDia)) {
+    const H = Math.max(3, v / hmax * 130);
+    h += `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${num(v, 1)} h</b> de sessão no projeto`)}"><rect x="${x(d) - 9}" y="${510 - H}" width="18" height="${H}" rx="4" fill="#061B49"/>${v >= 4 ? `<text x="${x(d)}" y="${502 - H}" font-size="13" text-anchor="middle" fill="#061B49" font-weight="600">${num(v, 1)}</text>` : ""}</g>`;
+  }
+  h += `<line x1="20" x2="${W - 20}" y1="511" y2="511" stroke="#C9D1E0" stroke-width="2"/>`;
+  h += `<text x="20" y="40" font-size="15" fill="#5B6683" font-weight="600">COMPRAS POR DIA (R$)</text><text x="20" y="372" font-size="15" fill="#5B6683" font-weight="600">HORAS DE TRABALHO POR DIA</text>`;
+  svg.innerHTML = h;
+  $$(".pt", svg).forEach((g) => { g.style.cursor = "pointer";
+    g.onmousemove = (e) => { const b = palco.getBoundingClientRect(), s = b.width / 1600; dica.innerHTML = decodeURIComponent(g.dataset.t); dica.style.left = ((e.clientX - b.left) / s + 16) + "px"; dica.style.top = ((e.clientY - b.top) / s - 20) + "px"; dica.style.opacity = 1; };
+    g.onmouseleave = () => dica.style.opacity = 0; });
+};
+
+/* 4 módulo: pinos, grade do DHT e lista */
+(function(){
+  const s = $("#svgBom"); let pin = "", gr = "";
+  for (let i = 0; i < 15; i++) { pin += `<rect x="${312 + i * 16.5}" y="222" width="8" height="8" rx="2"/><rect x="${312 + i * 16.5}" y="350" width="8" height="8" rx="2"/>`; }
+  for (let a = 0; a < 4; a++) for (let b = 0; b < 3; b++) gr += `<rect x="${76 + b * 28}" y="${404 + a * 26}" width="20" height="16" rx="3"/>`;
+  s.innerHTML = s.innerHTML.replace("${PINOS}", pin).replace("${GRADE}", gr);
+  const l = $("#listaBom"); let comAcel = false;
+  function desenha(){
+    const linhas = C.bom.map((b) => `<div class="ln"><span>${b.item}<small>${b.base}</small></span><b class="num">${brl(b.valor)}</b></div>`).join("")
+      + (comAcel ? C.bomOpcionais.map((b) => `<div class="ln op"><span>${b.item}<small>${b.base}</small></span><b class="num">${brl(b.valor)}</b></div>`).join("") : "");
+    l.innerHTML = linhas + `<div class="tot"><span>Total</span><span class="num">${brl(r.bom + (comAcel ? 14.49 : 0))}</span></div>
+      <div class="chave ${comAcel ? "on" : ""}" id="chAcel"><i></i>Com acelerômetro (pancada e arrasto)</div>
+      <div class="pendl"><span class="pend">a confirmar</span> ${C.bomPendentes[0]}.</div>`;
+    $("#pAcel").setAttribute("opacity", comAcel ? 1 : .35);
+    $("#chAcel").onclick = () => { comAcel = !comAcel; desenha(); };
+  }
+  desenha();
+})();
+
+/* 5 peneira */
+(function(){
+  const area = $("#areaPene");
+  const kit = [["ESP32 30 pinos", 39.99, "Cérebro do módulo: Wi-Fi, Bluetooth e atualização pela internet."], ["Ultrassom HC-SR04", 19.99, "Conta quem se aproxima a menos de 120 cm."], ["Clima DHT11", 20.99, "Temperatura e umidade da loja."], ["Caixas vedadas", 47.33, "Kit de 4 + 1 tipo CFTV: invólucro do módulo."]];
+  const ver = [["LD2410C (24 GHz)", "Radar LD2410C", "Radar de presença avaliado; não entrou no kit de fábrica."], ["LD2410C (2º lote)", "Radar LD2410C (2º)", "Segunda unidade para comparar; não entrou no kit."],
+    ["BME280", "Clima BME280", "Clima mais preciso que o DHT11; não entrou no kit."], ["MPU-6500", "Acelerômetro", "Ficou como sensor extra opcional."],
+    ["HX711", "5 módulos HX711", "Leitura de peso para ruptura de gôndola; ficou para depois."], ["Célula de carga", "Célula de carga", "Balança sob o display; ficou para depois."],
+    ["Pico W", "Raspberry Pico W", "Placa alternativa; ficou o ESP32."], ["shield ESP32", "Shield com bornes", "Ferramenta de protótipo, sem solda."],
+    ["MB-102", "Protoboard", "Protoboard e jumpers de protótipo."], ["20 x 12 x 8", "Caixa 20x12x8", "Teste de invólucro maior; ficou a caixa vedada."], ["BASIKE", "Tag da Apple", "Teste da rede da Apple; ficou a rede do Google."]];
+  const pd = C.compras.filter((c) => c.cat === "pd").map((c) => { const v = ver.find((k) => c.item.includes(k[0])) || [0, c.item, c.uso]; return [v[1], c.valor, v[2]]; });
+  const toks = [...pd.map((p) => ({ p, k: false })), ...kit.map((p) => ({ p, k: true }))];
+  const max = Math.max(...toks.map((t) => t.p[1]));
+  const els = toks.map((t) => {
+    const d = 66 + Math.sqrt(t.p[1] / max) * 60, el = document.createElement("div");
+    el.className = "tok " + (t.k ? "kit" : "pd"); el.style.width = el.style.height = d + "px";
+    el.innerHTML = `<b>${num(t.p[1], 0)}</b>${t.p[0]}`;
+    el.onclick = () => { $("#veredito").innerHTML = `<b>${t.p[0]} · ${brl(t.p[1])}</b><br>${t.p[2]}`; };
+    area.appendChild(el); return { el, t, d };
+  });
+  function pos(final){
+    let kx = 300;
+    els.forEach((o, i) => {
+      const linha = i % 2, col = Math.floor(i / 2);
+      let X = 290 + 70 + col * 140 + linha * 70 - o.d / 2, Y = (linha ? 190 : 70) - o.d / 2;
+      if (final && o.t.k) { X = kx; Y = 400 - o.d / 2; kx += o.d + 26; }
+      o.el.style.transform = `translate(${X}px,${Y}px)`; o.el.classList.toggle("fora", final && !o.t.k);
+    });
+  }
+  pos(false);
+  const roda = () => { pos(false); setTimeout(() => pos(true), 700); };
+  ao[4] = () => setTimeout(roda, 500);
+  $("#btnPene").onclick = roda;
+})();
+
+/* 6 bancada */
+(function(){
+  const p = $("#painelBanc"), itens = C.compras.filter((c) => c.cat === "bancada");
+  itens.forEach((c, i) => {
+    const el = document.createElement("div"); el.className = "tag";
+    el.style.left = (40 + (i % 5) * 174) + "px"; el.style.top = (44 + Math.floor(i / 5) * 250 + (i % 2) * 34) + "px";
+    el.innerHTML = `${c.item.replace(/\s*\(.*\)/, "")}<b class="num">${brl(c.valor)}</b>`; p.appendChild(el);
+  });
+  const N = [1, 10, 50, 100, 200, 500, 1000], rg = $("#rgBanc");
+  rg.oninput = () => { const n = N[rg.value]; $("#resBanc").textContent = brl(r.porCat.bancada / n); $("#resBancTxt").textContent = `por módulo, com ${num(n)} ${n === 1 ? "módulo" : "módulos"}`; };
+  rg.oninput();
+})();
+
+/* 7 tags */
+(function(){
+  $$(".tags .pts").forEach((g) => { g.innerHTML = "<i></i>".repeat(+g.dataset.n); });
+  const inp = $("#inTag");
+  inp.oninput = () => { const v = Math.max(0, parseFloat(inp.value) || 0); $("#totTag").textContent = brl(v * 204); $("#totTag2").textContent = brl(v * 204); };
+  inp.oninput();
+})();
+
+/* 8 fatura */
+(function(){
+  const L = [
+    ["Cloud Functions (54 funções)", "uso R$ 3,60 em outubro", "R$ 3,60", "R$ 3,60", "R$ 0,00"],
+    ["Cloud Scheduler", "15 rotinas até 10/10; agora 2 relógios", "R$ 1,61", "3 jobs grátis", "R$ 1,61*"],
+    ["App Engine e Secret Manager", "base do agendador e cofre de chaves", "R$ 0,86", "parcial", "R$ 0,86"],
+    ["Firestore, Hosting e Storage", "banco, site e firmware", "na cota", "cota diária", "R$ 0,00"],
+    ["Hostinger (1 de 13 sites)", "R$ 72,99 por mês ÷ 13", "R$ 5,61", "não tem", "R$ 5,61"],
+    ["GitHub Actions (coletor de tags)", "398 de 2.000 min em outubro", "398 min", "2.000 min", "R$ 0,00"],
+    ["Google Maps e Street View", "mapa ao vivo e fachadas", "no crédito", "crédito mensal", "R$ 0,00"],
+    ["ntfy e OpenStreetMap", "avisos no celular e lojas", "livre", "sem conta", "R$ 0,00"],
+  ];
+  $("#fatura").innerHTML = `<div class="hd"><span>Serviço</span><span class="r">Uso no mês</span><span class="r">Cota grátis</span><span class="r">Pago</span></div>`
+    + L.map((l) => `<div class="ln"><span>${l[0]}<small>${l[1]}</small></span><span class="r num">${l[2]}</span><span class="r">${l[3]}</span><span class="r num ${l[4] === "R$ 0,00" ? "g" : ""}">${l[4]}</span></div>`).join("")
+    + `<div class="tt"><span>Previsão do mês</span><span class="num">R$ 8,45</span></div><div style="font-size:13px;color:var(--suave);margin-top:6px">* O agendador só cobrou até 10/10. Em novembro a conta tende a ficar abaixo de R$ 8,45.</div>`;
+})();
+
+/* 9 cartão de ponto */
+(function(){
+  const cal = $("#cal"), H = C.maoDeObra.porDia;
+  const mes = (ano, m, nome) => {
+    const pri = new Date(Date.UTC(ano, m, 1)).getUTCDay(), qtd = new Date(Date.UTC(ano, m + 1, 0)).getUTCDate();
+    let h = `<div class="mes"><h4>${nome}</h4><div class="dias">` + "DSTQQSS".split("").map((d) => `<span>${d}</span>`).join("");
+    for (let i = 0; i < pri; i++) h += `<i class="vz"></i>`;
+    for (let d = 1; d <= qtd; d++) {
+      const k = `${ano}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`, v = H[k] || 0;
+      const n = v === 0 ? "" : v <= 1 ? "n1" : v <= 3 ? "n2" : v <= 6 ? "n3" : "n4";
+      h += `<i class="${n}" title="${v ? num(v, 1) + " h" : "sem sessão"}">${d}${v ? `<b>${num(v, 1)}</b>` : ""}</i>`;
+    }
+    return h + "</div></div>";
+  };
+  cal.innerHTML = mes(2026, 8, "Setembro") + mes(2026, 9, "Outubro");
+  const rg = $("#rgVh"); rg.oninput = () => { $("#vhTxt").textContent = brl(+rg.value, 0); $("#vhRes").textContent = brl(r.hTotal * rg.value, 0); }; rg.oninput();
+})();
+
+/* 10 treemap do mercado */
+(function(){
+  const t = $("#treemap"), M = C.mercado.modulos.map((m) => ({ ...m, v: m.horas * m.valor }));
+  const A = [M[0], M[1]], B = M.slice(2);
+  const col = (lista) => { const tot = lista.reduce((a, m) => a + m.v, 0); return `<div class="col" style="flex:${tot}">` + lista.map((m) => `<div class="mod" style="flex:${m.v}" data-i="${M.indexOf(m)}"><b>${m.nome}</b><span class="num">${num(m.horas)} h · ${mil(m.v)}</span></div>`).join("") + "</div>"; };
+  t.innerHTML = col(A) + col(B);
+  $$(".mod", t).forEach((el) => el.onmouseenter = () => { const m = M[el.dataset.i]; $$(".mod", t).forEach((x) => x.classList.toggle("on", x === el));
+    $("#detMerc").innerHTML = `<b>${m.nome}</b><br>${m.detalhe}<br><span class="num">${num(m.horas)} h × ${brl(m.valor, 0)}/h = <b style="font-size:16px">${brl(m.v, 0)}</b></span>`; });
+})();
+
+/* 12 simulador */
+(function(){
+  const out = $("#simOut"), rN = $("#rgN"), rS = $("#rgS");
+  function calc(){
+    const n = +rN.value, f = +rS.value / 100, e = K.escala(C, n, f);
+    $("#nTxt").textContent = num(n); $("#sTxt").textContent = rS.value + "%";
+    $$(".sim .pres button").forEach((b) => b.classList.toggle("on", +b.dataset.n === n));
+    out.innerHTML = `<div class="big"><b class="num">${mil(e.tags + e.modulos)}</b><span>em hardware para ${num(n)} displays (${num(e.smart)} com módulo smart)</span></div>
+      <div class="ln"><span>${num(n)} tags<small>${brl(r.pt)} cada, a confirmar</small></span><b class="num">${brl(e.tags, 0)}</b></div>
+      <div class="ln"><span>${num(e.smart)} módulos smart<small>${brl(r.bom)} em peças cada</small></span><b class="num">${brl(e.modulos, 0)}</b></div>
+      <div class="ln"><span>Pilhas por ano<small>1 troca por tag</small></span><b class="num">${brl(e.pilhasAno, 0)}</b></div>
+      <div class="ln"><span>Nuvem e hospedagem por mês<small>${brl(e.sistemaMes / n)} por display</small></span><b class="num">${brl(e.sistemaMes)}</b></div>
+      <div class="ln"><span>Contas Google para as tags<small>100 tags por conta, grátis</small></span><b class="num">${num(e.contasG)}</b></div>
+      <div class="ln"><span>Minutos do coletor no GitHub por mês<small>${e.gitGratis ? "dentro da cota grátis" : "passa da cota: tornar o coletor público ou pagar o excedente"}</small></span><b class="num ${e.gitGratis ? "ok" : "atn"}">${num(e.minGit)}</b></div>
+      <div class="ln"><span>Tempo de campo<small>pareamento ${num(e.hPar)} h + montagem ${num(e.hMont)} h, a ${brl(r.vh, 0)}/h</small></span><b class="num">${num(e.hPar + e.hMont)} h</b></div>`;
+  }
+  rN.oninput = rS.oninput = calc;
+  $$(".sim .pres button").forEach((b) => b.onclick = () => { rN.value = b.dataset.n; calc(); });
+  calc();
+})();
+
+/* 13 premissas */
+(function(){
+  const G = [
+    ["ok", "Confirmado", [
+      ["28 pedidos de peças e ferramentas", "Valor pago lido no histórico da Shopee (19) e do AliExpress (9), com frete, impostos e descontos. Compras pessoais ficaram de fora."],
+      ["Nuvem: R$ 0,02 em setembro e R$ 2,53 em outubro", "Faturamento do Google Cloud por serviço; previsão de outubro R$ 2,84."],
+      ["Hostinger R$ 72,99 por mês", "Histórico de pagamentos; 13 sites no mesmo plano."],
+      ["Claude R$ 1.498,35 no período", "Pagamentos de 17/09 e 09/10."],
+      ["58 horas de sessão no projeto", "Registro das sessões; 22 dias, os mesmos dos commits."],
+    ]],
+    ["es", "Estimado", [
+      ["Valor-hora R$ 150", "Meio da faixa de pleno (R$ 120 a R$ 200). Mude no anexo."],
+      ["25,2 horas de campo", "Pareamento 3 min por tag, montagem e cadastros."],
+      ["Rateio: Hostinger 1/13, Claude 18,6%", "Hostinger por site; Claude pelas horas de sessão do projeto sobre o total."],
+      ["Equivalente de mercado 3.148 h", "Horas por módulo pelo escopo entregue, conferidas pelo tamanho do código."],
+    ]],
+    ["pe", "Pendente", [
+      ["Preço das 204 tags", "Usado R$ 39,56 (referência de varejo). Falta a nota: loja, data e valor. É 86% do que saiu do caixa."],
+      ["Celular Android do pareamento", "Usado para parear as tags na conta do Google. Não está nos pedidos; falta saber se foi comprado para o projeto."],
+      ["Fonte USB e cabo do módulo", "Não aparecem nos pedidos; provavelmente reaproveitados."],
+    ]],
+  ];
+  $("#cols").innerHTML = G.map(([c, t, it]) => `<div class="c ${c}"><h4>${t}<span>${it.length}</span></h4>` + it.map(([a, b]) => `<div class="it"><b>${a}</b><div class="mais">${b}</div></div>`).join("") + "</div>").join("");
+  $$(".prem .it").forEach((el) => el.onclick = () => el.classList.toggle("aberto"));
+})();
+
+ir(Math.max(0, (parseInt(location.hash.slice(1)) || 1) - 1));
+})();
+</script>
+</body>
+</html>
