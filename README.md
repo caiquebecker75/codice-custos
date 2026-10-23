@@ -4,8 +4,6 @@ Levantamento de custos do projeto Códice (plataforma, operação do rastreament
 
 - `index.html`: deck de 14 telas (palco 1600 x 900, setas do teclado ou botões).
 - `detalhes.html`: anexo com cada pedido, nuvem, horas, equivalente de mercado, projeção de escala e simulador de valor-hora.
-
-A compra das 204 tags e das pilhas fica fora deste levantamento.
 - `dados.js`: fonte única dos números. Para atualizar (por exemplo, uma compra nova), mude aqui e os dois arquivos recalculam.
 - `calc.js`: contas compartilhadas pelo deck e pelo anexo.
 
