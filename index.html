@@ -56,7 +56,7 @@ h2.tit{font-size:56px;line-height:1.04;font-weight:700;letter-spacing:-.5px;max-
 /* cursor em dois tons */
 @media (hover:hover) and (pointer:fine){
   html,body,button,a,input,label{cursor:none!important}
-  .cur-anel,.cur-ponto{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
+  .cur-anel,.cur-ponto{position:fixed;left:-100px;top:-100px;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
   .cur-anel{width:34px;height:34px;border:3px solid #061B49;box-shadow:0 0 0 1.5px #fff,inset 0 0 0 1.5px #fff;transition:width .15s,height .15s}
   .cur-ponto{width:7px;height:7px;background:#061B49;box-shadow:0 0 0 2px #fff}
   .cur-anel.sobre{width:52px;height:52px}
@@ -98,7 +98,7 @@ h2.tit{font-size:56px;line-height:1.04;font-weight:700;letter-spacing:-.5px;max-
 .tempo .dica{position:absolute;background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;font-size:15px;pointer-events:none;opacity:0;transition:opacity .12s;max-width:340px;z-index:4}
 
 /* 4 módulo */
-.bom svg{position:absolute;left:70px;top:230px;width:860px;height:600px}
+.bom svg{position:absolute;left:70px;top:230px;width:860px;height:600px;overflow:visible}
 .bom .lista{position:absolute;right:96px;top:250px;width:520px;background:var(--papel);border-radius:22px;padding:30px 34px}
 .bom .lista .ln{display:flex;justify-content:space-between;gap:16px;font-size:18px;padding:9px 0}
 .bom .lista .ln small{display:block;color:var(--suave);font-size:13px}
@@ -202,7 +202,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 .merc .peq{left:680px;top:711px;width:107px;height:107px;background:var(--teal);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:"Exo 2";font-weight:700;font-size:15px;text-align:center;border-radius:4px}
 .merc .txt{position:absolute;left:96px;top:290px;width:460px}
 .merc .lin{display:flex;gap:14px;align-items:baseline;margin-top:24px}
-.merc .lin b{font-family:"Exo 2";font-size:52px;font-weight:700;line-height:1}
+.merc .lin b{font-family:"Exo 2";font-size:52px;font-weight:700;line-height:1;white-space:nowrap}
 .merc .lin span{font-size:16px;color:var(--suave)}
 .merc .det{margin-top:28px;background:var(--papel);border-radius:16px;padding:18px 22px;font-size:16px;line-height:1.45;min-height:120px}
 .merc .det b{font-family:"Exo 2";font-size:20px}
@@ -231,11 +231,11 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 .sim .pres{display:flex;gap:10px;margin-top:6px}
 .sim .pres button{border:0;border-radius:999px;padding:10px 18px;background:#14306B;color:#fff;font-weight:600;cursor:pointer}
 .sim .pres button.on{background:var(--teal);color:var(--navy)}
-.sim .out{position:absolute;right:96px;top:250px;width:820px}
-.sim .big{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:20px;box-shadow:0 2px 0 #20396F}
-.sim .big b{font-family:"Exo 2";font-size:80px;font-weight:700;color:var(--teal);line-height:1}
+.sim .out{position:absolute;right:96px;top:246px;width:820px}
+.sim .big{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:14px;box-shadow:0 2px 0 #20396F}
+.sim .big b{font-family:"Exo 2";font-size:72px;font-weight:700;color:var(--teal);line-height:1}
 .sim .big span{font-size:16px;color:#9FB0D6;max-width:300px;text-align:right}
-.sim .ln{display:grid;grid-template-columns:1fr 200px;gap:20px;padding:13px 0;font-size:17px;box-shadow:0 1px 0 #1A3369;align-items:baseline}
+.sim .ln{display:grid;grid-template-columns:1fr 200px;gap:20px;padding:9px 0;font-size:17px;box-shadow:0 1px 0 #1A3369;align-items:baseline}
 .sim .ln small{display:block;color:#8FA2CC;font-size:13px;margin-top:2px}
 .sim .ln b{text-align:right;font-family:"Exo 2";font-size:24px;font-weight:600}
 .sim .ok{color:var(--teal)}.sim .atn{color:var(--amb)}
@@ -333,7 +333,6 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <g fill="#C7D2E8">${PINOS}</g>
       <rect x="395" y="255" width="70" height="60" rx="6" fill="#2A3F70"/>
       <text x="430" y="290" text-anchor="middle" font-family="Exo 2" font-size="15" fill="#fff" font-weight="700">ESP32</text>
-      <rect x="320" y="330" width="36" height="22" rx="4" fill="#C7D2E8"/>
       <!-- HC-SR04 -->
       <g id="pHc"><rect x="20" y="70" width="190" height="96" rx="14" fill="#2F73FF"/><circle cx="72" cy="118" r="30" fill="#E3ECFF"/><circle cx="158" cy="118" r="30" fill="#E3ECFF"/><circle cx="72" cy="118" r="14" fill="#9DB8F5"/><circle cx="158" cy="118" r="14" fill="#9DB8F5"/></g>
       <path d="M210 118 C 260 118 270 240 300 250" stroke="#061B49" stroke-width="3" fill="none"/>
@@ -344,11 +343,11 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <text x="20" y="372" font-size="17" font-weight="700" fill="#0B1530">Clima DHT11</text><text x="20" y="550" font-size="15" fill="#5B6683">temperatura e umidade · R$ 20,99</text>
       <!-- jumpers e resistores -->
       <path d="M560 250 C 640 250 650 120 700 110" stroke="#1DD4C8" stroke-width="5" fill="none"/><path d="M560 270 C 650 270 660 140 720 130" stroke="#2F73FF" stroke-width="5" fill="none"/><path d="M560 290 C 660 290 670 160 740 150" stroke="#061B49" stroke-width="5" fill="none"/>
-      <text x="660" y="70" font-size="17" font-weight="700" fill="#0B1530">Jumpers e resistores</text><text x="660" y="94" font-size="15" fill="#5B6683">6 fios + divisor 1k/2k · R$ 2,10</text>
+      <text x="590" y="64" font-size="17" font-weight="700" fill="#0B1530">Jumpers e resistores</text><text x="590" y="88" font-size="15" fill="#5B6683">6 fios + divisor 1k/2k · R$ 2,10</text>
       <!-- acelerômetro opcional -->
       <g id="pAcel" opacity=".35"><rect x="690" y="380" width="120" height="90" rx="12" fill="#2F73FF"/><rect x="730" y="405" width="40" height="40" rx="4" fill="#061B49"/>
       <path d="M560 340 C 620 340 640 420 690 425" stroke="#2F73FF" stroke-width="3" fill="none" stroke-dasharray="7 7"/>
-      <text x="660" y="500" font-size="17" font-weight="700" fill="#0B1530">Acelerômetro (opcional)</text><text x="660" y="524" font-size="15" fill="#5B6683">pancada e arrasto · R$ 14,49</text></g>
+      <text x="630" y="500" font-size="17" font-weight="700" fill="#0B1530">Acelerômetro (opcional)</text><text x="630" y="524" font-size="15" fill="#5B6683">pancada e arrasto · R$ 14,49</text></g>
       <text x="430" y="420" text-anchor="middle" font-size="15" fill="#0E6F69">R$ 7,51 (1 de um kit de 4)</text>
       <text x="430" y="342" text-anchor="middle" font-size="14" fill="#C7D2E8">placa 30 pinos · R$ 39,99</text>
     </svg>
@@ -500,7 +499,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
   <!-- 14 fim -->
   <section class="tela escura fim" data-tema="escuro">
     <h2>Cada linha deste levantamento está no anexo</h2>
-    <p class="lead" style="font-size:24px;max-width:900px">Tabela com os 28 pedidos, a nuvem mês a mês, as horas por dia, o equivalente de mercado e um simulador para trocar o valor-hora e o preço da tag.</p>
+    <p class="lead" style="font-size:24px;max-width:900px;margin-top:28px">Tabela com os 28 pedidos, a nuvem mês a mês, as horas por dia, o equivalente de mercado e um simulador para trocar o valor-hora e o preço da tag.</p>
     <div class="tres">
       <div><b class="num" data-v="total" data-fmt="mil">R$ 21,9 mil</b>investidos até 23/10, com mão de obra</div>
       <div><b class="num" data-v="recorrenteMes" data-fmt="brl">R$ 126,77</b>por mês para manter: nuvem, hospedagem e pilhas</div>
@@ -774,7 +773,9 @@ ao[2] = () => {
   $$(".prem .it").forEach((el) => el.onclick = () => el.classList.toggle("aberto"));
 })();
 
-ir(Math.max(0, (parseInt(location.hash.slice(1)) || 1) - 1));
+const doHash = () => Math.max(0, (parseInt(location.hash.slice(1)) || 1) - 1);
+addEventListener("hashchange", () => { if (doHash() !== atual) ir(doHash()); });
+ir(doHash());
 })();
 </script>
 </body>
