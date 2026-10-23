@@ -116,7 +116,7 @@
 
   const brl = (v, d = 2) => (v ?? 0).toLocaleString("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: d, maximumFractionDigits: d });
   const num = (v, d = 0) => (v ?? 0).toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d });
-  const mil = (v) => v >= 1e6 ? `R$ ${num(v / 1e6, 1)} mi` : v >= 1e4 ? `R$ ${num(v / 1e3, 1)} mil` : brl(v, 0);
+  const mil = (v) => v >= 1e6 ? `R$ ${num(v / 1e6, 1)} mi` : v >= 1e5 ? `R$ ${num(v / 1e3, 0)} mil` : v >= 1e4 ? `R$ ${num(v / 1e3, 1)} mil` : brl(v, 0);
   const pct = (v, d = 1) => num(v * 100, d) + "%";
   const dataBR = (iso) => iso.split("-").reverse().slice(0, 2).join("/");
 

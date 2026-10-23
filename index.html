@@ -83,7 +83,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 .capa .simb{position:absolute;right:96px;top:150px;width:250px}
 
 /* 2 dois lados */
-.lados{position:absolute;left:96px;right:96px;top:260px;bottom:90px;display:grid;grid-template-columns:1fr 150px 1fr}
+.lados{position:absolute;left:96px;right:96px;top:270px;display:grid;grid-template-columns:1fr 150px 1fr;align-items:stretch}
 .lados .lado{border-radius:24px;padding:30px 34px}
 .lados .lab{background:var(--navy);color:#fff}
 .lados .nb{background:var(--papel)}
@@ -159,7 +159,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 .pene .veredito b{color:var(--tinta)}
 
 /* 8 nuvem */
-.fat .cab{position:absolute;left:96px;top:330px;width:440px}
+.fat .cab{position:absolute;left:96px;top:300px;width:440px}
 .fat .cab .v{font-family:"Exo 2";font-size:104px;font-weight:700;color:var(--navy);line-height:.9}
 .fat .cab .v small{font-size:28px;color:var(--suave);font-weight:600}
 .fat .cab .esc{margin-top:28px;background:var(--navy);color:#fff;border-radius:18px;padding:20px 24px;font-size:16px;line-height:1.45}
@@ -200,8 +200,8 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 .eqp tr.imp td{font-size:15px;color:var(--suave);box-shadow:none}
 
 /* 11 montagem */
-.mont .topo2{position:absolute;right:96px;top:150px}
-.mont .linha-prod{position:absolute;left:96px;right:96px;top:300px;height:220px;background:var(--papel);border-radius:24px;overflow:hidden}
+.mont .topo2{position:absolute;left:96px;top:205px}
+.mont .linha-prod{position:absolute;left:96px;right:96px;top:270px;height:230px;background:var(--papel);border-radius:24px;overflow:hidden}
 .mont .esteira{position:absolute;left:0;right:0;top:150px;height:18px;background:repeating-linear-gradient(90deg,#C9D1E0 0 30px,#DDE3EC 30px 60px);animation:correr 1.2s linear infinite}
 @keyframes correr{to{background-position:60px 0}}
 .mont .modulos{position:absolute;left:0;top:112px;height:38px;width:200%;animation:andar 9s linear infinite;display:flex;gap:42px;padding-left:20px}
@@ -211,14 +211,14 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 .mont .tecnicos{position:absolute;left:30px;top:22px;display:flex;gap:12px;flex-wrap:wrap;max-width:1340px}
 .mont .tecnicos span{display:flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:999px;padding:6px 14px 6px 6px;font-size:14px}
 .mont .tecnicos span i{width:26px;height:26px;border-radius:50%;background:var(--teal)}
-.mont .nums{position:absolute;left:96px;right:96px;top:548px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.mont .nums{position:absolute;left:96px;right:96px;top:530px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .mont .nums div{background:var(--papel);border-radius:18px;padding:18px 22px;font-size:15px;color:var(--suave);line-height:1.4}
 .mont .nums b{display:block;font-family:"Exo 2";font-size:38px;color:var(--navy);font-weight:700}
 .mont .nums div.d{background:var(--navy);color:#B9C6E4}.mont .nums div.d b{color:var(--teal)}
 
 /* 12 suporte e gestão */
-.sup .topo2{position:absolute;right:96px;top:150px}
-.sup .funil{position:absolute;left:96px;top:280px;width:880px}
+.sup .topo2{position:absolute;left:96px;top:205px}
+.sup .funil{position:absolute;left:96px;top:280px;width:900px}
 .sup .et{display:flex;align-items:center;gap:22px;margin-bottom:14px}
 .sup .et .b{height:86px;border-radius:16px;display:flex;flex-direction:column;justify-content:center;padding:0 24px;color:#fff;font-size:15px;transition:width .6s}
 .sup .et .b b{font-family:"Exo 2";font-size:32px}
@@ -405,7 +405,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 
   <!-- 8 nuvem -->
   <section class="tela fat">
-    <h2 class="tit" style="max-width:520px">A nuvem custa <em>R$ 8,45</em> por mês e segue barata na escala</h2>
+    <h2 class="tit" style="max-width:600px">A nuvem custa <em>R$ 8,45</em> por mês hoje</h2>
     <div class="cab">
       <div class="v num">R$ 8<small>,45/mês hoje</small></div>
       <div class="esc"><b class="num" id="nuvemMod">R$ 0,91</b>por módulo smart por mês na escala, com batimento a cada 5 min e sem contar com a cota grátis</div>
@@ -431,7 +431,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 
   <!-- 11 montagem -->
   <section class="tela mont">
-    <h2 class="tit" style="max-width:900px">Um técnico monta <em>280 módulos</em> por mês; a equipe cresce com a implantação</h2>
+    <h2 class="tit">Um técnico monta <em>280 módulos</em> por mês</h2>
     <div class="topo2 faixas" id="fx11"></div>
     <div class="linha-prod"><div class="tecnicos" id="tec11"></div><div class="modulos" id="mods11"></div><div class="esteira"></div></div>
     <div class="nums" id="nums11"></div>
@@ -440,7 +440,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 
   <!-- 12 suporte e gestão -->
   <section class="tela sup">
-    <h2 class="tit" style="max-width:900px">Suporte técnico e gestão: 1 chamado a cada 10 displays por mês</h2>
+    <h2 class="tit">Suporte e gestão: <em>1 chamado</em> a cada 10 displays</h2>
     <div class="topo2 faixas" id="fx12"></div>
     <div class="funil" id="funil12"></div>
     <div class="gest" id="gest12"></div>
