@@ -4,45 +4,49 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Custos da Códice · anexo</title>
-<meta name="description" content="Anexo do levantamento de custos da Códice: cada pedido, a nuvem, as horas, o equivalente de mercado e um simulador.">
+<meta name="description" content="Anexo do levantamento de custos da Códice: cada pedido, a nuvem, as horas, o valor de mercado, a projeção de 500 a 50.000 displays e a participação.">
 <link rel="icon" href="img/codice-simbolo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#061B49;--teal:#1DD4C8;--azul:#2F73FF;--fundo:#F3F5F9;--papel:#fff;--tinta:#0B1530;--suave:#5B6683;--fraco:#E6EAF2;--amb:#FFB020;--ambF:#FFF3D6;--tealF:#DDF8F5;--azulF:#E3ECFF}
+:root{--navy:#061B49;--teal:#1DD4C8;--azul:#2F73FF;--grafite:#4E4E50;--fundo:#F3F5F9;--papel:#fff;--tinta:#0B1530;--suave:#5B6683;--fraco:#E6EAF2;--amb:#FFB020;--ambF:#FFF3D6;--tealF:#DDF8F5;--azulF:#E3ECFF}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--fundo);color:var(--tinta);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 h1,h2,h3,.exo{font-family:"Exo 2",Inter,sans-serif}
 a{color:var(--azul)}
 .num{font-variant-numeric:tabular-nums}
 .topo{background:var(--navy);color:#fff}
-.topo .in{max-width:1200px;margin:0 auto;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.topo .in{max-width:1240px;margin:0 auto;padding:22px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .topo .marca{display:flex;align-items:center;gap:10px;font-family:"Exo 2";font-weight:700;font-size:19px}
 .topo .marca img{width:30px;height:30px}
+.topo .marca span{font-family:Inter;font-weight:500;color:#9FB0D6;font-size:15px}
 .topo a.voltar{color:var(--navy);background:var(--teal);text-decoration:none;font-weight:700;padding:9px 16px;border-radius:999px;font-size:14px;white-space:nowrap}
 .hero{background:var(--navy);color:#fff;padding:20px 0 56px}
-.hero .in{max-width:1200px;margin:0 auto;padding:0 24px}
-.hero h1{font-size:clamp(34px,6vw,64px);line-height:1.02;font-weight:800;max-width:900px}
-.hero p{color:#B9C6E4;font-size:18px;max-width:760px;margin-top:14px}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.hero .in{max-width:1240px;margin:0 auto;padding:0 24px}
+.hero h1{font-size:clamp(32px,5.6vw,60px);line-height:1.04;font-weight:800;max-width:960px}
+.hero p{color:#B9C6E4;font-size:18px;max-width:780px;margin-top:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:34px}
 .kpis div{min-width:0;background:#0C2A66;border-radius:16px;padding:16px 18px;color:#9FB0D6;font-size:14px}
-.kpis b{display:block;font-family:"Exo 2";font-size:clamp(24px,3vw,34px);color:#fff}
+.kpis b{display:block;font-family:"Exo 2";font-size:clamp(22px,3vw,32px);color:#fff}
 .kpis div.d b{color:var(--teal)}
-main{max-width:1200px;margin:0 auto;padding:0 24px 80px}
+main{max-width:1240px;margin:0 auto;padding:0 24px 80px}
 nav.indice{position:sticky;top:0;z-index:5;background:var(--fundo);padding:14px 0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
 nav.indice a{flex:none;text-decoration:none;color:var(--navy);background:var(--papel);padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
 nav.indice a:hover{background:var(--azulF)}
-section{margin-top:44px}
+section{margin-top:44px;scroll-margin-top:70px}
 section h2{font-size:clamp(26px,3.4vw,36px);line-height:1.1}
-section .sub{color:var(--suave);margin-top:6px;max-width:820px}
+section .sub{color:var(--suave);margin-top:6px;max-width:860px}
 .caixa{background:var(--papel);border-radius:18px;padding:20px 22px;margin-top:18px}
 .tab{width:100%;border-collapse:collapse;font-size:15px}
-.tab th{text-align:left;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--suave);font-weight:600;padding:10px 10px;background:var(--fundo);cursor:pointer;user-select:none;white-space:nowrap}
+.tab th{text-align:left;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--suave);font-weight:600;padding:10px;background:var(--fundo);white-space:nowrap}
 .tab th.r,.tab td.r{text-align:right}
-.tab td{padding:11px 10px;box-shadow:0 1px 0 var(--fraco);vertical-align:top}
+.tab td{padding:10px;box-shadow:0 1px 0 var(--fraco);vertical-align:top}
 .tab td small{display:block;color:var(--suave);font-size:13px}
+.tab tr.t td{font-weight:700;font-family:"Exo 2";font-size:17px}
+.tab tr.s td{color:var(--suave);font-size:14px}
 .tab tfoot td{font-weight:700;font-family:"Exo 2";font-size:18px;box-shadow:none}
+.tab th.ord{cursor:pointer;user-select:none}
 .rolar{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .chip{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
 .c-modulo{background:var(--tealF);color:#0E6F69}.c-pd{background:var(--azulF);color:#1B4FC4}.c-bancada{background:#DCE2EE;color:var(--navy)}
@@ -52,56 +56,78 @@ section .sub{color:var(--suave);margin-top:6px;max-width:820px}
 .filtros button.on{background:var(--navy);color:#fff}
 .filtros input[type=search]{flex:1;min-width:200px;border:0;background:var(--papel);border-radius:999px;padding:9px 16px;font:inherit;font-size:15px}
 .filtros .baixar{background:var(--teal)}
-.sim{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
-.sim .ctl{background:var(--papel);border-radius:18px;padding:20px 22px}
-.sim label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:600;margin:12px 0 8px}
-.sim input[type=number]{width:120px;border:0;background:var(--fundo);border-radius:10px;padding:8px 12px;font:inherit;font-weight:700;font-family:"Exo 2";font-size:18px}
-.sim .res{background:var(--navy);color:#fff;border-radius:18px;padding:20px 22px}
-.sim .res .ln{display:flex;justify-content:space-between;gap:12px;padding:8px 0;box-shadow:0 1px 0 #1A3369;color:#C9D4EE}
-.sim .res .ln b{color:#fff;font-family:"Exo 2";font-size:18px}
-.sim .res .tt{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px}
-.sim .res .tt b{font-family:"Exo 2";font-size:34px;color:var(--teal)}
-input[type=range]{width:100%;accent-color:var(--azul)}
-.dois{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.form fieldset{border:0;background:var(--papel);border-radius:18px;padding:16px 18px}
+.form legend{font-family:"Exo 2";font-weight:700;font-size:18px;padding:0;margin-bottom:6px;float:left;width:100%}
+.form label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px;margin:8px 0;clear:both}
+.form label small{display:block;color:var(--suave);font-size:12px}
+.form input{width:110px;border:0;background:var(--fundo);border-radius:10px;padding:7px 10px;font:inherit;font-weight:700;font-family:"Exo 2";font-size:16px;text-align:right}
+.acoes-sim{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.acoes-sim button{border:0;background:var(--navy);color:#fff;border-radius:999px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+.acoes-sim button.claro{background:var(--papel);color:var(--navy)}
 .nota{font-size:14px;color:var(--suave);margin-top:10px}
 .aviso{background:var(--ambF);border-radius:14px;padding:14px 18px;margin-top:14px;font-size:15px}
-.lista-fontes li{margin:8px 0 8px 18px}
+.dois{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .barra{height:8px;border-radius:4px;background:var(--fraco);margin-top:6px;overflow:hidden}
 .barra i{display:block;height:100%;background:var(--azul)}
-footer{max-width:1200px;margin:0 auto;padding:30px 24px 50px;color:var(--suave);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.lista-fontes li{margin:8px 0 8px 18px}
+.lados{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.lados div{border-radius:18px;padding:18px 22px}
+.lados .lab{background:var(--navy);color:#fff}.lados .nb{background:var(--papel)}
+.lados h3{font-size:22px}.lados ul{margin:10px 0 0 18px}.lados li{margin:6px 0}
+footer{max-width:1240px;margin:0 auto;padding:30px 24px 50px;color:var(--suave);font-size:14px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
 footer img{height:34px}
-@media (max-width:820px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpis b{font-size:21px}.sim,.dois{grid-template-columns:1fr}.tab{font-size:14px}.topo .marca span{display:none}}
+@media (max-width:860px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpis b{font-size:21px}.form,.dois,.lados{grid-template-columns:1fr}.tab{font-size:14px}.topo .marca span{display:none}}
 </style>
 </head>
 <body>
-<div class="topo"><div class="in"><div class="marca"><img src="img/codice-simbolo.svg" alt="">Códice <span style="font-family:Inter;font-weight:500;color:#9FB0D6;font-size:15px">· anexo do levantamento de custos</span></div><a class="voltar" href="./">Ver o deck</a></div></div>
+<div class="topo"><div class="in"><div class="marca"><img src="img/codice-simbolo.svg" alt="">Códice <span>· anexo do levantamento de custos</span></div><a class="voltar" href="./">Ver o deck</a></div></div>
 <div class="hero"><div class="in">
-  <h1>Cada real do projeto Códice, linha a linha</h1>
-  <p>De 09/09 a 23/10/2026. Compras lidas no histórico da Shopee e do AliExpress, nuvem pelo faturamento do Google, horas pelo registro das sessões. Nenhum dado pessoal: só item, quantidade, data e valor.</p>
+  <h1>O que a 75 LAB põe na Códice, linha a linha</h1>
+  <p>Custos reais de 10/09 a 23/10/2026 e projeção de 500 a 50.000 displays atendidos, com montagem, suporte técnico, sistema e gestão. Troque as premissas no simulador e as tabelas recalculam.</p>
   <div class="kpis" id="kpis"></div>
 </div></div>
 <main>
   <nav class="indice">
-    <a href="#simulador">Simulador</a><a href="#compras">Compras</a><a href="#modulo">Módulo smart</a><a href="#tags">Tags</a><a href="#sistema">Nuvem</a><a href="#mao">Mão de obra</a><a href="#mercado">Mercado</a><a href="#escala">Escala</a><a href="#premissas">Premissas</a><a href="#fontes">Fontes</a>
+    <a href="#simulador">Simulador</a><a href="#escala">Escala</a><a href="#equipe">Equipe</a><a href="#participacao">Participação</a><a href="#papeis">Papéis</a><a href="#compras">Compras</a><a href="#modulo">Módulo smart</a><a href="#nuvem">Nuvem</a><a href="#mao">Mão de obra</a><a href="#mercado">Valor de mercado</a><a href="#premissas">Premissas</a><a href="#fontes">Fontes</a>
   </nav>
 
   <section id="simulador">
-    <h2>Simulador</h2>
-    <p class="sub">Troque o valor-hora para ver o total mudar. Fica salvo só neste navegador; o deck continua com os valores oficiais.</p>
-    <div class="sim">
-      <div class="ctl">
-        <label for="sVh">Valor-hora (R$) <input type="number" id="sVh" min="0" step="10"></label>
-        <input type="range" id="rVh" min="60" max="400" step="10">
-        <p class="nota">Referências: pleno R$ 120 a R$ 200/h, sênior R$ 200 a R$ 400/h. A compra das tags e das pilhas fica fora deste levantamento.</p>
-        <button id="sReset" style="margin-top:10px;border:0;background:var(--fundo);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer">Voltar aos valores oficiais</button>
-      </div>
-      <div class="res" id="sRes"></div>
-    </div>
+    <h2>Simulador das premissas</h2>
+    <p class="sub">Mude qualquer número e a projeção, a equipe e a participação recalculam aqui embaixo. Fica salvo só neste navegador; o deck continua com os valores oficiais.</p>
+    <div class="form" id="form"></div>
+    <div class="acoes-sim"><button id="reset" class="claro">Voltar aos valores oficiais</button></div>
+  </section>
+
+  <section id="escala">
+    <h2>Custo mensal da 75 LAB por faixa</h2>
+    <p class="sub">Operação = depois da implantação, só reposição de módulos. Implantação = o ano em que todos os módulos da faixa são montados (12 meses).</p>
+    <div class="caixa rolar"><table class="tab" id="tabEsc"></table></div>
+  </section>
+
+  <section id="equipe">
+    <h2>Equipe por faixa</h2>
+    <p class="sub">Pessoas em tempo integral (0,5 = meio período). Custo = salário × fator de encargos e benefícios.</p>
+    <div class="caixa rolar"><table class="tab" id="tabEq"></table></div>
+    <div class="caixa rolar"><table class="tab" id="tabCargos"></table></div>
+  </section>
+
+  <section id="participacao">
+    <h2>Participação: quanto cada um põe</h2>
+    <p class="sub">Por display e por mês, na operação. A NEOBAND entra pelo preço de venda do deck comercial até abrir o custo real.</p>
+    <div class="caixa rolar"><table class="tab" id="tabPart"></table></div>
+    <div class="aviso"><b>Leitura:</b> "pelo custo" divide pelo que cada um gasta por mês; "com o ativo" soma à 75 LAB o que já foi construído (R$ 448 mil em 36 meses); "pelo capital" compara o investimento até a faixa (displays e instalação da NEOBAND contra plataforma, módulos e bancadas da 75 LAB); "mínimo" é a parte da receita que só cobre o custo da 75 LAB.</div>
+  </section>
+
+  <section id="papeis">
+    <h2>Quem põe o quê</h2>
+    <div class="lados" id="lados"></div>
+    <p class="nota">Divisão usada nas contas. <span class="pend">a validar</span> com a NEOBAND.</p>
   </section>
 
   <section id="compras">
-    <h2>Compras: 28 pedidos</h2>
-    <p class="sub">Valor efetivamente pago em cada pedido, com frete, impostos e descontos. Ficaram de fora as compras pessoais e as de antes do projeto. Clique no cabeçalho para ordenar.</p>
+    <h2>Compras: 27 pedidos</h2>
+    <p class="sub">Valor efetivamente pago em cada pedido, com frete, impostos e descontos. Clique no cabeçalho para ordenar.</p>
     <div class="filtros" id="filtros">
       <button data-cat="" class="on">Todas</button><button data-cat="modulo">Módulo smart</button><button data-cat="pd">Testes e protótipos</button><button data-cat="bancada">Bancada e ferramentas</button>
       <button data-canal="Shopee">Shopee</button><button data-canal="AliExpress">AliExpress</button>
@@ -109,7 +135,7 @@ footer img{height:34px}
       <button class="baixar" id="csv">Baixar CSV</button>
     </div>
     <div class="caixa rolar"><table class="tab" id="tabCompras">
-      <thead><tr><th data-k="data">Data</th><th data-k="item">Item e uso</th><th data-k="cat">Categoria</th><th data-k="canal">Loja</th><th data-k="qtd" class="r">Qtd</th><th data-k="valor" class="r">Pago</th></tr></thead>
+      <thead><tr><th class="ord" data-k="data">Data</th><th class="ord" data-k="item">Item e uso</th><th class="ord" data-k="cat">Categoria</th><th class="ord" data-k="canal">Loja</th><th class="ord r" data-k="qtd">Qtd</th><th class="ord r" data-k="valor">Pago</th></tr></thead>
       <tbody></tbody><tfoot><tr><td colspan="4" id="cTotTxt">Total</td><td></td><td class="r num" id="cTot"></td></tr></tfoot>
     </table></div>
     <div class="dois" style="margin-top:18px" id="resumoCompras"></div>
@@ -121,46 +147,35 @@ footer img{height:34px}
     <div class="caixa rolar"><table class="tab" id="tabBom"><thead><tr><th>Peça</th><th>Como chegamos ao valor</th><th class="r">Valor</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
   </section>
 
-  <section id="tags">
-    <h2>Tags Find My: só a operação</h2>
-    <div class="caixa rolar"><table class="tab" id="tabTags"><tbody></tbody></table></div>
-    <div class="aviso" style="background:var(--azulF)">A compra das 204 tags (α'GOLD PLUS TCD-06B) e das pilhas fica fora deste levantamento. Aqui entram só a operação delas e o tempo de pareamento.</div>
-  </section>
-
-  <section id="sistema">
-    <h2>Nuvem e hospedagem</h2>
-    <p class="sub">Custo real lido nos painéis em 23/10/2026. O agendador (Cloud Scheduler) cobrou até 10/10, quando 15 rotinas viraram 2 relógios grátis.</p>
+  <section id="nuvem">
+    <h2>Nuvem e hospedagem hoje</h2>
+    <p class="sub">Custo real lido nos painéis em 23/10/2026.</p>
     <div class="caixa rolar"><table class="tab" id="tabSis"><thead><tr><th>Serviço e fonte</th><th class="r">Setembro</th><th class="r">Outubro*</th><th class="r">Por mês</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
     <p class="nota">* Outubro até o dia 23. "Por mês" usa a previsão do Google para outubro (R$ 2,84) e o rateio da Hostinger.</p>
+    <div class="caixa"><b>Nuvem na escala</b><p class="nota" id="txtNuvem" style="margin-top:4px"></p></div>
     <div class="caixa"><b>Claude (ferramenta de desenvolvimento)</b><p class="nota" id="txtClaude" style="margin-top:4px"></p></div>
   </section>
 
   <section id="mao">
-    <h2>Mão de obra</h2>
+    <h2>Mão de obra já feita</h2>
     <p class="sub" id="txtMao"></p>
     <div class="dois">
       <div class="caixa rolar"><table class="tab" id="tabDias"><thead><tr><th>Dia</th><th class="r">Horas medidas</th><th style="width:40%"></th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
-      <div class="caixa rolar"><table class="tab" id="tabCampo"><thead><tr><th>Trabalho de campo</th><th class="r">Horas</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
+      <div class="caixa rolar"><table class="tab" id="tabCampo"><thead><tr><th>Trabalho de bancada</th><th class="r">Horas</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
     </div>
   </section>
 
   <section id="mercado">
-    <h2>Equivalente de mercado (sem IA)</h2>
-    <p class="sub">O mesmo escopo feito por uma equipe tradicional. Horas por módulo estimadas pelo que foi entregue; valor-hora pleno R$ 150 e sênior R$ 250.</p>
+    <h2>Valor de mercado do que já foi construído</h2>
+    <p class="sub">O mesmo escopo feito por uma equipe tradicional, sem IA. Horas por módulo estimadas pelo que foi entregue; valor-hora pleno R$ 150 e sênior R$ 250.</p>
     <div class="caixa rolar"><table class="tab" id="tabMerc"><thead><tr><th>Módulo</th><th class="r">Horas</th><th class="r">R$/h</th><th class="r">Valor</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
     <p class="nota" id="txtMerc"></p>
-  </section>
-
-  <section id="escala">
-    <h2>Projeção de escala</h2>
-    <p class="sub">Com 20% dos displays com módulo smart; a compra das tags fica fora. A nuvem cresce em linha com o uso medido em outubro, sem contar com a cota grátis.</p>
-    <div class="caixa rolar"><table class="tab" id="tabEsc"><thead><tr><th></th><th class="r">Hoje (200)</th><th class="r">1.000</th><th class="r">5.000</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <section id="premissas">
     <h2>Premissas e pendências</h2>
     <div class="caixa rolar"><table class="tab" id="tabPrem"><thead><tr><th>Item</th><th>Situação</th><th>De onde vem</th></tr></thead><tbody></tbody></table></div>
-    <div class="caixa"><b>O que ficou de fora</b><p class="nota" style="margin-top:4px">A compra das 204 tags e das pilhas; compras pessoais e anteriores ao projeto nas duas lojas; o servidor VPS da agência (outro projeto); o plano da Hostinger inteiro (só a parte da Códice, 1 de 13 sites); horas de reunião e venda; impostos sobre serviço.</p></div>
+    <div class="caixa"><b>O que ficou de fora</b><p class="nota" style="margin-top:4px">Compras pessoais e anteriores ao projeto nas duas lojas; o servidor VPS da agência (outro projeto); o plano da Hostinger inteiro (só a parte da Códice, 1 de 13 sites); time comercial, marketing e impostos sobre a receita da Códice; investimento já feito pela NEOBAND (moldes, projeto do chassi), que ela precisa informar.</p></div>
   </section>
 
   <section id="fontes">
@@ -174,36 +189,77 @@ footer img{height:34px}
 <script src="calc.js"></script>
 <script>
 (function(){
-const C = window.CUSTOS, K = window.CALC, { brl, num, mil, dataBR, CATS } = K;
+const C = window.CUSTOS, K = window.CALC, E = C.escala, { brl, num, mil, pct, dataBR, CATS, GRUPOS } = K;
 const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
-const r0 = K.contas(C);
-const ler = (k, d) => { try { const v = localStorage.getItem(k); return v == null ? d : +v; } catch { return d; } };
-const gravar = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
+const ler = () => { try { return JSON.parse(localStorage.getItem("cc_premissas") || "{}"); } catch { return {}; } };
+const gravar = (v) => { try { localStorage.setItem("cc_premissas", JSON.stringify(v)); } catch {} };
+const fte = (v) => v < 0.05 ? "·" : num(v, v < 10 ? 1 : 0);
 $("#atual").textContent = C.atualizadoEm;
 
-$("#kpis").innerHTML = [
-  ["Total com mão de obra", brl(r0.total), "d"], ["Saiu do caixa", brl(r0.caixa)], ["Para manter, por mês", brl(r0.recorrenteMes)], ["Horas de trabalho", num(r0.hTotal, 1) + " h"],
-].map(([a, b, c]) => `<div class="${c || ""}"><b class="num">${b}</b>${a}</div>`).join("");
+/* campos do simulador: [chave, rótulo, ajuda, padrão, passo] */
+const pac = (n) => C.pacotes.find((p) => p.nome === n);
+const CAMPOS = [
+  ["Pacotes", [["sense", "Displays no Sense (%)", "com módulo smart", pac("Sense").mix * 100, 5], ["media", "Displays no Media (%)", "com módulo smart", pac("Media").mix * 100, 5],
+    ["pEss", "Preço Essencial (R$)", "por display/mês", pac("Essencial").preco, 1], ["pSense", "Preço Sense (R$)", "", pac("Sense").preco, 1], ["pMedia", "Preço Media (R$)", "", pac("Media").preco, 1]]],
+  ["Equipe", [["minutosPorModulo", "Minutos por módulo", "montagem, gravação e teste", E.minutosPorModulo, 1], ["chamadosPorDisplay", "Chamados por display/mês", "suporte técnico", E.chamadosPorDisplay, 0.01],
+    ["displaysPorDev", "Displays por desenvolvedor", "além de 0,5 dev fixo", E.displaysPorDev, 500], ["fatorEncargos", "Fator de encargos", "salário × fator", E.fatorEncargos, 0.05], ["implantacaoMeses", "Meses de implantação", "", E.implantacaoMeses, 1]]],
+  ["NEOBAND e nuvem", [["nbDisplay", "Display (R$)", "custo de produção", E.neoband.display, 50], ["nbInst", "Instalação (R$)", "", E.neoband.instalacao, 10], ["nbManut", "Manutenção (R$/mês)", "por display", E.neoband.manutencao, 5],
+    ["nbVida", "Vida útil (meses)", "amortização", E.neoband.vidaMeses, 6], ["batimento", "Batimento do módulo (min)", "nuvem", E.nuvem.batimentoMin, 1]]],
+];
+const PADRAO = Object.fromEntries(CAMPOS.flatMap(([, c]) => c.map((x) => [x[0], x[3]])));
+let P = { ...PADRAO, ...ler() };
+$("#form").innerHTML = CAMPOS.map(([g, c]) => `<fieldset><legend>${g}</legend>${c.map(([k, rot, aj, , passo]) => `<label><span>${rot}${aj ? `<small>${aj}</small>` : ""}</span><input type="number" step="${passo}" data-k="${k}"></label>`).join("")}</fieldset>`).join("");
+$$("#form input").forEach((i) => { i.value = P[i.dataset.k]; i.oninput = () => { P[i.dataset.k] = parseFloat(i.value) || 0; gravar(P); tudo(); }; });
+$("#reset").onclick = () => { P = { ...PADRAO }; gravar({}); $$("#form input").forEach((i) => i.value = P[i.dataset.k]); tudo(); };
 
-/* simulador */
-const sVh = $("#sVh"), rVh = $("#rVh");
-function sim(){
-  const vh = +sVh.value || 0, r = K.contas(C, { valorHora: vh });
-  gravar("cc_vh", vh);
-  $("#sRes").innerHTML = [
-    ["Compras (28 pedidos)", r.compras], ["Nuvem e hospedagem no período", r.sistemaPeriodo], ["Claude, parcela da Códice", r.claude],
-    ["Saiu do caixa", r.caixa], [`Mão de obra (${num(r.hTotal, 1)} h × ${brl(vh, 0)})`, r.maoDeObra],
-  ].map(([a, v]) => `<div class="ln"><span>${a}</span><b class="num">${brl(v)}</b></div>`).join("")
-    + `<div class="tt"><span>Total</span><b class="num">${brl(r.total)}</b></div>
-       <div class="ln" style="box-shadow:none"><span>Nuvem e hospedagem por display, por ano</span><b class="num">${brl(r.rastreadoAno)}</b></div>`;
+function premissas(){
+  const s = P.sense / 100, m = P.media / 100;
+  return {
+    pacotes: [{ nome: "Essencial", preco: P.pEss, mix: Math.max(0, 1 - s - m), smart: false }, { nome: "Sense", preco: P.pSense, mix: s, smart: true }, { nome: "Media", preco: P.pMedia, mix: m, smart: true }],
+    minutosPorModulo: P.minutosPorModulo, chamadosPorDisplay: P.chamadosPorDisplay, displaysPorDev: P.displaysPorDev, fatorEncargos: P.fatorEncargos, implantacaoMeses: P.implantacaoMeses,
+    neoband: { display: P.nbDisplay, instalacao: P.nbInst, manutencao: P.nbManut, vidaMeses: P.nbVida }, nuvem: { batimentoMin: P.batimento },
+  };
 }
-const liga = (n, rg) => { n.oninput = () => { rg.value = n.value; sim(); }; rg.oninput = () => { n.value = rg.value; sim(); }; };
-liga(sVh, rVh);
-sVh.value = rVh.value = ler("cc_vh", C.maoDeObra.valorHora);
-$("#sReset").onclick = () => { sVh.value = rVh.value = C.maoDeObra.valorHora; sim(); };
-sim();
 
-/* compras */
+function tudo(){
+  const o = premissas(), r = K.contas(C), F = E.faixas.map((n) => K.faixa(C, n, o)), f0 = F[0], fN = F[F.length - 1];
+  $("#kpis").innerHTML = [["Investido até hoje, com mão de obra", brl(r.total), "d"], ["Valor de mercado do que já existe", mil(r.mValor)],
+    ["Custo da 75 LAB por display/mês", `${brl(f0.porDisplay, 0)} → ${brl(fN.porDisplay, 0)}`], ["Pessoas na operação", `${num(f0.eO.pessoas, 1)} → ${num(fN.eO.pessoas, 1)}`]]
+    .map(([a, b, c]) => `<div class="${c || ""}"><b class="num">${b}</b>${a}</div>`).join("");
+
+  const cab = `<tr><th></th>${E.faixas.map((n) => `<th class="r">${num(n)}</th>`).join("")}</tr>`;
+  const L = (rot, fn, cls = "") => `<tr class="${cls}"><td>${rot}</td>${F.map((f) => `<td class="r num">${fn(f)}</td>`).join("")}</tr>`;
+  $("#tabEsc").innerHTML = cab + [
+    L("Montagem (técnicos)", (f) => brl(f.eO.porGrupo.Montagem, 0)), L("Suporte técnico (N1 e N2)", (f) => brl(f.eO.porGrupo["Suporte técnico"], 0)),
+    L("Sistema (dev e DevOps)", (f) => brl(f.eO.porGrupo.Sistema, 0)), L("Gestão da Códice", (f) => brl(f.eO.porGrupo["Gestão"], 0)),
+    L("Ferramentas (computador, licenças, IA)", (f) => brl(f.eO.ferramentas, 0)), L("Nuvem", (f) => brl(f.nuvem, 0)), L("Hospedagem", (f) => brl(f.hospedagem, 0)),
+    L("Peças de reposição de módulos", (f) => brl(f.pecasOper, 0)),
+    L("Total por mês na operação", (f) => brl(f.oper, 0), "t"), L("Por display por mês", (f) => brl(f.porDisplay), "t"),
+    L("Total por mês na implantação", (f) => brl(f.impl, 0), "s"), L("Por display na implantação", (f) => brl(f.porDisplayImpl), "s"),
+    L("Módulos montados por mês na implantação", (f) => num(f.modImpl), "s"), L("Bancadas (uma vez)", (f) => brl(f.bancadas, 0), "s"),
+  ].join("");
+
+  const ORD = ["mont", "n1", "n2", "dev", "devops", "gestor", "adm"];
+  $("#tabEq").innerHTML = cab + ORD.map((k) => L(`<span class="chip" style="background:${GRUPOS[E.cargos[k].grupo]};color:#fff">${E.cargos[k].grupo}</span> ${E.cargos[k].nome}`, (f) => fte(f.eO.fte[k]))).join("")
+    + L("Total na operação", (f) => num(f.eO.pessoas, 1), "t") + L("Total na implantação", (f) => num(f.eI.pessoas, 1), "s") + L("Custo da equipe por mês", (f) => brl(f.eO.salarios, 0), "s");
+  $("#tabCargos").innerHTML = `<tr><th>Cargo</th><th class="r">Salário CLT</th><th class="r">Custo com encargos</th><th>Fonte</th></tr>` + ORD.map((k) => { const c = E.cargos[k];
+    return `<tr><td>${c.nome}</td><td class="r num">${brl(c.salario, 0)}</td><td class="r num">${brl(c.salario * (o.fatorEncargos ?? E.fatorEncargos), 0)}</td><td><a href="${c.url}" target="_blank" rel="noopener">${c.fonte}</a></td></tr>`; }).join("")
+    + `<tr class="s"><td colspan="4">Fator de encargos e benefícios ${num(o.fatorEncargos, 2)}: <a href="${E.encargosFonte.url}" target="_blank" rel="noopener">${E.encargosFonte.nome}</a>. Ferramentas: R$ ${num(E.ferramentasPessoa)} por pessoa + R$ ${num(E.iaPorDev)} de IA por desenvolvedor.</td></tr>`;
+
+  $("#tabPart").innerHTML = cab + [
+    L("Receita média por display", (f) => brl(f.precoMedio)), L("NEOBAND por display", (f) => brl(f.nbDisplay)), L("75 LAB por display", (f) => brl(f.porDisplay)),
+    L("Sobra por display", (f) => brl(f.precoMedio - f.nbDisplay - f.porDisplay)), L("Sobra no mês", (f) => mil(f.margem), "s"),
+    L("Participação pelo custo", (f) => pct(f.partCusto), "t"), L("Pelo custo com o ativo já construído", (f) => pct(f.partAtivo), "t"), L("Pelo capital investido", (f) => pct(f.partCapital), "t"),
+    L("Mínimo da receita para cobrir a 75 LAB", (f) => pct(f.minimo)),
+  ].join("");
+
+  $("#txtNuvem").innerHTML = `Por módulo smart: ${brl(f0.nuvemPorModulo)} por mês (batimento a cada ${num(o.nuvem.batimentoMin)} min: ${num(30 * 24 * 60 / o.nuvem.batimentoMin)} envios, 2 leituras e 3 gravações cada). Por display: ${brl(f0.usdDisplay * E.nuvem.dolar * E.nuvem.contingencia, 3)}. Mapas: 1 usuário a cada ${E.nuvem.displaysPorUsuario} displays, ${E.nuvem.mapasPorUsuario} aberturas por mês, 10 mil grátis e US$ 7 por mil acima. Dólar R$ ${num(E.nuvem.dolar, 2)} e ${pct(E.nuvem.contingencia - 1, 0)} de folga, sem contar com a cota grátis do Firebase. Em 50.000 displays: ${brl(fN.nuvem, 0)} por mês.`;
+}
+
+/* partes fixas */
+const r0 = K.contas(C);
+$("#lados").innerHTML = `<div class="lab"><h3>75 LAB</h3><ul>${C.divisao.lab.map((x) => `<li>${x}</li>`).join("")}</ul></div><div class="nb"><h3>NEOBAND</h3><ul>${C.divisao.neoband.map((x) => `<li>${x}</li>`).join("")}</ul></div>`;
+
 let filtro = { cat: "", canal: "", q: "" }, ordem = { k: "data", asc: true };
 const visiveis = () => C.compras.filter((c) => (!filtro.cat || c.cat === filtro.cat) && (!filtro.canal || c.canal === filtro.canal)
   && (!filtro.q || (c.item + " " + c.uso).toLowerCase().includes(filtro.q))).sort((a, b) => {
@@ -221,84 +277,69 @@ $$("#filtros button[data-cat], #filtros button[data-canal]").forEach((b) => b.on
   compras();
 });
 $("#busca").oninput = (e) => { filtro.q = e.target.value.toLowerCase().trim(); compras(); };
-$$("#tabCompras th").forEach((th) => th.onclick = () => { ordem = { k: th.dataset.k, asc: ordem.k === th.dataset.k ? !ordem.asc : true }; compras(); });
+$$("#tabCompras th.ord").forEach((th) => th.onclick = () => { ordem = { k: th.dataset.k, asc: ordem.k === th.dataset.k ? !ordem.asc : true }; compras(); });
 $("#csv").onclick = () => {
   const linhas = [["data", "item", "uso", "categoria", "loja", "quantidade", "valor_pago"], ...visiveis().map((c) => [c.data, c.item, c.uso, CATS[c.cat].nome, c.canal, c.qtd, c.valor.toFixed(2).replace(".", ",")])];
   const csv = "﻿" + linhas.map((l) => l.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(";")).join("\n");
   const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" })); a.download = "codice-compras.csv"; a.click();
 };
 compras();
-$("#resumoCompras").innerHTML = `<div class="caixa"><b>Por categoria</b>${Object.entries(r0.porCat).map(([k, v]) => `<div style="margin-top:10px"><div style="display:flex;justify-content:space-between"><span>${CATS[k].nome}<small style="display:block;color:var(--suave);font-size:13px">${CATS[k].texto}</small></span><b class="num">${brl(v)}</b></div><div class="barra"><i style="width:${v / r0.compras * 100}%;background:${CATS[k].cor}"></i></div></div>`).join("")}</div>
+$("#resumoCompras").innerHTML = `<div class="caixa"><b>Por categoria</b>${Object.entries(r0.porCat).map(([k, v]) => `<div style="margin-top:10px"><div style="display:flex;justify-content:space-between;gap:10px"><span>${CATS[k].nome}<small style="display:block;color:var(--suave);font-size:13px">${CATS[k].texto}</small></span><b class="num">${brl(v)}</b></div><div class="barra"><i style="width:${v / r0.compras * 100}%;background:${CATS[k].cor}"></i></div></div>`).join("")}</div>
   <div class="caixa"><b>Por loja</b>${Object.entries(r0.porCanal).map(([k, v]) => `<div style="margin-top:10px"><div style="display:flex;justify-content:space-between"><span>${k} · ${C.compras.filter((c) => c.canal === k).length} pedidos</span><b class="num">${brl(v)}</b></div><div class="barra"><i style="width:${v / r0.compras * 100}%"></i></div></div>`).join("")}
   <p class="nota">AliExpress: todos os pedidos de 13/09; a pasta de solda SN99 ainda estava a caminho em 23/10.</p></div>`;
 
-/* módulo */
 $("#tabBom tbody").innerHTML = C.bom.map((b) => `<tr><td>${b.item}</td><td>${b.base}</td><td class="r num">${brl(b.valor)}</td></tr>`).join("")
   + C.bomOpcionais.map((b) => `<tr><td>${b.item} <span class="chip c-pd">opcional</span></td><td>${b.base}</td><td class="r num">+ ${brl(b.valor)}</td></tr>`).join("")
   + C.bomPendentes.map((p) => `<tr><td colspan="2">${p}</td><td class="r"><span class="pend">a confirmar</span></td></tr>`).join("");
 $("#tabBom tfoot").innerHTML = `<tr><td colspan="2">Total por módulo (sem opcional)</td><td class="r num">${brl(r0.bom)}</td></tr>`;
 
-/* tags */
-const T = C.tags;
-$("#tabTags tbody").innerHTML = [
-  ["Quantidade", `${T.quantidade} tags (${T.ativas} em uso, ${T.contasGoogle} contas Google com ${T.porConta} cada)`],
-  ["Compra das tags e pilhas", "Fora deste levantamento"],
-  ["Rede e contas", "Rede Encontre Meu Dispositivo do Google e contas gratuitas: R$ 0,00"],
-  ["Coletor", "GitHub Actions: 398 de 2.000 minutos grátis em outubro: R$ 0,00"],
-  ["Pareamento", `10,2 h (3 min por tag), já contadas na mão de obra`],
-].map(([a, b]) => `<tr><td style="width:200px"><b>${a}</b></td><td>${b}</td></tr>`).join("");
-
-/* sistema */
 $("#tabSis tbody").innerHTML = C.sistema.map((s) => `<tr><td>${s.item}<small>${s.fonte}</small></td><td class="r num">${brl(s.set)}</td><td class="r num">${brl(s.out)}</td><td class="r num">${brl(s.mensal)}</td></tr>`).join("");
 const sm = (k) => C.sistema.reduce((a, s) => a + s[k], 0);
 $("#tabSis tfoot").innerHTML = `<tr><td>Total</td><td class="r num">${brl(sm("set"))}</td><td class="r num">${brl(sm("out"))}</td><td class="r num">${brl(sm("mensal"))}</td></tr>`;
-$("#txtClaude").innerHTML = `${C.claude.fonte} Parcela: ${num(C.claude.horasCodice, 1)} ÷ ${num(C.claude.horasTodas, 1)} h = ${num(C.claude.horasCodice / C.claude.horasTodas * 100, 1)}% de ${brl(C.claude.pagoNoPeriodo)} = <b>${brl(r0.claude)}</b>.`;
+$("#txtClaude").innerHTML = `${C.claude.fonte} Parcela: ${num(C.claude.horasCodice, 1)} ÷ ${num(C.claude.horasTodas, 1)} h = ${pct(r0.pctClaude)} de ${brl(C.claude.pagoNoPeriodo)} = <b>${brl(r0.claude)}</b>.`;
 
-/* mão de obra */
 const M = C.maoDeObra;
-$("#txtMao").textContent = `${num(r0.hMedidas, 1)} h medidas + ${num(r0.hCampo, 1)} h de campo estimadas = ${num(r0.hTotal, 1)} h. A ${brl(M.valorHora, 0)}/h (${M.valorHoraFonte.toLowerCase()}) = ${brl(r0.maoDeObra)}. ${M.medidas.fonte}`;
+$("#txtMao").textContent = `${num(r0.hMedidas, 1)} h medidas + ${num(r0.hCampo, 1)} h de bancada estimadas = ${num(r0.hTotal, 1)} h. A ${brl(M.valorHora, 0)}/h (${M.valorHoraFonte.toLowerCase()}) = ${brl(r0.maoDeObra)}. ${M.medidas.fonte}`;
 const hmax = Math.max(...Object.values(M.porDia));
 $("#tabDias tbody").innerHTML = Object.entries(M.porDia).map(([d, h]) => `<tr><td class="num">${dataBR(d)}</td><td class="r num">${num(h, 1)} h</td><td><div class="barra" style="margin-top:8px"><i style="width:${h / hmax * 100}%;background:var(--teal)"></i></div></td></tr>`).join("");
 $("#tabDias tfoot").innerHTML = `<tr><td>${Object.keys(M.porDia).length} dias</td><td class="r num">${num(r0.hMedidas, 1)} h</td><td></td></tr>`;
 $("#tabCampo tbody").innerHTML = M.campo.map((c) => `<tr><td>${c.item}<small>${c.base}</small></td><td class="r num">${num(c.horas, 1)} h</td></tr>`).join("");
-$("#tabCampo tfoot").innerHTML = `<tr><td>Total de campo</td><td class="r num">${num(r0.hCampo, 1)} h</td></tr>`;
+$("#tabCampo tfoot").innerHTML = `<tr><td>Total</td><td class="r num">${num(r0.hCampo, 1)} h</td></tr>`;
 
-/* mercado */
 $("#tabMerc tbody").innerHTML = C.mercado.modulos.map((m) => `<tr><td>${m.nome}<small>${m.detalhe}</small></td><td class="r num">${num(m.horas)}</td><td class="r num">${brl(m.valor, 0)}</td><td class="r num">${brl(m.horas * m.valor, 0)}</td></tr>`).join("");
 $("#tabMerc tfoot").innerHTML = `<tr><td>Total</td><td class="r num">${num(r0.mHoras)} h</td><td></td><td class="r num">${brl(r0.mValor, 0)}</td></tr>`;
 $("#txtMerc").textContent = `${C.mercado.conferencia} Prazo: ${num(r0.mHoras)} h ÷ (${C.mercado.equipe} pessoas × ${C.mercado.horasMes} h por mês) = ${num(r0.mesesEquipe, 1)} meses. Com IA: ${num(r0.hTotal, 1)} h e ${brl(r0.maoDeObra + r0.claude, 0)} (mão de obra + Claude).`;
 
-/* escala */
-const E = [200, 1000, 5000].map((n) => K.escala(C, n, 0.2));
-const linhaE = (rot, f) => `<tr><td>${rot}</td>${E.map((e) => `<td class="r num">${f(e)}</td>`).join("")}</tr>`;
-$("#tabEsc tbody").innerHTML = [
-  linhaE("Módulos smart (20%)", (e) => num(e.smart)), linhaE("Peças dos módulos", (e) => `<b>${brl(e.modulos, 0)}</b>`),
-  linhaE("Nuvem e hospedagem por mês", (e) => brl(e.sistemaMes)), linhaE("Por display, por mês", (e) => brl(e.sistemaMes / e.n)),
-  linhaE("Contas Google", (e) => num(e.contasG)), linhaE("Minutos do coletor por mês", (e) => `${num(e.minGit)}${e.gitGratis ? "" : ' <span class="pend">acima da cota</span>'}`),
-  linhaE("Horas de campo", (e) => `${num(e.hPar + e.hMont)} h`), linhaE("Campo a valor-hora", (e) => brl(e.maoDeObra, 0)),
-].join("");
-
-/* premissas */
-const P = [
-  ["Celular Android do pareamento", "pendente", "Não está nos pedidos; falta saber se foi comprado para o projeto."],
-  ["Fonte USB e cabo do módulo", "pendente", "Não aparecem nos pedidos; provavelmente reaproveitados."], ["Valor-hora R$ 150", "estimado", "Meio da faixa de pleno; ajuste no simulador."],
-  ["25,2 h de campo", "estimado", "Pareamento 3 min por tag, montagem 12 h, cadastros 3 h."], ["Rateios (Hostinger 1/13, Claude 18,6%)", "estimado", "Por site e por horas de sessão."],
-  ["Equivalente de mercado", "estimado", "Horas por módulo pelo escopo entregue; conferido pelo tamanho do código."], ["Projeção de escala", "estimado", "Linear a partir do uso de outubro."],
-  ["28 pedidos", "confirmado", "Histórico da Shopee e do AliExpress."], ["Nuvem set/out", "confirmado", "Faturamento do Google Cloud."], ["Hostinger", "confirmado", "Histórico de pagamentos."],
-  ["Claude", "confirmado", "Pagamentos de 17/09 e 09/10."], ["58 h de sessão", "confirmado", "Registro das sessões; bate com os dias de commit."],
+const PR = [
+  ["Custo real da NEOBAND", "pendente", "Hoje: preço de venda do deck comercial (display R$ 3.200, instalação R$ 350, manutenção R$ 70/mês)."],
+  ["Quem banca o display", "pendente", "Se a NEOBAND vende o display à Códice, ela já ganha na venda e o capital passa a ser da Códice."],
+  ["Mistura real de pacotes", "pendente", "Usada: 50% Essencial, 40% Sense, 10% Media."],
+  ["Fonte USB e cabo do módulo", "pendente", "Não aparecem nos pedidos."],
+  ["Equipe por faixa", "estimado", "Montagem 30 min por módulo, 0,1 chamado por display, 1 dev por 10 mil displays, 1 DevOps por 25 mil, 1 gestor a cada 20 pessoas, administrativo 1 a cada 15 mil displays."],
+  ["Salários e fator 1,8", "estimado", "CLT 2026 (CAGED e guias); regime tributário da Códice muda o fator."],
+  ["Nuvem na escala", "estimado", "Preços públicos do Google, dólar R$ 5,00 e 50% de folga."],
+  ["Valor de mercado R$ 448 mil", "estimado", "Horas por módulo pelo escopo entregue; conferido pelo tamanho do código."],
+  ["Valor-hora R$ 150 e 12 h de bancada", "estimado", "Mão de obra já feita."],
+  ["27 pedidos", "confirmado", "Histórico da Shopee e do AliExpress."], ["Nuvem set/out", "confirmado", "Faturamento do Google Cloud."],
+  ["Hostinger", "confirmado", "Histórico de pagamentos."], ["Claude", "confirmado", "Pagamentos de 17/09 e 09/10."], ["51,1 h de sessão", "confirmado", "Registro das sessões de trabalho no projeto."],
 ];
 const COR = { pendente: "pend", estimado: "chip c-pd", confirmado: "chip c-modulo" };
-$("#tabPrem tbody").innerHTML = P.map(([a, s, b]) => `<tr><td>${a}</td><td><span class="${COR[s]}">${s}</span></td><td>${b}</td></tr>`).join("");
+$("#tabPrem tbody").innerHTML = PR.map(([a, s, b]) => `<tr><td>${a}</td><td><span class="${COR[s]}">${s}</span></td><td>${b}</td></tr>`).join("");
 
-/* fontes */
 $("#listaFontes").innerHTML = [
-  "Histórico de pedidos da Shopee e do AliExpress do Caique, lido em 23/10/2026 (só itens do projeto, sem dados pessoais).",
+  "Histórico de pedidos da Shopee e do AliExpress, lido em 23/10/2026 (só itens do projeto, sem dados pessoais).",
   "Google Cloud: faturamento da conta \"Pagamento do Firebase\" (relatório por serviço de outubro, fatura de setembro, previsão do mês).",
-  "Hostinger: histórico de pagamentos do plano Business Web Hosting.",
-  "GitHub: uso do Actions em outubro; repositórios rental-display (246 commits) e esp32-displays (21 commits).",
+  "Hostinger: histórico de pagamentos do plano Business Web Hosting e do VPS KVM 4.",
+  "GitHub: repositórios rental-display (246 commits) e esp32-displays (21 commits).",
   "Registro das sessões do Claude Code (horas ativas com comandos no projeto).",
+  "Deck comercial da Códice: pacotes (Essencial R$ 499, Sense R$ 849, Media R$ 1.290) e preço de comprar um display.",
   ...C.mercado.fonteHora.map((f) => `<a href="${f.url}" target="_blank" rel="noopener">${f.nome}</a>`),
+  ...Object.values(E.cargos).map((c) => `<a href="${c.url}" target="_blank" rel="noopener">${c.fonte}</a>`),
+  `<a href="${E.encargosFonte.url}" target="_blank" rel="noopener">${E.encargosFonte.nome}</a>`,
+  ...E.nuvem.fontes.map((f) => `<a href="${f.url}" target="_blank" rel="noopener">${f.nome}</a>`),
 ].map((x) => `<li>${x}</li>`).join("");
+
+tudo();
 })();
 </script>
 </body>

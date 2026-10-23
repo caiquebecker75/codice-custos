@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Custos da Códice</title>
-<meta name="description" content="Levantamento detalhado de custos do projeto Códice: peças, nuvem, ferramenta e mão de obra, de 09/09 a 23/10/2026.">
+<meta name="description" content="O que a 75 LAB põe na Códice, hoje e na escala de 500 a 50.000 displays: base para a participação da 75 LAB e da NEOBAND.">
 <link rel="icon" href="img/codice-simbolo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#061B49; --navy2:#0C2A66; --teal:#1DD4C8; --azul:#2F73FF;
+  --navy:#061B49; --navy2:#0C2A66; --teal:#1DD4C8; --azul:#2F73FF; --grafite:#4E4E50;
   --fundo:#F3F5F9; --papel:#FFFFFF; --tinta:#0B1530; --suave:#5B6683; --fraco:#E6EAF2; --amb:#FFB020; --ambF:#FFF3D6;
   --tealF:#DDF8F5; --azulF:#E3ECFF;
 }
@@ -23,16 +23,24 @@ button,input{font:inherit;color:inherit}
 .tela.ativa{opacity:1;visibility:visible}
 .tela.escura{background:var(--navy);color:#fff}
 h1,h2,.exo{font-family:"Exo 2",Inter,sans-serif}
-h2.tit{font-size:56px;line-height:1.04;font-weight:700;letter-spacing:-.5px;max-width:1180px}
+h2.tit{font-size:54px;line-height:1.05;font-weight:700;letter-spacing:-.5px;max-width:1180px}
 .tit em{font-style:normal;color:var(--azul)}
 .escura .tit em{color:var(--teal)}
-.lead{font-size:22px;line-height:1.45;color:var(--suave);max-width:760px;margin-top:18px}
+.lead{font-size:21px;line-height:1.45;color:var(--suave);max-width:760px;margin-top:16px}
 .escura .lead{color:#B9C6E4}
 .num{font-variant-numeric:tabular-nums}
-.fonte{position:absolute;left:96px;right:300px;bottom:28px;font-size:13px;line-height:1.4;color:#7A849E}
+.fonte{position:absolute;left:96px;right:300px;bottom:26px;font-size:13px;line-height:1.4;color:#7A849E}
 .escura .fonte{color:#7F8FB8}
 .fonte a{color:inherit}
 .pend{display:inline-block;background:var(--amb);color:#3A2600;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase;padding:3px 8px;border-radius:6px;vertical-align:middle}
+.btn{border:0;background:var(--navy);color:#fff;border-radius:999px;padding:12px 22px;font-weight:600;font-size:16px;cursor:pointer}
+.faixas{display:flex;gap:8px;flex-wrap:wrap}
+.faixas button{border:0;border-radius:999px;padding:9px 15px;background:var(--papel);color:var(--navy);font-weight:600;font-size:15px;cursor:pointer}
+.faixas button.on{background:var(--navy);color:#fff}
+.escura .faixas button{background:#14306B;color:#fff}.escura .faixas button.on{background:var(--teal);color:var(--navy)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:4px;background:var(--fraco);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--azul);box-shadow:0 0 0 4px #fff}
+input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--azul);border:4px solid #fff}
 
 /* topo fixo */
 .topo{position:absolute;left:96px;right:96px;top:40px;height:40px;display:flex;align-items:center;justify-content:space-between;z-index:5;pointer-events:none}
@@ -46,11 +54,11 @@ h2.tit{font-size:56px;line-height:1.04;font-weight:700;letter-spacing:-.5px;max-
 .logo-claro{display:none}.palco.escuro .logo-claro{display:block}.palco.escuro .logo-escuro{display:none}
 
 /* navegação */
-.nav{position:absolute;right:96px;bottom:22px;display:flex;gap:10px;z-index:6}
+.nav{position:absolute;right:96px;bottom:20px;display:flex;gap:10px;z-index:6}
 .nav button{width:46px;height:46px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:20px;cursor:pointer}
 .palco.escuro .nav button{background:#fff;color:var(--navy)}
 .nav button:disabled{opacity:.25;cursor:default}
-.trilha{position:absolute;left:0;right:0;bottom:0;height:5px;background:transparent;z-index:6}
+.trilha{position:absolute;left:0;right:0;bottom:0;height:5px;z-index:6}
 .trilha i{display:block;height:100%;width:0;background:var(--teal);transition:width .4s}
 
 /* cursor em dois tons */
@@ -66,38 +74,65 @@ h2.tit{font-size:56px;line-height:1.04;font-weight:700;letter-spacing:-.5px;max-
 /* 1 capa */
 .capa{padding:150px 96px 80px}
 .capa .kick{font-size:18px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:600}
-.capa h1{font-size:104px;line-height:.98;font-weight:800;letter-spacing:-1.5px;margin-top:22px;max-width:1100px}
-.capa .total{margin-top:46px;display:flex;align-items:flex-end;gap:28px}
-.capa .total b{font-family:"Exo 2";font-size:120px;font-weight:700;color:var(--teal);line-height:.9}
-.capa .total span{font-size:20px;color:#B9C6E4;max-width:420px;line-height:1.4;padding-bottom:10px}
-.capa .tres{position:absolute;left:96px;right:96px;bottom:92px;display:flex;gap:56px}
-.capa .tres div{font-size:17px;color:#9FB0D6}
-.capa .tres strong{display:block;font-family:"Exo 2";font-size:34px;color:#fff;font-weight:600}
-.capa .bloco3d{position:absolute;right:96px;top:170px;width:300px;opacity:.95}
+.capa h1{font-size:92px;line-height:1;font-weight:800;letter-spacing:-1.5px;margin-top:22px;max-width:1080px}
+.capa .sub{font-size:24px;color:#B9C6E4;margin-top:24px;max-width:800px;line-height:1.4}
+.capa .quatro{position:absolute;left:96px;right:96px;bottom:96px;display:flex;gap:28px}
+.capa .quatro div{flex:1;background:var(--navy2);border-radius:18px;padding:20px 24px;font-size:15px;color:#9FB0D6;line-height:1.4}
+.capa .quatro strong{display:block;font-family:"Exo 2";font-size:36px;color:#fff;font-weight:700;margin-bottom:4px}
+.capa .quatro div:first-child strong{color:var(--teal)}
+.capa .simb{position:absolute;right:96px;top:150px;width:250px}
 
-/* 2 cupom */
+/* 2 dois lados */
+.lados{position:absolute;left:96px;right:96px;top:260px;bottom:90px;display:grid;grid-template-columns:1fr 150px 1fr}
+.lados .lado{border-radius:24px;padding:30px 34px}
+.lados .lab{background:var(--navy);color:#fff}
+.lados .nb{background:var(--papel)}
+.lados h3{font-family:"Exo 2";font-size:32px;display:flex;justify-content:space-between;align-items:center}
+.lados h3 img{height:34px}
+.lados h3 small{font-family:Inter;font-size:15px;font-weight:500;opacity:.75}
+.lados ul{list-style:none;margin-top:22px}
+.lados li{font-size:19px;line-height:1.35;padding:13px 0 13px 34px;position:relative}
+.lados li::before{content:"";position:absolute;left:0;top:18px;width:16px;height:16px;border-radius:5px;background:var(--teal)}
+.lados .nb li::before{background:var(--azul)}
+.lados .lab li+li{box-shadow:0 -1px 0 #1A3369}.lados .nb li+li{box-shadow:0 -1px 0 var(--fraco)}
+.lados .meio{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;font-size:14px;color:var(--suave)}
+.lados .meio img{width:84px}
+.lados .meio b{font-family:"Exo 2";font-size:20px;color:var(--navy)}
+
+/* 3 cupom */
 .cupom-l{position:absolute;left:96px;top:290px;width:640px}
-.cupom-l .lead{max-width:600px}
-.cupom-l .lenda{margin-top:34px;display:flex;flex-direction:column;gap:14px;font-size:18px;color:var(--suave)}
+.cupom-l .lenda{margin-top:30px;display:flex;flex-direction:column;gap:14px;font-size:18px;color:var(--suave)}
 .cupom-l .lenda b{color:var(--tinta)}
-.cupom{position:absolute;right:120px;top:104px;width:560px;background:var(--papel);padding:36px 40px 40px;filter:drop-shadow(0 18px 30px rgba(6,27,73,.10))}
+.cupom{position:absolute;right:120px;top:110px;width:560px;background:var(--papel);padding:34px 40px 38px;filter:drop-shadow(0 18px 30px rgba(6,27,73,.10))}
 .cupom::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;background:radial-gradient(circle at 11px 14px,transparent 9px,#fff 10px) 0 0/22px 14px repeat-x}
 .cupom h3{font-family:"Exo 2";text-align:center;font-size:22px;letter-spacing:3px}
-.cupom .sub{text-align:center;font-size:13px;color:var(--suave);margin:4px 0 20px}
-.cupom .ln{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:19px;padding:9px 10px;margin:0 -10px;border-radius:8px;cursor:pointer;transition:background .15s}
-.cupom .ln:hover{background:var(--azulF)}
+.cupom .sub{text-align:center;font-size:13px;color:var(--suave);margin:4px 0 18px}
+.cupom .ln{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:19px;padding:9px 10px;margin:0 -10px;border-radius:8px}
 .cupom .ln small{display:block;font-size:13px;color:var(--suave)}
 .cupom .ln b{font-weight:600}
-.cupom .sep{height:0;margin:12px 0;background:none;outline:none;border-top:2px dotted #C9D1E0}
+.cupom .sep{margin:12px 0;border-top:2px dotted #C9D1E0}
 .cupom .sub2{font-weight:700;font-size:20px}
 .cupom .tot{display:flex;justify-content:space-between;font-family:"Exo 2";font-size:34px;font-weight:700;margin-top:6px}
-.cupom .nota{font-size:13px;color:var(--suave);margin-top:14px}
 
-/* 3 linha do tempo */
+/* 4 linha do tempo */
 .tempo svg{position:absolute;left:96px;top:310px;width:1408px;height:520px;overflow:visible}
-.tempo .dica{position:absolute;background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;font-size:15px;pointer-events:none;opacity:0;transition:opacity .12s;max-width:340px;z-index:4}
+.dica{position:absolute;background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;font-size:15px;pointer-events:none;opacity:0;transition:opacity .12s;max-width:360px;z-index:4}
 
-/* 4 módulo */
+/* 5 mercado */
+.merc .grande{position:absolute;left:810px;top:128px;width:690px;height:690px;display:flex;gap:4px}
+.merc .col{flex:1;display:flex;flex-direction:column;gap:4px}
+.merc .mod{background:var(--navy);padding:14px 16px;font-size:14px;color:#B9C6E4;display:flex;flex-direction:column;justify-content:space-between;transition:background .2s;cursor:pointer;overflow:hidden}
+.merc .mod b{color:#fff;font-family:"Exo 2";font-size:20px;display:block}
+.merc .mod:hover,.merc .mod.on{background:var(--azul)}
+.merc .peq{position:absolute;left:690px;top:717px;width:101px;height:101px;background:var(--teal);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:"Exo 2";font-weight:700;font-size:15px;text-align:center;border-radius:4px}
+.merc .txt{position:absolute;left:96px;top:290px;width:470px}
+.merc .lin{display:flex;gap:14px;align-items:baseline;margin-top:22px}
+.merc .lin b{font-family:"Exo 2";font-size:50px;font-weight:700;line-height:1;white-space:nowrap}
+.merc .lin span{font-size:16px;color:var(--suave)}
+.merc .det{margin-top:26px;background:var(--papel);border-radius:16px;padding:18px 22px;font-size:16px;line-height:1.45;min-height:120px}
+.merc .det b{font-family:"Exo 2";font-size:20px}
+
+/* 6 módulo */
 .bom svg{position:absolute;left:70px;top:230px;width:860px;height:600px;overflow:visible}
 .bom .lista{position:absolute;right:96px;top:250px;width:520px;background:var(--papel);border-radius:22px;padding:30px 34px}
 .bom .lista .ln{display:flex;justify-content:space-between;gap:16px;font-size:18px;padding:9px 0}
@@ -110,9 +145,9 @@ h2.tit{font-size:56px;line-height:1.04;font-weight:700;letter-spacing:-.5px;max-
 .chave.on i{background:var(--azul)}.chave.on i::after{left:25px}
 .bom .pendl{margin-top:16px;font-size:14px;color:var(--suave);line-height:1.45}
 
-/* 5 peneira */
+/* 7 peneira */
 .pene .area{position:absolute;left:96px;right:96px;top:290px;height:540px}
-.pene .tok{position:absolute;left:0;top:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.2;padding:8px;transition:transform 1s cubic-bezier(.5,0,.2,1),opacity .6s,background .4s;cursor:pointer}
+.pene .tok{position:absolute;left:0;top:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;line-height:1.2;padding:8px;transition:transform 1s cubic-bezier(.5,0,.2,1),opacity .6s;cursor:pointer}
 .pene .tok b{font-size:15px;font-family:"Exo 2"}
 .pene .tok.pd{background:var(--azulF);color:var(--navy)}
 .pene .tok.kit{background:var(--teal);color:var(--navy)}
@@ -122,143 +157,125 @@ h2.tit{font-size:56px;line-height:1.04;font-weight:700;letter-spacing:-.5px;max-
 .pene .rotulo b{display:block;font-family:"Exo 2";font-size:30px;color:var(--tinta)}
 .pene .veredito{position:absolute;right:0;top:470px;width:640px;font-size:17px;color:var(--suave);text-align:right;min-height:48px;line-height:1.45}
 .pene .veredito b{color:var(--tinta)}
-.btn{border:0;background:var(--navy);color:#fff;border-radius:999px;padding:12px 22px;font-weight:600;font-size:16px;cursor:pointer}
-.btn.claro{background:#fff;color:var(--navy)}
 
-/* 6 bancada */
-.banc .painel{position:absolute;left:96px;top:250px;width:930px;height:560px;border-radius:24px;background-color:#E4E9F2;background-image:radial-gradient(circle,#C5CEDE 3.5px,transparent 4px);background-size:34px 34px;padding:44px 40px}
-.banc .tag{position:absolute;width:170px;background:var(--papel);border-radius:10px 10px 14px 14px;padding:28px 16px 16px;font-size:14px;line-height:1.3;transform-origin:50% 0;transition:transform .3s}
-.banc .tag:hover{transform:rotate(-4deg)}
-.banc .tag::before{content:"";position:absolute;left:50%;top:9px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#E4E9F2}
-.banc .tag b{display:block;font-family:"Exo 2";font-size:24px;color:var(--navy);margin-top:6px}
-.banc .lado{position:absolute;right:96px;top:260px;width:420px}
-.banc .lado .grande{font-family:"Exo 2";font-size:76px;font-weight:700;color:var(--navy);line-height:1}
-.banc .lado label{display:block;font-size:18px;color:var(--suave);margin:34px 0 10px}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:4px;background:var(--fraco);outline:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--azul);box-shadow:0 0 0 4px #fff}
-input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--azul);border:4px solid #fff}
-.escura input[type=range]{background:#20396F}
-.banc .marcas{display:flex;justify-content:space-between;font-size:13px;color:var(--suave);margin-top:8px}
-.banc .res{margin-top:26px;background:var(--navy);color:#fff;border-radius:18px;padding:22px 26px;font-size:18px;line-height:1.4}
-.banc .res b{font-family:"Exo 2";font-size:40px;color:var(--teal);display:block}
-
-/* 7 tags */
-.tags .grade{position:absolute;left:96px;top:270px;display:flex;gap:40px}
-.tags .bloco h4{font-size:15px;color:var(--suave);font-weight:600;margin-bottom:12px}
-.tags .pts{display:grid;grid-template-columns:repeat(10,28px);gap:6px}
-.tags .pts i{width:28px;height:28px;border-radius:8px;background:var(--navy);position:relative;transition:transform .2s,background .2s}
-.tags .pts i::after{content:"";position:absolute;left:10px;top:4px;width:8px;height:8px;border-radius:50%;background:var(--fundo)}
-.tags .pts.r i{background:#AEB8CC}
-.tags .bloco:hover .pts:not(.r) i{background:var(--azul)}
-.tags .lado{position:absolute;right:96px;top:262px;width:470px}
-.tags .campo{display:flex;align-items:center;gap:10px;background:var(--papel);border-radius:16px;padding:14px 18px;font-size:18px}
-.tags .campo input{width:120px;border:0;background:var(--fundo);border-radius:10px;padding:8px 12px;font-size:22px;font-weight:600;font-family:"Exo 2"}
-.tags .tot{font-family:"Exo 2";font-size:72px;font-weight:700;color:var(--navy);line-height:1;margin-top:22px}
-.tags .ln{display:flex;justify-content:space-between;font-size:18px;padding:12px 0;box-shadow:0 1px 0 var(--fraco)}
-.tags .aviso{margin-top:22px;background:var(--ambF);border-radius:16px;padding:16px 20px;font-size:16px;line-height:1.45}
-
-/* 8 fatura */
-.fat .cab{position:absolute;left:96px;top:340px;width:440px}
-.fat .cab .v{font-family:"Exo 2";font-size:110px;font-weight:700;color:var(--navy);line-height:.9;margin-top:10px}
-.fat .cab .v small{font-size:30px;color:var(--suave);font-weight:600}
-.fat .cab .meses{display:flex;gap:16px;margin-top:34px}
-.fat .cab .meses div{flex:1;background:var(--papel);border-radius:16px;padding:16px 18px;font-size:14px;color:var(--suave)}
-.fat .cab .meses b{display:block;font-family:"Exo 2";font-size:28px;color:var(--tinta)}
-.fat .doc{position:absolute;right:96px;top:120px;width:880px;background:var(--papel);border-radius:22px;padding:28px 34px}
-.fat .doc .hd{display:grid;grid-template-columns:1fr 130px 150px 120px;gap:12px;font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--suave);padding-bottom:10px;box-shadow:0 2px 0 var(--fraco)}
-.fat .doc .ln{display:grid;grid-template-columns:1fr 130px 150px 120px;gap:12px;align-items:center;font-size:16px;padding:12px 0;box-shadow:0 1px 0 var(--fraco)}
+/* 8 nuvem */
+.fat .cab{position:absolute;left:96px;top:330px;width:440px}
+.fat .cab .v{font-family:"Exo 2";font-size:104px;font-weight:700;color:var(--navy);line-height:.9}
+.fat .cab .v small{font-size:28px;color:var(--suave);font-weight:600}
+.fat .cab .esc{margin-top:28px;background:var(--navy);color:#fff;border-radius:18px;padding:20px 24px;font-size:16px;line-height:1.45}
+.fat .cab .esc b{display:block;font-family:"Exo 2";font-size:40px;color:var(--teal)}
+.fat .doc{position:absolute;right:96px;top:120px;width:880px;background:var(--papel);border-radius:22px;padding:26px 34px}
+.fat .doc .hd,.fat .doc .ln{display:grid;grid-template-columns:1fr 130px 150px 120px;gap:12px}
+.fat .doc .hd{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--suave);padding-bottom:10px;box-shadow:0 2px 0 var(--fraco)}
+.fat .doc .ln{align-items:center;font-size:16px;padding:12px 0;box-shadow:0 1px 0 var(--fraco)}
 .fat .doc .ln small{display:block;font-size:13px;color:var(--suave);margin-top:2px}
-.fat .doc .ln .r{text-align:right}
-.fat .doc .ln .g{color:#0E9488;font-weight:600}
+.fat .doc .r{text-align:right}
+.fat .doc .g{color:#0E9488;font-weight:600}
 .fat .doc .tt{display:flex;justify-content:space-between;font-family:"Exo 2";font-size:28px;font-weight:700;padding-top:14px}
 
-/* 9 cartão de ponto */
-.ponto .cal{position:absolute;left:96px;top:262px;display:flex;gap:44px}
-.ponto .mes h4{font-family:"Exo 2";font-size:20px;margin-bottom:10px}
-.ponto .dias{display:grid;grid-template-columns:repeat(7,58px);gap:6px}
-.ponto .dias span{font-size:12px;color:var(--suave);text-align:center}
-.ponto .dias i{height:52px;border-radius:9px;background:var(--fraco);font-style:normal;font-size:12px;color:var(--suave);padding:5px 7px;display:flex;flex-direction:column;justify-content:space-between}
-.ponto .dias i b{font-size:15px;font-family:"Exo 2";align-self:flex-end}
-.ponto .dias i.n1{background:#BDEFEA;color:var(--navy)}.ponto .dias i.n2{background:var(--teal);color:var(--navy)}.ponto .dias i.n3{background:var(--azul);color:#fff}.ponto .dias i.n4{background:var(--navy);color:#fff}
-.ponto .dias i.vz{background:transparent}
-.ponto .lado{position:absolute;right:96px;top:250px;width:440px}
-.ponto .lado .h{font-family:"Exo 2";font-size:84px;font-weight:700;line-height:1;color:var(--navy)}
-.ponto .lado .ln{display:flex;justify-content:space-between;gap:12px;font-size:16px;padding:9px 0;box-shadow:0 1px 0 var(--fraco)}
-.ponto .lado .ln small{display:block;color:var(--suave);font-size:13px}
-.ponto .lado .vh{margin-top:20px;font-size:16px;color:var(--suave)}
-.ponto .lado .vh b{color:var(--tinta);font-size:20px}
-.ponto .lado .res{margin-top:16px;display:flex;justify-content:space-between;align-items:baseline;background:var(--navy);color:#fff;border-radius:16px;padding:16px 22px}
-.ponto .lado .res b{font-family:"Exo 2";font-size:38px;color:var(--teal)}
-.ponto .legenda{position:absolute;left:96px;top:745px;display:flex;gap:18px;font-size:13px;color:var(--suave);align-items:center}
-.ponto .legenda i{display:inline-block;width:16px;height:16px;border-radius:4px;vertical-align:-3px;margin-right:6px}
+/* 9 escala em barras */
+.esc9 .grafico{position:absolute;left:96px;right:96px;top:300px}
+.esc9 .linha{display:grid;grid-template-columns:110px 1fr 250px;gap:20px;align-items:center;height:62px}
+.esc9 .linha .f{font-family:"Exo 2";font-size:24px;font-weight:700;text-align:right}
+.esc9 .linha .f small{display:block;font-family:Inter;font-size:12px;color:var(--suave);font-weight:500}
+.esc9 .barra{display:flex;height:38px;border-radius:8px;overflow:hidden;background:var(--fraco)}
+.esc9 .barra i{display:block;height:100%;transition:width .8s cubic-bezier(.3,0,.2,1)}
+.esc9 .linha .v{font-size:15px;color:var(--suave)}
+.esc9 .linha .v b{font-family:"Exo 2";font-size:24px;color:var(--tinta);margin-right:8px}
+.esc9 .linha .v em{font-style:normal;font-weight:700;color:var(--azul)}
+.legenda{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--suave)}
+.legenda i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
+.esc9 .legenda{position:absolute;left:226px;top:254px}
 
-/* 10 mercado */
-.merc .q{position:absolute;background:var(--navy);color:#fff}
-.merc .grande{left:810px;top:128px;width:690px;height:690px;display:flex;border-radius:6px;overflow:hidden;background:transparent;gap:4px}
-.merc .col{flex:1;display:flex;flex-direction:column;gap:4px}
-.merc .mod{background:var(--navy);padding:14px 16px;font-size:14px;color:#B9C6E4;display:flex;flex-direction:column;justify-content:space-between;transition:background .2s;cursor:pointer;overflow:hidden}
-.merc .mod b{color:#fff;font-family:"Exo 2";font-size:20px;display:block}
-.merc .mod:hover,.merc .mod.on{background:var(--azul)}
-.merc .peq{left:680px;top:711px;width:107px;height:107px;background:var(--teal);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:"Exo 2";font-weight:700;font-size:15px;text-align:center;border-radius:4px}
-.merc .txt{position:absolute;left:96px;top:290px;width:460px}
-.merc .lin{display:flex;gap:14px;align-items:baseline;margin-top:24px}
-.merc .lin b{font-family:"Exo 2";font-size:52px;font-weight:700;line-height:1;white-space:nowrap}
-.merc .lin span{font-size:16px;color:var(--suave)}
-.merc .det{margin-top:28px;background:var(--papel);border-radius:16px;padding:18px 22px;font-size:16px;line-height:1.45;min-height:120px}
-.merc .det b{font-family:"Exo 2";font-size:20px}
-.merc .seta{position:absolute;left:560px;top:806px;font-size:15px;color:var(--suave);width:40px}
+/* 10 equipe */
+.eqp .mat{position:absolute;left:96px;right:96px;top:262px;background:var(--papel);border-radius:22px;padding:18px 26px}
+.eqp table{width:100%;border-collapse:collapse}
+.eqp th{font-family:"Exo 2";font-size:20px;text-align:center;padding:8px 0 12px;color:var(--navy)}
+.eqp th:first-child{text-align:left;font-family:Inter;font-size:13px;color:var(--suave);text-transform:uppercase;letter-spacing:.6px}
+.eqp td{padding:8px 6px;text-align:center;font-size:17px;box-shadow:0 1px 0 var(--fraco)}
+.eqp td:first-child{text-align:left;font-size:16px;white-space:nowrap}
+.eqp td:first-child i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:10px;vertical-align:0}
+.eqp td span{display:inline-block;min-width:58px;padding:5px 8px;border-radius:8px;font-weight:600}
+.eqp tr.tot td{font-family:"Exo 2";font-size:22px;font-weight:700;box-shadow:none;padding-top:12px}
+.eqp tr.imp td{font-size:15px;color:var(--suave);box-shadow:none}
 
-/* 11 etiquetas */
-.etq .par{position:absolute;left:96px;right:96px;top:270px;display:flex;gap:44px}
-.etq .et{flex:1;border-radius:22px;overflow:hidden;background:var(--papel)}
-.etq .et .faixa{padding:22px 30px;font-family:"Exo 2";font-size:24px;font-weight:700;color:#fff;background:var(--navy);display:flex;justify-content:space-between;align-items:center}
-.etq .et.b .faixa{background:var(--azul)}
-.etq .et .faixa span{font-family:Inter;font-weight:500;font-size:15px;opacity:.85}
-.etq .et .preco{padding:26px 30px 10px;display:flex;align-items:flex-start;gap:8px}
-.etq .et .preco sup{font-size:30px;font-weight:700;font-family:"Exo 2";margin-top:16px}
-.etq .et .preco b{font-family:"Exo 2";font-size:130px;line-height:1;font-weight:800;letter-spacing:-3px}
-.etq .et .preco .cent{font-family:"Exo 2";font-size:48px;font-weight:700;margin-top:14px}
-.etq .et .preco small{font-size:16px;color:var(--suave);align-self:flex-end;margin:0 0 22px 10px;max-width:170px;line-height:1.35}
-.etq .et ul{list-style:none;padding:6px 30px 26px}
-.etq .et li{display:flex;justify-content:space-between;font-size:17px;padding:10px 0;box-shadow:0 1px 0 var(--fraco)}
-.etq .et li:last-child{box-shadow:none}
-.etq .et .rod{background:var(--fundo);margin:0 30px 26px;border-radius:12px;padding:12px 16px;font-size:15px;color:var(--suave)}
+/* 11 montagem */
+.mont .topo2{position:absolute;right:96px;top:150px}
+.mont .linha-prod{position:absolute;left:96px;right:96px;top:300px;height:220px;background:var(--papel);border-radius:24px;overflow:hidden}
+.mont .esteira{position:absolute;left:0;right:0;top:150px;height:18px;background:repeating-linear-gradient(90deg,#C9D1E0 0 30px,#DDE3EC 30px 60px);animation:correr 1.2s linear infinite}
+@keyframes correr{to{background-position:60px 0}}
+.mont .modulos{position:absolute;left:0;top:112px;height:38px;width:200%;animation:andar 9s linear infinite;display:flex;gap:42px;padding-left:20px}
+.mont .modulos i{flex:none;width:52px;height:36px;border-radius:8px;background:var(--teal);position:relative}
+.mont .modulos i::after{content:"";position:absolute;left:14px;top:10px;width:24px;height:16px;border-radius:3px;background:var(--navy)}
+@keyframes andar{to{transform:translateX(-50%)}}
+.mont .tecnicos{position:absolute;left:30px;top:22px;display:flex;gap:12px;flex-wrap:wrap;max-width:1340px}
+.mont .tecnicos span{display:flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border-radius:999px;padding:6px 14px 6px 6px;font-size:14px}
+.mont .tecnicos span i{width:26px;height:26px;border-radius:50%;background:var(--teal)}
+.mont .nums{position:absolute;left:96px;right:96px;top:548px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.mont .nums div{background:var(--papel);border-radius:18px;padding:18px 22px;font-size:15px;color:var(--suave);line-height:1.4}
+.mont .nums b{display:block;font-family:"Exo 2";font-size:38px;color:var(--navy);font-weight:700}
+.mont .nums div.d{background:var(--navy);color:#B9C6E4}.mont .nums div.d b{color:var(--teal)}
 
-/* 12 simulador */
-.sim .ctl{position:absolute;left:96px;top:262px;width:480px}
-.sim .ctl label{display:flex;justify-content:space-between;font-size:17px;color:#B9C6E4;margin:30px 0 12px}
-.sim .ctl label b{font-family:"Exo 2";font-size:26px;color:#fff}
-.sim .pres{display:flex;gap:10px;margin-top:6px}
-.sim .pres button{border:0;border-radius:999px;padding:10px 18px;background:#14306B;color:#fff;font-weight:600;cursor:pointer}
-.sim .pres button.on{background:var(--teal);color:var(--navy)}
-.sim .out{position:absolute;right:96px;top:246px;width:820px}
-.sim .big{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:14px;box-shadow:0 2px 0 #20396F}
-.sim .big b{font-family:"Exo 2";font-size:72px;font-weight:700;color:var(--teal);line-height:1}
-.sim .big span{font-size:16px;color:#9FB0D6;max-width:300px;text-align:right}
-.sim .ln{display:grid;grid-template-columns:1fr 200px;gap:20px;padding:9px 0;font-size:17px;box-shadow:0 1px 0 #1A3369;align-items:baseline}
-.sim .ln small{display:block;color:#8FA2CC;font-size:13px;margin-top:2px}
-.sim .ln b{text-align:right;font-family:"Exo 2";font-size:24px;font-weight:600}
-.sim .ok{color:var(--teal)}.sim .atn{color:var(--amb)}
+/* 12 suporte e gestão */
+.sup .topo2{position:absolute;right:96px;top:150px}
+.sup .funil{position:absolute;left:96px;top:280px;width:880px}
+.sup .et{display:flex;align-items:center;gap:22px;margin-bottom:14px}
+.sup .et .b{height:86px;border-radius:16px;display:flex;flex-direction:column;justify-content:center;padding:0 24px;color:#fff;font-size:15px;transition:width .6s}
+.sup .et .b b{font-family:"Exo 2";font-size:32px}
+.sup .et .t{font-size:16px;color:var(--suave);line-height:1.4;max-width:300px}
+.sup .et .t b{color:var(--tinta)}
+.sup .gest{position:absolute;right:96px;top:280px;width:440px;background:var(--papel);border-radius:22px;padding:24px 28px}
+.sup .gest h4{font-family:"Exo 2";font-size:24px}
+.sup .gest .ln{display:flex;justify-content:space-between;gap:12px;padding:12px 0;box-shadow:0 1px 0 var(--fraco);font-size:16px}
+.sup .gest .ln small{display:block;color:var(--suave);font-size:13px}
+.sup .gest .ln b{font-family:"Exo 2";font-size:22px}
+.sup .gest .tt{margin-top:14px;background:var(--grafite);color:#fff;border-radius:14px;padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline}
+.sup .gest .tt b{font-family:"Exo 2";font-size:28px}
 
-/* 13 premissas */
-.prem .cols{position:absolute;left:96px;right:96px;top:262px;display:flex;gap:28px}
+/* 13 por display */
+.pd13 .colunas{position:absolute;left:96px;right:520px;top:270px;height:520px;display:flex;gap:18px;align-items:flex-end}
+.pd13 .c{flex:1;display:flex;flex-direction:column;height:100%;cursor:pointer}
+.pd13 .c .pilha{flex:1;display:flex;flex-direction:column;border-radius:10px;overflow:hidden}
+.pd13 .c .pilha i{display:block;transition:height .6s}
+.pd13 .c .rot{font-family:"Exo 2";font-size:18px;font-weight:700;text-align:center;margin-top:10px}
+.pd13 .c.on .rot{color:var(--azul)}
+.pd13 .c.on .pilha{outline:3px solid var(--azul);outline-offset:3px}
+.pd13 .det{position:absolute;right:96px;top:262px;width:390px}
+.pd13 .det .ln{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;box-shadow:0 1px 0 var(--fraco);font-size:16px;gap:12px}
+.pd13 .det .ln b{font-family:"Exo 2";font-size:26px}
+.pd13 .det .ln i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:8px}
+.pd13 .det h4{font-family:"Exo 2";font-size:30px;margin-bottom:6px}
+.pd13 .det .nota{margin-top:16px;background:var(--ambF);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.45}
+
+/* 14 participação */
+.part .topo2{position:absolute;left:96px;top:262px}
+.part .lentes{position:absolute;left:96px;right:96px;top:322px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.part .lentes div{background:#0C2A66;border-radius:18px;padding:20px 24px;font-size:15px;color:#B9C6E4;line-height:1.4}
+.part .lentes b{display:block;font-family:"Exo 2";font-size:52px;color:#fff;line-height:1.05}
+.part .lentes div:first-child b{color:var(--teal)}
+.part .lentes small{display:block;margin-top:6px;color:#8FA2CC;font-size:13px}
+.part .sim{position:absolute;left:96px;right:96px;top:540px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;align-items:end}
+.part .sim label{display:flex;justify-content:space-between;font-size:16px;color:#B9C6E4;margin-bottom:12px}
+.part .sim label b{font-family:"Exo 2";font-size:28px;color:#fff}
+.part .sim input[type=range]{background:#20396F}
+.part .sim .marcas{position:relative;height:22px;margin-top:6px;font-size:12px;color:#8FA2CC}
+.part .sim .marcas span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.part .sim .rec{background:#0C2A66;border-radius:16px;padding:16px 20px;font-size:14px;color:#B9C6E4}
+.part .sim .rec b{display:block;font-family:"Exo 2";font-size:30px;color:#fff}
+.part .sim .rec.lab b{color:var(--teal)}
+
+/* 15 pendências */
+.prem .cols{position:absolute;left:96px;right:96px;top:262px;display:flex;gap:24px}
 .prem .c{flex:1}
-.prem .c h4{font-family:"Exo 2";font-size:22px;padding:12px 18px;border-radius:14px;margin-bottom:12px;display:flex;justify-content:space-between}
-.prem .c.ok h4{background:var(--tealF)}.prem .c.es h4{background:var(--azulF)}.prem .c.pe h4{background:var(--amb);color:#3A2600}
-.prem .it{background:var(--papel);border-radius:14px;padding:13px 18px;margin-bottom:10px;font-size:15px;line-height:1.4;cursor:pointer}
-.prem .it b{display:block;font-size:16px}
-.prem .it .mais{display:none;color:var(--suave);margin-top:6px;font-size:14px}
+.prem .c h4{font-family:"Exo 2";font-size:21px;padding:11px 18px;border-radius:14px;margin-bottom:10px;display:flex;justify-content:space-between}
+.prem .c.ok h4{background:var(--tealF);color:var(--navy)}.prem .c.es h4{background:var(--azulF);color:var(--navy)}.prem .c.pe h4{background:var(--amb);color:#3A2600}
+.prem .it{background:#0C2A66;border-radius:12px;padding:11px 16px;margin-bottom:8px;font-size:14px;line-height:1.4;color:#C9D4EE;cursor:pointer}
+.prem .it b{display:block;font-size:15px;color:#fff}
+.prem .it .mais{display:none;margin-top:6px}
 .prem .it.aberto .mais{display:block}
-
-/* 14 fim */
-.fim{padding:150px 96px 80px}
-.fim h2{font-size:92px;line-height:1;font-weight:800;letter-spacing:-1px}
-.fim .tres{display:flex;gap:30px;margin-top:60px}
-.fim .tres div{flex:1;background:var(--navy2);border-radius:20px;padding:24px 28px;font-size:16px;color:#B9C6E4;line-height:1.4}
-.fim .tres b{display:block;font-family:"Exo 2";font-size:44px;color:#fff;font-weight:700;margin-bottom:6px}
-.fim .acoes{display:flex;gap:16px;margin-top:50px;align-items:center}
-.fim .acoes a{display:inline-flex;align-items:center;gap:12px;background:var(--teal);color:var(--navy);font-weight:700;font-size:20px;padding:18px 30px;border-radius:999px;text-decoration:none}
-.fim .acoes span{color:#9FB0D6;font-size:16px}
+.prem .acoes{position:absolute;left:96px;bottom:84px;display:flex;gap:16px;align-items:center}
+.prem .acoes a{display:inline-flex;gap:10px;background:var(--teal);color:var(--navy);font-weight:700;font-size:19px;padding:16px 28px;border-radius:999px;text-decoration:none}
+.prem .acoes span{color:#9FB0D6;font-size:15px}
 .girar{display:none}
 @media (orientation:portrait) and (max-width:700px){.girar{display:block;position:fixed;left:16px;right:16px;bottom:16px;background:#fff;color:var(--navy);border-radius:14px;padding:12px 16px;font-size:14px;z-index:20;text-align:center}.girar a{color:var(--azul);font-weight:600}}
 </style>
@@ -266,63 +283,86 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 <body>
 <div class="palco" id="palco">
   <div class="topo">
-    <div class="marca"><img src="img/codice-simbolo.svg" alt="">Códice <span>· Levantamento de custos</span></div>
-    <div class="dir"><span id="contador">1 / 14</span><img class="logo-escuro" src="img/logo-75lab-preto.png" alt="75 LAB"><img class="logo-claro" src="img/logo-75lab-branco.png" alt="75 LAB"></div>
+    <div class="marca"><img src="img/codice-simbolo.svg" alt="">Códice <span>· Custos e escala</span></div>
+    <div class="dir"><span id="contador">1 / 15</span><img class="logo-escuro" src="img/logo-75lab-preto.png" alt="75 LAB"><img class="logo-claro" src="img/logo-75lab-branco.png" alt="75 LAB"></div>
   </div>
 
   <!-- 1 capa -->
   <section class="tela escura capa" data-tema="escuro">
-    <div class="kick">Levantamento de custos · 09/09 a 23/10/2026</div>
-    <h1>Quanto custou construir a Códice</h1>
-    <div class="total"><b class="num" data-conta="total" data-fmt="brl0">R$ 0</b><span>Plataforma, rastreamento, módulo smart ESP32, nuvem, ferramenta e mão de obra. A compra das tags fica fora desta conta.</span></div>
-    <img class="bloco3d" src="img/codice-simbolo.svg" alt="">
-    <div class="tres">
-      <div><strong class="num" data-v="nCompras">28</strong>pedidos de peças e ferramentas</div>
-      <div><strong class="num" data-v="hTotal" data-fmt="h">83 h</strong>de trabalho (58 medidas)</div>
-      <div><strong class="num" data-v="sistemaMes" data-fmt="brl">R$ 8,45</strong>por mês para manter no ar</div>
-      <div><strong class="num">4,5 meses</strong>que uma equipe de 5 levaria sem IA</div>
+    <div class="kick">Custos reais e projeção de 500 a 50.000 displays</div>
+    <h1>O que a 75 LAB põe na Códice, hoje e na escala</h1>
+    <p class="sub">Base para definir a participação da 75 LAB e da NEOBAND na Códice.</p>
+    <img class="simb" src="img/codice-simbolo.svg" alt="">
+    <div class="quatro">
+      <div><strong class="num" data-v="total" data-fmt="mil">R$ 10,7 mil</strong>investidos até hoje, com mão de obra</div>
+      <div><strong class="num" data-v="mValor" data-fmt="mil">R$ 448 mil</strong>custaria construir o mesmo sem IA</div>
+      <div><strong class="num" id="capaDisp">R$ 58 → R$ 7</strong>por display por mês, de 500 a 50.000</div>
+      <div><strong class="num" id="capaPes">2 → 28</strong>pessoas na operação da 75 LAB</div>
     </div>
-    <div class="fonte">Fonte: histórico de pedidos da Shopee e do AliExpress, faturamento do Google Cloud, pagamentos da Hostinger, registro das sessões de trabalho e repositórios do projeto, lidos em 23/10/2026.</div>
+    <div class="fonte">Fonte: pedidos da Shopee e do AliExpress, faturamento do Google Cloud e da Hostinger, registro das sessões e repositórios (23/10/2026); salários do CAGED e guias de 2026; preços públicos do Google.</div>
   </section>
 
-  <!-- 2 cupom -->
+  <!-- 2 quem põe o quê -->
   <section class="tela">
-    <h2 class="tit" style="max-width:780px">R$ 13,8 mil no total; <em>90%</em> é tempo de trabalho</h2>
+    <h2 class="tit">Cada sócio põe uma parte diferente da <em>Códice</em></h2>
+    <div class="lados">
+      <div class="lado lab"><h3>75 LAB <small>tecnologia e operação</small></h3><ul id="ulLab"></ul></div>
+      <div class="meio"><img src="img/codice-simbolo.svg" alt=""><b>Códice</b>vende o display como serviço</div>
+      <div class="lado nb"><h3>NEOBAND <small>fábrica</small></h3><ul id="ulNb"></ul></div>
+    </div>
+    <div class="fonte">Divisão de papéis usada nas contas deste deck. <span class="pend">a validar</span> com a NEOBAND, principalmente quem banca o display e quem faz a manutenção física.</div>
+  </section>
+
+  <!-- 3 cupom -->
+  <section class="tela">
+    <h2 class="tit" style="max-width:760px">Até hoje a 75 LAB pôs <em>R$ 10,7 mil</em>; 88% é trabalho</h2>
     <div class="cupom-l">
-      <p class="lead">Do caixa saíram R$ 1,3 mil. O resto é tempo de trabalho, cobrado aqui a valor de mercado. A compra das 204 tags e das pilhas ficou fora desta conta.</p>
+      <p class="lead" style="max-width:600px">Do caixa saíram R$ 1,3 mil em peças, nuvem e ferramenta. O resto são as horas de construção, cobradas a valor de mercado.</p>
       <div class="lenda">
-        <div><b class="num" data-v="maoDeObra" data-fmt="brl">R$ 12.480,00</b> de mão de obra: 83,2 h a R$ 150/h</div>
-        <div><b class="num" data-v="compras" data-fmt="brl">R$ 1.049,69</b> em 28 pedidos de peças, testes e ferramentas</div>
-        <div><b class="num" data-v="nuvemClaude" data-fmt="brl">R$ 292,85</b> de nuvem, hospedagem e IA no período</div>
+        <div><b class="num" data-v="maoDeObra" data-fmt="brl">R$ 9.465,00</b> de mão de obra: 63,1 h a R$ 150/h</div>
+        <div><b class="num" data-v="compras" data-fmt="brl">R$ 998,70</b> em 27 pedidos de peças, testes e ferramentas</div>
+        <div><b class="num" data-v="nuvemClaude" data-fmt="brl">R$ 259,65</b> de nuvem, hospedagem e IA no período</div>
       </div>
     </div>
     <div class="cupom">
-      <h3>CÓDICE</h3>
-      <div class="sub">Cupom do projeto · 09/09 a 23/10/2026</div>
-      <div class="ln" data-ir="4"><span>Compras Shopee<small>19 pedidos</small></span><b class="num" data-v="shopee" data-fmt="brl"></b></div>
-      <div class="ln" data-ir="5"><span>Compras AliExpress<small>9 pedidos, com frete e impostos</small></span><b class="num" data-v="ali" data-fmt="brl"></b></div>
-      <div class="ln" data-ir="8"><span>Nuvem e hospedagem<small>setembro e outubro</small></span><b class="num" data-v="sistemaPeriodo" data-fmt="brl"></b></div>
-      <div class="ln" data-ir="9"><span>Claude, parcela da Códice<small>58 de 311 h de uso no período</small></span><b class="num" data-v="claude" data-fmt="brl"></b></div>
+      <h3>CÓDICE · 75 LAB</h3>
+      <div class="sub">Investimento até 23/10/2026</div>
+      <div class="ln"><span>Compras Shopee<small>18 pedidos</small></span><b class="num" data-v="shopee" data-fmt="brl"></b></div>
+      <div class="ln"><span>Compras AliExpress<small>9 pedidos, com frete e impostos</small></span><b class="num" data-v="ali" data-fmt="brl"></b></div>
+      <div class="ln"><span>Nuvem e hospedagem<small>setembro e outubro</small></span><b class="num" data-v="sistemaPeriodo" data-fmt="brl"></b></div>
+      <div class="ln"><span>Claude, parcela da Códice<small>51,1 de 311 h de uso no período</small></span><b class="num" data-v="claude" data-fmt="brl"></b></div>
       <div class="sep"></div>
       <div class="ln sub2"><span>Saiu do caixa</span><b class="num" data-v="caixa" data-fmt="brl"></b></div>
-      <div class="ln" data-ir="9"><span>Mão de obra<small>83,2 h a R$ 150/h</small></span><b class="num" data-v="maoDeObra" data-fmt="brl"></b></div>
+      <div class="ln"><span>Mão de obra<small>51,1 h medidas + 12 h de montagem, a R$ 150/h</small></span><b class="num" data-v="maoDeObra" data-fmt="brl"></b></div>
       <div class="sep"></div>
       <div class="tot"><span>TOTAL</span><span class="num" data-v="total" data-fmt="brl"></span></div>
-      <div class="nota">Clique numa linha para ver o detalhe.</div>
     </div>
-    <div class="fonte">Fonte: pedidos da Shopee (19) e do AliExpress (9) com o valor pago; faturamento do Google Cloud; Hostinger; pagamentos do Claude; registro das sessões. A compra das tags e das pilhas não entra neste levantamento.</div>
+    <div class="fonte">Fonte: pedidos da Shopee (18) e do AliExpress (9) com o valor pago; faturamento do Google Cloud; Hostinger; pagamentos do Claude; registro das sessões.</div>
   </section>
 
-  <!-- 3 linha do tempo -->
+  <!-- 4 linha do tempo -->
   <section class="tela tempo">
-    <h2 class="tit">As peças chegaram em <em>12 dias</em>; o trabalho seguiu por 6 semanas</h2>
+    <h2 class="tit">As peças chegaram em <em>11 dias</em>; o sistema ficou de pé em 1 mês</h2>
     <p class="lead">Em cima, quanto foi comprado em cada dia. Embaixo, as horas de trabalho medidas. Passe o mouse para ver.</p>
     <svg id="svgTempo" viewBox="0 0 1408 520"></svg>
     <div class="dica" id="dicaTempo"></div>
-    <div class="fonte">Fonte: data de cada pedido na Shopee e no AliExpress; horas ativas das sessões de trabalho no projeto (blocos com pausas de até 20 min); marcos pelos commits do repositório.</div>
+    <div class="fonte">Fonte: data de cada pedido na Shopee e no AliExpress; horas ativas das sessões no projeto (blocos com pausas de até 20 min); marcos pelos commits do repositório.</div>
   </section>
 
-  <!-- 4 módulo -->
+  <!-- 5 mercado -->
+  <section class="tela merc">
+    <h2 class="tit" style="max-width:660px">Sem IA, o que já existe custaria <em>R$ 448 mil</em></h2>
+    <div class="txt">
+      <div class="lin"><b class="num" style="color:var(--teal)">63 h</b><span>e R$ 9,7 mil com IA<br>(mão de obra + Claude)</span></div>
+      <div class="lin"><b class="num" style="color:var(--navy)">2.773 h</b><span>e R$ 448 mil com equipe tradicional · 4 meses com 5 pessoas</span></div>
+      <div class="det" id="detMerc"><b>É o ativo que a 75 LAB traz</b><br>Cada bloco é uma parte da Códice com as horas e o valor-hora de mercado. O quadrado verde é o que custou de fato, na mesma escala.</div>
+    </div>
+    <div class="grande" id="treemap"></div>
+    <div class="peq">R$ 9,7<br>mil</div>
+    <div class="fonte">Fonte: horas por módulo pelo escopo entregue (48 telas, 49 funções, firmware); valor-hora pleno R$ 150 e sênior R$ 250 (GeraContratos; Monitor do Mercado). Conferência: 51.758 linhas ÷ 20 linhas/h = 2.588 h.</div>
+  </section>
+
+  <!-- 6 módulo -->
   <section class="tela bom">
     <h2 class="tit">Cada módulo smart sai por <em class="num" data-v="bom" data-fmt="brl">R$ 90,58</em> em peças</h2>
     <svg viewBox="0 0 860 600" id="svgBom">
@@ -332,18 +372,14 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <g fill="#C7D2E8">${PINOS}</g>
       <rect x="395" y="255" width="70" height="60" rx="6" fill="#2A3F70"/>
       <text x="430" y="290" text-anchor="middle" font-family="Exo 2" font-size="15" fill="#fff" font-weight="700">ESP32</text>
-      <!-- HC-SR04 -->
-      <g id="pHc"><rect x="20" y="70" width="190" height="96" rx="14" fill="#2F73FF"/><circle cx="72" cy="118" r="30" fill="#E3ECFF"/><circle cx="158" cy="118" r="30" fill="#E3ECFF"/><circle cx="72" cy="118" r="14" fill="#9DB8F5"/><circle cx="158" cy="118" r="14" fill="#9DB8F5"/></g>
+      <g><rect x="20" y="70" width="190" height="96" rx="14" fill="#2F73FF"/><circle cx="72" cy="118" r="30" fill="#E3ECFF"/><circle cx="158" cy="118" r="30" fill="#E3ECFF"/><circle cx="72" cy="118" r="14" fill="#9DB8F5"/><circle cx="158" cy="118" r="14" fill="#9DB8F5"/></g>
       <path d="M210 118 C 260 118 270 240 300 250" stroke="#061B49" stroke-width="3" fill="none"/>
       <text x="20" y="52" font-size="17" font-weight="700" fill="#0B1530">Ultrassom HC-SR04</text><text x="20" y="196" font-size="15" fill="#5B6683">abordagem até 120 cm · R$ 19,99</text>
-      <!-- DHT11 -->
       <g><rect x="60" y="390" width="110" height="130" rx="14" fill="#2F73FF"/><g fill="#E3ECFF">${GRADE}</g></g>
       <path d="M170 440 C 240 440 260 340 300 335" stroke="#061B49" stroke-width="3" fill="none"/>
       <text x="20" y="372" font-size="17" font-weight="700" fill="#0B1530">Clima DHT11</text><text x="20" y="550" font-size="15" fill="#5B6683">temperatura e umidade · R$ 20,99</text>
-      <!-- jumpers e resistores -->
       <path d="M560 250 C 640 250 650 120 700 110" stroke="#1DD4C8" stroke-width="5" fill="none"/><path d="M560 270 C 650 270 660 140 720 130" stroke="#2F73FF" stroke-width="5" fill="none"/><path d="M560 290 C 660 290 670 160 740 150" stroke="#061B49" stroke-width="5" fill="none"/>
       <text x="590" y="64" font-size="17" font-weight="700" fill="#0B1530">Jumpers e resistores</text><text x="590" y="88" font-size="15" fill="#5B6683">6 fios + divisor 1k/2k · R$ 2,10</text>
-      <!-- acelerômetro opcional -->
       <g id="pAcel" opacity=".35"><rect x="690" y="380" width="120" height="90" rx="12" fill="#2F73FF"/><rect x="730" y="405" width="40" height="40" rx="4" fill="#061B49"/>
       <path d="M560 340 C 620 340 640 420 690 425" stroke="#2F73FF" stroke-width="3" fill="none" stroke-dasharray="7 7"/>
       <text x="630" y="500" font-size="17" font-weight="700" fill="#0B1530">Acelerômetro (opcional)</text><text x="630" y="524" font-size="15" fill="#5B6683">pancada e arrasto · R$ 14,49</text></g>
@@ -354,159 +390,86 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <div class="fonte">Fonte: pedidos da Shopee de 10/09 e 20/09 e do AliExpress de 13/09; kit de fábrica do firmware 2.1.1 (ESP32 + HC-SR04 + DHT11). Preço de varejo de 1 unidade: em lote tende a cair.</div>
   </section>
 
-  <!-- 5 peneira -->
+  <!-- 7 peneira -->
   <section class="tela pene">
-    <h2 class="tit"><em class="num" data-v="pd" data-fmt="brl0">R$ 401</em> em testes escolheram o kit antes da escala</h2>
+    <h2 class="tit"><em class="num" data-v="pd" data-fmt="brl0">R$ 350</em> em testes escolheram o kit antes da escala</h2>
     <div class="area" id="areaPene">
       <div class="veredito" id="veredito">Clique numa peça para ver o que aconteceu com ela.</div>
       <div class="rede"></div>
-      <div class="rotulo" style="left:0;top:60px"><b class="num" data-v="pd" data-fmt="brl">R$ 401,06</b>testado e avaliado</div>
+      <div class="rotulo" style="left:0;top:60px"><b class="num" data-v="pd" data-fmt="brl">R$ 350,07</b>testado e avaliado</div>
       <div class="rotulo" style="left:0;top:350px"><b class="num" data-v="modulo" data-fmt="brl">R$ 172,30</b>peças do kit de fábrica</div>
       <button class="btn" id="btnPene" style="position:absolute;left:0;top:440px">Peneirar de novo</button>
     </div>
-    <div class="fonte">Fonte: pedidos de 09/09 a 20/09 na Shopee e no AliExpress; kit de fábrica do firmware 2.1.1. O tamanho de cada círculo acompanha o preço pago.</div>
+    <div class="fonte">Fonte: pedidos de 10/09 a 20/09 na Shopee e no AliExpress; kit de fábrica do firmware 2.1.1. O tamanho de cada círculo acompanha o preço pago. A bancada (R$ 476,33) aparece na tela da montagem.</div>
   </section>
 
-  <!-- 6 bancada -->
-  <section class="tela banc">
-    <h2 class="tit">A bancada custou <em class="num" data-v="bancada" data-fmt="brl0">R$ 476</em> e serve para os próximos módulos</h2>
-    <div class="painel" id="painelBanc"></div>
-    <div class="lado">
-      <div class="grande num" data-v="bancada" data-fmt="brl">R$ 476,33</div>
-      <div style="font-size:18px;color:var(--suave);margin-top:8px">10 itens comprados uma vez</div>
-      <label for="rgBanc">Dividida por quantos módulos?</label>
-      <input type="range" id="rgBanc" min="0" max="6" step="1" value="4">
-      <div class="marcas"><span>1</span><span>10</span><span>50</span><span>100</span><span>200</span><span>500</span><span>1.000</span></div>
-      <div class="res"><b class="num" id="resBanc">R$ 2,38</b><span id="resBancTxt">por módulo, com 200 módulos</span></div>
-    </div>
-    <div class="fonte">Fonte: pedidos da Shopee de 13/09, 16/09 e 20/09 e do AliExpress de 13/09 (soprador térmico e pasta de solda, esta ainda a caminho).</div>
-  </section>
-
-  <!-- 7 tags -->
-  <section class="tela tags">
-    <h2 class="tit">As 204 tags rodam na rede do Google <em>sem custo</em></h2>
-    <div class="grade">
-      <div class="bloco"><h4>Conta Google 1 · 100 tags</h4><div class="pts" data-n="100"></div></div>
-      <div class="bloco"><h4>Conta Google 2 · 100 tags</h4><div class="pts" data-n="100"></div></div>
-      <div class="bloco"><h4>Fora de uso · 4</h4><div class="pts r" data-n="4" style="grid-template-columns:repeat(2,28px)"></div></div>
-    </div>
-    <div class="lado">
-      <div class="tot num">R$ 0,00</div>
-      <div style="font-size:18px;color:var(--suave);margin:8px 0 14px">por mês para rastrear as 204 tags</div>
-      <div class="ln"><span>Rede Encontre Meu Dispositivo</span><b>R$ 0,00</b></div>
-      <div class="ln"><span>2 contas Google (100 tags cada)</span><b>R$ 0,00</b></div>
-      <div class="ln"><span>Coletor no GitHub (398 de 2.000 min)</span><b>R$ 0,00</b></div>
-      <div class="ln"><span>Pareamento: 10,2 h</span><b style="font-weight:500;color:var(--suave)">na mão de obra</b></div>
-      <div class="aviso" style="background:var(--azulF)">A compra das tags e as pilhas ficam fora deste levantamento.</div>
-    </div>
-    <div class="fonte">Fonte: cadastro das tags na plataforma (100 por conta Google, 2 contas); uso do GitHub Actions em outubro; pareamento estimado em 3 min por tag.</div>
-  </section>
-
-  <!-- 8 fatura -->
+  <!-- 8 nuvem -->
   <section class="tela fat">
-    <h2 class="tit" style="max-width:520px">No ar, a plataforma custa <em>R$ 8,45</em> por mês</h2>
+    <h2 class="tit" style="max-width:520px">A nuvem custa <em>R$ 8,45</em> por mês e segue barata na escala</h2>
     <div class="cab">
-      <div class="v num">R$ 8<small>,45/mês</small></div>
-      <div class="meses"><div><b class="num">R$ 5,63</b>setembro</div><div><b class="num">R$ 8,14</b>outubro até dia 23</div></div>
-      <p class="lead" style="font-size:18px">Quase tudo cabe na cota grátis. O agendador foi de 15 rotinas para 2 relógios em 10/10 e deixou de cobrar.</p>
+      <div class="v num">R$ 8<small>,45/mês hoje</small></div>
+      <div class="esc"><b class="num" id="nuvemMod">R$ 0,91</b>por módulo smart por mês na escala, com batimento a cada 5 min e sem contar com a cota grátis</div>
     </div>
     <div class="doc" id="fatura"></div>
-    <div class="fonte">Fonte: faturamento do Google Cloud (conta "Pagamento do Firebase", relatório por serviço de outubro e fatura de setembro); histórico de pagamentos da Hostinger; uso do GitHub Actions; painéis do Google Maps.</div>
+    <div class="fonte">Fonte: faturamento do Google Cloud (relatório por serviço de outubro e fatura de setembro); Hostinger; preços públicos do Firestore, do Cloud Run e do Google Maps, com dólar a R$ 5,00 e 50% de folga.</div>
   </section>
 
-  <!-- 9 mão de obra -->
-  <section class="tela ponto">
-    <h2 class="tit" style="max-width:1000px"><em class="num">83 horas</em> de trabalho: 58 medidas, 25 estimadas</h2>
-    <div class="cal" id="cal"></div>
-    <div class="legenda"><span><i style="background:var(--fraco)"></i>sem sessão</span><span><i style="background:#BDEFEA"></i>até 1 h</span><span><i style="background:var(--teal)"></i>1 a 3 h</span><span><i style="background:var(--azul)"></i>3 a 6 h</span><span><i style="background:var(--navy)"></i>mais de 6 h</span></div>
-    <div class="lado">
-      <div class="h num">83,2 h</div>
-      <div class="ln"><span>Sessões no projeto (medidas)<small>22 dias, 10/09 a 23/10</small></span><b class="num">58,0 h</b></div>
-      <div class="ln"><span>Pareamento das 204 tags<small>3 min por tag, estimado</small></span><b class="num">10,2 h</b></div>
-      <div class="ln"><span>Montagem, solda e testes do ESP32<small>estimado</small></span><b class="num">12,0 h</b></div>
-      <div class="ln"><span>Cadastros e contas do coletor<small>estimado</small></span><b class="num">3,0 h</b></div>
-      <div class="vh">Valor-hora: <b class="num" id="vhTxt">R$ 150</b> (faixa de pleno: R$ 120 a R$ 200)</div>
-      <input type="range" id="rgVh" min="120" max="200" step="10" value="150" style="margin-top:10px">
-      <div class="res"><span>Mão de obra</span><b class="num" id="vhRes">R$ 12.480</b></div>
-      <div class="ln" style="margin-top:10px"><span>Ferramenta: Claude<small>18,6% de R$ 1.498,35 pagos no período</small></span><b class="num" data-v="claude" data-fmt="brl"></b></div>
-    </div>
-    <div class="fonte">Fonte: registro das sessões do Claude Code com comandos no projeto; 246 commits em 22 dias. Valor-hora: <a href="https://geracontratos.com.br/recursos/tabela-valores-servicos-profissionais" target="_blank" rel="noopener">GeraContratos</a> e <a href="https://monitordomercado.com.br/noticias/399275-quanto-um-programador-freelancer-cobra-por-hora-no-brasil-em-2026-e-o-que-define-o-nivel-junior-pleno-e-senior/" target="_blank" rel="noopener">Monitor do Mercado</a> (2026).</div>
+  <!-- 9 escala -->
+  <section class="tela esc9">
+    <h2 class="tit">O custo da 75 LAB por display cai de <em id="t9a">R$ 58</em> para <em id="t9b">R$ 7</em> por mês</h2>
+    <div class="legenda" id="leg9"></div>
+    <div class="grafico" id="graf9"></div>
+    <div class="fonte">Fonte: projeção deste levantamento, depois da implantação (só reposição de módulos). Metade dos displays com módulo smart (pacotes Sense e Media). Salários CLT de 2026 × 1,8 de encargos e benefícios. Ano de implantação no anexo.</div>
   </section>
 
-  <!-- 10 mercado -->
-  <section class="tela merc">
-    <h2 class="tit" style="max-width:640px">Sem IA, o mesmo escopo pediria <em>R$ 534 mil</em></h2>
-    <div class="txt">
-      <div class="lin"><b class="num" style="color:var(--teal)">83 h</b><span>e R$ 12,8 mil com IA<br>(mão de obra + Claude)</span></div>
-      <div class="lin"><b class="num" style="color:var(--navy)">3.148 h</b><span>e R$ 534,2 mil com equipe tradicional · 4,5 meses com 5 pessoas</span></div>
-      <div class="det" id="detMerc"><b>Passe o mouse nos blocos</b><br>Cada bloco é um pedaço da Códice com as horas e o valor-hora de mercado. O quadrado verde é o que custou de fato, na mesma escala.</div>
-    </div>
-    <div class="q grande" id="treemap"></div>
-    <div class="q peq">R$ 12,8<br>mil</div>
-    <div class="fonte">Fonte: horas por módulo estimadas pelo escopo entregue (50 telas, 54 funções, coletor, firmware); valor-hora pleno R$ 150 e sênior R$ 250 (GeraContratos; Monitor do Mercado). Conferência: 53.470 linhas ÷ 20 linhas/h = 2.674 h.</div>
+  <!-- 10 equipe -->
+  <section class="tela eqp">
+    <h2 class="tit">A operação da 75 LAB cresce de <em id="t10a">2</em> para <em id="t10b">28</em> pessoas</h2>
+    <div class="mat"><table id="tabEq"></table></div>
+    <div class="fonte" id="fonte10">Fonte: pessoas em tempo integral por faixa (0,5 = meio período). Salários: Portal Salário e Numerando (CAGED), JobRise (2026); encargos e benefícios × 1,8 (ValorFinal).</div>
   </section>
 
-  <!-- 11 etiquetas -->
-  <section class="tela etq">
-    <h2 class="tit">Cada display smart custa <em>R$ 90,58</em> em peças</h2>
-    <div class="par">
-      <div class="et">
-        <div class="faixa">Display rastreado <span>tag Find My</span></div>
-        <div class="preco"><sup>R$</sup><b class="num">0</b><span class="cent">,51</span><small>por ano de nuvem e hospedagem, por display</small></div>
-        <ul>
-          <li><span>Rede do Google e contas</span><b class="num">R$ 0,00</b></li>
-          <li><span>Coletor no GitHub</span><b class="num">R$ 0,00</b></li>
-          <li><span>Nuvem e hospedagem por tag no ano</span><b class="num" data-v="sistemaPorTagAno" data-fmt="brl"></b></li>
-        </ul>
-        <div class="rod">+ 3 min de pareamento por tag · compra da tag e pilha fora desta conta</div>
-      </div>
-      <div class="et b">
-        <div class="faixa">Display smart <span>módulo ESP32</span></div>
-        <div class="preco"><sup>R$</sup><b class="num">90</b><span class="cent">,58</span><small>em peças por módulo, além do rastreamento</small></div>
-        <ul>
-          <li><span>ESP32, ultrassom e clima</span><b class="num">R$ 80,97</b></li>
-          <li><span>Caixa vedada, fios e resistores</span><b class="num">R$ 9,61</b></li>
-          <li><span>Acelerômetro (opcional)</span><b class="num">+ R$ 14,49</b></li>
-        </ul>
-        <div class="rod">+ 30 min de montagem e gravação (estimado) · fonte USB e cabo <span class="pend">a confirmar</span></div>
-      </div>
-    </div>
-    <div class="fonte">Fonte: telas anteriores; nuvem por tag = R$ 8,45 por mês × 12 ÷ 200 tags ativas. Preços de varejo de 1 unidade.</div>
+  <!-- 11 montagem -->
+  <section class="tela mont">
+    <h2 class="tit" style="max-width:900px">Um técnico monta <em>280 módulos</em> por mês; a equipe cresce com a implantação</h2>
+    <div class="topo2 faixas" id="fx11"></div>
+    <div class="linha-prod"><div class="tecnicos" id="tec11"></div><div class="modulos" id="mods11"></div><div class="esteira"></div></div>
+    <div class="nums" id="nums11"></div>
+    <div class="fonte">Fonte: 30 min por módulo (solda, caixa, gravação e teste pelo kit de fábrica), 140 h produtivas por mês, implantação em 12 meses e reposição de 1% dos módulos ao mês. Técnico R$ 2.800 (Portal Salário) × 1,8. Bancada: compras desta tela 7.</div>
   </section>
 
-  <!-- 12 simulador -->
-  <section class="tela escura sim" data-tema="escuro">
-    <h2 class="tit">Na escala, o custo é o <em>módulo smart</em>; a nuvem fica em centavos por display</h2>
-    <div class="ctl">
-      <div class="pres"><button data-n="200" class="on">Hoje</button><button data-n="1000">1.000</button><button data-n="5000">5.000</button></div>
-      <label for="rgN">Displays rastreados <b class="num" id="nTxt">200</b></label>
-      <input type="range" id="rgN" min="200" max="5000" step="100" value="200">
-      <label for="rgS">Parte com módulo smart <b class="num" id="sTxt">20%</b></label>
-      <input type="range" id="rgS" min="0" max="100" step="10" value="20">
-      <p class="lead" style="font-size:16px;margin-top:30px">A nuvem cresce em linha com o uso medido em outubro, já sem a cota grátis. O tempo de campo usa os minutos por unidade das telas anteriores.</p>
-    </div>
-    <div class="out" id="simOut"></div>
-    <div class="fonte">Fonte: projeção com os números deste levantamento. Nuvem: (R$ 2,84 pagos + R$ 3,60 cobertos pela cota) ÷ 200 tags por mês. GitHub: 398 min de outubro, cota grátis de 2.000 min no repositório privado. Compra das tags fora desta conta.</div>
+  <!-- 12 suporte e gestão -->
+  <section class="tela sup">
+    <h2 class="tit" style="max-width:900px">Suporte técnico e gestão: 1 chamado a cada 10 displays por mês</h2>
+    <div class="topo2 faixas" id="fx12"></div>
+    <div class="funil" id="funil12"></div>
+    <div class="gest" id="gest12"></div>
+    <div class="fonte">Fonte: premissa de 0,1 chamado por display por mês; N1 resolve 80% em 15 min; N2 resolve 20% em 45 min. Suporte N1 R$ 2.400 e N2 R$ 4.000 (Numerando e Portal Salário); gestor R$ 13.900 e administrativo R$ 4.161 (Portal Salário e Numerando), × 1,8.</div>
   </section>
 
-  <!-- 13 premissas -->
-  <section class="tela prem">
-    <h2 class="tit">Dois itens ainda dependem de <em>confirmação</em></h2>
-    <div class="cols" id="cols"></div>
-    <div class="fonte">Clique num item para ver de onde vem o número. Fora deste levantamento: compra das 204 tags e das pilhas. A lista completa está no anexo.</div>
+  <!-- 13 por display -->
+  <section class="tela pd13">
+    <h2 class="tit">Por display, a NEOBAND põe <em>R$ 169</em> e a 75 LAB de R$ 58 a R$ 7 por mês</h2>
+    <div class="colunas" id="col13"></div>
+    <div class="det" id="det13"></div>
+    <div class="fonte">Fonte: receita média de R$ 718 (50% Essencial R$ 499, 40% Sense R$ 849, 10% Media R$ 1.290); NEOBAND pelo deck comercial (display R$ 3.200 e instalação R$ 350 em 36 meses, manutenção R$ 70/mês). Antes de impostos e do time comercial.</div>
   </section>
 
-  <!-- 14 fim -->
-  <section class="tela escura fim" data-tema="escuro">
-    <h2>Cada linha deste levantamento está no anexo</h2>
-    <p class="lead" style="font-size:24px;max-width:900px;margin-top:28px">Tabela com os 28 pedidos, a nuvem mês a mês, as horas por dia, o equivalente de mercado e um simulador para trocar o valor-hora.</p>
-    <div class="tres">
-      <div><b class="num" data-v="total" data-fmt="mil">R$ 13,8 mil</b>investidos até 23/10, com mão de obra</div>
-      <div><b class="num" data-v="recorrenteMes" data-fmt="brl">R$ 8,45</b>por mês para manter: nuvem e hospedagem</div>
-      <div><b class="num" data-v="bom" data-fmt="brl">R$ 90,58</b>em peças por módulo smart</div>
-    </div>
-    <div class="acoes"><a href="detalhes.html">Abrir o anexo detalhado →</a><span>Levantamento feito pela 75 LAB em 23/10/2026</span></div>
-    <div class="fonte">Fonte: todas as telas anteriores.</div>
+  <!-- 14 participação -->
+  <section class="tela escura part" data-tema="escuro">
+    <h2 class="tit">Pelo que cada um põe, a 75 LAB fica entre <em id="t14">4% e 26%</em></h2>
+    <div class="topo2 faixas" id="fx14"></div>
+    <div class="lentes" id="lentes14"></div>
+    <div class="sim" id="sim14"></div>
+    <div class="fonte">Fonte: telas anteriores. O custo da NEOBAND usa preço de venda (R$ 3.200 por display): com o custo real, a parte da 75 LAB sobe. Lucro antes de impostos e do time comercial.</div>
+  </section>
+
+  <!-- 15 pendências -->
+  <section class="tela escura prem" data-tema="escuro">
+    <h2 class="tit">Para fechar a participação, falta a <em>conta da NEOBAND</em></h2>
+    <div class="cols" id="cols15"></div>
+    <div class="acoes"><a href="detalhes.html">Abrir o anexo com o simulador →</a><span>Todas as premissas podem ser trocadas no anexo.</span></div>
+    <div class="fonte">Clique num item para ver de onde vem o número. Levantamento feito pela 75 LAB em 23/10/2026.</div>
   </section>
 
   <nav class="nav"><button id="ant" aria-label="Tela anterior">←</button><button id="prox" aria-label="Próxima tela">→</button></nav>
@@ -519,26 +482,28 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 <script src="calc.js"></script>
 <script>
 (function(){
-const C = window.CUSTOS, K = window.CALC, r = K.contas(C);
-const { brl, num, mil, dataBR } = K;
+const C = window.CUSTOS, K = window.CALC, r = K.contas(C), E = C.escala;
+const { brl, num, mil, pct, dataBR, GRUPOS } = K;
 const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const F = Object.fromEntries(E.faixas.map((n) => [n, K.faixa(C, n)]));
+const f0 = F[E.faixas[0]], fN = F[E.faixas[E.faixas.length - 1]];
+const fte = (v) => v < 0.05 ? "" : v < 10 ? num(Math.round(v * 10) / 10, v % 1 && v < 10 ? 1 : 0) : num(v, 0);
 
-/* valores calculados nos marcadores data-v */
-const V = Object.assign({}, r, {
-  nCompras: C.compras.length, shopee: r.porCanal.Shopee, ali: r.porCanal.AliExpress,
-  pd: r.porCat.pd, bancada: r.porCat.bancada, modulo: r.porCat.modulo,
-  nuvemClaude: r.sistemaPeriodo + r.claude,
-});
-const FMT = { brl: (v) => brl(v), brl0: (v) => brl(v, 0), mil: (v) => mil(v), h: (v) => num(v, 0) + " h" };
+/* valores nos marcadores data-v */
+const V = Object.assign({}, r, { shopee: r.porCanal.Shopee, ali: r.porCanal.AliExpress, pd: r.porCat.pd, modulo: r.porCat.modulo, nuvemClaude: r.sistemaPeriodo + r.claude });
+const FMT = { brl: (v) => brl(v), brl0: (v) => brl(v, 0), mil: (v) => mil(v) };
 $$("[data-v]").forEach((el) => { const v = V[el.dataset.v]; el.textContent = el.dataset.fmt ? FMT[el.dataset.fmt](v) : v; });
+$("#capaDisp").textContent = `${brl(f0.porDisplay, 0)} → ${brl(fN.porDisplay, 0)}`;
+$("#capaPes").textContent = `${num(f0.eO.pessoas, 0)} → ${num(fN.eO.pessoas, 0)}`;
+$("#nuvemMod").textContent = brl(f0.nuvemPorModulo);
 
-/* palco escalado e centralizado */
+/* palco escalado */
 const palco = $("#palco");
 function escala(){ palco.style.setProperty("--s", Math.min(innerWidth / 1600, innerHeight / 900)); }
 addEventListener("resize", escala); escala();
 
 /* navegação */
-const telas = $$(".tela"); let atual = 0; const ja = new Set();
+const telas = $$(".tela"); let atual = 0; const ja = new Set(), ao = {};
 function ir(i){
   i = Math.max(0, Math.min(telas.length - 1, i));
   telas[atual].classList.remove("ativa"); atual = i; const t = telas[i]; t.classList.add("ativa");
@@ -548,76 +513,84 @@ function ir(i){
   $("#ant").disabled = i === 0; $("#prox").disabled = i === telas.length - 1;
   history.replaceState(null, "", "#" + (i + 1));
   if (!ja.has(i)) { ja.add(i); ao[i]?.(); }
-  $$("[data-conta]", t).forEach(contar);
 }
 $("#ant").onclick = () => ir(atual - 1); $("#prox").onclick = () => ir(atual + 1);
 addEventListener("keydown", (e) => {
   if (e.target.tagName === "INPUT") return;
-  if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); ir(atual + 1); }
+  if (["ArrowRight", "PageDown"].includes(e.key)) { e.preventDefault(); ir(atual + 1); }
   if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); ir(atual - 1); }
-  if (e.key === "Home") ir(0); if (e.key === "End") ir(telas.length - 1);
 });
 let tx = null; addEventListener("touchstart", (e) => { tx = e.touches[0].clientX; }, { passive: true });
 addEventListener("touchend", (e) => { if (tx == null) return; const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50 && e.target.type !== "range") ir(atual + (d < 0 ? 1 : -1)); tx = null; });
-$$(".cupom .ln[data-ir]").forEach((l) => l.onclick = () => ir(+l.dataset.ir - 1));
-
-/* número que conta */
-function contar(el){
-  const alvo = V[el.dataset.conta], f = FMT[el.dataset.fmt] || ((v) => num(v)); const t0 = performance.now();
-  const passo = (t) => { const p = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - p, 3); el.textContent = f(alvo * e); if (p < 1) requestAnimationFrame(passo); };
-  requestAnimationFrame(passo);
-}
 
 /* cursor em dois tons */
 const cA = $("#curA"), cP = $("#curP");
 addEventListener("mousemove", (e) => { cA.style.left = cP.style.left = e.clientX + "px"; cA.style.top = cP.style.top = e.clientY + "px";
-  cA.classList.toggle("sobre", !!e.target.closest("button,a,input,.ln,.tok,.mod,.it,.chave,.bloco,.tag")); });
+  cA.classList.toggle("sobre", !!e.target.closest("button,a,input,.tok,.mod,.it,.chave,.c,.pt")); });
 
-const ao = {};
+/* botões de faixa */
+function faixas(el, inicial, aoMudar){
+  el.innerHTML = E.faixas.map((n) => `<button data-n="${n}">${num(n)}</button>`).join("");
+  const sel = (n) => { $$("button", el).forEach((b) => b.classList.toggle("on", +b.dataset.n === n)); aoMudar(n); };
+  $$("button", el).forEach((b) => b.onclick = () => sel(+b.dataset.n)); sel(inicial);
+}
 
-/* 3 linha do tempo */
-ao[2] = () => {
-  const svg = $("#svgTempo"), dica = $("#dicaTempo"), W = 1408, ini = Date.UTC(2026, 8, 9), dias = 45;
-  const x = (iso) => 30 + (Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) - ini) / 864e5 * ((W - 60) / dias);
-  const marcos = [["2026-09-10", "Plataforma nasce"], ["2026-09-13", "1º módulo envia dados"], ["2026-09-15", "Rastreamento por tag"], ["2026-09-27", "Kit de fábrica do ESP32"], ["2026-10-10", "2 relógios e avisos no celular"]];
+/* 2 quem põe o quê */
+$("#ulLab").innerHTML = C.divisao.lab.map((x) => `<li>${x}</li>`).join("");
+$("#ulNb").innerHTML = C.divisao.neoband.map((x) => `<li>${x}</li>`).join("");
+
+/* 4 linha do tempo */
+ao[3] = () => {
+  const svg = $("#svgTempo"), dica = $("#dicaTempo"), W = 1408, ini = Date.UTC(2026, 8, 9), dias = 33;
+  const x = (iso) => 40 + (Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) - ini) / 864e5 * ((W - 80) / dias);
+  const marcos = [["2026-09-10", "Plataforma nasce"], ["2026-09-13", "1º módulo envia dados"], ["2026-09-16", "Execução no PDV"], ["2026-09-27", "Kit de fábrica do ESP32"], ["2026-10-10", "Relógios e avisos no celular"]];
   let h = `<line x1="20" x2="${W - 20}" y1="250" y2="250" stroke="#C9D1E0" stroke-width="2"/>`;
-  for (let d = 0; d <= dias; d += 7) { const dt = new Date(ini + d * 864e5).toISOString().slice(0, 10); h += `<text x="${x(dt)}" y="278" font-size="14" fill="#5B6683" text-anchor="middle">${dataBR(dt)}</text>`; }
+  for (let d = 1; d <= dias; d += 7) { const dt = new Date(ini + d * 864e5).toISOString().slice(0, 10); h += `<text x="${x(dt)}" y="278" font-size="14" fill="#5B6683" text-anchor="middle">${dataBR(dt)}</text>`; }
   marcos.forEach(([d, t], i) => { const X = x(d); h += `<line x1="${X}" x2="${X}" y1="252" y2="${300 + (i % 2) * 26}" stroke="#AEB8CC" stroke-dasharray="3 4"/><text x="${X + 6}" y="${312 + (i % 2) * 26}" font-size="13" fill="#5B6683">${t}</text>`; });
-  const dias_ = Object.keys(r.porDiaCompra).sort(), max = Math.max(...Object.values(r.porDiaCompra)), CORES = { modulo: "#1DD4C8", pd: "#2F73FF", bancada: "#061B49" };
-  for (const d of dias_) {
+  const max = Math.max(...Object.values(r.porDiaCompra)), CORES = { modulo: "#1DD4C8", pd: "#2F73FF", bancada: "#061B49" };
+  for (const d of Object.keys(r.porDiaCompra).sort()) {
     const itens = C.compras.filter((c) => c.data === d), X = x(d); let y = 232;
     let g = `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${brl(r.porDiaCompra[d])}</b><br>${itens.length} pedido(s): ${itens.slice(0, 6).map((c) => c.item.split(" (")[0]).join(", ")}${itens.length > 6 ? "..." : ""}`)}">`;
     for (const cat of ["modulo", "pd", "bancada"]) {
       const v = itens.filter((c) => c.cat === cat).reduce((a, c) => a + c.valor, 0); if (!v) continue;
-      const H = v / max * 150; y -= H; g += `<rect x="${X - 12}" y="${y}" width="24" height="${H}" fill="${CORES[cat]}"/>`;
+      const H = v / max * 150; y -= H; g += `<rect x="${X - 13}" y="${y}" width="26" height="${H}" fill="${CORES[cat]}"/>`;
     }
     h += g + `<text x="${X}" y="${y - 8}" text-anchor="middle" font-size="14" font-weight="700" fill="#061B49">${num(r.porDiaCompra[d], 0)}</text></g>`;
   }
-  h += `<g font-size="13" fill="#5B6683">${Object.entries(CORES).map(([k, c], i) => `<rect x="${980 + i * 150}" y="30" width="14" height="14" rx="3" fill="${c}"/><text x="${1000 + i * 150}" y="42">${K.CATS[k].nome}</text>`).join("")}</g>`;
+  h += `<g font-size="13" fill="#5B6683">${Object.entries(CORES).map(([k, c], i) => `<rect x="${980 + i * 150}" y="24" width="14" height="14" rx="3" fill="${c}"/><text x="${1000 + i * 150}" y="36">${K.CATS[k].nome}</text>`).join("")}</g>`;
   const hmax = Math.max(...Object.values(C.maoDeObra.porDia));
   for (const [d, v] of Object.entries(C.maoDeObra.porDia)) {
     const H = Math.max(3, v / hmax * 130);
-    h += `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${num(v, 1)} h</b> de sessão no projeto`)}"><rect x="${x(d) - 9}" y="${510 - H}" width="18" height="${H}" rx="4" fill="#061B49"/>${v >= 4 ? `<text x="${x(d)}" y="${502 - H}" font-size="13" text-anchor="middle" fill="#061B49" font-weight="600">${num(v, 1)}</text>` : ""}</g>`;
+    h += `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${num(v, 1)} h</b> de sessão no projeto`)}"><rect x="${x(d) - 10}" y="${510 - H}" width="20" height="${H}" rx="4" fill="#061B49"/>${v >= 4 ? `<text x="${x(d)}" y="${502 - H}" font-size="13" text-anchor="middle" fill="#061B49" font-weight="600">${num(v, 1)}</text>` : ""}</g>`;
   }
-  h += `<line x1="20" x2="${W - 20}" y1="511" y2="511" stroke="#C9D1E0" stroke-width="2"/>`;
-  h += `<text x="20" y="34" font-size="15" fill="#5B6683" font-weight="600">COMPRAS POR DIA (R$)</text><text x="20" y="372" font-size="15" fill="#5B6683" font-weight="600">HORAS DE TRABALHO POR DIA</text>`;
+  h += `<line x1="20" x2="${W - 20}" y1="511" y2="511" stroke="#C9D1E0" stroke-width="2"/><text x="20" y="30" font-size="15" fill="#5B6683" font-weight="600">COMPRAS POR DIA (R$)</text><text x="20" y="372" font-size="15" fill="#5B6683" font-weight="600">HORAS DE TRABALHO POR DIA</text>`;
   svg.innerHTML = h;
-  $$(".pt", svg).forEach((g) => { g.style.cursor = "pointer";
+  $$(".pt", svg).forEach((g) => {
     g.onmousemove = (e) => { const b = palco.getBoundingClientRect(), s = b.width / 1600; dica.innerHTML = decodeURIComponent(g.dataset.t); dica.style.left = ((e.clientX - b.left) / s + 16) + "px"; dica.style.top = ((e.clientY - b.top) / s - 20) + "px"; dica.style.opacity = 1; };
     g.onmouseleave = () => dica.style.opacity = 0; });
 };
 
-/* 4 módulo: pinos, grade do DHT e lista */
+/* 5 treemap */
+(function(){
+  const t = $("#treemap"), M = C.mercado.modulos.map((m) => ({ ...m, v: m.horas * m.valor }));
+  const A = [M[0], M[3]], B = [M[1], M[2], M[4], M[5]];
+  const col = (lista) => { const tot = lista.reduce((a, m) => a + m.v, 0); return `<div class="col" style="flex:${tot}">` + lista.map((m) => `<div class="mod" style="flex:${m.v}" data-i="${M.indexOf(m)}"><b>${m.nome}</b><span class="num">${num(m.horas)} h · ${mil(m.v)}</span></div>`).join("") + "</div>"; };
+  t.innerHTML = col(A) + col(B);
+  $$(".mod", t).forEach((el) => el.onmouseenter = () => { const m = M[el.dataset.i]; $$(".mod", t).forEach((x) => x.classList.toggle("on", x === el));
+    $("#detMerc").innerHTML = `<b>${m.nome}</b><br>${m.detalhe}<br><span class="num">${num(m.horas)} h × ${brl(m.valor, 0)}/h = <b style="font-size:16px">${brl(m.v, 0)}</b></span>`; });
+})();
+
+/* 6 módulo */
 (function(){
   const s = $("#svgBom"); let pin = "", gr = "";
-  for (let i = 0; i < 15; i++) { pin += `<rect x="${312 + i * 16.5}" y="222" width="8" height="8" rx="2"/><rect x="${312 + i * 16.5}" y="350" width="8" height="8" rx="2"/>`; }
+  for (let i = 0; i < 15; i++) pin += `<rect x="${312 + i * 16.5}" y="222" width="8" height="8" rx="2"/><rect x="${312 + i * 16.5}" y="350" width="8" height="8" rx="2"/>`;
   for (let a = 0; a < 4; a++) for (let b = 0; b < 3; b++) gr += `<rect x="${76 + b * 28}" y="${404 + a * 26}" width="20" height="16" rx="3"/>`;
   s.innerHTML = s.innerHTML.replace("${PINOS}", pin).replace("${GRADE}", gr);
   const l = $("#listaBom"); let comAcel = false;
   function desenha(){
-    const linhas = C.bom.map((b) => `<div class="ln"><span>${b.item}<small>${b.base}</small></span><b class="num">${brl(b.valor)}</b></div>`).join("")
-      + (comAcel ? C.bomOpcionais.map((b) => `<div class="ln op"><span>${b.item}<small>${b.base}</small></span><b class="num">${brl(b.valor)}</b></div>`).join("") : "");
-    l.innerHTML = linhas + `<div class="tot"><span>Total</span><span class="num">${brl(r.bom + (comAcel ? 14.49 : 0))}</span></div>
+    l.innerHTML = C.bom.map((b) => `<div class="ln"><span>${b.item}<small>${b.base}</small></span><b class="num">${brl(b.valor)}</b></div>`).join("")
+      + (comAcel ? C.bomOpcionais.map((b) => `<div class="ln op"><span>${b.item}<small>${b.base}</small></span><b class="num">${brl(b.valor)}</b></div>`).join("") : "")
+      + `<div class="tot"><span>Total</span><span class="num">${brl(r.bom + (comAcel ? 14.49 : 0))}</span></div>
       <div class="chave ${comAcel ? "on" : ""}" id="chAcel"><i></i>Com acelerômetro (pancada e arrasto)</div>
       <div class="pendl"><span class="pend">a confirmar</span> ${C.bomPendentes[0]}.</div>`;
     $("#pAcel").setAttribute("opacity", comAcel ? 1 : .35);
@@ -626,7 +599,7 @@ ao[2] = () => {
   desenha();
 })();
 
-/* 5 peneira */
+/* 7 peneira */
 (function(){
   const area = $("#areaPene");
   const kit = [["ESP32 30 pinos", 39.99, "Cérebro do módulo: Wi-Fi, Bluetooth e atualização pela internet."], ["Ultrassom HC-SR04", 19.99, "Conta quem se aproxima a menos de 120 cm."], ["Clima DHT11", 20.99, "Temperatura e umidade da loja."], ["Caixas vedadas", 47.33, "Kit de 4 + 1 tipo CFTV: invólucro do módulo."]];
@@ -634,7 +607,7 @@ ao[2] = () => {
     ["BME280", "Clima BME280", "Clima mais preciso que o DHT11; não entrou no kit."], ["MPU-6500", "Acelerômetro", "Ficou como sensor extra opcional."],
     ["HX711", "5 módulos HX711", "Leitura de peso para ruptura de gôndola; ficou para depois."], ["Célula de carga", "Célula de carga", "Balança sob o display; ficou para depois."],
     ["Pico W", "Raspberry Pico W", "Placa alternativa; ficou o ESP32."], ["shield ESP32", "Shield com bornes", "Ferramenta de protótipo, sem solda."],
-    ["MB-102", "Protoboard", "Protoboard e jumpers de protótipo."], ["20 x 12 x 8", "Caixa 20x12x8", "Teste de invólucro maior; ficou a caixa vedada."], ["BASIKE", "Tag da Apple", "Teste da rede da Apple; ficou a rede do Google."]];
+    ["MB-102", "Protoboard", "Protoboard e jumpers de protótipo."], ["20 x 12 x 8", "Caixa 20x12x8", "Teste de invólucro maior; ficou a caixa vedada."]];
   const pd = C.compras.filter((c) => c.cat === "pd").map((c) => { const v = ver.find((k) => c.item.includes(k[0])) || [0, c.item, c.uso]; return [v[1], c.valor, v[2]]; });
   const toks = [...pd.map((p) => ({ p, k: false })), ...kit.map((p) => ({ p, k: true }))];
   const max = Math.max(...toks.map((t) => t.p[1]));
@@ -649,122 +622,164 @@ ao[2] = () => {
     let kx = 300;
     els.forEach((o, i) => {
       const linha = i % 2, col = Math.floor(i / 2);
-      let X = 290 + 70 + col * 140 + linha * 70 - o.d / 2, Y = (linha ? 190 : 70) - o.d / 2;
+      let X = 290 + 75 + col * 150 + linha * 75 - o.d / 2, Y = (linha ? 190 : 70) - o.d / 2;
       if (final && o.t.k) { X = kx; Y = 400 - o.d / 2; kx += o.d + 26; }
       o.el.style.transform = `translate(${X}px,${Y}px)`; o.el.classList.toggle("fora", final && !o.t.k);
     });
   }
   pos(false);
   const roda = () => { pos(false); setTimeout(() => pos(true), 700); };
-  ao[4] = () => setTimeout(roda, 500);
+  ao[6] = () => setTimeout(roda, 500);
   $("#btnPene").onclick = roda;
 })();
 
-/* 6 bancada */
-(function(){
-  const p = $("#painelBanc"), itens = C.compras.filter((c) => c.cat === "bancada");
-  itens.forEach((c, i) => {
-    const el = document.createElement("div"); el.className = "tag";
-    el.style.left = (40 + (i % 5) * 174) + "px"; el.style.top = (44 + Math.floor(i / 5) * 250 + (i % 2) * 34) + "px";
-    el.innerHTML = `${c.item.replace(/\s*\(.*\)/, "")}<b class="num">${brl(c.valor)}</b>`; p.appendChild(el);
-  });
-  const N = [1, 10, 50, 100, 200, 500, 1000], rg = $("#rgBanc");
-  rg.oninput = () => { const n = N[rg.value]; $("#resBanc").textContent = brl(r.porCat.bancada / n); $("#resBancTxt").textContent = `por módulo, com ${num(n)} ${n === 1 ? "módulo" : "módulos"}`; };
-  rg.oninput();
-})();
-
-/* 7 tags */
-(function(){
-  $$(".tags .pts").forEach((g) => { g.innerHTML = "<i></i>".repeat(+g.dataset.n); });
-})();
-
-/* 8 fatura */
+/* 8 nuvem */
 (function(){
   const L = [
-    ["Cloud Functions (54 funções)", "uso R$ 3,60 em outubro", "R$ 3,60", "R$ 3,60", "R$ 0,00"],
+    ["Cloud Functions (49 funções)", "uso R$ 3,60 em outubro", "R$ 3,60", "R$ 3,60", "R$ 0,00"],
     ["Cloud Scheduler", "15 rotinas até 10/10; agora 2 relógios", "R$ 1,61", "3 jobs grátis", "R$ 1,61*"],
     ["App Engine e Secret Manager", "base do agendador e cofre de chaves", "R$ 0,86", "parcial", "R$ 0,86"],
     ["Firestore, Hosting e Storage", "banco, site e firmware", "na cota", "cota diária", "R$ 0,00"],
     ["Hostinger (1 de 13 sites)", "R$ 72,99 por mês ÷ 13", "R$ 5,61", "não tem", "R$ 5,61"],
-    ["GitHub Actions (coletor de tags)", "398 de 2.000 min em outubro", "398 min", "2.000 min", "R$ 0,00"],
-    ["Google Maps e Street View", "mapa ao vivo e fachadas", "no crédito", "crédito mensal", "R$ 0,00"],
-    ["ntfy e OpenStreetMap", "avisos no celular e lojas", "livre", "sem conta", "R$ 0,00"],
+    ["GitHub", "repositórios e publicação automática", "livre", "plano grátis", "R$ 0,00"],
+    ["Google Maps e Street View", "mapa e fachadas", "na cota", "10 mil por mês", "R$ 0,00"],
   ];
-  $("#fatura").innerHTML = `<div class="hd"><span>Serviço</span><span class="r">Uso no mês</span><span class="r">Cota grátis</span><span class="r">Pago</span></div>`
+  $("#fatura").innerHTML = `<div class="hd"><span>Serviço hoje</span><span class="r">Uso no mês</span><span class="r">Cota grátis</span><span class="r">Pago</span></div>`
     + L.map((l) => `<div class="ln"><span>${l[0]}<small>${l[1]}</small></span><span class="r num">${l[2]}</span><span class="r">${l[3]}</span><span class="r num ${l[4] === "R$ 0,00" ? "g" : ""}">${l[4]}</span></div>`).join("")
-    + `<div class="tt"><span>Previsão do mês</span><span class="num">R$ 8,45</span></div><div style="font-size:13px;color:var(--suave);margin-top:6px">* O agendador só cobrou até 10/10. Em novembro a conta tende a ficar abaixo de R$ 8,45.</div>`;
+    + `<div class="tt"><span>Previsão do mês</span><span class="num">R$ 8,45</span></div><div style="font-size:13px;color:var(--suave);margin-top:6px">* O agendador só cobrou até 10/10. Na escala, a nuvem cresce com os módulos smart: ${brl(fN.nuvem + fN.hospedagem, 0)} por mês em 50.000 displays (${brl((fN.nuvem + fN.hospedagem) / fN.n)} por display).</div>`;
 })();
 
-/* 9 cartão de ponto */
+/* 9 escala */
 (function(){
-  const cal = $("#cal"), H = C.maoDeObra.porDia;
-  const mes = (ano, m, nome) => {
-    const pri = new Date(Date.UTC(ano, m, 1)).getUTCDay(), qtd = new Date(Date.UTC(ano, m + 1, 0)).getUTCDate();
-    let h = `<div class="mes"><h4>${nome}</h4><div class="dias">` + "DSTQQSS".split("").map((d) => `<span>${d}</span>`).join("");
-    for (let i = 0; i < pri; i++) h += `<i class="vz"></i>`;
-    for (let d = 1; d <= qtd; d++) {
-      const k = `${ano}-${String(m + 1).padStart(2, "0")}-${String(d).padStart(2, "0")}`, v = H[k] || 0;
-      const n = v === 0 ? "" : v <= 1 ? "n1" : v <= 3 ? "n2" : v <= 6 ? "n3" : "n4";
-      h += `<i class="${n}" title="${v ? num(v, 1) + " h" : "sem sessão"}">${d}${v ? `<b>${num(v, 1)}</b>` : ""}</i>`;
-    }
-    return h + "</div></div>";
-  };
-  cal.innerHTML = mes(2026, 8, "Setembro") + mes(2026, 9, "Outubro");
-  const rg = $("#rgVh"); rg.oninput = () => { $("#vhTxt").textContent = brl(+rg.value, 0); $("#vhRes").textContent = brl(r.hTotal * rg.value, 0); }; rg.oninput();
+  const ITENS = [["Montagem", (f) => f.eO.porGrupo.Montagem, GRUPOS.Montagem], ["Suporte técnico", (f) => f.eO.porGrupo["Suporte técnico"], GRUPOS["Suporte técnico"]],
+    ["Sistema", (f) => f.eO.porGrupo.Sistema, GRUPOS.Sistema], ["Gestão", (f) => f.eO.porGrupo["Gestão"], GRUPOS["Gestão"]],
+    ["Ferramentas", (f) => f.eO.ferramentas, "#AEB8CC"], ["Nuvem e hospedagem", (f) => f.nuvem + f.hospedagem, "#8FE9E2"], ["Peças de reposição", (f) => f.pecasOper, "#9DB8F5"]];
+  $("#leg9").innerHTML = ITENS.map(([n, , c]) => `<span><i style="background:${c}"></i>${n}</span>`).join("");
+  const max = fN.oper;
+  $("#graf9").innerHTML = E.faixas.map((n) => { const f = F[n];
+    return `<div class="linha"><div class="f num">${num(n)}<small>displays</small></div><div class="barra" style="width:${Math.max(6, f.oper / max * 100)}%">${ITENS.map(([nm, fn, c]) => `<i title="${nm}: ${brl(fn(f), 0)}" data-w="${fn(f) / f.oper * 100}" style="width:0;background:${c}"></i>`).join("")}</div><div class="v"><b class="num">${mil(f.oper)}</b>por mês · <em class="num">${brl(f.porDisplay)}</em>/display</div></div>`; }).join("");
+  $("#t9a").textContent = brl(f0.porDisplay, 0); $("#t9b").textContent = brl(fN.porDisplay, 0);
+  ao[8] = () => setTimeout(() => $$("#graf9 .barra i").forEach((i) => i.style.width = i.dataset.w + "%"), 150);
 })();
 
-/* 10 treemap do mercado */
+/* 10 equipe */
 (function(){
-  const t = $("#treemap"), M = C.mercado.modulos.map((m) => ({ ...m, v: m.horas * m.valor }));
-  const A = [M[0], M[1]], B = M.slice(2);
-  const col = (lista) => { const tot = lista.reduce((a, m) => a + m.v, 0); return `<div class="col" style="flex:${tot}">` + lista.map((m) => `<div class="mod" style="flex:${m.v}" data-i="${M.indexOf(m)}"><b>${m.nome}</b><span class="num">${num(m.horas)} h · ${mil(m.v)}</span></div>`).join("") + "</div>"; };
-  t.innerHTML = col(A) + col(B);
-  $$(".mod", t).forEach((el) => el.onmouseenter = () => { const m = M[el.dataset.i]; $$(".mod", t).forEach((x) => x.classList.toggle("on", x === el));
-    $("#detMerc").innerHTML = `<b>${m.nome}</b><br>${m.detalhe}<br><span class="num">${num(m.horas)} h × ${brl(m.valor, 0)}/h = <b style="font-size:16px">${brl(m.v, 0)}</b></span>`; });
+  const ORD = ["mont", "n1", "n2", "dev", "devops", "gestor", "adm"];
+  const cor = (v) => v < 0.05 ? "transparent" : v < 1 ? "#E3ECFF" : v < 3 ? "#9DB8F5" : v < 8 ? "#2F73FF" : "#061B49";
+  const txt = (v) => v < 3 ? "#061B49" : "#fff";
+  let h = `<tr><th>Cargo · displays</th>${E.faixas.map((n) => `<th>${num(n)}</th>`).join("")}</tr>`;
+  for (const k of ORD) { const c = E.cargos[k];
+    h += `<tr><td><i style="background:${GRUPOS[c.grupo]}"></i>${c.nome}</td>${E.faixas.map((n) => { const v = F[n].eO.fte[k]; return `<td><span class="num" style="background:${cor(v)};color:${txt(v)}">${fte(v) || "·"}</span></td>`; }).join("")}</tr>`; }
+  h += `<tr class="tot"><td>Total na operação</td>${E.faixas.map((n) => `<td class="num">${num(F[n].eO.pessoas, 1)}</td>`).join("")}</tr>`;
+  h += `<tr class="imp"><td>No ano de implantação</td>${E.faixas.map((n) => `<td class="num">${num(F[n].eI.pessoas, 1)}</td>`).join("")}</tr>`;
+  h += `<tr class="imp"><td>Custo da equipe por mês</td>${E.faixas.map((n) => `<td class="num">${mil(F[n].eO.salarios)}</td>`).join("")}</tr>`;
+  $("#tabEq").innerHTML = h;
+  $("#t10a").textContent = num(f0.eO.pessoas, 0); $("#t10b").textContent = num(fN.eO.pessoas, 0);
 })();
 
-/* 12 simulador */
+/* 11 montagem */
 (function(){
-  const out = $("#simOut"), rN = $("#rgN"), rS = $("#rgS");
-  function calc(){
-    const n = +rN.value, f = +rS.value / 100, e = K.escala(C, n, f);
-    $("#nTxt").textContent = num(n); $("#sTxt").textContent = rS.value + "%";
-    $$(".sim .pres button").forEach((b) => b.classList.toggle("on", +b.dataset.n === n));
-    out.innerHTML = `<div class="big"><b class="num">${mil(e.modulos)}</b><span>em peças para ${num(e.smart)} módulos smart, em ${num(n)} displays rastreados</span></div>
-      <div class="ln"><span>${num(e.smart)} módulos smart<small>${brl(r.bom)} em peças cada</small></span><b class="num">${brl(e.modulos, 0)}</b></div>
-      <div class="ln"><span>Nuvem e hospedagem por mês<small>${brl(e.sistemaMes / n)} por display</small></span><b class="num">${brl(e.sistemaMes)}</b></div>
-      <div class="ln"><span>Contas Google para as tags<small>100 tags por conta, grátis</small></span><b class="num">${num(e.contasG)}</b></div>
-      <div class="ln"><span>Minutos do coletor no GitHub por mês<small>${e.gitGratis ? "dentro da cota grátis" : "passa da cota: tornar o coletor público ou pagar o excedente"}</small></span><b class="num ${e.gitGratis ? "ok" : "atn"}">${num(e.minGit)}</b></div>
-      <div class="ln"><span>Tempo de campo<small>pareamento ${num(e.hPar)} h + montagem ${num(e.hMont)} h, a ${brl(r.vh, 0)}/h</small></span><b class="num">${num(e.hPar + e.hMont)} h</b></div>`;
+  $("#mods11").innerHTML = "<i></i>".repeat(40);
+  faixas($("#fx11"), 10000, (n) => {
+    const f = F[n], tec = Math.max(1, Math.ceil(f.montImpl - 1e-9));
+    $("#tec11").innerHTML = Array.from({ length: tec }, (_, i) => `<span><i></i>Técnico ${i + 1}</span>`).join("");
+    const mo = E.cargos.mont.salario * E.fatorEncargos / f.capacidade;
+    $("#nums11").innerHTML = `<div><b class="num">${num(f.base)}</b>módulos smart na base (metade dos ${num(n)} displays)</div>
+      <div class="d"><b class="num">${num(f.modImpl)}/mês</b>no ano de implantação: ${num(tec)} ${tec === 1 ? "técnico" : "técnicos"} e ${num(tec)} ${tec === 1 ? "bancada" : "bancadas"} (${brl(f.bancadas, 0)})</div>
+      <div><b class="num">${num(f.modOper)}/mês</b>depois, só reposição (1% ao mês): ${num(f.montOper, 1)} técnico em tempo integral</div>
+      <div><b class="num">${brl(mo + r.bom)}</b>por módulo: ${brl(r.bom)} em peças + ${brl(mo)} de mão de obra</div>`;
+  });
+})();
+
+/* 12 suporte e gestão */
+(function(){
+  faixas($("#fx12"), 10000, (n) => {
+    const f = F[n], larg = (v, m) => Math.max(140, Math.min(560, v / m * 560));
+    const sN1 = f.eO.fte.n1 * E.cargos.n1.salario * E.fatorEncargos, sN2 = f.eO.fte.n2 * E.cargos.n2.salario * E.fatorEncargos;
+    $("#funil12").innerHTML = `
+      <div class="et"><div class="b" style="width:${larg(f.chamados, f.chamados)}px;background:var(--navy)"><b class="num">${num(f.chamados)}</b>chamados por mês</div><div class="t">Lojas, redes e módulos: acesso, dúvidas, conexão, troca de display.</div></div>
+      <div class="et"><div class="b" style="width:${larg(f.chamados * .8, f.chamados)}px;background:var(--azul)"><b class="num">${num(f.hN1)} h</b>no N1</div><div class="t"><b>${fte(f.eO.fte.n1)} ${f.eO.fte.n1 > 1 ? "pessoas" : "pessoa"} no N1</b>, ${brl(sN1, 0)} por mês. Resolve 80% em 15 min.</div></div>
+      <div class="et"><div class="b" style="width:${larg(f.chamados * .2, f.chamados)}px;background:var(--teal);color:var(--navy)"><b class="num">${num(f.hN2)} h</b>no N2</div><div class="t"><b>${fte(f.eO.fte.n2) || "0"} ${f.eO.fte.n2 > 1 ? "pessoas" : "pessoa"} no N2</b>, ${brl(sN2, 0)} por mês. Diagnóstico de módulo e conectividade, 45 min.</div></div>
+      <div class="et"><div class="b" style="width:${larg(f.eO.fte.dev + f.eO.fte.devops, 8)}px;background:var(--grafite)"><b class="num">${fte(f.eO.fte.dev + f.eO.fte.devops)}</b>no sistema</div><div class="t">Desenvolvimento e DevOps: correções, versões novas, firmware e nuvem.</div></div>`;
+    const g = f.eO.fte.gestor, a = f.eO.fte.adm, sg = g * E.cargos.gestor.salario * E.fatorEncargos, sa = a * E.cargos.adm.salario * E.fatorEncargos;
+    $("#gest12").innerHTML = `<h4>Gestão da Códice</h4>
+      <div class="ln"><span>Gestor da Códice<small>operação, metas, sócios e clientes</small></span><b class="num">${fte(g)}</b></div>
+      <div class="ln"><span>Administrativo e financeiro<small>faturamento, cobrança, contratos</small></span><b class="num">${fte(a)}</b></div>
+      <div class="ln"><span>Custo da gestão<small>salário × 1,8</small></span><b class="num">${brl(sg + sa, 0)}</b></div>
+      <div class="tt"><span>Suporte + gestão por display</span><b class="num">${brl((sN1 + sN2 + sg + sa) / n)}</b></div>`;
+  });
+})();
+
+/* 13 por display */
+(function(){
+  const pm = f0.precoMedio, nb = f0.nbDisplay;
+  $("#col13").innerHTML = E.faixas.map((n) => { const f = F[n], sobra = pm - nb - f.porDisplay;
+    return `<div class="c" data-n="${n}"><div class="pilha"><i style="height:${sobra / pm * 100}%;background:#DDE3EC"></i><i style="height:${f.porDisplay / pm * 100}%;background:var(--teal)"></i><i style="height:${nb / pm * 100}%;background:var(--azul)"></i></div><div class="rot num">${num(n)}</div></div>`; }).join("");
+  const det = (n) => { const f = F[n], sobra = pm - nb - f.porDisplay;
+    $$("#col13 .c").forEach((c) => c.classList.toggle("on", +c.dataset.n === n));
+    $("#det13").innerHTML = `<h4>${num(n)} displays</h4>
+      <div class="ln"><span>Receita média por display</span><b class="num">${brl(pm, 0)}</b></div>
+      <div class="ln"><span><i style="background:var(--azul)"></i>NEOBAND</span><b class="num">${brl(nb)}</b></div>
+      <div class="ln"><span><i style="background:var(--teal)"></i>75 LAB</span><b class="num">${brl(f.porDisplay)}</b></div>
+      <div class="ln"><span><i style="background:#DDE3EC"></i>Sobra para dividir</span><b class="num">${brl(sobra)}</b></div>
+      <div class="ln"><span>Sobra no mês</span><b class="num">${mil(f.margem)}</b></div>
+      <div class="nota"><b>Atenção:</b> a parte da NEOBAND usa o preço de venda do display (R$ 3.200). O custo real dela é menor e precisa entrar na conta.</div>`; };
+  $$("#col13 .c").forEach((c) => c.onclick = () => det(+c.dataset.n));
+  det(5000);
+})();
+
+/* 14 participação */
+(function(){
+  const lo = Math.min(...E.faixas.map((n) => F[n].partCusto)), hi = Math.max(...E.faixas.map((n) => F[n].partCusto));
+  $("#t14").textContent = `${pct(lo, 0)} e ${pct(hi, 0)}`;
+  let fx = 5000, p = null;
+  const sim = $("#sim14");
+  function desenha(){
+    const f = F[fx]; if (p == null) p = Math.round(f.partAtivo * 100);
+    $("#lentes14").innerHTML = `<div><b class="num">${pct(f.partCusto)}</b>pelo custo mensal: 75 LAB ${brl(f.porDisplay)} contra NEOBAND ${brl(f.nbDisplay)} por display<small>só a operação</small></div>
+      <div><b class="num">${pct(f.partAtivo)}</b>pelo custo mensal com o ativo já construído (R$ 448 mil em 36 meses)<small>reconhece a plataforma e o módulo</small></div>
+      <div><b class="num">${pct(f.minimo)}</b>da receita é o mínimo para a 75 LAB cobrir o próprio custo<small>abaixo disso a 75 LAB paga para operar</small></div>`;
+    sim.innerHTML = `<div><label for="rgP">Parte da 75 LAB na sobra <b class="num" id="pTxt"></b></label><input type="range" id="rgP" min="0" max="60" step="1" value="${p}">
+      <div class="marcas"><span style="left:${f.partCusto * 100 / 60 * 100}%">custo ${pct(f.partCusto, 0)}</span><span style="left:${f.partAtivo * 100 / 60 * 100}%;top:12px">com ativo ${pct(f.partAtivo, 0)}</span></div></div>
+      <div class="rec lab"><b class="num" id="recLab"></b><span id="recLabT"></span></div>
+      <div class="rec"><b class="num" id="recNb"></b><span id="recNbT"></span></div>`;
+    const conta = () => {
+      const lucro = f.margem, lab = f.oper + lucro * p / 100, nbR = f.nbMes + lucro * (1 - p / 100);
+      $("#pTxt").textContent = p + "%";
+      $("#recLab").textContent = mil(lab); $("#recLabT").textContent = `por mês para a 75 LAB (custo ${mil(f.oper)} + ${p}% da sobra)`;
+      $("#recNb").textContent = mil(nbR); $("#recNbT").textContent = `por mês para a NEOBAND (custo ${mil(f.nbMes)} + ${100 - p}% da sobra)`;
+    };
+    $("#rgP").oninput = (e) => { p = +e.target.value; conta(); };
+    conta();
   }
-  rN.oninput = rS.oninput = calc;
-  $$(".sim .pres button").forEach((b) => b.onclick = () => { rN.value = b.dataset.n; calc(); });
-  calc();
+  faixas($("#fx14"), fx, (n) => { fx = n; p = null; desenha(); });
 })();
 
-/* 13 premissas */
+/* 15 pendências */
 (function(){
   const G = [
-    ["ok", "Confirmado", [
-      ["28 pedidos de peças e ferramentas", "Valor pago lido no histórico da Shopee (19) e do AliExpress (9), com frete, impostos e descontos. Compras pessoais ficaram de fora."],
-      ["Nuvem: R$ 0,02 em setembro e R$ 2,53 em outubro", "Faturamento do Google Cloud por serviço; previsão de outubro R$ 2,84."],
-      ["Hostinger R$ 72,99 por mês", "Histórico de pagamentos; 13 sites no mesmo plano."],
-      ["Claude R$ 1.498,35 no período", "Pagamentos de 17/09 e 09/10."],
-      ["58 horas de sessão no projeto", "Registro das sessões; 22 dias, os mesmos dos commits."],
-    ]],
-    ["es", "Estimado", [
-      ["Valor-hora R$ 150", "Meio da faixa de pleno (R$ 120 a R$ 200). Mude no anexo."],
-      ["25,2 horas de campo", "Pareamento 3 min por tag, montagem e cadastros."],
-      ["Rateio: Hostinger 1/13, Claude 18,6%", "Hostinger por site; Claude pelas horas de sessão do projeto sobre o total."],
-      ["Equivalente de mercado 3.148 h", "Horas por módulo pelo escopo entregue, conferidas pelo tamanho do código."],
-    ]],
-    ["pe", "Pendente", [
-      ["Celular Android do pareamento", "Usado para parear as tags na conta do Google. Não está nos pedidos; falta saber se foi comprado para o projeto."],
+    ["pe", "Falta para fechar", [
+      ["Custo real da NEOBAND", "Produção do display, instalação e manutenção física. Hoje a conta usa o preço de venda do deck comercial (R$ 3.200 + R$ 350 + R$ 70/mês)."],
+      ["Quem banca o display", "Se a NEOBAND vende o display à Códice, ela já ganha na venda e o capital passa a ser da Códice: a participação muda."],
+      ["Mistura real de pacotes", "Usada: 50% Essencial, 40% Sense, 10% Media. Ela define quantos módulos smart a 75 LAB monta."],
       ["Fonte USB e cabo do módulo", "Não aparecem nos pedidos; provavelmente reaproveitados."],
     ]],
+    ["es", "Estimado", [
+      ["Equipe por faixa", "Montagem 30 min por módulo; 0,1 chamado por display; 1 dev por 10 mil displays; 1 DevOps por 25 mil; gestão e administrativo."],
+      ["Salários × 1,8", "CLT de 2026 com encargos e benefícios. Regime tributário da Códice muda o fator."],
+      ["Nuvem na escala", "Preços públicos do Google, batimento de 5 min, dólar R$ 5,00 e 50% de folga."],
+      ["Valor de mercado R$ 448 mil", "Horas por módulo pelo escopo entregue, conferidas pelo tamanho do código."],
+    ]],
+    ["ok", "Confirmado", [
+      ["27 pedidos de peças e ferramentas", "Valor pago no histórico da Shopee (18) e do AliExpress (9)."],
+      ["Nuvem: R$ 0,02 em setembro e R$ 2,53 em outubro", "Faturamento do Google Cloud por serviço."],
+      ["Claude R$ 1.498,35 no período", "Pagamentos de 17/09 e 09/10; 16,4% da Códice."],
+      ["51,1 horas de sessão no projeto", "Registro das sessões de trabalho no projeto."],
+    ]],
   ];
-  $("#cols").innerHTML = G.map(([c, t, it]) => `<div class="c ${c}"><h4>${t}<span>${it.length}</span></h4>` + it.map(([a, b]) => `<div class="it"><b>${a}</b><div class="mais">${b}</div></div>`).join("") + "</div>").join("");
+  $("#cols15").innerHTML = G.map(([c, t, it]) => `<div class="c ${c}"><h4>${t}<span>${it.length}</span></h4>` + it.map(([a, b]) => `<div class="it"><b>${a}</b><div class="mais">${b}</div></div>`).join("") + "</div>").join("");
   $$(".prem .it").forEach((el) => el.onclick = () => el.classList.toggle("aberto"));
+  $(".prem .it").classList.add("aberto");
 })();
 
 const doHash = () => Math.max(0, (parseInt(location.hash.slice(1)) || 1) - 1);

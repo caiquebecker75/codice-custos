@@ -1,12 +1,11 @@
 # Custos da Códice
 
-Levantamento de custos do projeto Códice (plataforma, operação do rastreamento por tag, módulo smart ESP32, nuvem e mão de obra), de 09/09 a 23/10/2026.
+Levantamento de custos do projeto Códice (plataforma, módulo smart ESP32, nuvem e mão de obra) e projeção de escala de 500 a 50.000 displays, para definir a participação da 75 LAB e da NEOBAND.
 
-- `index.html`: deck de 14 telas (palco 1600 x 900, setas do teclado ou botões).
-- `detalhes.html`: anexo com cada pedido, nuvem, horas, equivalente de mercado, projeção de escala e simulador de valor-hora.
+- `index.html`: deck de 15 telas (palco 1600 x 900, setas do teclado ou botões).
+- `detalhes.html`: anexo com cada pedido, nuvem, horas, equivalente de mercado, projeção de escala e simulador das premissas de escala.
 - `dados.js`: fonte única dos números. Para atualizar (por exemplo, uma compra nova), mude aqui e os dois arquivos recalculam.
 - `calc.js`: contas compartilhadas pelo deck e pelo anexo.
 
-A compra das 204 tags e das pilhas fica fora deste levantamento.
 
 Não contém dados pessoais: só item, quantidade, data e valor de cada pedido.
