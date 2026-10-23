@@ -1,6 +1,6 @@
 # Custos da Códice
 
-Levantamento de custos do projeto Códice (plataforma, módulo smart ESP32, nuvem e mão de obra) e projeção de escala de 500 a 50.000 displays, para definir a participação da 75 LAB e da NEOBAND.
+Levantamento de custos do projeto Códice (plataforma, módulo smart, nuvem e mão de obra) e projeção de escala de 500 a 50.000 displays, para definir a participação da 75 LAB e da NEOBAND.
 
 - `index.html`: deck de 15 telas (palco 1600 x 900, setas do teclado ou botões).
 - `detalhes.html`: anexo com cada pedido, nuvem, horas, equivalente de mercado, projeção de escala e simulador das premissas de escala.
