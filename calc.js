@@ -45,7 +45,7 @@
   /* Custo mensal da 75 LAB com N displays atendidos.
      oper = depois da implantação (só reposição de módulos); impl = no ano de implantação (todos os módulos novos). */
   function faixa(C, n, o = {}) {
-    const E = { ...C.escala, ...o, nuvem: { ...C.escala.nuvem, ...(o.nuvem || {}) }, neoband: { ...C.escala.neoband, ...(o.neoband || {}) } };
+    const E = { ...C.escala, ...o, linha: { ...C.escala.linha, ...(o.linha || {}) }, nuvem: { ...C.escala.nuvem, ...(o.nuvem || {}) }, neoband: { ...C.escala.neoband, ...(o.neoband || {}) } };
     const cargos = JSON.parse(JSON.stringify(C.escala.cargos));
     if (o.salarios) for (const k in o.salarios) cargos[k].salario = o.salarios[k];
     const pac = o.pacotes || C.pacotes;
@@ -97,10 +97,8 @@
     const tecnicos = Math.ceil(montImpl - 1e-9);
     const bancadas = tecnicos * E.bancada;
 
-    // linha de montagem na 75 LAB: espaço dimensionado pelo pico (implantação)
-    const L = E.linha;
-    const m2 = tecnicos >= L.apartirDeTecnicos ? tecnicos * L.m2PorTecnico + L.m2Fixo : 0;
-    const espaco = m2 * (L.aluguelM2 + L.custosM2);
+    // espaço da operação e da linha de montagem: aluguel fixo por mês
+    const espaco = E.linha.aluguelMes;
 
     // pago pelo caixa da Códice (via Catalunia): técnicos, ferramentas deles, espaço da linha e peças
     const caixaCodice = (e, mont, pecas) => e.porGrupo.Montagem + mont * E.ferramentasPessoa + espaco + pecas;
@@ -118,7 +116,7 @@
     const capNB = n * (NB.display + NB.instalacao), capLab = contas(C).mValor;
     return {
       n, fracSmart, precoMedio, base, modOper, modImpl, capacidade, montOper, montImpl, chamados, hN1, hN2,
-      eO, eI, usdModulo, usdDisplay, aberturas, usdMapas, nuvem, hospedagem, pecasOper, pecasImpl, bancadas, tecnicos, m2, espaco,
+      eO, eI, usdModulo, usdDisplay, aberturas, usdMapas, nuvem, hospedagem, pecasOper, pecasImpl, bancadas, tecnicos, espaco,
       finOper, finImpl, labOper, labImpl, oper, impl, porDisplay: c75, porDisplayImpl: labImpl / n, finPorDisplay: finOper / n, nuvemPorModulo: usdModulo * N.dolar * N.contingencia,
       nbDisplay, nbMes: nbDisplay * n, receita, ativoMes,
       partCusto: c75 / (c75 + nbDisplay), partAtivo: c75ativo / (c75ativo + nbDisplay),

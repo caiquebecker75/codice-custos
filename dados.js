@@ -114,10 +114,9 @@ window.CUSTOS = {
     chamadosPorDisplay: 0.1, minN1: 15, fracN2: 0.2, minN2: 45,
     devBase: 0.5, displaysPorDev: 10000, displaysPorDevops: 25000, pessoasPorGestor: 20, displaysPorAdm: 15000,
     fatorEncargos: 1.8, ferramentasPessoa: 400, ferramentaDev: 1100, bancada: 476.33,
-    // linha de montagem na 75 LAB, paga pelo caixa da Códice (via Catalunia) junto com peças e técnicos
-    linha: { m2PorTecnico: 6, m2Fixo: 15, apartirDeTecnicos: 2, aluguelM2: 60, custosM2: 30,
-      fonte: "Espaço: 6 m² por técnico + 15 m² de estoque, teste e expedição, a partir de 2 técnicos (antes, a bancada fica no escritório da 75 LAB). Aluguel R$ 60/m² (FipeZap Comercial, São Paulo) + R$ 30/m² de condomínio, energia e internet (estimativa).",
-      url: "https://portas.com.br/noticias/aluguel-comercial-alta-fipezap-agosto-2026/" },
+    // espaço da operação e da linha de montagem na 75 LAB: aluguel fixo, pago pelo caixa da Códice (via Catalunia)
+    linha: { aluguelMes: 10000,
+      fonte: "Aluguel do espaço da operação e da linha de montagem: R$ 10.000 por mês em todas as faixas (valor definido pela 75 LAB)." },
     cargos: {
       mont: { nome: "Técnico de montagem", grupo: "Montagem", salario: 2800, fonte: "Portal Salário: técnico eletrônico, média nacional ~R$ 2.802 (CAGED)", url: "https://www.salario.com.br/profissao/tecnico-eletronico-em-geral-cbo-313215" },
       n1: { nome: "Suporte N1", grupo: "Suporte técnico", salario: 2400, fonte: "Numerando: técnico de suporte ao usuário de TI, mediana SP R$ 2.352 (CAGED jan/2026)", url: "https://numerando.com.br/salarios/tecnico-de-suporte-ao-usuario-de-tecnologia-da-informacao/sao-paulo" },

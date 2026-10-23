@@ -202,7 +202,7 @@ const CAMPOS = [
   ["Pacotes", [["sense", "Displays no Sense (%)", "com módulo smart", pac("Sense").mix * 100, 5], ["media", "Displays no Media (%)", "com módulo smart", pac("Media").mix * 100, 5],
     ["pEss", "Preço Essencial (R$)", "por display/mês", pac("Essencial").preco, 1], ["pSense", "Preço Sense (R$)", "", pac("Sense").preco, 1], ["pMedia", "Preço Media (R$)", "", pac("Media").preco, 1]]],
   ["Equipe", [["minutosPorModulo", "Minutos por módulo", "montagem, gravação e teste", E.minutosPorModulo, 1], ["chamadosPorDisplay", "Chamados por display/mês", "suporte técnico", E.chamadosPorDisplay, 0.01],
-    ["displaysPorDev", "Displays por desenvolvedor", "além de 0,5 dev fixo", E.displaysPorDev, 500], ["fatorEncargos", "Fator de encargos", "salário × fator", E.fatorEncargos, 0.05], ["implantacaoMeses", "Meses de implantação", "", E.implantacaoMeses, 1]]],
+    ["displaysPorDev", "Displays por desenvolvedor", "além de 0,5 dev fixo", E.displaysPorDev, 500], ["fatorEncargos", "Fator de encargos", "salário × fator", E.fatorEncargos, 0.05], ["implantacaoMeses", "Meses de implantação", "", E.implantacaoMeses, 1], ["aluguel", "Aluguel do espaço (R$/mês)", "linha e operação", E.linha.aluguelMes, 500]]],
   ["NEOBAND e nuvem", [["nbDisplay", "Display (R$)", "custo de produção", E.neoband.display, 50], ["nbInst", "Instalação (R$)", "", E.neoband.instalacao, 10], ["nbManut", "Manutenção (R$/mês)", "por display", E.neoband.manutencao, 5],
     ["nbVida", "Vida útil (meses)", "amortização", E.neoband.vidaMeses, 6], ["batimento", "Batimento do módulo (min)", "nuvem", E.nuvem.batimentoMin, 1]]],
 ];
@@ -217,6 +217,7 @@ function premissas(){
   return {
     pacotes: [{ nome: "Essencial", preco: P.pEss, mix: Math.max(0, 1 - s - m), smart: false }, { nome: "Sense", preco: P.pSense, mix: s, smart: true }, { nome: "Media", preco: P.pMedia, mix: m, smart: true }],
     minutosPorModulo: P.minutosPorModulo, chamadosPorDisplay: P.chamadosPorDisplay, displaysPorDev: P.displaysPorDev, fatorEncargos: P.fatorEncargos, implantacaoMeses: P.implantacaoMeses,
+    linha: { aluguelMes: P.aluguel },
     neoband: { display: P.nbDisplay, instalacao: P.nbInst, manutencao: P.nbManut, vidaMeses: P.nbVida }, nuvem: { batimentoMin: P.batimento },
   };
 }
@@ -231,7 +232,7 @@ function tudo(){
   const L = (rot, fn, cls = "") => `<tr class="${cls}"><td>${rot}</td>${F.map((f) => `<td class="r num">${fn(f)}</td>`).join("")}</tr>`;
   $("#tabEsc").innerHTML = cab + [
     `<tr class="s"><td colspan="${E.faixas.length + 1}"><b>Pago pelo caixa da Códice (via Catalunia)</b></td></tr>`,
-    L("Técnicos de montagem e ferramentas", (f) => brl(f.eO.porGrupo.Montagem + f.montOper * E.ferramentasPessoa, 0)), L("Espaço da linha de montagem na 75 LAB", (f) => brl(f.espaco, 0)),
+    L("Técnicos de montagem e ferramentas", (f) => brl(f.eO.porGrupo.Montagem + f.montOper * E.ferramentasPessoa, 0)), L("Aluguel do espaço (linha de montagem e operação)", (f) => brl(f.espaco, 0)),
     L("Peças de reposição de módulos", (f) => brl(f.pecasOper, 0)), L("Subtotal do caixa da Códice", (f) => brl(f.finOper, 0), "t"),
     `<tr class="s"><td colspan="${E.faixas.length + 1}"><b>Custo da 75 LAB</b></td></tr>`,
     L("Suporte técnico (N1 e N2)", (f) => brl(f.eO.porGrupo["Suporte técnico"], 0)), L("Sistema (dev e DevOps)", (f) => brl(f.eO.porGrupo.Sistema, 0)),
@@ -240,7 +241,7 @@ function tudo(){
     L("Subtotal da 75 LAB", (f) => brl(f.labOper, 0), "t"), L("75 LAB por display por mês", (f) => brl(f.porDisplay), "t"),
     L("Total por mês na operação", (f) => brl(f.oper, 0), "t"),
     L("Caixa da Códice na implantação", (f) => brl(f.finImpl, 0), "s"), L("75 LAB na implantação", (f) => brl(f.labImpl, 0), "s"),
-    L("Módulos montados por mês na implantação", (f) => num(f.modImpl), "s"), L("Linha de montagem (m²)", (f) => f.m2 ? num(f.m2) : "bancada no escritório", "s"),
+    L("Módulos montados por mês na implantação", (f) => num(f.modImpl), "s"), L("Técnicos de montagem na implantação", (f) => num(f.tecnicos), "s"),
     L("Bancadas (uma vez, caixa da Códice)", (f) => brl(f.bancadas, 0), "s"),
   ].join("");
 
@@ -324,8 +325,8 @@ const PR = [
   ["Equipe por faixa", "estimado", "Montagem 30 min por módulo, 0,1 chamado por display, 1 dev por 10 mil displays, 1 DevOps por 25 mil, 1 gestor a cada 20 pessoas, administrativo 1 a cada 15 mil displays."],
   ["Salários e fator 1,8", "estimado", "CLT 2026 (CAGED e guias); regime tributário da Códice muda o fator."],
   ["Nuvem na escala", "estimado", "Preços públicos dos provedores, dólar R$ 5,00 e 50% de folga."],
-  ["Linha de montagem", "estimado", "6 m² por técnico + 15 m², a partir de 2 técnicos; R$ 60/m² de aluguel + R$ 30/m² de custos do espaço."],
-  ["Financiamento via Catalunia", "pendente", "Peças, montagem e espaço da linha pagos pelo caixa da Códice: confirmar limite e prazo."],
+  ["Aluguel do espaço", "estimado", "R$ 10.000 por mês em todas as faixas, valor definido pela 75 LAB; pago pelo caixa da Códice."],
+  ["Financiamento via Catalunia", "pendente", "Peças, montagem e aluguel do espaço pagos pelo caixa da Códice: confirmar limite e prazo."],
   ["Valor de mercado R$ 448 mil", "estimado", "Horas por módulo pelo escopo entregue; conferido pelo tamanho do código."],
   ["Valor-hora R$ 150 e 12 h de bancada", "estimado", "Mão de obra já feita."],
   ["27 compras", "confirmado", "Notas das compras: 18 nacionais e 9 importadas."], ["Nuvem set/out", "confirmado", "Fatura de nuvem por serviço."],
@@ -344,7 +345,7 @@ $("#listaFontes").innerHTML = [
   ...Object.values(E.cargos).map((c) => `<a href="${c.url}" target="_blank" rel="noopener">${c.fonte}</a>`),
   `<a href="${E.encargosFonte.url}" target="_blank" rel="noopener">${E.encargosFonte.nome}</a>`,
   ...E.nuvem.fontes.map((f) => f.url ? `<a href="${f.url}" target="_blank" rel="noopener">${f.nome}</a>` : f.nome),
-  `<a href="${E.linha.url}" target="_blank" rel="noopener">${E.linha.fonte}</a>`,
+  E.linha.fonte,
 ].map((x) => `<li>${x}</li>`).join("");
 
 tudo();

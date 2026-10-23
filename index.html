@@ -421,14 +421,14 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <h2 class="tit">O custo da 75 LAB por display cai de <em id="t9a">R$ 58</em> para <em id="t9b">R$ 7</em> por mês</h2>
     <div class="legenda" id="leg9"></div>
     <div class="grafico" id="graf9"></div>
-    <div class="fonte">Fonte: projeção deste levantamento, depois da implantação (só reposição de módulos). Montagem, linha e peças são pagas pelo caixa da Códice (via Catalunia); o valor por display é só o da 75 LAB. Metade dos displays com módulo smart. Salários CLT de 2026 × 1,8.</div>
+    <div class="fonte">Fonte: projeção deste levantamento, depois da implantação (só reposição de módulos). Montagem, aluguel do espaço (R$ 10.000/mês) e peças são pagos pelo caixa da Códice (via Catalunia); o valor por display é só o da 75 LAB. Metade dos displays com módulo smart. Salários CLT de 2026 × 1,8.</div>
   </section>
 
   <!-- 10 equipe -->
   <section class="tela eqp">
     <h2 class="tit">A operação da 75 LAB cresce de <em id="t10a">2</em> para <em id="t10b">28</em> pessoas</h2>
     <div class="mat"><table id="tabEq"></table></div>
-    <div class="fonte" id="fonte10">* Técnicos e linha de montagem ficam na 75 LAB e são pagos pelo caixa da Códice (via Catalunia). Pessoas em tempo integral (0,5 = meio período). Salários: Portal Salário e Numerando (CAGED), JobRise (2026); × 1,8 (ValorFinal).</div>
+    <div class="fonte" id="fonte10">* Técnicos, linha de montagem e aluguel do espaço (R$ 10.000/mês) são pagos pelo caixa da Códice (via Catalunia). Pessoas em tempo integral (0,5 = meio período). Salários: Portal Salário e Numerando (CAGED), JobRise (2026); × 1,8 (ValorFinal).</div>
   </section>
 
   <!-- 11 montagem -->
@@ -438,7 +438,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <div class="linha-prod"><div class="tecnicos" id="tec11"></div><div class="modulos" id="mods11"></div><div class="esteira"></div></div>
     <div class="nums" id="nums11"></div>
     <div class="banner"><b>Quem paga:</b> peças, técnicos, bancadas e espaço saem do caixa da Códice (via Catalunia). <b>Quem opera:</b> a 75 LAB, que cuida da linha, da qualidade, do firmware e do kit de fábrica, perto de quem desenvolve.</div>
-    <div class="fonte">Fonte: 30 min por módulo, 140 h por mês, implantação em 12 meses, reposição de 1% ao mês; técnico R$ 2.800 (Portal Salário) × 1,8; espaço a partir de 2 técnicos, 6 m² cada + 15 m², aluguel R$ 60/m² (FipeZap Comercial, SP) + R$ 30/m² de custos do espaço (estimativa).</div>
+    <div class="fonte">Fonte: 30 min por módulo, 140 h por mês, implantação em 12 meses, reposição de 1% ao mês; técnico R$ 2.800 (Portal Salário) × 1,8; aluguel do espaço R$ 10.000 por mês em todas as faixas (valor definido pela 75 LAB).</div>
   </section>
 
   <!-- 12 suporte e gestão -->
@@ -654,7 +654,7 @@ ao[3] = () => {
 
 /* 9 escala */
 (function(){
-  const ITENS = [["Montagem e linha (caixa da Códice)", (f) => f.finOper - f.pecasOper, "#A7EDE7"], ["Peças de reposição (caixa da Códice)", (f) => f.pecasOper, "#C9D8FF"],
+  const ITENS = [["Montagem e aluguel do espaço (caixa da Códice)", (f) => f.finOper - f.pecasOper, "#A7EDE7"], ["Peças de reposição (caixa da Códice)", (f) => f.pecasOper, "#C9D8FF"],
     ["Suporte técnico", (f) => f.eO.porGrupo["Suporte técnico"], GRUPOS["Suporte técnico"]], ["Sistema", (f) => f.eO.porGrupo.Sistema, GRUPOS.Sistema],
     ["Gestão", (f) => f.eO.porGrupo["Gestão"], GRUPOS["Gestão"]], ["Ferramentas", (f) => f.eO.ferramentas - f.montOper * E.ferramentasPessoa, "#AEB8CC"],
     ["Nuvem e hospedagem", (f) => f.nuvem + f.hospedagem, "#1DD4C8"]];
@@ -674,7 +674,7 @@ ao[3] = () => {
   let h = `<tr><th>Cargo · displays</th>${E.faixas.map((n) => `<th>${num(n)}</th>`).join("")}</tr>`;
   for (const k of ORD) { const c = E.cargos[k];
     h += `<tr><td><i style="background:${GRUPOS[c.grupo]}"></i>${c.nome}${k === "mont" ? " *" : ""}</td>${E.faixas.map((n) => { const v = F[n].eO.fte[k]; return `<td><span class="num" style="background:${cor(v)};color:${txt(v)}">${fte(v) || "·"}</span></td>`; }).join("")}</tr>`;
-    if (k === "mont") h += `<tr><td><i style="background:${GRUPOS.Montagem}"></i>Linha de montagem na 75 LAB *</td>${E.faixas.map((n) => `<td class="num" style="font-size:14px;color:var(--suave)">${F[n].m2 ? num(F[n].m2) + " m²" : "bancada"}</td>`).join("")}</tr>`; }
+    if (k === "mont") h += `<tr><td><i style="background:${GRUPOS.Montagem}"></i>Aluguel do espaço (linha e operação) *</td>${E.faixas.map((n) => `<td class="num" style="font-size:14px;color:var(--suave)">${mil(F[n].espaco)}</td>`).join("")}</tr>`; }
   h += `<tr class="tot"><td>Total na operação</td>${E.faixas.map((n) => `<td class="num">${num(F[n].eO.pessoas, 1)}</td>`).join("")}</tr>`;
   h += `<tr class="imp"><td>No ano de implantação</td>${E.faixas.map((n) => `<td class="num">${num(F[n].eI.pessoas, 1)}</td>`).join("")}</tr>`;
   h += `<tr class="imp"><td>Custo da equipe por mês</td>${E.faixas.map((n) => `<td class="num">${mil(F[n].eO.salarios)}</td>`).join("")}</tr>`;
@@ -691,7 +691,7 @@ ao[3] = () => {
     const mo = E.cargos.mont.salario * E.fatorEncargos / f.capacidade;
     $("#nums11").innerHTML = `<div><b class="num">${num(f.base)}</b>módulos smart na base (metade dos ${num(n)} displays); um técnico monta 280 por mês</div>
       <div class="d"><b class="num">${num(f.modImpl)}/mês</b>no ano de implantação: ${num(tec)} ${tec === 1 ? "técnico" : "técnicos"} e ${num(tec)} ${tec === 1 ? "bancada" : "bancadas"} (${brl(f.bancadas, 0)}); depois ${num(f.modOper)}/mês de reposição</div>
-      <div><b class="num">${f.m2 ? num(f.m2) + " m²" : "1 bancada"}</b>${f.m2 ? `de linha própria na 75 LAB: ${brl(f.espaco, 0)} por mês de espaço` : "no escritório da 75 LAB, sem aluguel a mais"}</div>
+      <div><b class="num">${brl(f.espaco, 0)}/mês</b>de aluguel do espaço da linha e da operação: ${brl(f.espaco / n)} por display</div>
       <div><b class="num">${brl(mo + r.bom)}</b>por módulo: ${brl(r.bom)} em peças + ${brl(mo)} de mão de obra</div>`;
   });
 })();
@@ -767,7 +767,7 @@ ao[3] = () => {
     ["pe", "Falta para fechar", [
       ["Custo real da NEOBAND", "Produção do display, instalação e manutenção física. Hoje a conta usa o preço de venda do deck comercial (R$ 3.200 + R$ 350 + R$ 70/mês)."],
       ["Quem banca o display", "Se a NEOBAND vende o display à Códice, ela já ganha na venda e o capital passa a ser da Códice: a participação muda."],
-      ["Financiamento via Catalunia", "Confirmar limite e prazo do caixa da Códice para peças, montagem e espaço da linha, para a 75 LAB não bancar material."],
+      ["Financiamento via Catalunia", "Confirmar limite e prazo do caixa da Códice para peças, montagem e aluguel do espaço (R$ 10.000/mês), para a 75 LAB não bancar material."],
       ["Mistura real de pacotes", "Usada: 50% Essencial, 40% Sense, 10% Media. Ela define quantos módulos smart a 75 LAB monta."],
       ["Fonte USB e cabo do módulo", "Não aparecem nos pedidos; provavelmente reaproveitados."],
     ]],
