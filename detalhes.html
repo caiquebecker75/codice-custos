@@ -87,14 +87,12 @@ footer img{height:34px}
 
   <section id="simulador">
     <h2>Simulador</h2>
-    <p class="sub">Troque o valor-hora e o preço da tag para ver o total mudar. Fica salvo só neste navegador; o deck continua com os valores oficiais.</p>
+    <p class="sub">Troque o valor-hora para ver o total mudar. Fica salvo só neste navegador; o deck continua com os valores oficiais.</p>
     <div class="sim">
       <div class="ctl">
         <label for="sVh">Valor-hora (R$) <input type="number" id="sVh" min="0" step="10"></label>
         <input type="range" id="rVh" min="60" max="400" step="10">
-        <label for="sTag">Preço por tag (R$) <span class="pend">a confirmar</span> <input type="number" id="sTag" min="0" step="0.01"></label>
-        <input type="range" id="rTag" min="10" max="150" step="0.5">
-        <p class="nota">Referências: pleno R$ 120 a R$ 200/h, sênior R$ 200 a R$ 400/h. Tag de referência R$ 39,56.</p>
+        <p class="nota">Referências: pleno R$ 120 a R$ 200/h, sênior R$ 200 a R$ 400/h. A compra das tags e das pilhas fica fora deste levantamento.</p>
         <button id="sReset" style="margin-top:10px;border:0;background:var(--fundo);border-radius:999px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer">Voltar aos valores oficiais</button>
       </div>
       <div class="res" id="sRes"></div>
@@ -124,9 +122,9 @@ footer img{height:34px}
   </section>
 
   <section id="tags">
-    <h2>Tags Find My</h2>
+    <h2>Tags Find My: só a operação</h2>
     <div class="caixa rolar"><table class="tab" id="tabTags"><tbody></tbody></table></div>
-    <div class="aviso"><b>Pendente:</b> as 204 tags (α'GOLD PLUS TCD-06B) e o celular Android usado no pareamento não estão nos pedidos da Shopee nem do AliExpress. Com a nota (loja, data, valor), é só trocar o preço em dados.js.</div>
+    <div class="aviso" style="background:var(--azulF)">A compra das 204 tags (α'GOLD PLUS TCD-06B) e das pilhas fica fora deste levantamento. Aqui entram só a operação delas e o tempo de pareamento.</div>
   </section>
 
   <section id="sistema">
@@ -155,14 +153,14 @@ footer img{height:34px}
 
   <section id="escala">
     <h2>Projeção de escala</h2>
-    <p class="sub">Com 20% dos displays com módulo smart. A nuvem cresce em linha com o uso medido em outubro, sem contar com a cota grátis.</p>
+    <p class="sub">Com 20% dos displays com módulo smart; a compra das tags fica fora. A nuvem cresce em linha com o uso medido em outubro, sem contar com a cota grátis.</p>
     <div class="caixa rolar"><table class="tab" id="tabEsc"><thead><tr><th></th><th class="r">Hoje (200)</th><th class="r">1.000</th><th class="r">5.000</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <section id="premissas">
     <h2>Premissas e pendências</h2>
     <div class="caixa rolar"><table class="tab" id="tabPrem"><thead><tr><th>Item</th><th>Situação</th><th>De onde vem</th></tr></thead><tbody></tbody></table></div>
-    <div class="caixa"><b>O que ficou de fora</b><p class="nota" style="margin-top:4px">Compras pessoais e anteriores ao projeto nas duas lojas; o servidor VPS da agência (outro projeto); o plano da Hostinger inteiro (só a parte da Códice, 1 de 13 sites); horas de reunião e venda; impostos sobre serviço.</p></div>
+    <div class="caixa"><b>O que ficou de fora</b><p class="nota" style="margin-top:4px">A compra das 204 tags e das pilhas; compras pessoais e anteriores ao projeto nas duas lojas; o servidor VPS da agência (outro projeto); o plano da Hostinger inteiro (só a parte da Códice, 1 de 13 sites); horas de reunião e venda; impostos sobre serviço.</p></div>
   </section>
 
   <section id="fontes">
@@ -188,21 +186,21 @@ $("#kpis").innerHTML = [
 ].map(([a, b, c]) => `<div class="${c || ""}"><b class="num">${b}</b>${a}</div>`).join("");
 
 /* simulador */
-const sVh = $("#sVh"), rVh = $("#rVh"), sTag = $("#sTag"), rTag = $("#rTag");
+const sVh = $("#sVh"), rVh = $("#rVh");
 function sim(){
-  const vh = +sVh.value || 0, pt = +sTag.value || 0, r = K.contas(C, { valorHora: vh, precoTag: pt });
-  gravar("cc_vh", vh); gravar("cc_tag", pt);
+  const vh = +sVh.value || 0, r = K.contas(C, { valorHora: vh });
+  gravar("cc_vh", vh);
   $("#sRes").innerHTML = [
-    ["Compras (28 pedidos)", r.compras], ["Tags (204)", r.tags], ["Nuvem e hospedagem no período", r.sistemaPeriodo], ["Claude, parcela da Códice", r.claude],
+    ["Compras (28 pedidos)", r.compras], ["Nuvem e hospedagem no período", r.sistemaPeriodo], ["Claude, parcela da Códice", r.claude],
     ["Saiu do caixa", r.caixa], [`Mão de obra (${num(r.hTotal, 1)} h × ${brl(vh, 0)})`, r.maoDeObra],
   ].map(([a, v]) => `<div class="ln"><span>${a}</span><b class="num">${brl(v)}</b></div>`).join("")
     + `<div class="tt"><span>Total</span><b class="num">${brl(r.total)}</b></div>
-       <div class="ln" style="box-shadow:none"><span>Display rastreado no 1º ano</span><b class="num">${brl(r.rastreado1)}</b></div>`;
+       <div class="ln" style="box-shadow:none"><span>Nuvem e hospedagem por display, por ano</span><b class="num">${brl(r.rastreadoAno)}</b></div>`;
 }
 const liga = (n, rg) => { n.oninput = () => { rg.value = n.value; sim(); }; rg.oninput = () => { n.value = rg.value; sim(); }; };
-liga(sVh, rVh); liga(sTag, rTag);
-sVh.value = rVh.value = ler("cc_vh", C.maoDeObra.valorHora); sTag.value = rTag.value = ler("cc_tag", C.tags.precoUnitario);
-$("#sReset").onclick = () => { sVh.value = rVh.value = C.maoDeObra.valorHora; sTag.value = rTag.value = C.tags.precoUnitario; sim(); };
+liga(sVh, rVh);
+sVh.value = rVh.value = ler("cc_vh", C.maoDeObra.valorHora);
+$("#sReset").onclick = () => { sVh.value = rVh.value = C.maoDeObra.valorHora; sim(); };
 sim();
 
 /* compras */
@@ -244,10 +242,10 @@ $("#tabBom tfoot").innerHTML = `<tr><td colspan="2">Total por módulo (sem opcio
 const T = C.tags;
 $("#tabTags tbody").innerHTML = [
   ["Quantidade", `${T.quantidade} tags (${T.ativas} em uso, ${T.contasGoogle} contas Google com ${T.porConta} cada)`],
-  ["Preço por tag", `${brl(T.precoUnitario)} <span class="pend">a confirmar</span><small>${T.referencia} <a href="${T.referenciaUrl}" target="_blank" rel="noopener">ver referência</a></small>`],
-  ["Total das tags", `<b class="num">${brl(r0.tags)}</b>`],
-  ["Pilha CR2032", `${brl(T.pilhaCr2032)} cada · ${T.trocasPorAno} troca por ano = <b class="num">${brl(r0.pilhasAno)}</b> por ano<small>${T.pilhaFonte}</small>`],
+  ["Compra das tags e pilhas", "Fora deste levantamento"],
   ["Rede e contas", "Rede Encontre Meu Dispositivo do Google e contas gratuitas: R$ 0,00"],
+  ["Coletor", "GitHub Actions: 398 de 2.000 minutos grátis em outubro: R$ 0,00"],
+  ["Pareamento", `10,2 h (3 min por tag), já contadas na mão de obra`],
 ].map(([a, b]) => `<tr><td style="width:200px"><b>${a}</b></td><td>${b}</td></tr>`).join("");
 
 /* sistema */
@@ -274,8 +272,7 @@ $("#txtMerc").textContent = `${C.mercado.conferencia} Prazo: ${num(r0.mHoras)} h
 const E = [200, 1000, 5000].map((n) => K.escala(C, n, 0.2));
 const linhaE = (rot, f) => `<tr><td>${rot}</td>${E.map((e) => `<td class="r num">${f(e)}</td>`).join("")}</tr>`;
 $("#tabEsc tbody").innerHTML = [
-  linhaE("Tags", (e) => brl(e.tags, 0)), linhaE("Módulos smart (20%)", (e) => `${num(e.smart)} · ${brl(e.modulos, 0)}`),
-  linhaE("Hardware total", (e) => `<b>${brl(e.tags + e.modulos, 0)}</b>`), linhaE("Pilhas por ano", (e) => brl(e.pilhasAno, 0)),
+  linhaE("Módulos smart (20%)", (e) => num(e.smart)), linhaE("Peças dos módulos", (e) => `<b>${brl(e.modulos, 0)}</b>`),
   linhaE("Nuvem e hospedagem por mês", (e) => brl(e.sistemaMes)), linhaE("Por display, por mês", (e) => brl(e.sistemaMes / e.n)),
   linhaE("Contas Google", (e) => num(e.contasG)), linhaE("Minutos do coletor por mês", (e) => `${num(e.minGit)}${e.gitGratis ? "" : ' <span class="pend">acima da cota</span>'}`),
   linhaE("Horas de campo", (e) => `${num(e.hPar + e.hMont)} h`), linhaE("Campo a valor-hora", (e) => brl(e.maoDeObra, 0)),
@@ -283,7 +280,7 @@ $("#tabEsc tbody").innerHTML = [
 
 /* premissas */
 const P = [
-  ["Preço das 204 tags", "pendente", "Referência de varejo R$ 39,56; falta a nota de compra."], ["Celular Android do pareamento", "pendente", "Não está nos pedidos; falta saber se foi comprado para o projeto."],
+  ["Celular Android do pareamento", "pendente", "Não está nos pedidos; falta saber se foi comprado para o projeto."],
   ["Fonte USB e cabo do módulo", "pendente", "Não aparecem nos pedidos; provavelmente reaproveitados."], ["Valor-hora R$ 150", "estimado", "Meio da faixa de pleno; ajuste no simulador."],
   ["25,2 h de campo", "estimado", "Pareamento 3 min por tag, montagem 12 h, cadastros 3 h."], ["Rateios (Hostinger 1/13, Claude 18,6%)", "estimado", "Por site e por horas de sessão."],
   ["Equivalente de mercado", "estimado", "Horas por módulo pelo escopo entregue; conferido pelo tamanho do código."], ["Projeção de escala", "estimado", "Linear a partir do uso de outubro."],
@@ -301,7 +298,6 @@ $("#listaFontes").innerHTML = [
   "GitHub: uso do Actions em outubro; repositórios rental-display (246 commits) e esp32-displays (21 commits).",
   "Registro das sessões do Claude Code (horas ativas com comandos no projeto).",
   ...C.mercado.fonteHora.map((f) => `<a href="${f.url}" target="_blank" rel="noopener">${f.nome}</a>`),
-  `<a href="${C.tags.referenciaUrl}" target="_blank" rel="noopener">Magazine Luiza: mini rastreador compatível com Encontre Meu Dispositivo (preço de referência da tag)</a>`,
 ].map((x) => `<li>${x}</li>`).join("");
 })();
 </script>

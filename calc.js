@@ -1,5 +1,5 @@
 /* Contas do levantamento, iguais no deck e no anexo. Tudo sai de window.CUSTOS (dados.js).
-   o.valorHora e o.precoTag permitem simular outro valor-hora e outro preço de tag. */
+   o.valorHora permite simular outro valor-hora. A compra das tags e das pilhas fica fora do levantamento. */
 (function () {
   const soma = (a, f) => a.reduce((t, x) => t + f(x), 0);
   const CATS = {
@@ -10,7 +10,6 @@
 
   function contas(C, o = {}) {
     const vh = o.valorHora ?? C.maoDeObra.valorHora;
-    const pt = o.precoTag ?? C.tags.precoUnitario;
     const porCat = {}, porCanal = {}, porDiaCompra = {};
     for (const x of C.compras) {
       porCat[x.cat] = (porCat[x.cat] || 0) + x.valor;
@@ -18,8 +17,6 @@
       porDiaCompra[x.data] = (porDiaCompra[x.data] || 0) + x.valor;
     }
     const compras = soma(C.compras, (x) => x.valor);
-    const tags = C.tags.quantidade * pt;
-    const pilhasAno = C.tags.quantidade * C.tags.pilhaCr2032 * C.tags.trocasPorAno;
     const sistemaPeriodo = soma(C.sistema, (x) => x.set + x.out);
     const sistemaMes = soma(C.sistema, (x) => x.mensal);
     const claude = C.claude.pagoNoPeriodo * C.claude.horasCodice / C.claude.horasTodas;
@@ -27,21 +24,19 @@
     const hCampo = soma(C.maoDeObra.campo, (x) => x.horas);
     const hTotal = hMedidas + hCampo;
     const maoDeObra = hTotal * vh;
-    const hardware = compras + tags;
-    const caixa = compras + tags + sistemaPeriodo + claude;
+    const hardware = compras;
+    const caixa = compras + sistemaPeriodo + claude;
     const total = caixa + maoDeObra;
     const mHoras = soma(C.mercado.modulos, (m) => m.horas);
     const mValor = soma(C.mercado.modulos, (m) => m.horas * m.valor);
     const bom = soma(C.bom, (x) => x.valor);
     const sistemaPorTagAno = sistemaMes * 12 / C.tags.ativas;
     return {
-      vh, pt, porCat, porCanal, porDiaCompra, compras, tags, pilhasAno, sistemaPeriodo, sistemaMes, claude,
+      vh, porCat, porCanal, porDiaCompra, compras, sistemaPeriodo, sistemaMes, claude,
       hMedidas, hCampo, hTotal, maoDeObra, hardware, caixa, total, mHoras, mValor, bom, sistemaPorTagAno,
       mesesEquipe: mHoras / (C.mercado.equipe * C.mercado.horasMes),
-      rastreado1: pt + C.tags.pilhaCr2032 + sistemaPorTagAno,
-      rastreadoAno: C.tags.pilhaCr2032 + sistemaPorTagAno,
-      recorrenteMes: sistemaMes + pilhasAno / 12,
-      pendente: tags,
+      rastreadoAno: sistemaPorTagAno,
+      recorrenteMes: sistemaMes,
     };
   }
 
@@ -56,10 +51,10 @@
     const minGit = Math.round((398 / 23 * 30) / 2 * contasG);
     const hPar = n * C.minutosPorTag / 60, hMont = smart * C.minutosPorModulo / 60;
     return {
-      n, smart, tags: n * r.pt, modulos: smart * r.bom, pilhasAno: n * C.tags.pilhaCr2032,
+      n, smart, modulos: smart * r.bom,
       contasG, minGit, gitGratis: minGit <= 2000, nuvem, sistemaMes: nuvem + 5.61,
       hPar, hMont, maoDeObra: (hPar + hMont) * r.vh,
-      capex: n * r.pt + smart * r.bom + (hPar + hMont) * r.vh,
+      capex: smart * r.bom + (hPar + hMont) * r.vh,
     };
   }
 

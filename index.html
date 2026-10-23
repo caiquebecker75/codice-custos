@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Custos da Códice</title>
-<meta name="description" content="Levantamento detalhado de custos do projeto Códice: hardware, tags, nuvem, ferramenta e mão de obra, de 09/09 a 23/10/2026.">
+<meta name="description" content="Levantamento detalhado de custos do projeto Códice: peças, nuvem, ferramenta e mão de obra, de 09/09 a 23/10/2026.">
 <link rel="icon" href="img/codice-simbolo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -274,7 +274,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
   <section class="tela escura capa" data-tema="escuro">
     <div class="kick">Levantamento de custos · 09/09 a 23/10/2026</div>
     <h1>Quanto custou construir a Códice</h1>
-    <div class="total"><b class="num" data-conta="total" data-fmt="brl0">R$ 0</b><span>Plataforma, 204 tags rastreadas, módulo smart ESP32, nuvem, ferramenta e mão de obra. O que falta confirmar está marcado.</span></div>
+    <div class="total"><b class="num" data-conta="total" data-fmt="brl0">R$ 0</b><span>Plataforma, rastreamento, módulo smart ESP32, nuvem, ferramenta e mão de obra. A compra das tags fica fora desta conta.</span></div>
     <img class="bloco3d" src="img/codice-simbolo.svg" alt="">
     <div class="tres">
       <div><strong class="num" data-v="nCompras">28</strong>pedidos de peças e ferramentas</div>
@@ -287,11 +287,11 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 
   <!-- 2 cupom -->
   <section class="tela">
-    <h2 class="tit" style="max-width:780px">R$ 21,9 mil no total; <em>R$ 9,4 mil</em> saíram do caixa</h2>
+    <h2 class="tit" style="max-width:780px">R$ 13,8 mil no total; <em>90%</em> é tempo de trabalho</h2>
     <div class="cupom-l">
-      <p class="lead">O resto é tempo de trabalho, cobrado aqui a valor de mercado. Quase todo o dinheiro pago está nas 204 tags, cujo preço ainda precisa ser confirmado.</p>
+      <p class="lead">Do caixa saíram R$ 1,3 mil. O resto é tempo de trabalho, cobrado aqui a valor de mercado. A compra das 204 tags e das pilhas ficou fora desta conta.</p>
       <div class="lenda">
-        <div><b class="num" data-v="pctTags">86%</b> do que saiu do caixa são as tags <span class="pend">a confirmar</span></div>
+        <div><b class="num" data-v="maoDeObra" data-fmt="brl">R$ 12.480,00</b> de mão de obra: 83,2 h a R$ 150/h</div>
         <div><b class="num" data-v="compras" data-fmt="brl">R$ 1.049,69</b> em 28 pedidos de peças, testes e ferramentas</div>
         <div><b class="num" data-v="nuvemClaude" data-fmt="brl">R$ 292,85</b> de nuvem, hospedagem e IA no período</div>
       </div>
@@ -301,7 +301,6 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <div class="sub">Cupom do projeto · 09/09 a 23/10/2026</div>
       <div class="ln" data-ir="4"><span>Compras Shopee<small>19 pedidos</small></span><b class="num" data-v="shopee" data-fmt="brl"></b></div>
       <div class="ln" data-ir="5"><span>Compras AliExpress<small>9 pedidos, com frete e impostos</small></span><b class="num" data-v="ali" data-fmt="brl"></b></div>
-      <div class="ln" data-ir="7"><span>Tags Find My (204) <span class="pend">a confirmar</span><small>R$ 39,56 cada, preço de referência</small></span><b class="num" data-v="tags" data-fmt="brl"></b></div>
       <div class="ln" data-ir="8"><span>Nuvem e hospedagem<small>setembro e outubro</small></span><b class="num" data-v="sistemaPeriodo" data-fmt="brl"></b></div>
       <div class="ln" data-ir="9"><span>Claude, parcela da Códice<small>58 de 311 h de uso no período</small></span><b class="num" data-v="claude" data-fmt="brl"></b></div>
       <div class="sep"></div>
@@ -311,7 +310,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <div class="tot"><span>TOTAL</span><span class="num" data-v="total" data-fmt="brl"></span></div>
       <div class="nota">Clique numa linha para ver o detalhe.</div>
     </div>
-    <div class="fonte">Fonte: pedidos da Shopee (19) e do AliExpress (9) com o valor pago; faturamento do Google Cloud; Hostinger; pagamentos do Claude; registro das sessões. Tags: preço de referência até a nota de compra.</div>
+    <div class="fonte">Fonte: pedidos da Shopee (19) e do AliExpress (9) com o valor pago; faturamento do Google Cloud; Hostinger; pagamentos do Claude; registro das sessões. A compra das tags e das pilhas não entra neste levantamento.</div>
   </section>
 
   <!-- 3 linha do tempo -->
@@ -385,21 +384,22 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 
   <!-- 7 tags -->
   <section class="tela tags">
-    <h2 class="tit">As 204 tags são o maior gasto, e o <em>preço ainda é estimado</em></h2>
+    <h2 class="tit">As 204 tags rodam na rede do Google <em>sem custo</em></h2>
     <div class="grade">
       <div class="bloco"><h4>Conta Google 1 · 100 tags</h4><div class="pts" data-n="100"></div></div>
       <div class="bloco"><h4>Conta Google 2 · 100 tags</h4><div class="pts" data-n="100"></div></div>
       <div class="bloco"><h4>Fora de uso · 4</h4><div class="pts r" data-n="4" style="grid-template-columns:repeat(2,28px)"></div></div>
     </div>
     <div class="lado">
-      <label class="campo">Preço por tag R$ <input type="number" id="inTag" value="39.56" step="0.01" min="0"> <span class="pend">a confirmar</span></label>
-      <div class="tot num" id="totTag">R$ 8.070,24</div>
-      <div class="ln"><span>204 tags compradas</span><b class="num" id="totTag2"></b></div>
-      <div class="ln"><span>Pilhas CR2032 por ano (1 troca)</span><b class="num" data-v="pilhasAno" data-fmt="brl"></b></div>
-      <div class="ln"><span>Rede do Google e 2 contas</span><b>R$ 0,00</b></div>
-      <div class="aviso"><b>Pendente:</b> as tags (α'GOLD PLUS TCD-06B) e o celular Android usado no pareamento não estão nos pedidos da Shopee nem do AliExpress. Falta a nota com loja, data e valor.</div>
+      <div class="tot num">R$ 0,00</div>
+      <div style="font-size:18px;color:var(--suave);margin:8px 0 14px">por mês para rastrear as 204 tags</div>
+      <div class="ln"><span>Rede Encontre Meu Dispositivo</span><b>R$ 0,00</b></div>
+      <div class="ln"><span>2 contas Google (100 tags cada)</span><b>R$ 0,00</b></div>
+      <div class="ln"><span>Coletor no GitHub (398 de 2.000 min)</span><b>R$ 0,00</b></div>
+      <div class="ln"><span>Pareamento: 10,2 h</span><b style="font-weight:500;color:var(--suave)">na mão de obra</b></div>
+      <div class="aviso" style="background:var(--azulF)">A compra das tags e as pilhas ficam fora deste levantamento.</div>
     </div>
-    <div class="fonte">Fonte: preço de referência de mini rastreador compatível com Encontre Meu Dispositivo, R$ 39,56 no Pix (<a href="https://m.magazineluiza.com.br/busca/kit+2+smarttrackers/" target="_blank" rel="noopener">Magazine Luiza</a>); pilha a R$ 6,96 (5 por R$ 34,82, pedido da Shopee de 07/06/2026); 100 tags por conta na plataforma.</div>
+    <div class="fonte">Fonte: cadastro das tags na plataforma (100 por conta Google, 2 contas); uso do GitHub Actions em outubro; pareamento estimado em 3 min por tag.</div>
   </section>
 
   <!-- 8 fatura -->
@@ -448,21 +448,21 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 
   <!-- 11 etiquetas -->
   <section class="tela etq">
-    <h2 class="tit">Rastrear um display custa <em>R$ 47</em> no primeiro ano</h2>
+    <h2 class="tit">Cada display smart custa <em>R$ 90,58</em> em peças</h2>
     <div class="par">
       <div class="et">
         <div class="faixa">Display rastreado <span>tag Find My</span></div>
-        <div class="preco"><sup>R$</sup><b class="num">47</b><span class="cent">,03</span><small>no 1º ano; depois R$ 7,47 por ano</small></div>
+        <div class="preco"><sup>R$</sup><b class="num">0</b><span class="cent">,51</span><small>por ano de nuvem e hospedagem, por display</small></div>
         <ul>
-          <li><span>Tag (preço de referência) <span class="pend">a confirmar</span></span><b class="num" data-v="pt" data-fmt="brl"></b></li>
-          <li><span>Pilha CR2032, 1 por ano</span><b class="num">R$ 6,96</b></li>
+          <li><span>Rede do Google e contas</span><b class="num">R$ 0,00</b></li>
+          <li><span>Coletor no GitHub</span><b class="num">R$ 0,00</b></li>
           <li><span>Nuvem e hospedagem por tag no ano</span><b class="num" data-v="sistemaPorTagAno" data-fmt="brl"></b></li>
         </ul>
-        <div class="rod">+ 3 min de pareamento por tag</div>
+        <div class="rod">+ 3 min de pareamento por tag · compra da tag e pilha fora desta conta</div>
       </div>
       <div class="et b">
         <div class="faixa">Display smart <span>módulo ESP32</span></div>
-        <div class="preco"><sup>+R$</sup><b class="num">90</b><span class="cent">,58</span><small>em peças, além do rastreamento</small></div>
+        <div class="preco"><sup>R$</sup><b class="num">90</b><span class="cent">,58</span><small>em peças por módulo, além do rastreamento</small></div>
         <ul>
           <li><span>ESP32, ultrassom e clima</span><b class="num">R$ 80,97</b></li>
           <li><span>Caixa vedada, fios e resistores</span><b class="num">R$ 9,61</b></li>
@@ -476,7 +476,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 
   <!-- 12 simulador -->
   <section class="tela escura sim" data-tema="escuro">
-    <h2 class="tit">Na escala, quase tudo é <em>hardware</em>; a nuvem fica em centavos por display</h2>
+    <h2 class="tit">Na escala, o custo é o <em>módulo smart</em>; a nuvem fica em centavos por display</h2>
     <div class="ctl">
       <div class="pres"><button data-n="200" class="on">Hoje</button><button data-n="1000">1.000</button><button data-n="5000">5.000</button></div>
       <label for="rgN">Displays rastreados <b class="num" id="nTxt">200</b></label>
@@ -486,14 +486,14 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <p class="lead" style="font-size:16px;margin-top:30px">A nuvem cresce em linha com o uso medido em outubro, já sem a cota grátis. O tempo de campo usa os minutos por unidade das telas anteriores.</p>
     </div>
     <div class="out" id="simOut"></div>
-    <div class="fonte">Fonte: projeção com os números deste levantamento. Nuvem: (R$ 2,84 pagos + R$ 3,60 cobertos pela cota) ÷ 200 tags por mês. GitHub: 398 min de outubro, cota grátis de 2.000 min no repositório privado.</div>
+    <div class="fonte">Fonte: projeção com os números deste levantamento. Nuvem: (R$ 2,84 pagos + R$ 3,60 cobertos pela cota) ÷ 200 tags por mês. GitHub: 398 min de outubro, cota grátis de 2.000 min no repositório privado. Compra das tags fora desta conta.</div>
   </section>
 
   <!-- 13 premissas -->
   <section class="tela prem">
-    <h2 class="tit">Três números ainda dependem de <em>confirmação</em></h2>
+    <h2 class="tit">Dois itens ainda dependem de <em>confirmação</em></h2>
     <div class="cols" id="cols"></div>
-    <div class="fonte">Clique num item para ver de onde vem o número. A lista completa, com cada linha, está no anexo.</div>
+    <div class="fonte">Clique num item para ver de onde vem o número. Fora deste levantamento: compra das 204 tags e das pilhas. A lista completa está no anexo.</div>
   </section>
 
   <!-- 14 fim -->
@@ -501,9 +501,9 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <h2>Cada linha deste levantamento está no anexo</h2>
     <p class="lead" style="font-size:24px;max-width:900px;margin-top:28px">Tabela com os 28 pedidos, a nuvem mês a mês, as horas por dia, o equivalente de mercado e um simulador para trocar o valor-hora e o preço da tag.</p>
     <div class="tres">
-      <div><b class="num" data-v="total" data-fmt="mil">R$ 21,9 mil</b>investidos até 23/10, com mão de obra</div>
-      <div><b class="num" data-v="recorrenteMes" data-fmt="brl">R$ 126,77</b>por mês para manter: nuvem, hospedagem e pilhas</div>
-      <div><b class="num">R$ 47,03</b>por display rastreado no 1º ano</div>
+      <div><b class="num" data-v="total" data-fmt="mil">R$ 13,8 mil</b>investidos até 23/10, com mão de obra</div>
+      <div><b class="num" data-v="recorrenteMes" data-fmt="brl">R$ 8,45</b>por mês para manter: nuvem e hospedagem</div>
+      <div><b class="num" data-v="bom" data-fmt="brl">R$ 90,58</b>em peças por módulo smart</div>
     </div>
     <div class="acoes"><a href="detalhes.html">Abrir o anexo detalhado →</a><span>Levantamento feito pela 75 LAB em 23/10/2026</span></div>
     <div class="fonte">Fonte: todas as telas anteriores.</div>
@@ -527,7 +527,7 @@ const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => 
 const V = Object.assign({}, r, {
   nCompras: C.compras.length, shopee: r.porCanal.Shopee, ali: r.porCanal.AliExpress,
   pd: r.porCat.pd, bancada: r.porCat.bancada, modulo: r.porCat.modulo,
-  pctTags: Math.round(r.tags / r.caixa * 100) + "%", nuvemClaude: r.sistemaPeriodo + r.claude,
+  nuvemClaude: r.sistemaPeriodo + r.claude,
 });
 const FMT = { brl: (v) => brl(v), brl0: (v) => brl(v, 0), mil: (v) => mil(v), h: (v) => num(v, 0) + " h" };
 $$("[data-v]").forEach((el) => { const v = V[el.dataset.v]; el.textContent = el.dataset.fmt ? FMT[el.dataset.fmt](v) : v; });
@@ -676,9 +676,6 @@ ao[2] = () => {
 /* 7 tags */
 (function(){
   $$(".tags .pts").forEach((g) => { g.innerHTML = "<i></i>".repeat(+g.dataset.n); });
-  const inp = $("#inTag");
-  inp.oninput = () => { const v = Math.max(0, parseFloat(inp.value) || 0); $("#totTag").textContent = brl(v * 204); $("#totTag2").textContent = brl(v * 204); };
-  inp.oninput();
 })();
 
 /* 8 fatura */
@@ -733,10 +730,8 @@ ao[2] = () => {
     const n = +rN.value, f = +rS.value / 100, e = K.escala(C, n, f);
     $("#nTxt").textContent = num(n); $("#sTxt").textContent = rS.value + "%";
     $$(".sim .pres button").forEach((b) => b.classList.toggle("on", +b.dataset.n === n));
-    out.innerHTML = `<div class="big"><b class="num">${mil(e.tags + e.modulos)}</b><span>em hardware para ${num(n)} displays (${num(e.smart)} com módulo smart)</span></div>
-      <div class="ln"><span>${num(n)} tags<small>${brl(r.pt)} cada, a confirmar</small></span><b class="num">${brl(e.tags, 0)}</b></div>
+    out.innerHTML = `<div class="big"><b class="num">${mil(e.modulos)}</b><span>em peças para ${num(e.smart)} módulos smart, em ${num(n)} displays rastreados</span></div>
       <div class="ln"><span>${num(e.smart)} módulos smart<small>${brl(r.bom)} em peças cada</small></span><b class="num">${brl(e.modulos, 0)}</b></div>
-      <div class="ln"><span>Pilhas por ano<small>1 troca por tag</small></span><b class="num">${brl(e.pilhasAno, 0)}</b></div>
       <div class="ln"><span>Nuvem e hospedagem por mês<small>${brl(e.sistemaMes / n)} por display</small></span><b class="num">${brl(e.sistemaMes)}</b></div>
       <div class="ln"><span>Contas Google para as tags<small>100 tags por conta, grátis</small></span><b class="num">${num(e.contasG)}</b></div>
       <div class="ln"><span>Minutos do coletor no GitHub por mês<small>${e.gitGratis ? "dentro da cota grátis" : "passa da cota: tornar o coletor público ou pagar o excedente"}</small></span><b class="num ${e.gitGratis ? "ok" : "atn"}">${num(e.minGit)}</b></div>
@@ -764,7 +759,6 @@ ao[2] = () => {
       ["Equivalente de mercado 3.148 h", "Horas por módulo pelo escopo entregue, conferidas pelo tamanho do código."],
     ]],
     ["pe", "Pendente", [
-      ["Preço das 204 tags", "Usado R$ 39,56 (referência de varejo). Falta a nota: loja, data e valor. É 86% do que saiu do caixa."],
       ["Celular Android do pareamento", "Usado para parear as tags na conta do Google. Não está nos pedidos; falta saber se foi comprado para o projeto."],
       ["Fonte USB e cabo do módulo", "Não aparecem nos pedidos; provavelmente reaproveitados."],
     ]],

@@ -53,14 +53,9 @@ window.CUSTOS = {
   bomPendentes: ["Fonte USB 5 V e cabo: não aparecem nos pedidos (provavelmente reaproveitados)"],
   minutosPorModulo: 30, minutosPorTag: 3,
 
-  // tags Find My: compra fora da Shopee e do AliExpress do Caique; preço de referência até confirmar
-  tags: {
-    quantidade: 204, ativas: 200, contasGoogle: 2, porConta: 100,
-    precoUnitario: 39.56, confirmado: false,
-    referencia: "Mini rastreador genérico compatível com Encontre Meu Dispositivo, R$ 39,56 no Pix (Magazine Luiza). Modelo usado: α'GOLD PLUS TCD-06B, pilha CR2032.",
-    referenciaUrl: "https://m.magazineluiza.com.br/busca/kit+2+smarttrackers/",
-    pilhaCr2032: 6.96, pilhaFonte: "5 pilhas CR2032 Panasonic por R$ 34,82 (pedido da Shopee de 07/06/2026)", trocasPorAno: 1,
-  },
+  // tags Find My: a compra das tags e das pilhas fica FORA deste levantamento (pedido do Caique, 23/10/2026).
+  // Ficam só os dados de operação (quantidade e contas), usados no rateio da nuvem e na projeção de escala.
+  tags: { quantidade: 204, ativas: 200, contasGoogle: 2, porConta: 100, foraDoLevantamento: true },
 
   // sistema: custo real lido nos painéis em 23/10/2026
   sistema: [
