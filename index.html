@@ -277,6 +277,31 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 .prem .acoes{position:absolute;left:96px;bottom:84px;display:flex;gap:16px;align-items:center}
 .prem .acoes a{display:inline-flex;gap:10px;background:var(--teal);color:var(--navy);font-weight:700;font-size:19px;padding:16px 28px;border-radius:999px;text-decoration:none}
 .prem .acoes span{color:#9FB0D6;font-size:15px}
+/* 16 resumo */
+.res16 .inv{position:absolute;left:96px;top:262px;width:500px;height:300px;background:var(--navy);color:#fff;border-radius:24px;padding:28px 32px}
+.res16 .rot{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;color:var(--suave)}
+.res16 .inv .rot{color:var(--teal)}
+.res16 .grande{font-family:"Exo 2";font-size:68px;font-weight:700;line-height:1;margin-top:8px}
+.res16 .inv .ln{display:flex;justify-content:space-between;gap:12px;font-size:16px;padding:9px 0;box-shadow:0 -1px 0 #1A3369;color:#C9D4EE}
+.res16 .inv .ln:first-of-type{margin-top:18px}
+.res16 .inv .ln b{color:#fff;font-family:"Exo 2";font-size:19px}
+.res16 .men{position:absolute;left:620px;right:96px;top:262px;height:300px;background:var(--papel);border-radius:24px;padding:28px 32px}
+.res16 .men .grande{color:var(--navy)}
+.res16 .men .grande small{font-size:26px;color:var(--suave);font-weight:600}
+.res16 .barra{display:flex;height:40px;border-radius:10px;overflow:hidden;margin-top:20px}
+.res16 .barra i{display:block;height:100%;transition:width .9s cubic-bezier(.3,0,.2,1)}
+.res16 .itens{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:14px}
+.res16 .itens div{font-size:13px;color:var(--suave);line-height:1.35}
+.res16 .itens b{display:flex;align-items:center;gap:8px;font-family:"Exo 2";font-size:20px;color:var(--tinta)}
+.res16 .itens b i{width:12px;height:12px;border-radius:3px;flex:none}
+.res16 .itens span{display:block;font-weight:600;color:var(--tinta);font-size:14px;margin-bottom:2px}
+.res16 .calc{position:absolute;left:96px;right:96px;top:590px;height:150px;background:var(--tealF);border-radius:24px;padding:24px 32px;display:grid;grid-template-columns:330px 1fr 1fr;gap:34px;align-items:center}
+.res16 .calc .hw b{display:block;font-family:"Exo 2";font-size:44px;color:var(--navy);line-height:1}
+.res16 .calc .hw{font-size:15px;color:var(--suave)}
+.res16 .calc label{display:flex;justify-content:space-between;font-size:16px;color:var(--navy);font-weight:600;margin-bottom:12px}
+.res16 .calc label b{font-family:"Exo 2";font-size:26px}
+.res16 .calc .tot{font-size:15px;color:var(--suave)}
+.res16 .calc .tot b{display:block;font-family:"Exo 2";font-size:44px;color:var(--navy);line-height:1}
 .girar{display:none}
 @media (orientation:portrait) and (max-width:700px){.girar{display:block;position:fixed;left:16px;right:16px;bottom:16px;background:#fff;color:var(--navy);border-radius:14px;padding:12px 16px;font-size:14px;z-index:20;text-align:center}.girar a{color:var(--azul);font-weight:600}}
 </style>
@@ -285,7 +310,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
 <div class="palco" id="palco">
   <div class="topo">
     <div class="marca"><img src="img/codice-simbolo.svg" alt="">Códice <span>· Custos e escala</span></div>
-    <div class="dir"><span id="contador">1 / 15</span><img class="logo-escuro" src="img/logo-75lab-preto.png" alt="75 LAB"><img class="logo-claro" src="img/logo-75lab-branco.png" alt="75 LAB"></div>
+    <div class="dir"><span id="contador">1 / 16</span><img class="logo-escuro" src="img/logo-75lab-preto.png" alt="75 LAB"><img class="logo-claro" src="img/logo-75lab-branco.png" alt="75 LAB"></div>
   </div>
 
   <!-- 1 capa -->
@@ -473,6 +498,30 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <div class="cols" id="cols15"></div>
     <div class="acoes"><a href="detalhes.html">Abrir o anexo com o simulador →</a><span>Todas as premissas podem ser trocadas no anexo.</span></div>
     <div class="fonte">Clique num item para ver de onde vem o número. Levantamento feito pela 75 LAB em 23/10/2026.</div>
+  </section>
+
+  <!-- 16 resumo -->
+  <section class="tela res16">
+    <h2 class="tit">Para começar, <em>R$ 39.100</em>; depois, R$ 20.750 por mês mais R$ 350 por unidade</h2>
+    <div class="inv">
+      <div class="rot">Investimento inicial</div>
+      <div class="grande num">R$ 39.100</div>
+      <div class="ln"><span>Desenvolvimento</span><b class="num">R$ 18.000</b></div>
+      <div class="ln"><span>1º mês de operação</span><b class="num">R$ 20.750</b></div>
+      <div class="ln"><span>1ª peça de hardware</span><b class="num">R$ 350</b></div>
+    </div>
+    <div class="men">
+      <div class="rot">Custo mensal da operação</div>
+      <div class="grande num">R$ 20.750<small>/mês + R$ 350 por unidade</small></div>
+      <div class="barra" id="barra16"></div>
+      <div class="itens" id="itens16"></div>
+    </div>
+    <div class="calc">
+      <div class="hw"><b class="num">R$ 350</b>de hardware por peça, pago a cada unidade montada</div>
+      <div><label for="rg16">Unidades no mês <b class="num" id="un16">50</b></label><input type="range" id="rg16" min="0" max="500" step="10" value="50"></div>
+      <div class="tot"><b class="num" id="tot16">R$ 38.250</b><span id="tot16t">no mês: R$ 20.750 + 50 × R$ 350</span></div>
+    </div>
+    <div class="fonte">Fonte: valores definidos pela 75 LAB em 23/10/2026. Investimento inicial = desenvolvimento + primeiro mês de operação + primeira peça.</div>
   </section>
 
   <nav class="nav"><button id="ant" aria-label="Tela anterior">←</button><button id="prox" aria-label="Próxima tela">→</button></nav>
@@ -787,6 +836,21 @@ ao[3] = () => {
   $("#cols15").innerHTML = G.map(([c, t, it]) => `<div class="c ${c}"><h4>${t}<span>${it.length}</span></h4>` + it.map(([a, b]) => `<div class="it"><b>${a}</b><div class="mais">${b}</div></div>`).join("") + "</div>").join("");
   $$(".prem .it").forEach((el) => el.onclick = () => el.classList.toggle("aberto"));
   $(".prem .it").classList.add("aberto");
+})();
+
+/* 16 resumo */
+(function(){
+  const M = [["Montagem", 17000, "#1DD4C8", "sala R$ 10.000, soldador R$ 3.500, programador R$ 3.500"],
+    ["Manutenção", 1500, "#2F73FF", "técnico de TI"],
+    ["Nuvem e hospedagem", 1250, "#061B49", "nuvem, hospedagem, internet, domínio e licenças"],
+    ["Backup", 1000, "#4E4E50", "nuvem R$ 500 e hardware R$ 500"]];
+  const tot = M.reduce((a, m) => a + m[1], 0);
+  $("#barra16").innerHTML = M.map(([n, v, c]) => `<i title="${n}: ${brl(v, 0)}" data-w="${v / tot * 100}" style="width:0;background:${c}"></i>`).join("");
+  $("#itens16").innerHTML = M.map(([n, v, c, d]) => `<div><span>${n}</span><b class="num"><i style="background:${c}"></i>${brl(v, 0)}</b>${d}</div>`).join("");
+  ao[15] = () => setTimeout(() => $$("#barra16 i").forEach((i) => i.style.width = i.dataset.w + "%"), 150);
+  const rg = $("#rg16");
+  rg.oninput = () => { const u = +rg.value; $("#un16").textContent = num(u); $("#tot16").textContent = brl(tot + u * 350, 0); $("#tot16t").textContent = `no mês: ${brl(tot, 0)} + ${num(u)} × R$ 350`; };
+  rg.oninput();
 })();
 
 const doHash = () => Math.max(0, (parseInt(location.hash.slice(1)) || 1) - 1);
