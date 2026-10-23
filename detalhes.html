@@ -265,7 +265,8 @@ function tudo(){
 const r0 = K.contas(C);
 $("#lados").innerHTML = `<div class="lab"><h3>75 LAB</h3><ul>${C.divisao.lab.map((x) => `<li>${x}</li>`).join("")}</ul></div><div class="nb"><h3>NEOBAND</h3><ul>${C.divisao.neoband.map((x) => `<li>${x}</li>`).join("")}</ul></div>`;
 
-let filtro = { cat: "", canal: "", q: "" }  // canal = origem (nacional ou importado), ordem = { k: "data", asc: true };
+// filtro.canal guarda a origem (nacional ou importado)
+let filtro = { cat: "", canal: "", q: "" }, ordem = { k: "data", asc: true };
 const visiveis = () => C.compras.filter((c) => (!filtro.cat || c.cat === filtro.cat) && (!filtro.canal || c.origem === filtro.canal)
   && (!filtro.q || (c.item + " " + c.uso).toLowerCase().includes(filtro.q))).sort((a, b) => {
     const x = a[ordem.k], y = b[ordem.k]; return (typeof x === "number" ? x - y : String(x).localeCompare(String(y), "pt")) * (ordem.asc ? 1 : -1); });
