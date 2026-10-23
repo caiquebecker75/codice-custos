@@ -589,7 +589,7 @@ ao[2] = () => {
     let g = `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${brl(r.porDiaCompra[d])}</b><br>${itens.length} pedido(s): ${itens.slice(0, 6).map((c) => c.item.split(" (")[0]).join(", ")}${itens.length > 6 ? "..." : ""}`)}">`;
     for (const cat of ["modulo", "pd", "bancada"]) {
       const v = itens.filter((c) => c.cat === cat).reduce((a, c) => a + c.valor, 0); if (!v) continue;
-      const H = v / max * 180; y -= H; g += `<rect x="${X - 12}" y="${y}" width="24" height="${H}" fill="${CORES[cat]}"/>`;
+      const H = v / max * 150; y -= H; g += `<rect x="${X - 12}" y="${y}" width="24" height="${H}" fill="${CORES[cat]}"/>`;
     }
     h += g + `<text x="${X}" y="${y - 8}" text-anchor="middle" font-size="14" font-weight="700" fill="#061B49">${num(r.porDiaCompra[d], 0)}</text></g>`;
   }
@@ -600,7 +600,7 @@ ao[2] = () => {
     h += `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${num(v, 1)} h</b> de sessão no projeto`)}"><rect x="${x(d) - 9}" y="${510 - H}" width="18" height="${H}" rx="4" fill="#061B49"/>${v >= 4 ? `<text x="${x(d)}" y="${502 - H}" font-size="13" text-anchor="middle" fill="#061B49" font-weight="600">${num(v, 1)}</text>` : ""}</g>`;
   }
   h += `<line x1="20" x2="${W - 20}" y1="511" y2="511" stroke="#C9D1E0" stroke-width="2"/>`;
-  h += `<text x="20" y="40" font-size="15" fill="#5B6683" font-weight="600">COMPRAS POR DIA (R$)</text><text x="20" y="372" font-size="15" fill="#5B6683" font-weight="600">HORAS DE TRABALHO POR DIA</text>`;
+  h += `<text x="20" y="34" font-size="15" fill="#5B6683" font-weight="600">COMPRAS POR DIA (R$)</text><text x="20" y="372" font-size="15" fill="#5B6683" font-weight="600">HORAS DE TRABALHO POR DIA</text>`;
   svg.innerHTML = h;
   $$(".pt", svg).forEach((g) => { g.style.cursor = "pointer";
     g.onmousemove = (e) => { const b = palco.getBoundingClientRect(), s = b.width / 1600; dica.innerHTML = decodeURIComponent(g.dataset.t); dica.style.left = ((e.clientX - b.left) / s + 16) + "px"; dica.style.top = ((e.clientY - b.top) / s - 20) + "px"; dica.style.opacity = 1; };
