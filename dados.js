@@ -61,24 +61,24 @@ window.CUSTOS = {
     { item: "Avisos no celular (ntfy) e OpenStreetMap", set: 0, out: 0, mensal: 0, fonte: "Serviços públicos grátis, sem conta e sem chave." },
   ],
 
-  // ferramenta de desenvolvimento: Claude (plano Max), rateado pelas horas de sessão no período
-  claude: {
+  // ferramenta de desenvolvimento (assinatura), rateada pelas horas de trabalho no período
+  ferramenta: {
     pagoNoPeriodo: 1498.35, horasCodice: 51.1, horasTodas: 311.4,
-    fonte: "Pagamentos no período: 17/09 R$ 550,00 (Max 5x) e 09/10 R$ 948,35 (Max 20x). Parcela da Códice = 51,1 h de 311,4 h de sessões entre 10/09 e 23/10.",
+    fonte: "Assinatura paga no período: 17/09 R$ 550,00 e 09/10 R$ 948,35. Parcela da Códice = 51,1 h de 311,4 h de trabalho entre 10/09 e 23/10.",
   },
 
   // mão de obra já feita
   maoDeObra: {
     valorHora: 150,
     valorHoraFonte: "Meio da faixa de desenvolvedor full stack pleno (R$ 120 a R$ 200/h).",
-    medidas: { horas: 51.1, dias: 20, fonte: "Tempo ativo das sessões de trabalho em que os comandos mexeram no projeto (blocos com pausas de até 20 min), 10/09 a 23/10." },
+    medidas: { horas: 51.1, dias: 20, fonte: "Tempo ativo de trabalho no projeto (blocos com pausas de até 20 min), 10/09 a 23/10." },
     campo: [{ item: "Montagem, solda e testes do módulo ESP32 (protótipo e kit de fábrica)", horas: 12, base: "estimativa" }],
     porDia: { "2026-09-10": 2.9, "2026-09-11": 1.5, "2026-09-13": 5.1, "2026-09-14": 7.4, "2026-09-15": 4.9, "2026-09-16": 1.0, "2026-09-17": 1.6, "2026-09-18": 4.7, "2026-09-21": 2.0, "2026-09-22": 1.0, "2026-09-23": 1.3, "2026-09-24": 2.5, "2026-09-27": 10.4, "2026-09-28": 0.9, "2026-10-01": 0.6, "2026-10-02": 0.1, "2026-10-05": 0.7, "2026-10-06": 0.4, "2026-10-09": 0.2, "2026-10-10": 1.9 },
   },
 
   entrega: { commits: 246, telas: 48, funcoes: 49, linhas: 51758 },
 
-  // equivalente de mercado: o mesmo escopo feito por uma equipe tradicional, sem IA
+  // equivalente de mercado: o mesmo escopo contratado de uma equipe externa
   mercado: {
     fonteHora: [
       { nome: "GeraContratos: tabela de serviços profissionais (full stack pleno R$ 120 a 200/h, sênior R$ 200 a 400/h)", url: "https://geracontratos.com.br/recursos/tabela-valores-servicos-profissionais" },
@@ -115,7 +115,7 @@ window.CUSTOS = {
     implantacaoMeses: 12, reposicaoMes: 0.01, minutosPorModulo: 30, horasMes: 140,
     chamadosPorDisplay: 0.1, minN1: 15, fracN2: 0.2, minN2: 45,
     devBase: 0.5, displaysPorDev: 10000, displaysPorDevops: 25000, pessoasPorGestor: 20, displaysPorAdm: 15000,
-    fatorEncargos: 1.8, ferramentasPessoa: 400, iaPorDev: 1100, bancada: 476.33,
+    fatorEncargos: 1.8, ferramentasPessoa: 400, ferramentaDev: 1100, bancada: 476.33,
     cargos: {
       mont: { nome: "Técnico de montagem", grupo: "Montagem", salario: 2800, fonte: "Portal Salário: técnico eletrônico, média nacional ~R$ 2.802 (CAGED)", url: "https://www.salario.com.br/profissao/tecnico-eletronico-em-geral-cbo-313215" },
       n1: { nome: "Suporte N1", grupo: "Suporte técnico", salario: 2400, fonte: "Numerando: técnico de suporte ao usuário de TI, mediana SP R$ 2.352 (CAGED jan/2026)", url: "https://numerando.com.br/salarios/tecnico-de-suporte-ao-usuario-de-tecnologia-da-informacao/sao-paulo" },

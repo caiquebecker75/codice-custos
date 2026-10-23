@@ -22,21 +22,21 @@
     const compras = soma(C.compras, (x) => x.valor);
     const sistemaPeriodo = soma(C.sistema, (x) => x.set + x.out);
     const sistemaMes = soma(C.sistema, (x) => x.mensal);
-    const claude = C.claude.pagoNoPeriodo * C.claude.horasCodice / C.claude.horasTodas;
+    const ferramenta = C.ferramenta.pagoNoPeriodo * C.ferramenta.horasCodice / C.ferramenta.horasTodas;
     const hMedidas = C.maoDeObra.medidas.horas;
     const hCampo = soma(C.maoDeObra.campo, (x) => x.horas);
     const hTotal = hMedidas + hCampo;
     const maoDeObra = hTotal * vh;
-    const caixa = compras + sistemaPeriodo + claude;
+    const caixa = compras + sistemaPeriodo + ferramenta;
     const total = caixa + maoDeObra;
     const mHoras = soma(C.mercado.modulos, (m) => m.horas);
     const mValor = soma(C.mercado.modulos, (m) => m.horas * m.valor);
     const bom = soma(C.bom, (x) => x.valor);
     return {
-      vh, porCat, porCanal, porDiaCompra, compras, sistemaPeriodo, sistemaMes, claude,
+      vh, porCat, porCanal, porDiaCompra, compras, sistemaPeriodo, sistemaMes, ferramenta,
       hMedidas, hCampo, hTotal, maoDeObra, caixa, total, mHoras, mValor, bom,
       mesesEquipe: mHoras / (C.mercado.equipe * C.mercado.horasMes),
-      pctClaude: C.claude.horasCodice / C.claude.horasTodas,
+      pctFerramenta: C.ferramenta.horasCodice / C.ferramenta.horasTodas,
     };
   }
 
@@ -74,7 +74,7 @@
       const linhas = Object.entries(fte).map(([k, f]) => ({ k, ...cargos[k], fte: f, custo: f * cargos[k].salario * E.fatorEncargos }));
       const pessoas = soma(linhas, (l) => l.fte);
       const salarios = soma(linhas, (l) => l.custo);
-      const ferramentas = pessoas * E.ferramentasPessoa + dev * E.iaPorDev;
+      const ferramentas = pessoas * E.ferramentasPessoa + dev * E.ferramentaDev;
       const porGrupo = {};
       for (const l of linhas) porGrupo[l.grupo] = (porGrupo[l.grupo] || 0) + l.custo;
       return { fte, linhas, pessoas, salarios, ferramentas, porGrupo, cabecas: soma(linhas, (l) => Math.ceil(l.fte - 1e-9)) };

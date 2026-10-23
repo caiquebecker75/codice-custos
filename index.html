@@ -295,11 +295,11 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <img class="simb" src="img/codice-simbolo.svg" alt="">
     <div class="quatro">
       <div><strong class="num" data-v="total" data-fmt="mil">R$ 10,7 mil</strong>investidos até hoje, com mão de obra</div>
-      <div><strong class="num" data-v="mValor" data-fmt="mil">R$ 448 mil</strong>custaria construir o mesmo sem IA</div>
+      <div><strong class="num" data-v="mValor" data-fmt="mil">R$ 448 mil</strong>custaria construir o mesmo com equipe externa</div>
       <div><strong class="num" id="capaDisp">R$ 58 → R$ 7</strong>por display por mês, de 500 a 50.000</div>
       <div><strong class="num" id="capaPes">2 → 28</strong>pessoas na operação da 75 LAB</div>
     </div>
-    <div class="fonte">Fonte: pedidos da Shopee e do AliExpress, faturamento do Google Cloud e da Hostinger, registro das sessões e repositórios (23/10/2026); salários do CAGED e guias de 2026; preços públicos do Google.</div>
+    <div class="fonte">Fonte: pedidos da Shopee e do AliExpress, faturamento do Google Cloud e da Hostinger, registro das horas de trabalho e repositórios (23/10/2026); salários do CAGED e guias de 2026; preços públicos do Google.</div>
   </section>
 
   <!-- 2 quem põe o quê -->
@@ -321,7 +321,7 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <div class="lenda">
         <div><b class="num" data-v="maoDeObra" data-fmt="brl">R$ 9.465,00</b> de mão de obra: 63,1 h a R$ 150/h</div>
         <div><b class="num" data-v="compras" data-fmt="brl">R$ 998,70</b> em 27 pedidos de peças, testes e ferramentas</div>
-        <div><b class="num" data-v="nuvemClaude" data-fmt="brl">R$ 259,65</b> de nuvem, hospedagem e IA no período</div>
+        <div><b class="num" data-v="nuvemFerr" data-fmt="brl">R$ 259,65</b> de nuvem, hospedagem e ferramentas no período</div>
       </div>
     </div>
     <div class="cupom">
@@ -330,14 +330,14 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
       <div class="ln"><span>Compras Shopee<small>18 pedidos</small></span><b class="num" data-v="shopee" data-fmt="brl"></b></div>
       <div class="ln"><span>Compras AliExpress<small>9 pedidos, com frete e impostos</small></span><b class="num" data-v="ali" data-fmt="brl"></b></div>
       <div class="ln"><span>Nuvem e hospedagem<small>setembro e outubro</small></span><b class="num" data-v="sistemaPeriodo" data-fmt="brl"></b></div>
-      <div class="ln"><span>Claude, parcela da Códice<small>51,1 de 311 h de uso no período</small></span><b class="num" data-v="claude" data-fmt="brl"></b></div>
+      <div class="ln"><span>Ferramenta de desenvolvimento<small>parcela da Códice: 51,1 de 311 h no período</small></span><b class="num" data-v="ferramenta" data-fmt="brl"></b></div>
       <div class="sep"></div>
       <div class="ln sub2"><span>Saiu do caixa</span><b class="num" data-v="caixa" data-fmt="brl"></b></div>
       <div class="ln"><span>Mão de obra<small>51,1 h medidas + 12 h de montagem, a R$ 150/h</small></span><b class="num" data-v="maoDeObra" data-fmt="brl"></b></div>
       <div class="sep"></div>
       <div class="tot"><span>TOTAL</span><span class="num" data-v="total" data-fmt="brl"></span></div>
     </div>
-    <div class="fonte">Fonte: pedidos da Shopee (18) e do AliExpress (9) com o valor pago; faturamento do Google Cloud; Hostinger; pagamentos do Claude; registro das sessões.</div>
+    <div class="fonte">Fonte: pedidos da Shopee (18) e do AliExpress (9) com o valor pago; faturamento do Google Cloud; Hostinger; assinatura da ferramenta de desenvolvimento; registro das horas de trabalho.</div>
   </section>
 
   <!-- 4 linha do tempo -->
@@ -346,15 +346,15 @@ input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;bac
     <p class="lead">Em cima, quanto foi comprado em cada dia. Embaixo, as horas de trabalho medidas. Passe o mouse para ver.</p>
     <svg id="svgTempo" viewBox="0 0 1408 520"></svg>
     <div class="dica" id="dicaTempo"></div>
-    <div class="fonte">Fonte: data de cada pedido na Shopee e no AliExpress; horas ativas das sessões no projeto (blocos com pausas de até 20 min); marcos pelos commits do repositório.</div>
+    <div class="fonte">Fonte: data de cada pedido na Shopee e no AliExpress; horas ativas de trabalho no projeto (blocos com pausas de até 20 min); marcos pelos commits do repositório.</div>
   </section>
 
   <!-- 5 mercado -->
   <section class="tela merc">
-    <h2 class="tit" style="max-width:660px">Sem IA, o que já existe custaria <em>R$ 448 mil</em></h2>
+    <h2 class="tit" style="max-width:680px">Com equipe externa, o que já existe custaria <em>R$ 448 mil</em></h2>
     <div class="txt">
-      <div class="lin"><b class="num" style="color:var(--teal)">63 h</b><span>e R$ 9,7 mil com IA<br>(mão de obra + Claude)</span></div>
-      <div class="lin"><b class="num" style="color:var(--navy)">2.773 h</b><span>e R$ 448 mil com equipe tradicional · 4 meses com 5 pessoas</span></div>
+      <div class="lin"><b class="num" style="color:var(--teal)">63 h</b><span>e R$ 9,7 mil feito pela 75 LAB<br>(mão de obra + ferramentas)</span></div>
+      <div class="lin"><b class="num" style="color:var(--navy)">2.773 h</b><span>e R$ 448 mil com equipe externa · 4 meses com 5 pessoas</span></div>
       <div class="det" id="detMerc"><b>É o ativo que a 75 LAB traz</b><br>Cada bloco é uma parte da Códice com as horas e o valor-hora de mercado. O quadrado verde é o que custou de fato, na mesma escala.</div>
     </div>
     <div class="grande" id="treemap"></div>
@@ -490,7 +490,7 @@ const f0 = F[E.faixas[0]], fN = F[E.faixas[E.faixas.length - 1]];
 const fte = (v) => v < 0.05 ? "" : v < 10 ? num(Math.round(v * 10) / 10, v % 1 && v < 10 ? 1 : 0) : num(v, 0);
 
 /* valores nos marcadores data-v */
-const V = Object.assign({}, r, { shopee: r.porCanal.Shopee, ali: r.porCanal.AliExpress, pd: r.porCat.pd, modulo: r.porCat.modulo, nuvemClaude: r.sistemaPeriodo + r.claude });
+const V = Object.assign({}, r, { shopee: r.porCanal.Shopee, ali: r.porCanal.AliExpress, pd: r.porCat.pd, modulo: r.porCat.modulo, nuvemFerr: r.sistemaPeriodo + r.ferramenta });
 const FMT = { brl: (v) => brl(v), brl0: (v) => brl(v, 0), mil: (v) => mil(v) };
 $$("[data-v]").forEach((el) => { const v = V[el.dataset.v]; el.textContent = el.dataset.fmt ? FMT[el.dataset.fmt](v) : v; });
 $("#capaDisp").textContent = `${brl(f0.porDisplay, 0)} → ${brl(fN.porDisplay, 0)}`;
@@ -561,7 +561,7 @@ ao[3] = () => {
   const hmax = Math.max(...Object.values(C.maoDeObra.porDia));
   for (const [d, v] of Object.entries(C.maoDeObra.porDia)) {
     const H = Math.max(3, v / hmax * 130);
-    h += `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${num(v, 1)} h</b> de sessão no projeto`)}"><rect x="${x(d) - 10}" y="${510 - H}" width="20" height="${H}" rx="4" fill="#061B49"/>${v >= 4 ? `<text x="${x(d)}" y="${502 - H}" font-size="13" text-anchor="middle" fill="#061B49" font-weight="600">${num(v, 1)}</text>` : ""}</g>`;
+    h += `<g class="pt" data-t="${encodeURIComponent(`<b>${dataBR(d)}: ${num(v, 1)} h</b> de trabalho no projeto`)}"><rect x="${x(d) - 10}" y="${510 - H}" width="20" height="${H}" rx="4" fill="#061B49"/>${v >= 4 ? `<text x="${x(d)}" y="${502 - H}" font-size="13" text-anchor="middle" fill="#061B49" font-weight="600">${num(v, 1)}</text>` : ""}</g>`;
   }
   h += `<line x1="20" x2="${W - 20}" y1="511" y2="511" stroke="#C9D1E0" stroke-width="2"/><text x="20" y="30" font-size="15" fill="#5B6683" font-weight="600">COMPRAS POR DIA (R$)</text><text x="20" y="372" font-size="15" fill="#5B6683" font-weight="600">HORAS DE TRABALHO POR DIA</text>`;
   svg.innerHTML = h;
@@ -773,8 +773,8 @@ ao[3] = () => {
     ["ok", "Confirmado", [
       ["27 pedidos de peças e ferramentas", "Valor pago no histórico da Shopee (18) e do AliExpress (9)."],
       ["Nuvem: R$ 0,02 em setembro e R$ 2,53 em outubro", "Faturamento do Google Cloud por serviço."],
-      ["Claude R$ 1.498,35 no período", "Pagamentos de 17/09 e 09/10; 16,4% da Códice."],
-      ["51,1 horas de sessão no projeto", "Registro das sessões de trabalho no projeto."],
+      ["Ferramenta de desenvolvimento R$ 1.498,35", "Assinatura de 17/09 e 09/10; 16,4% da Códice."],
+      ["51,1 horas de trabalho no projeto", "Registro das horas de trabalho no projeto."],
     ]],
   ];
   $("#cols15").innerHTML = G.map(([c, t, it]) => `<div class="c ${c}"><h4>${t}<span>${it.length}</span></h4>` + it.map(([a, b]) => `<div class="it"><b>${a}</b><div class="mais">${b}</div></div>`).join("") + "</div>").join("");

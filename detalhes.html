@@ -153,7 +153,7 @@ footer img{height:34px}
     <div class="caixa rolar"><table class="tab" id="tabSis"><thead><tr><th>Serviço e fonte</th><th class="r">Setembro</th><th class="r">Outubro*</th><th class="r">Por mês</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
     <p class="nota">* Outubro até o dia 23. "Por mês" usa a previsão do Google para outubro (R$ 2,84) e o rateio da Hostinger.</p>
     <div class="caixa"><b>Nuvem na escala</b><p class="nota" id="txtNuvem" style="margin-top:4px"></p></div>
-    <div class="caixa"><b>Claude (ferramenta de desenvolvimento)</b><p class="nota" id="txtClaude" style="margin-top:4px"></p></div>
+    <div class="caixa"><b>Ferramenta de desenvolvimento</b><p class="nota" id="txtFerr" style="margin-top:4px"></p></div>
   </section>
 
   <section id="mao">
@@ -167,7 +167,7 @@ footer img{height:34px}
 
   <section id="mercado">
     <h2>Valor de mercado do que já foi construído</h2>
-    <p class="sub">O mesmo escopo feito por uma equipe tradicional, sem IA. Horas por módulo estimadas pelo que foi entregue; valor-hora pleno R$ 150 e sênior R$ 250.</p>
+    <p class="sub">O mesmo escopo contratado de uma equipe externa. Horas por módulo estimadas pelo que foi entregue; valor-hora pleno R$ 150 e sênior R$ 250.</p>
     <div class="caixa rolar"><table class="tab" id="tabMerc"><thead><tr><th>Módulo</th><th class="r">Horas</th><th class="r">R$/h</th><th class="r">Valor</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
     <p class="nota" id="txtMerc"></p>
   </section>
@@ -232,7 +232,7 @@ function tudo(){
   $("#tabEsc").innerHTML = cab + [
     L("Montagem (técnicos)", (f) => brl(f.eO.porGrupo.Montagem, 0)), L("Suporte técnico (N1 e N2)", (f) => brl(f.eO.porGrupo["Suporte técnico"], 0)),
     L("Sistema (dev e DevOps)", (f) => brl(f.eO.porGrupo.Sistema, 0)), L("Gestão da Códice", (f) => brl(f.eO.porGrupo["Gestão"], 0)),
-    L("Ferramentas (computador, licenças, IA)", (f) => brl(f.eO.ferramentas, 0)), L("Nuvem", (f) => brl(f.nuvem, 0)), L("Hospedagem", (f) => brl(f.hospedagem, 0)),
+    L("Ferramentas (computador, licenças e desenvolvimento)", (f) => brl(f.eO.ferramentas, 0)), L("Nuvem", (f) => brl(f.nuvem, 0)), L("Hospedagem", (f) => brl(f.hospedagem, 0)),
     L("Peças de reposição de módulos", (f) => brl(f.pecasOper, 0)),
     L("Total por mês na operação", (f) => brl(f.oper, 0), "t"), L("Por display por mês", (f) => brl(f.porDisplay), "t"),
     L("Total por mês na implantação", (f) => brl(f.impl, 0), "s"), L("Por display na implantação", (f) => brl(f.porDisplayImpl), "s"),
@@ -244,7 +244,7 @@ function tudo(){
     + L("Total na operação", (f) => num(f.eO.pessoas, 1), "t") + L("Total na implantação", (f) => num(f.eI.pessoas, 1), "s") + L("Custo da equipe por mês", (f) => brl(f.eO.salarios, 0), "s");
   $("#tabCargos").innerHTML = `<tr><th>Cargo</th><th class="r">Salário CLT</th><th class="r">Custo com encargos</th><th>Fonte</th></tr>` + ORD.map((k) => { const c = E.cargos[k];
     return `<tr><td>${c.nome}</td><td class="r num">${brl(c.salario, 0)}</td><td class="r num">${brl(c.salario * (o.fatorEncargos ?? E.fatorEncargos), 0)}</td><td><a href="${c.url}" target="_blank" rel="noopener">${c.fonte}</a></td></tr>`; }).join("")
-    + `<tr class="s"><td colspan="4">Fator de encargos e benefícios ${num(o.fatorEncargos, 2)}: <a href="${E.encargosFonte.url}" target="_blank" rel="noopener">${E.encargosFonte.nome}</a>. Ferramentas: R$ ${num(E.ferramentasPessoa)} por pessoa + R$ ${num(E.iaPorDev)} de IA por desenvolvedor.</td></tr>`;
+    + `<tr class="s"><td colspan="4">Fator de encargos e benefícios ${num(o.fatorEncargos, 2)}: <a href="${E.encargosFonte.url}" target="_blank" rel="noopener">${E.encargosFonte.nome}</a>. Ferramentas: R$ ${num(E.ferramentasPessoa)} por pessoa + R$ ${num(E.ferramentaDev)} de ferramentas de desenvolvimento por desenvolvedor.</td></tr>`;
 
   $("#tabPart").innerHTML = cab + [
     L("Receita média por display", (f) => brl(f.precoMedio)), L("NEOBAND por display", (f) => brl(f.nbDisplay)), L("75 LAB por display", (f) => brl(f.porDisplay)),
@@ -296,7 +296,7 @@ $("#tabBom tfoot").innerHTML = `<tr><td colspan="2">Total por módulo (sem opcio
 $("#tabSis tbody").innerHTML = C.sistema.map((s) => `<tr><td>${s.item}<small>${s.fonte}</small></td><td class="r num">${brl(s.set)}</td><td class="r num">${brl(s.out)}</td><td class="r num">${brl(s.mensal)}</td></tr>`).join("");
 const sm = (k) => C.sistema.reduce((a, s) => a + s[k], 0);
 $("#tabSis tfoot").innerHTML = `<tr><td>Total</td><td class="r num">${brl(sm("set"))}</td><td class="r num">${brl(sm("out"))}</td><td class="r num">${brl(sm("mensal"))}</td></tr>`;
-$("#txtClaude").innerHTML = `${C.claude.fonte} Parcela: ${num(C.claude.horasCodice, 1)} ÷ ${num(C.claude.horasTodas, 1)} h = ${pct(r0.pctClaude)} de ${brl(C.claude.pagoNoPeriodo)} = <b>${brl(r0.claude)}</b>.`;
+$("#txtFerr").innerHTML = `${C.ferramenta.fonte} Parcela: ${num(C.ferramenta.horasCodice, 1)} ÷ ${num(C.ferramenta.horasTodas, 1)} h = ${pct(r0.pctFerramenta)} de ${brl(C.ferramenta.pagoNoPeriodo)} = <b>${brl(r0.ferramenta)}</b>.`;
 
 const M = C.maoDeObra;
 $("#txtMao").textContent = `${num(r0.hMedidas, 1)} h medidas + ${num(r0.hCampo, 1)} h de bancada estimadas = ${num(r0.hTotal, 1)} h. A ${brl(M.valorHora, 0)}/h (${M.valorHoraFonte.toLowerCase()}) = ${brl(r0.maoDeObra)}. ${M.medidas.fonte}`;
@@ -308,7 +308,7 @@ $("#tabCampo tfoot").innerHTML = `<tr><td>Total</td><td class="r num">${num(r0.h
 
 $("#tabMerc tbody").innerHTML = C.mercado.modulos.map((m) => `<tr><td>${m.nome}<small>${m.detalhe}</small></td><td class="r num">${num(m.horas)}</td><td class="r num">${brl(m.valor, 0)}</td><td class="r num">${brl(m.horas * m.valor, 0)}</td></tr>`).join("");
 $("#tabMerc tfoot").innerHTML = `<tr><td>Total</td><td class="r num">${num(r0.mHoras)} h</td><td></td><td class="r num">${brl(r0.mValor, 0)}</td></tr>`;
-$("#txtMerc").textContent = `${C.mercado.conferencia} Prazo: ${num(r0.mHoras)} h ÷ (${C.mercado.equipe} pessoas × ${C.mercado.horasMes} h por mês) = ${num(r0.mesesEquipe, 1)} meses. Com IA: ${num(r0.hTotal, 1)} h e ${brl(r0.maoDeObra + r0.claude, 0)} (mão de obra + Claude).`;
+$("#txtMerc").textContent = `${C.mercado.conferencia} Prazo: ${num(r0.mHoras)} h ÷ (${C.mercado.equipe} pessoas × ${C.mercado.horasMes} h por mês) = ${num(r0.mesesEquipe, 1)} meses. Feito pela 75 LAB: ${num(r0.hTotal, 1)} h e ${brl(r0.maoDeObra + r0.ferramenta, 0)} (mão de obra + ferramentas).`;
 
 const PR = [
   ["Custo real da NEOBAND", "pendente", "Hoje: preço de venda do deck comercial (display R$ 3.200, instalação R$ 350, manutenção R$ 70/mês)."],
@@ -321,7 +321,7 @@ const PR = [
   ["Valor de mercado R$ 448 mil", "estimado", "Horas por módulo pelo escopo entregue; conferido pelo tamanho do código."],
   ["Valor-hora R$ 150 e 12 h de bancada", "estimado", "Mão de obra já feita."],
   ["27 pedidos", "confirmado", "Histórico da Shopee e do AliExpress."], ["Nuvem set/out", "confirmado", "Faturamento do Google Cloud."],
-  ["Hostinger", "confirmado", "Histórico de pagamentos."], ["Claude", "confirmado", "Pagamentos de 17/09 e 09/10."], ["51,1 h de sessão", "confirmado", "Registro das sessões de trabalho no projeto."],
+  ["Hostinger", "confirmado", "Histórico de pagamentos."], ["Ferramenta de desenvolvimento", "confirmado", "Assinatura de 17/09 e 09/10."], ["51,1 h de trabalho", "confirmado", "Registro das horas de trabalho no projeto."],
 ];
 const COR = { pendente: "pend", estimado: "chip c-pd", confirmado: "chip c-modulo" };
 $("#tabPrem tbody").innerHTML = PR.map(([a, s, b]) => `<tr><td>${a}</td><td><span class="${COR[s]}">${s}</span></td><td>${b}</td></tr>`).join("");
@@ -331,7 +331,7 @@ $("#listaFontes").innerHTML = [
   "Google Cloud: faturamento da conta \"Pagamento do Firebase\" (relatório por serviço de outubro, fatura de setembro, previsão do mês).",
   "Hostinger: histórico de pagamentos do plano Business Web Hosting e do VPS KVM 4.",
   "GitHub: repositórios rental-display (246 commits) e esp32-displays (21 commits).",
-  "Registro das sessões do Claude Code (horas ativas com comandos no projeto).",
+  "Registro das horas de trabalho (tempo ativo no projeto).",
   "Deck comercial da Códice: pacotes (Essencial R$ 499, Sense R$ 849, Media R$ 1.290) e preço de comprar um display.",
   ...C.mercado.fonteHora.map((f) => `<a href="${f.url}" target="_blank" rel="noopener">${f.nome}</a>`),
   ...Object.values(E.cargos).map((c) => `<a href="${c.url}" target="_blank" rel="noopener">${c.fonte}</a>`),
