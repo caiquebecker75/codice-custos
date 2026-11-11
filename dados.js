@@ -104,7 +104,7 @@ window.CUSTOS = {
   pacotes: [
     { nome: "Essencial", preco: 499, mix: 0.5, smart: false, inclui: "QR patrimonial e do shopper, prova de instalação" },
     { nome: "Sense", preco: 849, mix: 0.4, smart: true, inclui: "Essencial + módulo smart: proximidade, alertas de conexão, painel" },
-    { nome: "Media", preco: 1290, mix: 0.1, smart: true, inclui: "Sense + tela e player, conteúdo remoto, prova de veiculação" },
+    { nome: "Media", preco: 1290, mix: 0.1, smart: true, inclui: "Sense + troca de comunicação física inclusa, iluminação inteligente e prova de exposição com foto" },
   ],
 
   // premissas da projeção de escala (todas editáveis no anexo)
